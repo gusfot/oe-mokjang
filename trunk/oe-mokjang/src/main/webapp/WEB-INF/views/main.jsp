@@ -48,9 +48,8 @@
       </div>
 
       <!-- Site footer -->
-      <div class="footer">
-        <p>&copy; Company 2013</p>
-      </div>
+      <%@ include file="include/footer.jsp" %>
+      <!-- //Site footer -->
 
     </div> <!-- /container -->
 	
