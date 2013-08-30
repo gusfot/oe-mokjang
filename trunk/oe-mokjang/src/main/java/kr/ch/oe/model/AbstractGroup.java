@@ -13,8 +13,9 @@ public class AbstractGroup implements Group{
 
 	private String id;
 	private String name;
-	private List<Group> members;
+	private List<Group> childGroups;
 	private Person leader;
+	private List<Person> members;
 	
 	public String getId() {
 		return id;
@@ -28,11 +29,11 @@ public class AbstractGroup implements Group{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Group> getMembers() {
-		return members;
+	public List<Group> getChildGroups() {
+		return childGroups;
 	}
-	public void setMembers(List<Group> members) {
-		this.members = members;
+	public void setChildGroups(List<Group> childGroups) {
+		this.childGroups = childGroups;
 	}
 	public Person getLeader() {
 		return leader;
@@ -40,5 +41,12 @@ public class AbstractGroup implements Group{
 	public void setLeader(Person leader) {
 		this.leader = leader;
 	}
+	public List<Person> getMembers(){
+		return members;
+	}
+	public void setMembers(List<Person> members){
+		this.members = members;
+	}
+	
 	
 }
