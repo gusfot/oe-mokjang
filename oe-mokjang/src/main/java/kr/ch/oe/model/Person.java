@@ -7,8 +7,10 @@ package kr.ch.oe.model;
  * @author gusfot
  *
  */
-public class Person extends AbstractGroup{
+public class Person {
 	
+	private String id;
+	private String name;
 	private String birthday;
 	private String job;
 	private String mobilePhone;
@@ -16,6 +18,18 @@ public class Person extends AbstractGroup{
 	
 	public String getBirthday() {
 		return birthday;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
