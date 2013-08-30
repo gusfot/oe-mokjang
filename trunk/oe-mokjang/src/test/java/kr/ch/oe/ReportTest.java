@@ -49,7 +49,7 @@ public class ReportTest {
 		leader3.setName("1조");
 		zo1.setLeader(leader3);
 		zoList1.add(zo1);
-		gyogu1.setMembers(zoList1);
+		gyogu1.setChildGroups(zoList1);
 		
 		
 		Group gyogu2 = new Gyogu();
@@ -66,9 +66,9 @@ public class ReportTest {
 		leader5.setName("1조");
 		zo2.setLeader(leader5);
 		zoList2.add(zo1);
-		gyogu2.setMembers(zoList2);
+		gyogu2.setChildGroups(zoList2);
 		
-		oech.setMembers(gyoguList);
+		oech.setChildGroups(gyoguList);
 		
 		List<Group> chList = new ArrayList<Group>();
 		chList.add(oech);
@@ -78,10 +78,10 @@ public class ReportTest {
 			System.out.println("교회 이름 : " + ch.getName());
 			System.out.println("교회 리더 : " + ch.getLeader().getName());
 		
-			for (Group gyogu : ch.getMembers()) {
+			for (Group gyogu : ch.getChildGroups()) {
 				System.out.println("교구 이름  : " + gyogu.getName());
 				System.out.println("교구 리더 : " + gyogu.getLeader().getName());
-				for (Group zo : gyogu.getMembers()) {
+				for (Group zo : gyogu.getChildGroups()) {
 					
 					System.out.println("조 이름 : " + zo.getName());
 					System.out.println("조 리더 : " + zo.getLeader().getName());
