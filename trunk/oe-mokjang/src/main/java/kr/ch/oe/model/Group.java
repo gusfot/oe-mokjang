@@ -21,6 +21,8 @@ public interface Group {
 	public void setLeader(Person leader);
 	public List<Person> getMembers();
 	public void setMembers(List<Person> members);
+	public void setType(int type);
+	public int getType();
 	
 	
 }
