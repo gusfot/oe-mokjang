@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.ch.oe.model.Church;
+import kr.ch.oe.model.ChurchLeader;
 import kr.ch.oe.model.Group;
 import kr.ch.oe.model.Gyogu;
 import kr.ch.oe.model.Person;
@@ -28,7 +29,7 @@ public class ReportTest {
 		oech.setId("1");
 		Person leader1 = new Person();
 		leader1.setName("권영구");
-		Role role = new Role();
+		Role role = new ChurchLeader();
 		role.setName("담임목사");
 		leader1.setRole(role);
 		oech.setLeader(leader1);
