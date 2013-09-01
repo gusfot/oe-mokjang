@@ -1,27 +1,10 @@
-/**
- * 
- */
 package kr.ch.oe.model;
 
-/**
- * @author gusfot
- *
- */
-public class Role {
-	private String name;
-	private int adm;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAdm() {
-		return adm;
-	}
-	public void setAdm(int adm) {
-		this.adm = adm;
-	}
-	
-	
+public interface Role {
+	public String getName();
+	public void setName(String name);
+	public int getAuthority();
+	public void setAuthority(int authority);
+	public String getType() ;
+	public void setType(String type);
 }
