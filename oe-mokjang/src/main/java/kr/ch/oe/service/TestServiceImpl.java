@@ -19,7 +19,7 @@ public class TestServiceImpl implements TestService {
 	TestMapper testMapper;
 	@Override
 	public void test() {
-		testMapper.test();
+		System.out.println("test result = " + testMapper.test());
 		
 	}
 
