@@ -11,7 +11,7 @@ import kr.ch.oe.common.Constants;
  * @author gusfot
  *
  */
-public class Gyogu extends AbstractGroup {
+public class Gyogu extends Group {
 
 	
 	

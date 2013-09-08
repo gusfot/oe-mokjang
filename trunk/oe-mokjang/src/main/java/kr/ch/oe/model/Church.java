@@ -12,7 +12,7 @@ import kr.ch.oe.common.Constants;
  * @author gusfot
  *
  */
-public class Church extends AbstractGroup {
+public class Church extends Group {
 
 	
 	

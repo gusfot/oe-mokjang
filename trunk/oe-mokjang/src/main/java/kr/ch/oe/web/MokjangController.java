@@ -3,7 +3,11 @@
  */
 package kr.ch.oe.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -14,40 +18,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MokjangController implements CrudController {
 
-	/* (non-Javadoc)
-	 * @see kr.ch.oe.web.GroupController#regist()
-	 */
 	@Override
-	public String regist() {
+	public String regist(HttpServletRequest request,
+			HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see kr.ch.oe.web.GroupController#list()
-	 */
 	@Override
-	public String list() {
+	public String list(HttpServletRequest request,
+			HttpServletResponse response, Model model) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see kr.ch.oe.web.GroupController#delete()
-	 */
 	@Override
-	public String delete() {
+	public String delete(HttpServletRequest request,
+			HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see kr.ch.oe.web.GroupController#modify()
-	 */
 	@Override
-	public String modify() {
+	public String modify(HttpServletRequest request,
+			HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

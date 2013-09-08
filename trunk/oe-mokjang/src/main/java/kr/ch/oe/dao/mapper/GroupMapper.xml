@@ -6,9 +6,19 @@
 	<select id="findById" resultType="kr.ch.oe.model.Group">
 	  select 
 	  	id,
-	  	name,
-	  	type
+	  	name
 	   from oe_group
+	   where id = #{id}
 	</select>
 
+	<insert id="insert" parameterType="kr.ch.oe.model.Group">
+		insert into oe_group(id, name, type) values(#{id}, #{name}, #{type})
+	</insert>
+	
+	<select id="findAll" resultType="kr.ch.oe.model.Group">
+	  select 
+	  	id,
+	  	name
+	   from oe_group
+	</select>
 </mapper>

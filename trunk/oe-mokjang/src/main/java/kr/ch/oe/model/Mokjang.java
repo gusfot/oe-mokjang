@@ -11,7 +11,7 @@ import kr.ch.oe.common.Constants;
  * @author gusfot
  *
  */
-public class Mokjang extends AbstractGroup {
+public class Mokjang extends Group {
 
 	
 	public Mokjang() {
