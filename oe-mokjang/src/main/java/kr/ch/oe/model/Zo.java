@@ -4,7 +4,7 @@ import java.util.List;
 
 import kr.ch.oe.common.Constants;
 
-public class Zo extends AbstractGroup {
+public class Zo extends Group {
 
 	public Zo() {
 		super();

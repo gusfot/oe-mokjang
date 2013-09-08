@@ -33,26 +33,33 @@
       </div>
 	
 	<div class="container">
-		<form role="form">
+		<form class="form-horizontal" role="form" method="post" action="/church/regist.oe">
 		  <div class="form-group">
-		    <label for="exampleInputEmail1">Email address</label>
-		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputPassword1">Password</label>
-		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		    <label for="inputEmail1" class="col-lg-2 control-label">교회 이름</label>
+		    <div class="col-lg-10">
+		      <input type="text" class="form-control" id="churchNm" name="churchNm" placeholder="교회 이름">
+		    </div>
 		  </div>
 		  <div class="form-group">
-		    <label for="exampleInputFile">File input</label>
-		    <input type="file" id="exampleInputFile">
-		    <p class="help-block">Example block-level help text here.</p>
+		    <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
+		    <div class="col-lg-10">
+		      <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+		    </div>
 		  </div>
-		  <div class="checkbox">
-		    <label>
-		      <input type="checkbox"> Check me out
-		    </label>
+		  <div class="form-group">
+		    <div class="col-lg-offset-2 col-lg-10">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Remember me
+		        </label>
+		      </div>
+		    </div>
 		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
+		  <div class="form-group">
+		    <div class="col-lg-offset-2 col-lg-10">
+		      <button type="submit" class="btn btn-default">Sign in</button>
+		    </div>
+		  </div>
 		</form>
 		</div>
 

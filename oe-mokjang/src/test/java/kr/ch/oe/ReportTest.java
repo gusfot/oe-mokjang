@@ -13,8 +13,11 @@ import kr.ch.oe.model.Gyogu;
 import kr.ch.oe.model.Person;
 import kr.ch.oe.model.Role;
 import kr.ch.oe.model.Zo;
+import kr.ch.oe.service.GroupService;
+import kr.ch.oe.service.impl.GroupServiceImpl;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author gusfot
@@ -22,11 +25,12 @@ import org.junit.Test;
  */
 public class ReportTest {
 
+
 	@Test
 	public void GroupTest(){
 		
 		Group oech = new Church();
-		oech.setId("1");
+		oech.setId(1);
 		Person leader1 = new Person();
 		leader1.setName("권영구");
 		Role role = new ChurchLeader();
@@ -92,5 +96,17 @@ public class ReportTest {
 		}
 
 		
+	}
+	
+	
+	//@Autowired
+	GroupService groupService = new GroupServiceImpl();
+	
+	@Test
+	public void registGroup(){
+		Group church = new Church();
+		church.setId(1);
+		church.setName("오병이어교회");
+		groupService.insert(church);
 	}
 }

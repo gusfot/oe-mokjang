@@ -9,6 +9,6 @@ public interface GroupMapper {
 	Group findById(long id);
 	List<Group> findAll();
 	int deleteById(long id);
-	int insert(long id);
+	int insert(Group group);
 	int modify(Group group);
 }

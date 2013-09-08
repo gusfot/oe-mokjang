@@ -7,9 +7,9 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 	  destroy-method="close">
 	  <property name="driverClassName" value="org.postgresql.Driver" />
-	  <property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
-	  <property name="username" value="oe" />
-	  <property name="password" value="jwchjwch" />
+	  <property name="url" value="jdbc:postgresql://localhost:5433/oech" />
+	  <property name="username" value="oe1" />
+	  <property name="password" value="5252" />
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
