@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.MemberMapper">
 
-	<select id="list" parameterType="kr." resultType="string">
+	<select id="list" parameterType="kr.ch.oe.model.Person" resultType="string">
 	  select id from oe_member where id=#{id} and password=#{password}
 	</select>
 
