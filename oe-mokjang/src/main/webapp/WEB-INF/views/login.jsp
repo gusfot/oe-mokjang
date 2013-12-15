@@ -34,17 +34,17 @@
 </nav>
 	</div>
 	<div>
-	<form class="form-horizontal" role="form">
+	<form class="form-horizontal" role="form" action="/login.oe" method="post" >
 	  <div class="form-group">
 	    <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
 	    <div class="col-lg-10">
-	      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+	      <input type="email" class="form-control" id="inputEmail1" name="id" placeholder="Email">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	    <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
 	    <div class="col-lg-10">
-	      <input type="password" class="form-control" id="inputPassword1" placeholder="Password">
+	      <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Password">
 	    </div>
 	  </div>
 	  <div class="form-group">

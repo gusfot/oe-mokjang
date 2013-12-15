@@ -18,27 +18,27 @@ public class ReportController {
 
 	@RequestMapping("/list.oe")
 	public String list(){
-		return "report/list";
+		return "report/report_list";
 	}
 	
 	@RequestMapping("/detail.oe")
 	public String detail(){
-		return "report/detail";
+		return "report/report_detail";
 	}
 	
 	@RequestMapping("/delete.oe")
 	public String delete(){
-		return "report/delete";
+		return "report/report_delete";
 	}
 	
 	@RequestMapping("/modify.oe")
 	public String modify(){
-		return "report/modify";
+		return "report/report_modify";
 	}
 	
 	@RequestMapping(value="/regist.oe", method=RequestMethod.GET)
 	public String registPage(){
-		return "report/regist";
+		return "report/report_regist";
 	}
 	
 	@RequestMapping(value="/regist.oe", method=RequestMethod.POST)
