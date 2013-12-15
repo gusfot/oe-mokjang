@@ -3,7 +3,7 @@ package kr.ch.oe.model;
 import java.util.Date;
 import java.util.List;
 
-public class MokjangReport implements Report{
+public class MokjangReport{
 
 	private Mokjang mokjang;
 	

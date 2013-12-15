@@ -7,7 +7,9 @@ import kr.ch.oe.model.Person;
 import kr.ch.oe.service.MemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired

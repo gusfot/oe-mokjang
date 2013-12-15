@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	  destroy-method="close">
+	  <property name="driverClassName" value="org.postgresql.Driver" />
+	  <property name="url" value="jdbc:postgresql://localhost:5432/oech" />
+	  <property name="username" value="oe" />
+	  <property name="password" value="jwchjwch" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	  <property name="dataSource" ref="dataSource" />
+	  <property name="mapperLocations" value="classpath:kr/ch/oe/dao/mapper/*.xml" />
+	</bean>
+	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	  <property name="basePackage" value="kr.ch.oe.dao" />
+	  <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  <!-- 
+	  <property name="sqlSessionFactoryBeanName" ref="sqlSessionFactory" />
+		-->
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>

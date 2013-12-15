@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ch.oe.dao.ReportMapper">
+
+	<insert id="insert" parameterType="kr.ch.oe.model.Report">
+	  insert into oe_report(
+	  	id, 
+	  	member_name,
+	  	attend_mokjang,
+	  	attendant_8weeks,
+	  	enroll_church_after_enroll_mokjang,
+	  	graduate_nurture
+	  
+	  ) values(
+	  	#{id},
+	  	#{memberNameMokjang},
+	  	#{enrollMokjang},
+	  	#{attend8weeksMokjang},
+	  	#{enrollChurchAfterEnrollMokjang},
+	  	#{graduateNurtureMokjang}
+	  )
+	</insert>
+
+</mapper>
