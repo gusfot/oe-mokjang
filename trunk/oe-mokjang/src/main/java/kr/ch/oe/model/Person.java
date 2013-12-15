@@ -10,6 +10,7 @@ package kr.ch.oe.model;
 public class Person {
 	
 	private String id;
+	private String password;
 	private String name;
 	private String birthday;
 	private String job;
@@ -24,6 +25,12 @@ public class Person {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getName() {
 		return name;
