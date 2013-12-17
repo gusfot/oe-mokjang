@@ -3,14 +3,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.ReportMapper">
 
-	<insert id="insert" parameterType="kr.ch.oe.model.Report">
-	  insert into oe_report(
+	<insert id="insertPersonalReport" parameterType="kr.ch.oe.model.PersonalReport">
+	  insert into oe_personal_report(
 	  	id, 
 	  	member_name,
 	  	attend_mokjang,
 	  	attendant_8weeks,
 	  	enroll_church_after_enroll_mokjang,
-	  	graduate_nurture
+	  	graduate_nurture,
+	  	mokjang_report_id
 	  
 	  ) values(
 	  	#{id},
@@ -18,8 +19,55 @@
 	  	#{enrollMokjang},
 	  	#{attend8weeksMokjang},
 	  	#{enrollChurchAfterEnrollMokjang},
-	  	#{graduateNurtureMokjang}
+	  	#{graduateNurtureMokjang},
+	  	#{mokjangReport.id}
 	  )
 	</insert>
+	
+	<select id="selectPersonalReport" resultType="kr.ch.oe.model.PersonalReport">
+		select * from oe_personal_report
+	</select>
+	
+	<update id="updatePersonalReport">
+	</update>
 
+	<delete id="deletePersonalReport">
+	</delete>
+	
+	<insert id="insertMokjangReport" parameterType="kr.ch.oe.model.Report">
+	  insert into oe_mokjang_report(
+	  	id, 
+	  	meet_date,
+	  	meet_place,
+	  	welcome_member,
+	  	worship_member,
+	  	word_member,
+	  	work_member,
+	  	next_meet_place,
+	  	offering
+	  
+	  ) values(
+	  	#{id},
+	  	#{meetingDate},
+	  	#{meetingPlace},
+	  	#{welcomeMember},
+	  	#{worshipMember},
+	  	#{wordMember},
+	  	#{workMember},
+	  	#{nextMeetingPlace},
+	  	#{offering}
+	  	
+	  	)
+	</insert>
+	
+	<select id="selectMokjangReport" resultType="kr.ch.oe.model.PersonalReport">
+		select * from oe_personal_report
+	</select>
+	
+	<update id="updateMokjangReport">
+	</update>
+
+	<delete id="deleteMokjangReport">
+	</delete>
+	
 </mapper>

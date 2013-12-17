@@ -3,7 +3,7 @@
  */
 package kr.ch.oe.web;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 import kr.ch.oe.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +31,6 @@ public class LoginController {
 
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
 	public String login(@RequestParam String id, @RequestParam String password){
-		Person person = new Person();
-		person.setId(id);
-		person.setPassword(password);
-		loginService.login(person);
 		
 		return "login";
 		
@@ -46,8 +42,8 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login/regist.oe", method=RequestMethod.POST)
-	public String regist(@ModelAttribute Person person) {
-		loginService.regist(person);
+	public String regist(@ModelAttribute Member member) {
+		loginService.regist(member);
 		
 		return "main";
 		

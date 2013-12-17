@@ -3,11 +3,8 @@
  */
 package kr.ch.oe.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import kr.ch.oe.dao.LoginMapper;
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 import kr.ch.oe.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,24 +21,24 @@ public class LoginServiceImpl implements LoginService {
 	LoginMapper loginMapper;
 
 	@Override
-	public void regist(Person person) {
-		loginMapper.regist(person);
+	public void regist(Member member) {
+		loginMapper.regist(member);
 	}
 
 	@Override
-	public void login(Person person) {
-		loginMapper.login(person);
+	public void login(Member member) {
+		loginMapper.login(member);
 		
 	}
 
 	@Override
-	public void edit(Person person) {
-		loginMapper.edit(person);
+	public void edit(Member member) {
+		loginMapper.edit(member);
 		
 	}
 
 	@Override
-	public void delete(Person person) {
+	public void delete(Member person) {
 		loginMapper.delete(person);
 		
 	}

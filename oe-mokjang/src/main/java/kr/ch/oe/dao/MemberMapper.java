@@ -2,12 +2,14 @@ package kr.ch.oe.dao;
 
 import java.util.List;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 
 public interface MemberMapper {
 
-	void regist(Person person);
+	void regist(Member member);
 
-	List<Person> list();
+	List<Member> list();
+
+	void insert(Member member);
 
 }

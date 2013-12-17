@@ -76,6 +76,9 @@ public class PersonalReport {
 	 * 식당 봉사 
 	 */
 	private int restaurantServiceChurch;
+	
+	private Report mokjangReport;
+	
 
 	public long getId() {
 		return id;
@@ -187,6 +190,14 @@ public class PersonalReport {
 
 	public void setRestaurantServiceChurch(int restaurantServiceChurch) {
 		this.restaurantServiceChurch = restaurantServiceChurch;
+	}
+
+	public Report getMokjangReport() {
+		return mokjangReport;
+	}
+
+	public void setMokjangReport(Report mokjangReport) {
+		this.mokjangReport = mokjangReport;
 	}
 	
 	
