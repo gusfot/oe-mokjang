@@ -3,7 +3,7 @@
  */
 package kr.ch.oe.service;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 
 
 /**
@@ -13,11 +13,11 @@ import kr.ch.oe.model.Person;
 
 public interface LoginService {
 
-	public void login(Person person);
+	public void login(Member member);
 	
-	public void regist(Person person);
+	public void regist(Member member);
 	
-	public void edit(Person person);
+	public void edit(Member member);
 	
-	public void delete(Person person); 
+	public void delete(Member member); 
 }

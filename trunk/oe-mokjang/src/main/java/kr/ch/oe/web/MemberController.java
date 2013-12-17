@@ -3,7 +3,7 @@ package kr.ch.oe.web;
 
 import java.util.List;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 import kr.ch.oe.service.MemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/regist.oe", method=RequestMethod.POST)
-	public String regist(@ModelAttribute Person person) {
+	public String regist(@ModelAttribute Member member) {
 		
-		memberService.regist(person);
+		memberService.regist(member);
 		
 		return "redirect:list.oe";
 	}
@@ -37,7 +37,7 @@ public class MemberController {
 	@RequestMapping(value="/list.oe", method=RequestMethod.GET)
 	public String list(Model model){
 		
-		List<Person> persons = memberService.list();
+		List<Member> persons = memberService.list();
 		model.addAttribute(persons);
 		
 		return "list.oe";

@@ -7,23 +7,58 @@ package kr.ch.oe.model;
  * @author gusfot
  *
  */
-public class Person {
+public class Member {
 	
-	private String id;
+	private int id;
 	private String password;
 	private String name;
 	private String birthday;
 	private String job;
 	private String mobilePhone;
+	private String homePhone;
+	private String email;
+	private String address;
+	private Group group;
 	private Role role;
+	private Education education;
 	
+	public String getHomePhone() {
+		return homePhone;
+	}
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public Group getGroup() {
+		return group;
+	}
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+	public Education getEducation() {
+		return education;
+	}
+	public void setEducation(Education education) {
+		this.education = education;
+	}
 	public String getBirthday() {
 		return birthday;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getPassword() {

@@ -1,18 +1,18 @@
 package kr.ch.oe.dao;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LoginMapper {
 
-	String login(Person person);
+	String login(Member member);
 
-	void edit(Person person);
+	void edit(Member member);
 
-	void delete(Person person);
+	void delete(Member member);
 
-	void regist(Person person);
+	void regist(Member member);
 
 }

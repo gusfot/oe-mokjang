@@ -2,12 +2,12 @@ package kr.ch.oe.service;
 
 import java.util.List;
 
-import kr.ch.oe.model.Person;
+import kr.ch.oe.model.Member;
 
 public interface MemberService {
 
-	void regist(Person person);
+	void regist(Member member);
 
-	List<Person> list();
+	List<Member> list();
 
 }
