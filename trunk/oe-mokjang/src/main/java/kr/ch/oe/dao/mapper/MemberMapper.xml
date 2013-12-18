@@ -2,7 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.MemberMapper">
-
+	
+	<resultMap id="member" type="kr.ch.oe.model.Member">
+		<id property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="name" column="name" />
+		<result property="birthday" column="birthday" />
+		<result property="job" column="job" />
+		<result property="address" column="address" />
+		<result property="mobilePhone" column="mobile_phone" />
+		<result property="homePhone" column="home_phone" />
+		
+		<association property="role" javaType="kr.ch.oe.model.Role" resultMap="role"></association>
+	</resultMap>
+	
+	<resultMap id="role" type="kr.ch.oe.model.Role">
+		<id property="id" column="id" />
+	</resultMap>
+	
+	<resultMap id="group" type="kr.ch.oe.model.Group">
+		<id property="id" column="id" />
+	</resultMap>
+	
 	<select id="list" parameterType="kr.ch.oe.model.Member" resultType="string">
 	  select id from oe_member where id=#{id} and password=#{password}
 	</select>
@@ -30,5 +52,43 @@
 		  	#{homePhone}
 	  	)
 	</insert>
+	
+	<select id="selectMember" parameterType="int" resultType="kr.ch.oe.model.Member">
+		select id, 
+		  	password,
+		  	email,
+		  	name,
+		  	birthday,
+		  	job,
+		  	address,
+		  	mobile_phone,
+		  	home_phone
+		from 
+			oe_member member
+		inner join 
+			oe_group group on member.group_id = group.id
+		inner join 
+			oe_role role on member.role_id = role.id
+		where 
+			member.id = #{id}
+	</select>
 
+	<select id="selectMembersByCriteria" parameterType="map" resultType="kr.ch.oe.model.Member">
+		select 
+			id, 
+		  	password,
+		  	email,
+		  	name,
+		  	birthday,
+		  	job,
+		  	address,
+		  	mobile_phone,
+		  	home_phone
+		from 
+			oe_member member
+		inner join 
+			oe_group group on member.group_id = group.id
+		inner join 
+			oe_role role on member.role_id = role.id
+	</select>
 </mapper>
