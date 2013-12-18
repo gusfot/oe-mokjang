@@ -22,11 +22,10 @@ public class GroupServiceImpl implements GroupService{
 
 	@Autowired
 	GroupMapper groupMapper;
-	
+
 	@Override
-	public void insert(Group group) {
-		System.out.println("service impl");
-		groupMapper.insert(group);
+	public void insert(Group church) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -38,8 +37,10 @@ public class GroupServiceImpl implements GroupService{
 
 	@Override
 	public List<Group> findAll() {
-		
-		return groupMapper.findAll();
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 
 }

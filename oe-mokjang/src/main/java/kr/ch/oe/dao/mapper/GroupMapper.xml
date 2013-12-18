@@ -3,22 +3,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.GroupMapper">
 
-	<select id="findById" resultType="kr.ch.oe.model.Group">
+	<select id="selectGroupById" parameterType="int" resultType="kr.ch.oe.model.Group">
 	  select 
 	  	id,
 	  	name
 	   from oe_group
 	   where id = #{id}
 	</select>
-
-	<insert id="insert" parameterType="kr.ch.oe.model.Group">
-		insert into oe_group(id, name, type) values(#{id}, #{name}, #{type})
-	</insert>
 	
-	<select id="findAll" resultType="kr.ch.oe.model.Group">
+	<select id="selectGroupsByCriteria" parameterType="map" resultType="kr.ch.oe.model.Group">
 	  select 
 	  	id,
 	  	name
 	   from oe_group
 	</select>
+
+	<insert id="insert" parameterType="kr.ch.oe.model.Group">
+		insert into oe_group(id, name, type) values(#{id}, #{name}, #{type})
+	</insert>
+	
+	<update id="update" parameterType="kr.ch.oe.model.Group">
+	
+	</update>
+	
+	<delete id="delete" parameterType="int">
+	
+	</delete>
 </mapper>
