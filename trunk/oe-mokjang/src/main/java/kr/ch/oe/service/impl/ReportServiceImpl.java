@@ -3,6 +3,8 @@
  */
 package kr.ch.oe.service.impl;
 
+import java.util.Map;
+
 import kr.ch.oe.dao.ReportMapper;
 import kr.ch.oe.model.PersonalReport;
 import kr.ch.oe.model.Report;
@@ -22,18 +24,9 @@ public class ReportServiceImpl implements ReportService {
 	@Autowired
 	ReportMapper reportMapper;
 	
-	@Override
-	public void insertPersonalReport(PersonalReport personalReport) {
-		reportMapper.insertPersonalReport(personalReport);
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see kr.ch.oe.service.ReportService#report(kr.ch.oe.model.Report)
-	 */
 	@Transactional
 	@Override
-	public void report(Report report) {
+	public void registMokjangReport(Report report) {
 		
 		for(PersonalReport personalReport : report.getPersonalReports()){
 			personalReport.setMokjangReport(report);
@@ -42,6 +35,63 @@ public class ReportServiceImpl implements ReportService {
 		
 		reportMapper.insertMokjangReport(report);
 
+	}
+
+	@Transactional
+	@Override
+	public void modifyMokjangReport(Report report) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeMokjangReport(long reportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getMokjangReport(long reportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getMokjangReportsByCriteria(Map criteria) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Transactional
+	@Override
+	public void registPersonalReport(PersonalReport personalReport) {
+		reportMapper.insertPersonalReport(personalReport);
+		
+	}
+
+	@Transactional
+	@Override
+	public void modifyPersonalReport(PersonalReport report) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removePersonalReport(long reportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getPersonalReport(long reportId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getPersonalReportsByCriteria(Map criteria) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
