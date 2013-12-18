@@ -1,5 +1,6 @@
 package testcase.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +8,8 @@ import java.util.Map;
 import kr.ch.oe.dao.MemberMapper;
 import kr.ch.oe.model.Group;
 import kr.ch.oe.model.Member;
+import kr.ch.oe.model.Mokjang;
+import kr.ch.oe.model.Role;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,10 +26,23 @@ public class MemberMapperTest {
 	@Autowired
 	MemberMapper memberMapper;
 	
-	@Test
+	//@Test
 	public void insertMember(){
+		
+		Group group = new Group();
+		group.setGroupId(1);
+		group.setChurchId(1);
+		group.setGyoguId(1);
+		Mokjang mokjang = new Mokjang();
+		mokjang.setGroup(group);
+		mokjang.setId(1);
+		
+		Role role =new Role();
+		role.setId(1);
+		role.setType("MJ");
+		
 		Member member = new Member();
-		member.setId(2);
+		member.setMemberId(2);
 		member.setPassword("5252");
 		member.setName("김현");
 		member.setAddress("경기도 광명시");
@@ -35,14 +51,16 @@ public class MemberMapperTest {
 		member.setHomePhone("07011112222");
 		member.setMobilePhone("01063901427");
 		member.setJob("IT개발자");
+		member.setMokjang(mokjang);
+		member.setRole(role);
 		
 		memberMapper.insert(member);
 	}
-	
-	@Test
+
+	//@Test
 	public void updateMember(){
 		Member member = new Member();
-		member.setId(2);
+		member.setMemberId(2);
 		member.setPassword("5252");
 		member.setName("김현");
 		member.setAddress("경기도 광명시");
@@ -55,10 +73,10 @@ public class MemberMapperTest {
 		memberMapper.update(member);
 	}
 	
-	@Test
+	//@Test
 	public void deleteMember(){
 		Member member = new Member();
-		member.setId(2);
+		member.setMemberId(2);
 		member.setPassword("5252");
 		member.setName("김현");
 		member.setAddress("경기도 광명시");
@@ -68,10 +86,10 @@ public class MemberMapperTest {
 		member.setMobilePhone("01063901427");
 		member.setJob("IT개발자");
 		
-		memberMapper.delete(member.getId());
+		memberMapper.delete(2);
 	}
 	
-	@Test
+	//@Test
 	public void selectMemberById(){
 		
 		Member member = memberMapper.selectMemberById(2);
@@ -80,7 +98,11 @@ public class MemberMapperTest {
 	@Test
 	public void selectMembersByCriteria(){
 		Map criteria = new HashMap();
-		List<Member> member = memberMapper.selectMembersByCriteria(criteria);
+		List<Member> members = memberMapper.selectMembersByCriteria(criteria);
+		for(Member member: members){
+			System.out.println(member.getName());
+			System.out.println(member.getRole().getType());
+		}
 	}
 	
 }

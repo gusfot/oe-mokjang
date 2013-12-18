@@ -11,7 +11,8 @@
 	  	attendant_8weeks,
 	  	enroll_church_after_enroll_mokjang,
 	  	graduate_nurture,
-	  	mokjang_report_id
+	  	mokjang_report_id,
+	  	group_id
 	  
 	  ) values(
 	  	#{id},
@@ -20,7 +21,8 @@
 	  	#{attend8weeksMokjang},
 	  	#{enrollChurchAfterEnrollMokjang},
 	  	#{graduateNurtureMokjang},
-	  	#{mokjangReport.id}
+	  	#{mokjangReport.id},
+	  	#{group.groupId}
 	  )
 	</insert>
 	

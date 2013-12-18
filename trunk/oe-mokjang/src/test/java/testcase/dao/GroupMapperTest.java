@@ -6,6 +6,7 @@ import java.util.Map;
 
 import kr.ch.oe.dao.GroupMapper;
 import kr.ch.oe.model.Group;
+import kr.ch.oe.model.Mokjang;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,36 +25,35 @@ public class GroupMapperTest {
 	
 	@Test
 	public void insert(){
-		Group group = new Group();
-		group.setType(1);
+		Mokjang mokjang = new Mokjang();
 		
-		groupMapper.insert(group);
+		groupMapper.insert(mokjang);
 	}
 	
-	@Test
+	//@Test
 	public void update(){
-		Group group = new Group();
+		Mokjang mokjang = new Mokjang();
 		
-		groupMapper.update(group);
+		groupMapper.update(mokjang);
 	}
 	
-	@Test
+	//@Test
 	public void delete(){
 		Group group = new Group();
 		
-		groupMapper.delete(group.getId());
+		groupMapper.delete(group.getGroupId());
 	}
 	
-	@Test
+	//@Test
 	public void selecGroupById(){
 		
-		Group group = groupMapper.selectGroupById(2);
+		Group group = groupMapper.selectMokjangById(1);
 	}
 	
-	@Test
+	//@Test
 	public void selectGroupsByCriteria(){
 		Map criteria = new HashMap();
-		List<Group> groups = groupMapper.selectGroupsByCriteria(criteria);
+		List<Group> groups = groupMapper.selectMokjangsByCriteria(criteria);
 	}
 	
 	

@@ -4,7 +4,7 @@
 <mapper namespace="kr.ch.oe.dao.MemberMapper">
 	
 	<resultMap id="member" type="kr.ch.oe.model.Member">
-		<id property="id" column="id" />
+		<id property="member_id" column="id" />
 		<result property="password" column="password" />
 		<result property="email" column="email" />
 		<result property="name" column="name" />
@@ -19,11 +19,16 @@
 	</resultMap>
 	
 	<resultMap id="role" type="kr.ch.oe.model.Role">
-		<id property="id" column="id" />
+		<id property="role_id" column="id" />
+		<result property="type" column="type" />
 	</resultMap>
 	
 	<resultMap id="group" type="kr.ch.oe.model.Group">
-		<id property="id" column="id" />
+		<id property="group_id" column="id" />
+		<result property="churchId" column="church_id" />
+		<result property="zoId" column="zo_id" />
+		<result property="mokjangId" column="mokjang_id" />
+		
 	</resultMap>
 	
 	<select id="list" parameterType="kr.ch.oe.model.Member" resultType="string">
@@ -33,6 +38,8 @@
 	<insert id="insert" parameterType="kr.ch.oe.model.Member">
 		insert into oe_member(
 		  	id, 
+		  	group_id,
+		  	role_id,
 		  	password,
 		  	email,
 		  	name,
@@ -43,6 +50,8 @@
 		  	home_phone
 		  ) values(
 		  	#{id},
+		  	#{group.id},
+		  	#{role.id},
 		  	#{password},
 		  	#{email},
 		  	#{name},
@@ -54,7 +63,7 @@
 	  	)
 	</insert>
 	
-	<select id="selectMember" parameterType="int" resultType="kr.ch.oe.model.Member">
+	<select id="selectMember" parameterType="int" resultMap="member">
 		select id, 
 		  	password,
 		  	email,
@@ -74,9 +83,9 @@
 			member.id = #{id}
 	</select>
 
-	<select id="selectMembersByCriteria" parameterType="map" resultType="kr.ch.oe.model.Member">
+	<select id="selectMembersByCriteria" parameterType="map" resultMap="member">
 		select 
-			id, 
+			--id, 
 		  	password,
 		  	email,
 		  	name,
@@ -84,12 +93,21 @@
 		  	job,
 		  	address,
 		  	mobile_phone,
-		  	home_phone
+		  	home_phone,
+		  	role_id,
+		  	group_id
 		from 
-			oe_member member
+			oe_member oemember
 		inner join 
-			oe_group group on member.group_id = group.id
+			oe_group oegroup on oemember.group_id = oegroup.id
 		inner join 
-			oe_role role on member.role_id = role.id
+			oe_role oerole on oemember.role_id = oerole.id
 	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from 
+			oe_member 
+		where 
+			id = #{id}
+	</delete>
 </mapper>

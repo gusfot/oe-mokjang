@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
 	public void regist(Member member) {
 		
 		memberMapper.insert(member);
-		groupMapper.insert(member.getGroup());
+		groupMapper.insert(member.getMokjang());
 		roleMapper.insert(member.getRole());
 		
 	}
@@ -44,7 +44,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void modify(Member member) {
 		memberMapper.update(member);
-		groupMapper.update(member.getGroup());
+		groupMapper.update(member.getMokjang());
 		roleMapper.update(member.getRole());
 	}
 

@@ -1,7 +1,9 @@
 package kr.ch.oe.web;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.ch.oe.model.Member;
 import kr.ch.oe.service.MemberService;
@@ -36,8 +38,8 @@ public class MemberController {
 	
 	@RequestMapping(value="/list.oe", method=RequestMethod.GET)
 	public String list(Model model){
-		
-		List<Member> persons = memberService.list();
+		Map criteria = new HashMap();
+		List<Member> persons = memberService.getMembers(criteria);
 		model.addAttribute(persons);
 		
 		return "list.oe";
