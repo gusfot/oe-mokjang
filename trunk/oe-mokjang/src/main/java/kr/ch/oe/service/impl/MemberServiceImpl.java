@@ -1,6 +1,7 @@
 package kr.ch.oe.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.ch.oe.dao.MemberMapper;
 import kr.ch.oe.model.Member;
@@ -18,12 +19,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void regist(Member member) {
 		// TODO Auto-generated method stub
-		memberMapper.regist(member);
+		memberMapper.insert(member);
 	}
 
 	@Override
-	public List<Member> list() {
-		return memberMapper.list();
+	public List<Member> list(Map criteria) {
+		return memberMapper.selectMembersByCriteria(criteria);
 	}
 
 }
