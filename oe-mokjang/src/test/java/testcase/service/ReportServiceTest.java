@@ -34,7 +34,7 @@ public class ReportServiceTest {
 		personalReport.setEnrollChurchAfterEnrollMokjang(1);
 		personalReport.setGraduateNurtureMokjang(1);
 		
-		reportService.insertPersonalReport(personalReport);
+		reportService.registPersonalReport(personalReport);
 		
 	}
 	
@@ -78,6 +78,6 @@ public class ReportServiceTest {
 		report.setPersonalReports(personalReports);
 
 		
-		reportService.report(report);
+		reportService.registMokjangReport(report);
 	}
 }
