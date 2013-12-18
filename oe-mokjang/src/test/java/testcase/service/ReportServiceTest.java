@@ -3,7 +3,7 @@ package testcase.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.ch.oe.model.Group;
+import kr.ch.oe.model.Mokjang;
 import kr.ch.oe.model.PersonalReport;
 import kr.ch.oe.model.Report;
 import kr.ch.oe.service.ReportService;
@@ -64,8 +64,8 @@ public class ReportServiceTest {
 		personalReport2.setGraduateNurtureMokjang(1);
 		personalReports.add(personalReport2);
 		
-		Group group = new Group();
-		group.setGroupId(1);
+		Mokjang mokjang = new Mokjang();
+		mokjang.setMokjangId(1);
 		
 		Report report = new Report();
 		report.setId(1);
@@ -78,7 +78,7 @@ public class ReportServiceTest {
 		report.setNextMeetingPlace("오병이어교회 새벽홀");
 		report.setOffering(5000);
 		report.setPersonalReports(personalReports);
-		report.setGroup(group);
+		report.setMokjang(mokjang);
 		
 		reportService.registMokjangReport(report);
 	}
