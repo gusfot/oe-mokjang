@@ -35,7 +35,7 @@ public class MemberMapperTest {
 		group.setGyoguId(1);
 		Mokjang mokjang = new Mokjang();
 		mokjang.setGroup(group);
-		mokjang.setId(1);
+		mokjang.setMokjangId(1);
 		
 		Role role =new Role();
 		role.setId(1);

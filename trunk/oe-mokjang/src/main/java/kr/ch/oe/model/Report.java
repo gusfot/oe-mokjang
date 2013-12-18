@@ -12,7 +12,7 @@ public class Report {
 	/**
 	 * 목장
 	 */
-	private Group group;					//목장명 
+	private Mokjang mokjang;					//목장명 
 	
 	/**
 	 * 목장집회일
@@ -142,12 +142,12 @@ public class Report {
 		this.offering = offering;
 	}
 
-	public Group getGroup() {
-		return group;
+	public Mokjang getMokjang() {
+		return mokjang;
 	}
 
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setMokjang(Mokjang mokjang) {
+		this.mokjang = mokjang;
 	}
 	
 
