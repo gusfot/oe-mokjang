@@ -14,7 +14,8 @@
 		<result property="mobilePhone" column="mobile_phone" />
 		<result property="homePhone" column="home_phone" />
 		
-		<association property="role" javaType="kr.ch.oe.model.Role" resultMap="role"></association>
+		<association property="role" resultMap="role"></association>
+		<association property="group" resultMap="group"></association>
 	</resultMap>
 	
 	<resultMap id="role" type="kr.ch.oe.model.Role">
