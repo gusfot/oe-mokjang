@@ -9,7 +9,7 @@ package kr.ch.oe.model;
  */
 public class Member {
 	
-	private int id;
+	private int memberId;
 	private String password;
 	private String name;
 	private String birthday;
@@ -18,7 +18,7 @@ public class Member {
 	private String homePhone;
 	private String email;
 	private String address;
-	private Group group;
+	private Mokjang mokjang;
 	private Role role;
 	private Education education;
 	
@@ -40,11 +40,11 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Group getGroup() {
-		return group;
+	public Mokjang getMokjang() {
+		return mokjang;
 	}
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setMokjang(Mokjang mokjang) {
+		this.mokjang = mokjang;
 	}
 	public Education getEducation() {
 		return education;
@@ -55,11 +55,11 @@ public class Member {
 	public String getBirthday() {
 		return birthday;
 	}
-	public int getId() {
-		return id;
+	public int getMemberId() {
+		return memberId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 	public String getPassword() {
 		return password;

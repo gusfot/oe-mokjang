@@ -3,36 +3,48 @@
  */
 package kr.ch.oe.model;
 
+import java.util.List;
+
 
 /**
  * @author gusfot
  *
  */
 public class Group {
-
-	private int id;
-	private String name;
-	private int type;
+	private int groupId;
+	private int churchId;
+	private int gyoguId;
+	private int zoId;
+	private List<Mokjang> mokjangList;
 	
-	public int getId() {
-		return id;
+	public int getChurchId() {
+		return churchId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setChurchId(int churchId) {
+		this.churchId = churchId;
 	}
-	public String getName() {
-		return name;
+	public int getGyoguId() {
+		return gyoguId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setGyoguId(int gyoguId) {
+		this.gyoguId = gyoguId;
 	}
-	public int getType() {
-		return type;
+	public int getZoId() {
+		return zoId;
 	}
-	public void setType(int type) {
-		this.type = type;
+	public void setZoId(int zoId) {
+		this.zoId = zoId;
 	}
-	
-	
-	
+	public int getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
+	public List<Mokjang> getMokjangList() {
+		return mokjangList;
+	}
+	public void setMokjangList(List<Mokjang> mokjangList) {
+		this.mokjangList = mokjangList;
+	}
 }

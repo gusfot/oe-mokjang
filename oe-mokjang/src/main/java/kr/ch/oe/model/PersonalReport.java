@@ -77,6 +77,9 @@ public class PersonalReport {
 	 */
 	private int restaurantServiceChurch;
 	
+	/**
+	 * 목장 보고서
+	 */
 	private Report mokjangReport;
 	
 

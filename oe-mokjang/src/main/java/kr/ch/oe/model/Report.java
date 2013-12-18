@@ -7,10 +7,12 @@ public class Report {
 	private long id;
 	private int gyogu;
 	private int zo;
+	
+	private int weeks;
 	/**
 	 * 목장
 	 */
-	private String mokjangName;					//목장명 
+	private Group group;					//목장명 
 	
 	/**
 	 * 목장집회일
@@ -60,12 +62,12 @@ public class Report {
 		this.zo = zo;
 	}
 	
-	public String getMokjangName() {
-		return mokjangName;
+	public int getWeeks() {
+		return weeks;
 	}
-	
-	public void setMokjangName(String mokjangName) {
-		this.mokjangName = mokjangName;
+
+	public void setWeeks(int weeks) {
+		this.weeks = weeks;
 	}
 
 	public List<PersonalReport> getPersonalReports() {
@@ -138,6 +140,14 @@ public class Report {
 
 	public void setOffering(int offering) {
 		this.offering = offering;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 
