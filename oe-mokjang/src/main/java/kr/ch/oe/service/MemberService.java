@@ -9,6 +9,12 @@ public interface MemberService {
 
 	void regist(Member member);
 
-	List<Member> list(Map criteria);
+	void remove(int id);
+
+	void modify(Member member);
+
+	Member getMember(int id);
+
+	List<Member> getMembers(Map criteria);
 
 }

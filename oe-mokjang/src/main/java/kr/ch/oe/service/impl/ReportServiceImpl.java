@@ -34,6 +34,7 @@ public class ReportServiceImpl implements ReportService {
 	@Transactional
 	@Override
 	public void report(Report report) {
+		
 		for(PersonalReport personalReport : report.getPersonalReports()){
 			personalReport.setMokjangReport(report);
 			reportMapper.insertPersonalReport(personalReport);
