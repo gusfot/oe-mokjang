@@ -25,16 +25,16 @@ public class GroupMapperTest {
 	
 	@Test
 	public void insert(){
-		Mokjang mokjang = new Mokjang();
+		Group group = new Group();
 		
-		groupMapper.insert(mokjang);
+		groupMapper.insert(group);
 	}
 	
 	//@Test
 	public void update(){
-		Mokjang mokjang = new Mokjang();
+		Group group = new Group();
 		
-		groupMapper.update(mokjang);
+		groupMapper.update(group);
 	}
 	
 	//@Test
@@ -47,13 +47,13 @@ public class GroupMapperTest {
 	//@Test
 	public void selecGroupById(){
 		
-		Group group = groupMapper.selectMokjangById(1);
+		Group group = groupMapper.selectGroupById(1);
 	}
 	
 	//@Test
 	public void selectGroupsByCriteria(){
 		Map criteria = new HashMap();
-		List<Group> groups = groupMapper.selectMokjangsByCriteria(criteria);
+		List<Group> groups = groupMapper.selectGroupsByCriteria(criteria);
 	}
 	
 	

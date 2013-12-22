@@ -13,6 +13,14 @@ public class Member {
 	private String password;
 	private String name;
 	private String birthday;
+	@Override
+	public String toString() {
+		return "Member [memberId=" + memberId + ", password=" + password
+				+ ", name=" + name + ", birthday=" + birthday + ", job=" + job
+				+ ", mobilePhone=" + mobilePhone + ", homePhone=" + homePhone
+				+ ", email=" + email + ", address=" + address + ", mokjang="
+				+ mokjang + ", role=" + role + ", education=" + education + "]";
+	}
 	private String job;
 	private String mobilePhone;
 	private String homePhone;

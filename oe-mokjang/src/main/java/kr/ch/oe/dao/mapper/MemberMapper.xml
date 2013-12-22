@@ -24,7 +24,7 @@
 	</resultMap>
 	
 	<resultMap id="group" type="kr.ch.oe.model.Group">
-		<id property="group_id" column="id" />
+		<id property="groupId" column="id" />
 		<result property="churchId" column="church_id" />
 		<result property="zoId" column="zo_id" />
 		<result property="mokjangId" column="mokjang_id" />
@@ -36,9 +36,13 @@
 	</select>
 	
 	<insert id="insert" parameterType="kr.ch.oe.model.Member">
+	 <selectKey keyProperty="memberId" resultType="int" order="BEFORE">
+    	select nextval('sq_member')
+  	</selectKey>
+  
 		insert into oe_member(
-		  	id, 
-		  	group_id,
+		  	id,
+		  	mokjang_id, 
 		  	role_id,
 		  	password,
 		  	email,
@@ -49,9 +53,9 @@
 		  	mobile_phone,
 		  	home_phone
 		  ) values(
-		  	#{id},
-		  	#{group.id},
-		  	#{role.id},
+		  	#{memberId},
+		  	#{mokjang.mokjangId},
+		  	#{role.roleId},
 		  	#{password},
 		  	#{email},
 		  	#{name},
@@ -80,7 +84,7 @@
 		inner join 
 			oe_role role on member.role_id = role.id
 		where 
-			member.id = #{id}
+			member.id = #{memberId}
 	</select>
 
 	<select id="selectMembersByCriteria" parameterType="map" resultMap="member">
@@ -108,6 +112,6 @@
 		delete from 
 			oe_member 
 		where 
-			id = #{id}
+			id = #{memberId}
 	</delete>
 </mapper>

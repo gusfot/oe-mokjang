@@ -1,16 +1,9 @@
 package kr.ch.oe.model;
 
 public class Role {
-	private long id;
+	private long roleId;
 	private String type;
 	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getType() {
 		return type;
@@ -18,6 +11,14 @@ public class Role {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
 	}
 	
 	

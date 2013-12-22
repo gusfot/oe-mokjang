@@ -8,7 +8,7 @@
 	  	id,
 	  	name
 	   from oe_role
-	   where id = #{id}
+	   where id = #{roleId}
 	</select>
 	
 	<select id="selectRolessByCriteria" parameterType="map" resultType="kr.ch.oe.model.Role">
@@ -19,7 +19,10 @@
 	</select>
 
 	<insert id="insert" parameterType="kr.ch.oe.model.Role">
-		insert into oe_role(id, name, type) values(#{id}, #{name}, #{type})
+		<selectKey keyProperty="roleId" resultType="int" order="BEFORE">
+    		select nextval('sq_role')
+  		</selectKey>
+		insert into oe_role(id, name, type) values(#{roleId}, #{name}, #{type})
 	</insert>
 	
 	<update id="update" parameterType="kr.ch.oe.model.Role">

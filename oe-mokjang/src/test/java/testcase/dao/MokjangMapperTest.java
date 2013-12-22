@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import kr.ch.oe.dao.RoleMapper;
-import kr.ch.oe.model.Role;
+import kr.ch.oe.dao.MokjangMapper;
+import kr.ch.oe.model.Group;
+import kr.ch.oe.model.Member;
+import kr.ch.oe.model.Mokjang;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,42 +19,50 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class) 
 @ContextConfiguration(locations={//"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context.xml"})
-public class RoleMapperTest {
+public class MokjangMapperTest {
 
 	@Autowired
-	RoleMapper roleMapper;
+	MokjangMapper mokjangMapper;
 	
 	@Test
 	public void insert(){
-		Role role = new Role();
 		
-		roleMapper.insert(role);
+		Member leader = new Member();
+		leader.setMemberId(1);
+		Group group =new Group();
+		group.setChurchId(1);
+		group.setGyoguId(1);
+		Mokjang mokjang = new Mokjang();
+		mokjang.setGroup(group);
+		mokjang.setLeader(leader);
+		
+		mokjangMapper.insert(mokjang);
 	}
 	
-	@Test
+	//@Test
 	public void update(){
-		Role role = new Role();
+		Mokjang mokjang = new Mokjang();
 		
-		roleMapper.update(role);
+		mokjangMapper.update(mokjang);
 	}
 	
-	@Test
+	//@Test
 	public void delete(){
-		Role role = new Role();
+		Mokjang mokjang = new Mokjang();
 		
-		roleMapper.delete(role.getRoleId());
+		mokjangMapper.delete(mokjang.getMokjangId());
 	}
 	
-	@Test
+	//@Test
 	public void selecGroupById(){
 		
-		Role role = roleMapper.selectRoleById(2);
+		Group group = mokjangMapper.selectMokjangById(1);
 	}
 	
-	@Test
+	//@Test
 	public void selectGroupsByCriteria(){
 		Map criteria = new HashMap();
-		List<Role> roles = roleMapper.selectRolesByCriteria(criteria);
+		List<Group> groups = mokjangMapper.selectMokjangsByCriteria(criteria);
 	}
 	
 	
