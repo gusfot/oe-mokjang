@@ -4,6 +4,9 @@
 <mapper namespace="kr.ch.oe.dao.ReportMapper">
 
 	<insert id="insertPersonalReport" parameterType="kr.ch.oe.model.PersonalReport">
+	  <selectKey keyProperty="memberId" resultType="int" order="BEFORE">
+    	select nextval('sq_report')
+  	  </selectKey>
 	  insert into oe_personal_report(
 	  	id, 
 	  	member_name,

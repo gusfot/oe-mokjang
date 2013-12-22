@@ -5,6 +5,7 @@ import java.util.Map;
 
 import kr.ch.oe.dao.GroupMapper;
 import kr.ch.oe.dao.MemberMapper;
+import kr.ch.oe.dao.MokjangMapper;
 import kr.ch.oe.dao.RoleMapper;
 import kr.ch.oe.model.Member;
 import kr.ch.oe.service.MemberService;
@@ -24,13 +25,16 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	GroupMapper groupMapper;
+	
+	@Autowired
+	MokjangMapper mokjangMapper;
 
 	@Transactional
 	@Override
 	public void regist(Member member) {
 		
 		memberMapper.insert(member);
-		groupMapper.insert(member.getMokjang());
+		mokjangMapper.insert(member.getMokjang());
 		roleMapper.insert(member.getRole());
 		
 	}
@@ -44,7 +48,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void modify(Member member) {
 		memberMapper.update(member);
-		groupMapper.update(member.getMokjang());
+		groupMapper.update(member.getMokjang().getGroup());
+		mokjangMapper.update(member.getMokjang());
 		roleMapper.update(member.getRole());
 	}
 

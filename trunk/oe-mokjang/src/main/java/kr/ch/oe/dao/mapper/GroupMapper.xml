@@ -13,7 +13,7 @@
 		from 
 			oe_group
 		where
-	   		id = #{id}
+	   		id = #{mokjangId}
 	</select>
 	
 	<select id="selectGroupsByCriteria" parameterType="map" resultType="kr.ch.oe.model.Group">
@@ -28,7 +28,9 @@
 	</select>
 
 	<insert id="insert" parameterType="kr.ch.oe.model.Group">
-		insert into oe_group(id, church_id, gyogu_id, zo_id, mokjang_id) values(#{id}, #{churchId}, #{gyoguId}, #{zoId}, #{mokjangId})
+	
+	
+		insert into oe_group(id, church_id, gyogu_id, zo_id, mokjang_id) values(#{groupId}, #{churchId}, #{gyoguId}, #{zoId}, #{mokjangId})
 	</insert>
 	
 	<update id="update" parameterType="kr.ch.oe.model.Group">
