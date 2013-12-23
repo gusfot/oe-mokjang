@@ -22,7 +22,7 @@
 		<selectKey keyProperty="roleId" resultType="int" order="BEFORE">
     		select nextval('sq_role')
   		</selectKey>
-		insert into oe_role(id, name, type) values(#{roleId}, #{name}, #{type})
+		insert into oe_role(id, type) values(#{roleId}, #{type})
 	</insert>
 	
 	<update id="update" parameterType="kr.ch.oe.model.Role">

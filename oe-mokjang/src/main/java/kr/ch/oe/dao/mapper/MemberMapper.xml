@@ -51,7 +51,8 @@
 		  	job,
 		  	address,
 		  	mobile_phone,
-		  	home_phone
+		  	home_phone,
+		  	reg_time
 		  ) values(
 		  	#{memberId},
 		  	#{mokjang.mokjangId},
@@ -63,7 +64,8 @@
 		  	#{job},
 		  	#{address},
 		  	#{mobilePhone},
-		  	#{homePhone}
+		  	#{homePhone},
+		  	now()
 	  	)
 	</insert>
 	
@@ -79,10 +81,8 @@
 		  	home_phone
 		from 
 			oe_member member
-		inner join 
-			oe_group group on member.group_id = group.id
-		inner join 
-			oe_role role on member.role_id = role.id
+		inner join oe_mokjang oemokjang on oemember.mokjang_id = oemokjang.id
+		inner join oe_role oerole on oemember.role_id = oerole.id
 		where 
 			member.id = #{memberId}
 	</select>
@@ -99,13 +99,11 @@
 		  	mobile_phone,
 		  	home_phone,
 		  	role_id,
-		  	group_id
+		  	mokjang_id
 		from 
 			oe_member oemember
-		inner join 
-			oe_group oegroup on oemember.group_id = oegroup.id
-		inner join 
-			oe_role oerole on oemember.role_id = oerole.id
+		inner join oe_mokjang oemokjang on oemember.mokjang_id = oemokjang.id
+		inner join oe_role oerole on oemember.role_id = oerole.id
 	</select>
 	
 	<delete id="delete" parameterType="int">
