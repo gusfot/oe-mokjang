@@ -14,9 +14,9 @@ import kr.ch.oe.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -32,46 +32,41 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/regist.oe", method=RequestMethod.POST)
-	public String regist(//@ModelAttribute Member member,
-						@RequestParam String name, @RequestParam String email, 
-						@RequestParam String password, @RequestParam String homePhone, 
-						@RequestParam String mobilePhone, @RequestParam String job, 
-						@RequestParam String birthday, @RequestParam String gyogu, 
-						@RequestParam("role") String roleValue, @RequestParam String address) {
-		System.out.println(name);
-		System.out.println(email);
-		System.out.println(password);
-		System.out.println(homePhone);
-		System.out.println(mobilePhone);
-		System.out.println(job);
+	public String regist(@ModelAttribute Member member
+						//@RequestParam String name, @RequestParam String email, 
+						//@RequestParam String password, @RequestParam String homePhone, 
+						//@RequestParam String mobilePhone, @RequestParam String job, 
+						//@RequestParam String birthday, @RequestParam String gyogu, 
+						//@RequestParam("role") String roleValue, @RequestParam String address
+						) {
+		System.out.println(member.getName());
+		System.out.println(member.getEmail());
+		System.out.println(member.getPassword());
+		System.out.println(member.getHomePhone());
+		System.out.println(member.getJob());
+		System.out.println(member.getMobilePhone());
 
-		Member member = new Member();
-		member.setEmail(email);
-		member.setPassword(password);
-		member.setBirthday(birthday);
-		member.setHomePhone(homePhone);
-		member.setMobilePhone(mobilePhone);
-		member.setName(name);
-		member.setAddress(address);
-		
-		Role role = new Role();
-		role.setType("목자");
+		Role role =new Role();
+		role.setType("MJ");
 		
 		
 		member.setRole(role);
 		
 		Group group = new Group();
 		group.setChurchId(1);
-		group.setGyoguId(3);
+		group.setGyoguId(5);
 		
 		Mokjang mokjang = new Mokjang();
 		mokjang.setGroup(group);
 		mokjang.setMokjangId(3);
+		mokjang.setLeader(member);
+		
 		member.setMokjang(mokjang);
+		member.setRole(role);
 		
 		memberService.regist(member);
 		
-		return "redirect:list.oe";
+		return "redirect:/login.oe";
 	}
 	
 	@RequestMapping(value="/list.oe", method=RequestMethod.GET)

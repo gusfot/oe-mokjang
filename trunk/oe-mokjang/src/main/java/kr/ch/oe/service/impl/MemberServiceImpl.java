@@ -34,6 +34,7 @@ public class MemberServiceImpl implements MemberService {
 	public void regist(Member member) {
 		
 		memberMapper.insert(member);
+		System.out.println("member.getMemberId() : " + member.getMemberId());
 		mokjangMapper.insert(member.getMokjang());
 		roleMapper.insert(member.getRole());
 		

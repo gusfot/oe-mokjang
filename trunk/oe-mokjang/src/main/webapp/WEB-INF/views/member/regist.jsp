@@ -97,6 +97,7 @@
 				</select>
 			</div>
 		  </div>
+		  <!-- 
 		  <div class="form-group">
 		  	<label class="col-sm-2" >직분</label>
 		    <div class="col-sm-10">
@@ -111,7 +112,7 @@
 				</label>
 			</div>
 		  </div>
-		  
+		  -->
 		  <div class="checkbox">
 		    <label>
 		      <input type="checkbox"> Check me out
