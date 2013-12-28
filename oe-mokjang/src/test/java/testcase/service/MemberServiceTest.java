@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import kr.ch.oe.model.Group;
 import kr.ch.oe.model.Member;
 import kr.ch.oe.model.Mokjang;
 import kr.ch.oe.model.Role;
@@ -25,13 +26,13 @@ public class MemberServiceTest {
 	
 	//@Test
 	public void regist(){
-		//Report report = new Report();
 		Role role = new Role();
 		Mokjang mokjang = new Mokjang();
 		
 		Member member = new Member();
 		member.setRole(role);
-		member.setMokjang(mokjang);
+		Group group = new Group();
+		member.setGroup(group );
 		
 		memberService.regist(member);
 		
@@ -42,7 +43,7 @@ public class MemberServiceTest {
 		
 		Member member = new Member();
 		
-		memberService.remove(member.getMemberId());
+		memberService.remove(member.getId());
 	}
 	
 	@Test

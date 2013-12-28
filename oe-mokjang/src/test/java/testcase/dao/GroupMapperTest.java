@@ -41,7 +41,7 @@ public class GroupMapperTest {
 	public void delete(){
 		Group group = new Group();
 		
-		groupMapper.delete(group.getGroupId());
+		groupMapper.delete(group.getId());
 	}
 	
 	//@Test

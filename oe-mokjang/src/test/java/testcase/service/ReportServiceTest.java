@@ -65,7 +65,7 @@ public class ReportServiceTest {
 		personalReports.add(personalReport2);
 		
 		Mokjang mokjang = new Mokjang();
-		mokjang.setMokjangId(1);
+		mokjang.setId(1);
 		
 		Report report = new Report();
 		report.setId(1);

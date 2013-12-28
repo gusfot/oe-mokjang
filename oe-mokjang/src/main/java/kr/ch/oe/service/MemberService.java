@@ -9,11 +9,11 @@ public interface MemberService {
 
 	void regist(Member member);
 
-	void remove(int id);
+	void remove(long id);
 
 	void modify(Member member);
 
-	Member getMember(int id);
+	Member getMember(long id);
 
 	List<Member> getMembers(Map criteria);
 

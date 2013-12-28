@@ -14,6 +14,11 @@ public class PersonalReport {
 	private long id;
 	
 	/**
+	 * 그룹
+	 */
+	private Group group ;
+	
+	/**
 	 * 주
 	 */
 	private long weeks;		//주
@@ -201,6 +206,14 @@ public class PersonalReport {
 
 	public void setMokjangReport(Report mokjangReport) {
 		this.mokjangReport = mokjangReport;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 	

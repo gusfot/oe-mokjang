@@ -40,7 +40,7 @@ public class RoleMapperTest {
 	public void delete(){
 		Role role = new Role();
 		
-		roleMapper.delete(role.getRoleId());
+		roleMapper.delete(role.getId());
 	}
 	
 	@Test

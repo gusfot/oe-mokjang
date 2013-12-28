@@ -2,18 +2,18 @@ package kr.ch.oe.model;
 
 public class Gyogu {
 
-	private long gyoguId;
+	private long id;
 	private long zoId;
 	private int no;
 	
 	private Member leader;
 
-	public long getGyoguId() {
-		return gyoguId;
+	public long getId() {
+		return id;
 	}
 
-	public void setGyoguId(long gyoguId) {
-		this.gyoguId = gyoguId;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public int getNo() {

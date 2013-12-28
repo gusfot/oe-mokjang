@@ -11,9 +11,9 @@ public interface MemberMapper {
 
 	void update(Member member);
 
-	void delete(int id);
+	void delete(long id);
 
-	Member selectMemberById(int i);
+	Member selectMemberById(long id);
 
 	List<Member> selectMembersByCriteria(Map criteria);
 

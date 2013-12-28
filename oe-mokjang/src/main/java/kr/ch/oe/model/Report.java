@@ -5,8 +5,8 @@ import java.util.List;
 public class Report {
 	
 	private long id;
-	private int gyogu;
-	private int zo;
+
+	private Group group;
 	
 	private int weeks;
 	/**
@@ -46,22 +46,6 @@ public class Report {
 		this.id = id;
 	}
 
-	public int getGyogu() {
-		return gyogu;
-	}
-	
-	public void setGyogu(int gyogu) {
-		this.gyogu = gyogu;
-	}
-	
-	public int getZo() {
-		return zo;
-	}
-	
-	public void setZo(int zo) {
-		this.zo = zo;
-	}
-	
 	public int getWeeks() {
 		return weeks;
 	}
@@ -148,6 +132,14 @@ public class Report {
 
 	public void setMokjang(Mokjang mokjang) {
 		this.mokjang = mokjang;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 

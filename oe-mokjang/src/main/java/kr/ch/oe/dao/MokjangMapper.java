@@ -12,6 +12,6 @@ public interface MokjangMapper {
 	int insert(Mokjang mokjang);
 	void update(Mokjang mokjang);
 	void delete(long id);
-	Group selectMokjangById(long id);
-	List<Group> selectMokjangsByCriteria(Map criteria);
+	Mokjang selectMokjangById(long id);
+	List<Mokjang> selectMokjangsByCriteria(Map criteria);
 }

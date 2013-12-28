@@ -32,7 +32,9 @@ public class LoginController {
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
 	public String login(@RequestParam String id, @RequestParam String password){
 		
-		return "login";
+		System.out.println(id);
+		System.out.println(password);
+		return "redirect:main.oe";
 		
 	}
 	
