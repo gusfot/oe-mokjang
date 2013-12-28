@@ -9,25 +9,36 @@
   	  </selectKey>
 	  insert into oe_personal_report(
 	  	id, 
+	  	member_id,
 	  	group_id,
 	  	weeks,
-	  	member_name,
 	  	attend_mokjang,
+	  	enrol_mokjang,
 	  	attendant_8weeks,
-	  	enroll_church_after_enroll_mokjang,
+	  	enroll_mokjang_after_enroll_church,
 	  	graduate_nurture,
-	  	mokjang_report_id
-	  
+	  	graduate_school,
+	  	enroll_church,
+	  	enroll_church_after_enroll_mokjang,
+	  	decrease_mokjang,
+	  	sent_church,
+	  	restaurant_service
 	  ) values(
 	  	#{id},
+	  	#{member.id}
 	  	#{group.id},
 	  	#{weeks},
-	  	#{memberNameMokjang},
+	  	#{attendMokjang},
 	  	#{enrollMokjang},
 	  	#{attend8weeksMokjang},
 	  	#{enrollChurchAfterEnrollMokjang},
 	  	#{graduateNurtureMokjang},
-	  	#{mokjangReport.id}
+	  	#{graduateSchoolChurch},
+		#{erollChurch},
+		#{enrollChurchAfterEnrollMokjang},
+	  	#{decreaseAttendantMokjangChurch},
+	  	#{sentChurch},
+	  	#{restaurantServiceChurch}
 	  )
 	</insert>
 	

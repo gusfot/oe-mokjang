@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,191 +32,100 @@
 
       <!-- Example row of columns -->
       <div class="row">
+      <!-- 
+      <div class="form-group">
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="birthday">목장모임 시간</label>
+		     <div class="col-sm-10">
+		    <input type="date" class="form-control" id="birthday" name="birthday" placeholder="생일">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2" for="password">모임장소</label>
+		     <div class="col-sm-10">
+		    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="memberName">헌금</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="exampleInputPassword1">찬송인도</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="job" name="job" placeholder="직업">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="address">기도인도</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="address" name="address" placeholder="집주소">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="address">말씀인도</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="address" name="address" placeholder="집주소">
+		  	</div>
+		  </div>
+	  </div>
+	  -->
+      <hr />
       <form action="/report/regist.oe" method="post">
        <table class="table table-bordered">
-        <thead>
+       <caption>이번주 목장보고서 등록</caption>
+       <colgroup>
+       		<col width="4%" />
+       		<col width="8%" />
+       		<col width="8%" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       		<col width="" />
+       </colgroup>
+       <thead>
           <tr>
-          	<th rowspan="2">번호</th>
-          	<th rowspan="2">이름</th>
-            <th rowspan="2">제자와<br /> 목장원</th>
-            <th colspan="5">예배</th>
-            <th colspan="3">기도</th>
-            <th rowspan="2">성경 </th>
-            <th rowspan="2">성미 </th>
-            <th rowspan="2">목장<br />인도 </th>
-            <th rowspan="2">양육<br />인도 </th>
-            <th rowspan="2">교회<br />등록 </th>
-            <th rowspan="2">특별<br />행사 </th>
-          </tr>
-          <tr>
-            <th>주일 낮</th>
-            <th>목장<br/>집회</th>
-            <th>저녁 </th>
-            <th>수요 </th>
-            <th>가정 </th>
-            <th>새벽 </th>
-            <th>철야 </th>
-            <th>골방 </th>
+            <th>번호</th>
+            <th>목장원이름</th>
+            <th>목장집회<br />참석</th>
+            <th>목장<br />새등록자</th>
+            <th>8주<br />참석자</th>
+            <th>목장등록후<br />교회등록</th>
+            <th>양육1권<br />수료자</th>
+            <th>학교양육<br />1권수료</th>
+            <th>교회등록</th>
+            <th>교회등록후<br />목장참석</th>
+            <th>목장집회<br />1명감소</th>
+            <th>번식하여<br />나가는분</th>
+            <th>식당봉사</th>
           </tr>
           
         </thead>
         <tbody>
+        <c:forEach var="member" items="${members}" varStatus="s">
           <tr class="active">
            	<td>1</td>
-            <td><input type="text" class="form-control" name="name" /></td>
-            <td><input type="text" class="form-control" name="role" /></td>
-            <td>
-            	<select class="form-control" name="LordDay">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="mokjang">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="LordNight">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="wednesday">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td><input type="number" class="form-control" name="home" /></td>
-            <td><input type="number" class="form-control" name="dawn" /></td>
-            <td><input type="number" class="form-control" name="allNight" /></td>
-            <td><input type="number" class="form-control" name="private" /></td>
-            <td><input type="number" class="form-control" name="word" /></td>
-            <td><input type="number" class="form-control" name="ritualRice" /></td>
-            <td><input type="number" class="form-control" name="commitment" /></td>
-            <td><input type="number" class="form-control" name="enroll" /></td>
-            <td><input type="number" class="form-control" name="rearing" /></td>
-            <td><input type="number" class="form-control" name="specialEvent" /></td>
+            <td><input type="text" class="form-control" name="name" value="${member.name}" disabled /></td>
+            <td><input type="number" class="form-control" name="attendMokjang" /></td>
+            <td><input type="number" class="form-control" name="enrollMokjang" /></td>
+            <td><input type="number" class="form-control" name="attend8weeksMokjang" /></td>
+            <td><input type="number" class="form-control" name="attendMokjangAfterChurch" /></td>
+            <td><input type="number" class="form-control" name="graduateNutureMokjang" /></td>
+            <td><input type="number" class="form-control" name="graduateSchoolChurch" /></td>
+            <td><input type="number" class="form-control" name="enrollChurch" /></td>
+            <td><input type="number" class="form-control" name="enrollChurchAfterEnrollMokjang" /></td>
+            <td><input type="number" class="form-control" name="decreaseAttendantMokjangChurch" /></td>
+            <td><input type="number" class="form-control" name="sent" /></td>
+            <td><input type="number" class="form-control" name="restaurantService" /></td>
           </tr>
-          <tr class="success">
-           <td>2</td>
-           <td><input type="text" class="form-control" name="name" /></td>
-            <td><input type="text" class="form-control" name="role" /></td>
-            <td>
-            	<select class="form-control" name="LordDay">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="mokjang">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="LordNight">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="wednesday">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td><input type="number" class="form-control" name="home" /></td>
-            <td><input type="number" class="form-control" name="dawn" /></td>
-            <td><input type="number" class="form-control" name="allNight" /></td>
-            <td><input type="number" class="form-control" name="private" /></td>
-            <td><input type="number" class="form-control" name="word" /></td>
-            <td><input type="number" class="form-control" name="ritualRice" /></td>
-            <td><input type="number" class="form-control" name="commitment" /></td>
-            <td><input type="number" class="form-control" name="enroll" /></td>
-            <td><input type="number" class="form-control" name="rearing" /></td>
-            <td><input type="number" class="form-control" name="specialEvent" /></td>
-          </tr>
-          <tr class="warning">
-            <td>2</td>
-            <td><input type="text" class="form-control" name="name" /></td>
-            <td><input type="text" class="form-control" name="role" /></td>
-            <td>
-            	<select class="form-control" name="LordDay">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="mokjang">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="LordNight">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="wednesday">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td><input type="number" class="form-control" name="home" /></td>
-            <td><input type="number" class="form-control" name="dawn" /></td>
-            <td><input type="number" class="form-control" name="allNight" /></td>
-            <td><input type="number" class="form-control" name="private" /></td>
-            <td><input type="number" class="form-control" name="word" /></td>
-            <td><input type="number" class="form-control" name="ritualRice" /></td>
-            <td><input type="number" class="form-control" name="commitment" /></td>
-            <td><input type="number" class="form-control" name="enroll" /></td>
-            <td><input type="number" class="form-control" name="rearing" /></td>
-            <td><input type="number" class="form-control" name="specialEvent" /></td>
-          </tr>
-          <tr class="danger">
-            <td>4</td>
-            <td><input type="text" class="form-control" name="name" /></td>
-            <td><input type="text" class="form-control" name="role" /></td>
-            <td>
-            	<select class="form-control" name="LordDay">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="mokjang">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="LordNight">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td>
-            	<select class="form-control" name="wednesday">
-				  <option>O</option>
-				  <option>X</option>
-				</select>
-			</td>
-            <td><input type="number" class="form-control" name="home" /></td>
-            <td><input type="number" class="form-control" name="dawn" /></td>
-            <td><input type="number" class="form-control" name="allNight" /></td>
-            <td><input type="number" class="form-control" name="private" /></td>
-            <td><input type="number" class="form-control" name="word" /></td>
-            <td><input type="number" class="form-control" name="ritualRice" /></td>
-            <td><input type="number" class="form-control" name="commitment" /></td>
-            <td><input type="number" class="form-control" name="enroll" /></td>
-            <td><input type="number" class="form-control" name="rearing" /></td>
-            <td><input type="number" class="form-control" name="specialEvent" /></td>
-          </tr>
+          <input type="hidden" name="memberId" value="${member.id}" />
+          </c:forEach>
         </tbody>
       </table>
       <button type="submit" class="btn btn-default">등록</button>

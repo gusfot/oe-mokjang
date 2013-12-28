@@ -14,6 +14,10 @@ public class PersonalReport {
 	private long id;
 	
 	/**
+	 * member
+	 */
+	private Member member;
+	/**
 	 * 그룹
 	 */
 	private Group group ;
@@ -214,6 +218,14 @@ public class PersonalReport {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
 	}
 	
 	
