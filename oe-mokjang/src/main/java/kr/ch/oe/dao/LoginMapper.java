@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LoginMapper {
 
-	String login(Member member);
+	int login(Member member);
 
 	void edit(Member member);
 

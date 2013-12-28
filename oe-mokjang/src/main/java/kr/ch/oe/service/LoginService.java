@@ -13,7 +13,7 @@ import kr.ch.oe.model.Member;
 
 public interface LoginService {
 
-	public void login(Member member);
+	public Member login(Member member);
 	
 	public void regist(Member member);
 	

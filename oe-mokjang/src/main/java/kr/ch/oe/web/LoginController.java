@@ -3,6 +3,9 @@
  */
 package kr.ch.oe.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import kr.ch.oe.model.Member;
 import kr.ch.oe.service.LoginService;
 
@@ -30,11 +33,21 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
-	public String login(@RequestParam String id, @RequestParam String password){
-		
-		System.out.println(id);
-		System.out.println(password);
-		return "redirect:main.oe";
+	public String login(@RequestParam String id, @RequestParam String password,HttpServletRequest request){
+		HttpSession session = request.getSession();
+		Member member = new Member();
+		member.setEmail(id);
+		member.setPassword(password);
+		member = loginService.login(member);
+		String redirect = "";
+		System.out.println(member.getName());
+		if(member != null){
+			session.setAttribute("loggedMember", member);
+			redirect ="redirect:main.oe";
+		}else{
+			redirect ="redirect:login.oe";
+		}
+		return redirect;
 		
 	}
 	

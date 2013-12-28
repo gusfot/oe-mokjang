@@ -4,6 +4,7 @@
 package kr.ch.oe.service.impl;
 
 import kr.ch.oe.dao.LoginMapper;
+import kr.ch.oe.dao.MemberMapper;
 import kr.ch.oe.model.Member;
 import kr.ch.oe.service.LoginService;
 
@@ -19,6 +20,9 @@ public class LoginServiceImpl implements LoginService {
 
 	@Autowired
 	LoginMapper loginMapper;
+	
+	@Autowired
+	MemberMapper memberMapper;
 
 	@Override
 	public void regist(Member member) {
@@ -26,8 +30,9 @@ public class LoginServiceImpl implements LoginService {
 	}
 
 	@Override
-	public void login(Member member) {
-		loginMapper.login(member);
+	public Member login(Member member) {
+		
+		return memberMapper.selectMemberByEmailAndPassword(member);
 		
 	}
 

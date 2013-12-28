@@ -47,7 +47,7 @@
 			,member.home_phone
 		from 
 			oe_mokjang mokjang
-		inner join oe_member member on mokjang.id = member.mokjang_id
+		inner join oe_member member on mokjang.group_id = member.group_id 
 		inner join oe_group oegroup on mokjang.group_id = oegroup.id
 		where mokjang.id = #{id}
 	</select>

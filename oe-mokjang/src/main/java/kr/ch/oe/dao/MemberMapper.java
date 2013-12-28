@@ -17,4 +17,6 @@ public interface MemberMapper {
 
 	List<Member> selectMembersByCriteria(Map criteria);
 
+	Member selectMemberByEmailAndPassword(Member member);
+
 }
