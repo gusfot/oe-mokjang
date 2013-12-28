@@ -24,7 +24,7 @@
       <!-- church news -->
 		<%@ include file="include/newsContents.jsp" %>
 		<!-- //church news -->
-
+		메인페이
       <!-- Site footer -->
       <%@ include file="include/footer.jsp" %>
       <!-- //Site footer -->

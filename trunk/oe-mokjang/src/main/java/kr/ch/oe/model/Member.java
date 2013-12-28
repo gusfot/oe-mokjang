@@ -9,24 +9,16 @@ package kr.ch.oe.model;
  */
 public class Member {
 	
-	private int memberId;
+	private long id;
 	private String password;
 	private String name;
 	private String birthday;
-	@Override
-	public String toString() {
-		return "Member [memberId=" + memberId + ", password=" + password
-				+ ", name=" + name + ", birthday=" + birthday + ", job=" + job
-				+ ", mobilePhone=" + mobilePhone + ", homePhone=" + homePhone
-				+ ", email=" + email + ", address=" + address + ", mokjang="
-				+ mokjang + ", role=" + role + ", education=" + education + "]";
-	}
 	private String job;
 	private String mobilePhone;
 	private String homePhone;
 	private String email;
 	private String address;
-	private Mokjang mokjang;
+	private Group group;
 	private Role role;
 	private Education education;
 	
@@ -48,12 +40,6 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Mokjang getMokjang() {
-		return mokjang;
-	}
-	public void setMokjang(Mokjang mokjang) {
-		this.mokjang = mokjang;
-	}
 	public Education getEducation() {
 		return education;
 	}
@@ -63,11 +49,11 @@ public class Member {
 	public String getBirthday() {
 		return birthday;
 	}
-	public int getMemberId() {
-		return memberId;
+	public long getId() {
+		return id;
 	}
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getPassword() {
 		return password;
@@ -101,6 +87,12 @@ public class Member {
 	}
 	public void setRole(Role role) {
 		this.role = role;
+	}
+	public Group getGroup() {
+		return group;
+	}
+	public void setGroup(Group group) {
+		this.group = group;
 	}
 	
 	

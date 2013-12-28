@@ -4,28 +4,30 @@
 <mapper namespace="kr.ch.oe.dao.ReportMapper">
 
 	<insert id="insertPersonalReport" parameterType="kr.ch.oe.model.PersonalReport">
-	  <selectKey keyProperty="memberId" resultType="int" order="BEFORE">
-    	select nextval('sq_report')
+	  <selectKey keyProperty="id" resultType="int" order="BEFORE">
+    	select nextval('sq_personal_report')
   	  </selectKey>
 	  insert into oe_personal_report(
 	  	id, 
+	  	group_id,
+	  	weeks,
 	  	member_name,
 	  	attend_mokjang,
 	  	attendant_8weeks,
 	  	enroll_church_after_enroll_mokjang,
 	  	graduate_nurture,
-	  	mokjang_report_id,
-	  	group_id
+	  	mokjang_report_id
 	  
 	  ) values(
 	  	#{id},
+	  	#{group.id},
+	  	#{weeks},
 	  	#{memberNameMokjang},
 	  	#{enrollMokjang},
 	  	#{attend8weeksMokjang},
 	  	#{enrollChurchAfterEnrollMokjang},
 	  	#{graduateNurtureMokjang},
-	  	#{mokjangReport.id},
-	  	#{group.groupId}
+	  	#{mokjangReport.id}
 	  )
 	</insert>
 	
@@ -40,8 +42,13 @@
 	</delete>
 	
 	<insert id="insertMokjangReport" parameterType="kr.ch.oe.model.Report">
+	 <selectKey keyProperty="id" resultType="int" order="BEFORE">
+    	select nextval('sq_report')
+  	  </selectKey>
 	  insert into oe_mokjang_report(
 	  	id, 
+	  	group_id,
+	  	weeks,
 	  	meet_date,
 	  	meet_place,
 	  	welcome_member,
@@ -53,6 +60,8 @@
 	  
 	  ) values(
 	  	#{id},
+	  	#{group.id},
+	  	#{weeks},
 	  	#{meetingDate},
 	  	#{meetingPlace},
 	  	#{welcomeMember},

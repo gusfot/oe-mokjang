@@ -33,29 +33,32 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void regist(Member member) {
 		
+		/**
 		memberMapper.insert(member);
-		System.out.println("member.getMemberId() : " + member.getMemberId());
-		mokjangMapper.insert(member.getMokjang());
+		System.out.println("member.getId() : " + member.getId());
+		mokjangMapper.insert(member.getGroup());
 		roleMapper.insert(member.getRole());
-		
+		*/
 	}
 
 	@Override
-	public void remove(int id) {
+	public void remove(long id) {
 		memberMapper.delete(id);
 	}
 
 	@Transactional
 	@Override
 	public void modify(Member member) {
+		/*
 		memberMapper.update(member);
 		groupMapper.update(member.getMokjang().getGroup());
 		mokjangMapper.update(member.getMokjang());
 		roleMapper.update(member.getRole());
+		*/
 	}
 
 	@Override
-	public Member getMember(int id) {
+	public Member getMember(long id) {
 		return memberMapper.selectMemberById(id);
 	}
 

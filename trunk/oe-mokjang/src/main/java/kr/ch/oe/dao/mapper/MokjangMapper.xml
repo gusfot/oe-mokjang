@@ -3,28 +3,72 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.MokjangMapper">
 
-	<select id="selectMokjangById" parameterType="int" resultType="kr.ch.oe.model.Mokjang">
+	<resultMap id="mokjang" type="kr.ch.oe.model.Mokjang">
+		<id property="id" column="id" />
+		<association property="group" resultMap="group"></association>
+		<collection property="members" resultMap="member"/>
+	</resultMap>
+	
+	<resultMap id="role" type="kr.ch.oe.model.Role">
+		<id property="role_id" column="id" />
+		<result property="type" column="type" />
+	</resultMap>
+	
+	<resultMap id="group" type="kr.ch.oe.model.Group">
+		<id property="id" column="group_id" />
+		<result property="churchId" column="church_id" />
+		<result property="zoId" column="zo_id" />
+	</resultMap>
+	
+	<resultMap id="member" type="kr.ch.oe.model.Member">
+		<id property="id" column="member_id" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="name" column="name" />
+		<result property="birthday" column="birthday" />
+		<result property="job" column="job" />
+		<result property="address" column="address" />
+		<result property="mobilePhone" column="mobile_phone" />
+		<result property="homePhone" column="home_phone" />
+	</resultMap>
+
+	<select id="selectMokjangById" parameterType="long" resultMap="mokjang">
 		select 
-			id,
-			church_id,
-			gyogu_id,
-			zo_id,
-			mokjang_id
+			mokjang.id
+			,mokjang.group_id
+			,leader_id
+			,member.id member_id
+			,member.email
+			,member.name
+			,member.birthday
+			,member.job
+			,member.address
+			,member. mobile_phone
+			,member.home_phone
 		from 
-			oe_group
-		where
-	   		id = #{mokjangId}
+			oe_mokjang mokjang
+		inner join oe_member member on mokjang.id = member.mokjang_id
+		inner join oe_group oegroup on mokjang.group_id = oegroup.id
+		where mokjang.id = #{id}
 	</select>
 	
-	<select id="selectMokjangsByCriteria" parameterType="map" resultType="kr.ch.oe.model.Mokjang">
+	<select id="selectMokjangsByCriteria" parameterType="map" resultMap="mokjang">
 	  select 
-			id,
-			church_id,
-			gyogu_id,
-			zo_id,
-			mokjang_id
+			mokjang.id
+			,mokjang.gyogu_id
+			,leader_id
+			,member.id member_id
+			,member.email
+			,member.name
+			,member.birthday
+			,member.job
+			,member.address
+			,member.mobile_phone
+			,member.home_phone
 		from 
-			oe_group
+			oe_mokjang mokjang
+		inner join oe_member member on mokjang.id = member.mokjang_id
+		inner join oe_group oegroup on mokjang.group_id = oegroup.id
 	</select>
 
 	<insert id="insert" parameterType="kr.ch.oe.model.Mokjang">

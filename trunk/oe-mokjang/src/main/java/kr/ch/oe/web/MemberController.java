@@ -39,32 +39,6 @@ public class MemberController {
 						//@RequestParam String birthday, @RequestParam String gyogu, 
 						//@RequestParam("role") String roleValue, @RequestParam String address
 						) {
-		System.out.println(member.getName());
-		System.out.println(member.getEmail());
-		System.out.println(member.getPassword());
-		System.out.println(member.getHomePhone());
-		System.out.println(member.getJob());
-		System.out.println(member.getMobilePhone());
-
-		Role role =new Role();
-		role.setType("MJ");
-		
-		
-		member.setRole(role);
-		
-		Group group = new Group();
-		group.setChurchId(1);
-		group.setGyoguId(5);
-		
-		Mokjang mokjang = new Mokjang();
-		mokjang.setGroup(group);
-		mokjang.setMokjangId(3);
-		mokjang.setLeader(member);
-		
-		member.setMokjang(mokjang);
-		member.setRole(role);
-		
-		memberService.regist(member);
 		
 		return "redirect:/login.oe";
 	}

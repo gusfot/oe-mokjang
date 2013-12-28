@@ -3,7 +3,7 @@ package kr.ch.oe.model;
 import java.util.List;
 
 public class Mokjang {
-	private long mokjangId;
+	private long id;
 	private Group group;
 	private Member leader;
 	private List<Member> members;
@@ -26,11 +26,11 @@ public class Mokjang {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
-	public long getMokjangId() {
-		return mokjangId;
+	public long getId() {
+		return id;
 	}
-	public void setMokjangId(long mokjangId) {
-		this.mokjangId = mokjangId;
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 }

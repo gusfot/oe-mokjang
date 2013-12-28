@@ -28,10 +28,10 @@ public class MokjangMapperTest {
 	public void insert(){
 		
 		Member leader = new Member();
-		leader.setMemberId(1);
+		leader.setId(1);
 		Group group =new Group();
 		group.setChurchId(1);
-		group.setGyoguId(1);
+		group.setId(1);
 		Mokjang mokjang = new Mokjang();
 		mokjang.setGroup(group);
 		mokjang.setLeader(leader);
@@ -50,19 +50,28 @@ public class MokjangMapperTest {
 	public void delete(){
 		Mokjang mokjang = new Mokjang();
 		
-		mokjangMapper.delete(mokjang.getMokjangId());
+		mokjangMapper.delete(mokjang.getId());
 	}
 	
 	//@Test
-	public void selecGroupById(){
+	public void selecMokjangById(){
 		
-		Group group = mokjangMapper.selectMokjangById(1);
+		Mokjang mokjang = mokjangMapper.selectMokjangById(1);
 	}
 	
 	//@Test
 	public void selectGroupsByCriteria(){
 		Map criteria = new HashMap();
-		List<Group> groups = mokjangMapper.selectMokjangsByCriteria(criteria);
+		List<Mokjang> Mokjangs = mokjangMapper.selectMokjangsByCriteria(criteria);
+	}
+	
+	@Test
+	public void selectMokjangById(){
+		Mokjang mokjang = mokjangMapper.selectMokjangById(8);
+		System.out.println(mokjang.getGroup().getId());
+		System.out.println(mokjang.getMembers().get(0).getName());
+		System.out.println(mokjang.getMembers().get(1).getName());
+		
 	}
 	
 	

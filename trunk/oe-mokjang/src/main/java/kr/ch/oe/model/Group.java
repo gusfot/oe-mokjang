@@ -11,40 +11,47 @@ import java.util.List;
  *
  */
 public class Group {
-	private int groupId;
-	private int churchId;
-	private int gyoguId;
-	private int zoId;
+	private long id;
+	private long churchId;
+	private long gyoguId;
+	private long zoId;
+	private long mokjangId;
 	private List<Mokjang> mokjangList;
 	
-	public int getChurchId() {
+	public long getChurchId() {
 		return churchId;
 	}
-	public void setChurchId(int churchId) {
+	public void setChurchId(long churchId) {
 		this.churchId = churchId;
 	}
-	public int getGyoguId() {
-		return gyoguId;
-	}
-	public void setGyoguId(int gyoguId) {
-		this.gyoguId = gyoguId;
-	}
-	public int getZoId() {
+	public long getZoId() {
 		return zoId;
 	}
-	public void setZoId(int zoId) {
+	public void setZoId(long zoId) {
 		this.zoId = zoId;
 	}
-	public int getGroupId() {
-		return groupId;
+	public long getId() {
+		return id;
 	}
-	public void setGroupId(int groupId) {
-		this.groupId = groupId;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public List<Mokjang> getMokjangList() {
 		return mokjangList;
 	}
 	public void setMokjangList(List<Mokjang> mokjangList) {
 		this.mokjangList = mokjangList;
+	}
+	public long getGyoguId() {
+		return gyoguId;
+	}
+	public void setGyoguId(long gyoguId) {
+		this.gyoguId = gyoguId;
+	}
+	public long getMokjangId() {
+		return mokjangId;
+	}
+	public void setMokjangId(long mokjangId) {
+		this.mokjangId = mokjangId;
 	}
 }
