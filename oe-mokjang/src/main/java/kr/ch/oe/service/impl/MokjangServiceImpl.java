@@ -16,7 +16,6 @@ public class MokjangServiceImpl implements MokjangService {
 	
 	@Override
 	public Mokjang getMokjangByLeader(Member member) {
-		System.out.println(member.getGroup().getMokjangId());
 		return mokjangMapper.selectMokjangById(member.getGroup().getMokjangId());
 	}
 

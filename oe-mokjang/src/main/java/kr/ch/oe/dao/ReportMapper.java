@@ -24,9 +24,11 @@ public interface ReportMapper {
 	
 	void insertMokjangReport(Report report);
 	
-	Report selectMokjangReport(Report report);
+	Report selectMokjangReport(long reportId);
 	
 	List<Report> selectMokjangReports();
 
 	void deleteMokjangReport(Report report);
+
+	PersonalReport selectPersonalReportById(long id);
 }

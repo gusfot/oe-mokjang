@@ -23,7 +23,7 @@ public class ReportTest {
 	@Autowired
 	ReportMapper reportMapper;
 	
-	@Test
+	//@Test
 	public void insertPersonalReport(){
 		Group group = new Group();
 		group.setId(1);
@@ -40,6 +40,13 @@ public class ReportTest {
 	}
 	
 	@Test
+	public void selectPersonalReport(){
+		
+		PersonalReport report = reportMapper.selectPersonalReportById(28);
+		System.out.println(report.toString());
+	}
+	
+	//@Test
 	//@Transactional
 	public void insertReport(){
 		Group group = new Group();
@@ -93,6 +100,10 @@ public class ReportTest {
 	
 	@Test
 	public void selectReport(){
-		
+		Report report = reportMapper.selectMokjangReport(11);
+		List<PersonalReport> preportList = report.getPersonalReports();
+		for(PersonalReport preport : preportList){
+			System.out.println(preport.toString());
+		}
 	}
 }

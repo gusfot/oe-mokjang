@@ -32,48 +32,61 @@
 
       <!-- Example row of columns -->
       <div class="row">
-      <!-- 
+      <!--  -->
+       <form action="/report/regist.oe" method="post">
       <div class="form-group">
 		  <div class="form-group">
-		  	<label class="col-sm-2" for="birthday">목장모임 시간</label>
+		  	<label class="col-sm-2" for="meetingDate">목장모임 시간</label>
 		     <div class="col-sm-10">
-		    <input type="date" class="form-control" id="birthday" name="birthday" placeholder="생일">
+		    <input type="date" class="form-control" id="meetingDate" name="meetingDate" placeholder="목장모임 시간">
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		    <label class="col-sm-2" for="password">모임장소</label>
+		    <label class="col-sm-2" for="meetingPlace">모임장소</label>
 		     <div class="col-sm-10">
-		    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+		    <input type="text" class="form-control" id="meetingPlace" name="meetingPlace" placeholder="모임장소">
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		  	<label class="col-sm-2" for="memberName">헌금</label>
+		  	<label class="col-sm-2" for="offering">헌금</label>
 		     <div class="col-sm-10">
-		    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+		    <input type="text" class="form-control" id="offering" name="offering" placeholder="헌금">
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		  	<label class="col-sm-2" for="exampleInputPassword1">찬송인도</label>
+		  	<label class="col-sm-2" for="worshipMember">찬송인도</label>
 		     <div class="col-sm-10">
-		    <input type="text" class="form-control" id="job" name="job" placeholder="직업">
+		    <input type="text" class="form-control" id="worshipMember" name="worshipMember" placeholder="찬송인도">
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		  	<label class="col-sm-2" for="address">기도인도</label>
+		  	<label class="col-sm-2" for="welcomeMember">기도인도</label>
 		     <div class="col-sm-10">
-		    <input type="text" class="form-control" id="address" name="address" placeholder="집주소">
+		    <input type="text" class="form-control" id="welcomeMember" name="welcomeMember" placeholder="기도인도">
 		  	</div>
 		  </div>
 		  <div class="form-group">
-		  	<label class="col-sm-2" for="address">말씀인도</label>
+		  	<label class="col-sm-2" for="workMember">사역인도</label>
 		     <div class="col-sm-10">
-		    <input type="text" class="form-control" id="address" name="address" placeholder="집주소">
+		    <input type="text" class="form-control" id="workMember" name="workMember" placeholder="사역인도">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="wordMember">말씀인도</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="wordMember" name="wordMember" placeholder="집주소">
+		  	</div>
+		  </div>
+		  <div class="form-group">
+		  	<label class="col-sm-2" for="nextMeetingPlace">다음모임장소</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="nextMeetingPlace" name="nextMeetingPlace" placeholder="다음모임장소">
 		  	</div>
 		  </div>
 	  </div>
-	  -->
+	  <!-- -->
       <hr />
-      <form action="/report/regist.oe" method="post">
+     
        <table class="table table-bordered">
        <caption>이번주 목장보고서 등록</caption>
        <colgroup>
@@ -110,21 +123,21 @@
         <tbody>
         <c:forEach var="member" items="${members}" varStatus="s">
           <tr class="active">
-           	<td>1</td>
-            <td><input type="text" class="form-control" name="name" value="${member.name}" disabled /></td>
-            <td><input type="number" class="form-control" name="attendMokjang" /></td>
-            <td><input type="number" class="form-control" name="enrollMokjang" /></td>
-            <td><input type="number" class="form-control" name="attend8weeksMokjang" /></td>
-            <td><input type="number" class="form-control" name="attendMokjangAfterChurch" /></td>
-            <td><input type="number" class="form-control" name="graduateNutureMokjang" /></td>
-            <td><input type="number" class="form-control" name="graduateSchoolChurch" /></td>
-            <td><input type="number" class="form-control" name="enrollChurch" /></td>
-            <td><input type="number" class="form-control" name="enrollChurchAfterEnrollMokjang" /></td>
-            <td><input type="number" class="form-control" name="decreaseAttendantMokjangChurch" /></td>
-            <td><input type="number" class="form-control" name="sent" /></td>
-            <td><input type="number" class="form-control" name="restaurantService" /></td>
+           	<td>${s.count}</td>
+            <td><input type="text" class="form-control" name="memberName[]" value="${member.name}" disabled /></td>
+            <td><input type="number" class="form-control" name="attendMokjang[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="enrollMokjang[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="attend8weeksMokjang[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="attendMokjangAfterChurch[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="graduateNutureMokjang[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="graduateSchoolChurch[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="enrollChurch[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="enrollChurchAfterEnrollMokjang[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="decreaseAttendantMokjangChurch[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="sentChurch[]" value="0" /></td>
+            <td><input type="number" class="form-control" name="restaurantService[]" value="0" /></td>
           </tr>
-          <input type="hidden" name="memberId" value="${member.id}" />
+          <input type="hidden" name="memberId[]" value="${member.id}" />
           </c:forEach>
         </tbody>
       </table>

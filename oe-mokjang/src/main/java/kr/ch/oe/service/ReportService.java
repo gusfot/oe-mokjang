@@ -12,7 +12,7 @@ public interface ReportService {
 	void registMokjangReport(Report report);
 	void modifyMokjangReport(Report report);
 	void removeMokjangReport(long reportId);
-	void getMokjangReport(long reportId);
+	Report getMokjangReport(long reportId);
 	void getMokjangReportsByCriteria(Map criteria);
 	
 	void registPersonalReport(PersonalReport report);

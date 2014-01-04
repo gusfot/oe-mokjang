@@ -3,6 +3,70 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ch.oe.dao.ReportMapper">
 
+	<resultMap id="report" type="kr.ch.oe.model.Report">
+		<id property="id" column="id" />
+		<result property="weeks" column="weeks" />
+		<result property="meetingDate" column="meet_date" />
+		<result property="meetingPlace" column="meet_place" />
+		<result property="welcomeMember" column="wecome_member" />
+		<result property="worshipMember" column="worship_member" />
+		<result property="wordMember" column="word_member" />
+		<result property="workMember" column="work_member" />
+		<result property="nextMeetingPlace" column="next_meet_place" />
+		<result property="offering" column="offering" />
+		
+		<association property="group" resultMap="group" columnPrefix="group_"/>
+		<collection property="personalReports" resultMap="personalReport" columnPrefix="personal_"/>
+		
+	</resultMap>
+	<resultMap id="group" type="kr.ch.oe.model.Group">
+		<id property="id" column="group_id" />
+		<result property="churchId" column="church_id" />
+		<result property="zoId" column="zo_id" />
+	</resultMap>
+	
+	<resultMap id="personalReport" type="kr.ch.oe.model.PersonalReport">
+		<id property="id" column="id" />
+		<!-- <result property="memberId" column="member_id" /> -->
+		<!-- <result property="groupId" column="group_id" /> -->
+		<result property="weeks" column="weeks" />
+		<result property="attendMokjang" column="attend_mokjang" />
+		<result property="enrolMokjang" column="enrol_mokjang" />
+		<result property="attend8weeksMokjang" column="attendant_8weeks" />
+		<result property="enrollMokjangAfterEnrollChurch" column="enroll_mokjang_after_enroll_church" />
+		<result property="graduateNurtureMokjang" column="graduate_nurture" />
+		<result property="graduateSchoolChurch" column="graduate_school" />
+		<result property="enrollChurch" column="enroll_church" />
+		<result property="enrollChurchAfterEnrollMokjang" column="enroll_church_after_enroll_mokjang" />
+		<result property="decreaseAttendantMokjangChurch" column="decrease_mokjang" />
+		<result property="sentChurch" column="sent_church" />
+		<result property="restaurantServiceChurch" column="restaurant_service" />
+		
+		<association property="member" resultMap="member" columnPrefix="member_"/>
+		
+	</resultMap>
+	
+	<resultMap id="member" type="kr.ch.oe.model.Member">
+		<id property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="email" column="email" />
+		<result property="name" column="name" />
+		<result property="birthday" column="birthday" />
+		<result property="job" column="job" />
+		<result property="address" column="address" />
+		<result property="mobilePhone" column="mobile_phone" />
+		<result property="homePhone" column="home_phone" />
+		<!-- 
+		<association property="role" resultMap="role" columnPrefix="role_" />
+		<association property="group" resultMap="group" columnPrefix="group_" />
+		 -->
+	</resultMap>
+	
+	<resultMap id="role" type="kr.ch.oe.model.Role">
+		<id property="id" column="role_id" />
+		<result property="type" column="type" />
+	</resultMap>
+	
 	<insert id="insertPersonalReport" parameterType="kr.ch.oe.model.PersonalReport">
 	  <selectKey keyProperty="id" resultType="int" order="BEFORE">
     	select nextval('sq_personal_report')
@@ -13,7 +77,7 @@
 	  	group_id,
 	  	weeks,
 	  	attend_mokjang,
-	  	enrol_mokjang,
+	  	enroll_mokjang,
 	  	attendant_8weeks,
 	  	enroll_mokjang_after_enroll_church,
 	  	graduate_nurture,
@@ -25,16 +89,16 @@
 	  	restaurant_service
 	  ) values(
 	  	#{id},
-	  	#{member.id}
+	  	#{member.id},
 	  	#{group.id},
 	  	#{weeks},
 	  	#{attendMokjang},
 	  	#{enrollMokjang},
 	  	#{attend8weeksMokjang},
-	  	#{enrollChurchAfterEnrollMokjang},
+	  	#{enrollMokjangAfterEnrollChurch},
 	  	#{graduateNurtureMokjang},
 	  	#{graduateSchoolChurch},
-		#{erollChurch},
+		#{enrollChurch},
 		#{enrollChurchAfterEnrollMokjang},
 	  	#{decreaseAttendantMokjangChurch},
 	  	#{sentChurch},
@@ -42,8 +106,34 @@
 	  )
 	</insert>
 	
-	<select id="selectPersonalReport" resultType="kr.ch.oe.model.PersonalReport">
-		select * from oe_personal_report
+	<select id="selectPersonalReportById" parameterType="long" resultMap ="personalReport">
+		select 
+			member.id member_id
+			,member.name member_name
+			,preport.id
+			,preport.group_id group_id
+			,preport.weeks weeks
+			,preport.attend_mokjang attend_mokjang
+			,preport.attendant_8weeks attendant_8weeks
+			,preport.graduate_nurture graduate_nurture
+			,preport.graduate_school graduate_school
+			,preport.enroll_church_after_enroll_mokjang enroll_church_after_enroll_mokjang
+			,preport.enroll_church enroll_church
+			,preport.enroll_mokjang_after_enroll_church enroll_mokjang_after_enroll_church
+			,preport.decrease_mokjang decrease_mokjang
+			,preport.sent_church sent_church
+			,preport.restaurant_service restaurant_service
+			,preport.enroll_mokjang enroll_mokjang
+			,oegroup.id group_id
+		from 
+			oe_personal_report preport
+		inner join 
+			oe_group oegroup on preport.group_id = oegroup.id
+		inner join 
+			oe_member member on member.id = preport.member_id
+		where
+			preport.id = #{id}
+		
 	</select>
 	
 	<update id="updatePersonalReport">
@@ -85,8 +175,42 @@
 	  	)
 	</insert>
 	
-	<select id="selectMokjangReport" resultType="kr.ch.oe.model.PersonalReport">
-		select * from oe_personal_report
+	<select id="selectMokjangReport" parameterType="int" resultMap="report">
+		select  
+			mreport.id
+			,mreport.group_id
+			,mreport.weeks
+			,mreport.meet_date
+			,mreport.meet_place
+			,mreport.welcome_member
+			,mreport.worship_member
+			,mreport.word_member
+			,mreport.next_meet_place
+			,mreport.offering
+			,preport.id personal_id
+			,preport.group_id personal_group_id
+			<!-- 
+			,preport.member_id personal_member_id
+			-->
+			,preport.weeks personal_weeks
+			,preport.attend_mokjang personal_attend_mokjang
+			,preport.attendant_8weeks personal_attendant_8weeks
+			,preport.graduate_nurture personal_graduate_nurture
+			,preport.graduate_school personal_graduate_school
+			,preport.enroll_church_after_enroll_mokjang personal_enroll_church_after_enroll_mokjang
+			,preport.enroll_church personal_enroll_church
+			,preport.enroll_mokjang_after_enroll_church personal_enroll_mokjang_after_enroll_church
+			,preport.decrease_mokjang personal_decrease_mokjang
+			,preport.sent_church personal_sent_church
+			,preport.restaurant_service personal_restaurant_service
+			,preport.enroll_mokjang personal_enroll_mokjang
+			,oegroup.id group_id
+		from 
+			oe_mokjang_report mreport 
+			inner join oe_personal_report preport on mreport.group_id = preport.group_id and mreport.weeks=preport.weeks
+			inner join oe_group oegroup on oegroup.id = mreport.group_id
+		where
+			mreport.id = #{reportId}
 	</select>
 	
 	<update id="updateMokjangReport">

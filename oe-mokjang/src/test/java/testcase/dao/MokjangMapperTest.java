@@ -72,6 +72,10 @@ public class MokjangMapperTest {
 		System.out.println(mokjang.getMembers().get(0).getName());
 		System.out.println(mokjang.getMembers().get(1).getName());
 		
+		for(Member member : mokjang.getMembers()){
+			System.out.println(member.getId());
+		}
+		
 	}
 	
 	

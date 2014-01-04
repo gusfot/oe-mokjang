@@ -71,6 +71,8 @@ public class PersonalReport {
 	 */
 	private int attendMokjangAfterChurch;
 	
+	private int enrollMokjangAfterEnrollChurch;
+	
 	/**
 	 * 목장집회 1명 감소 
 	 */
@@ -226,6 +228,32 @@ public class PersonalReport {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+
+	@Override
+	public String toString() {
+		return "PersonalReport [id=" + id + ", member=" + member + ", group="
+				+ group + ", weeks=" + weeks + ", memberNameMokjang="
+				+ memberNameMokjang + ", attendMokjang=" + attendMokjang
+				+ ", enrollMokjang=" + enrollMokjang + ", attend8weeksMokjang="
+				+ attend8weeksMokjang + ", enrollChurchAfterEnrollMokjang="
+				+ enrollChurchAfterEnrollMokjang + ", graduateNurtureMokjang="
+				+ graduateNurtureMokjang + ", graduateSchoolChurch="
+				+ graduateSchoolChurch + ", enrollChurch=" + enrollChurch
+				+ ", attendMokjangAfterChurch=" + attendMokjangAfterChurch
+				+ ", decreaseAttendantMokjangChurch="
+				+ decreaseAttendantMokjangChurch + ", sentChurch=" + sentChurch
+				+ ", restaurantServiceChurch=" + restaurantServiceChurch
+				+ ", mokjangReport=" + mokjangReport + "]";
+	}
+
+	public int getEnrollMokjangAfterEnrollChurch() {
+		return enrollMokjangAfterEnrollChurch;
+	}
+
+	public void setEnrollMokjangAfterEnrollChurch(
+			int enrollMokjangAfterEnrollChurch) {
+		this.enrollMokjangAfterEnrollChurch = enrollMokjangAfterEnrollChurch;
 	}
 	
 	

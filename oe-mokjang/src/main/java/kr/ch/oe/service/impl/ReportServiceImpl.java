@@ -28,12 +28,12 @@ public class ReportServiceImpl implements ReportService {
 	@Override
 	public void registMokjangReport(Report report) {
 		
+		reportMapper.insertMokjangReport(report);
+
 		for(PersonalReport personalReport : report.getPersonalReports()){
 			personalReport.setMokjangReport(report);
 			reportMapper.insertPersonalReport(personalReport);
 		}
-		
-		reportMapper.insertMokjangReport(report);
 
 	}
 
@@ -51,8 +51,8 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public void getMokjangReport(long reportId) {
-		// TODO Auto-generated method stub
+	public Report getMokjangReport(long reportId) {
+		return reportMapper.selectMokjangReport(reportId);
 		
 	}
 
@@ -65,6 +65,7 @@ public class ReportServiceImpl implements ReportService {
 	@Transactional
 	@Override
 	public void registPersonalReport(PersonalReport personalReport) {
+		
 		reportMapper.insertPersonalReport(personalReport);
 		
 	}
