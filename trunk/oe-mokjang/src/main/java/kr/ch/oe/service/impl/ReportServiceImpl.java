@@ -3,6 +3,7 @@
  */
 package kr.ch.oe.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import kr.ch.oe.dao.ReportMapper;
@@ -57,8 +58,8 @@ public class ReportServiceImpl implements ReportService {
 	}
 
 	@Override
-	public void getMokjangReportsByCriteria(Map criteria) {
-		// TODO Auto-generated method stub
+	public List<Report> getMokjangReportsByCriteria(Map criteria) {
+		return reportMapper.selectMokjangReports(criteria);
 		
 	}
 

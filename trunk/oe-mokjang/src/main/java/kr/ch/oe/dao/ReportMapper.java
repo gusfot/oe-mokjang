@@ -4,6 +4,7 @@
 package kr.ch.oe.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.ch.oe.model.PersonalReport;
 import kr.ch.oe.model.Report;
@@ -26,7 +27,7 @@ public interface ReportMapper {
 	
 	Report selectMokjangReport(long reportId);
 	
-	List<Report> selectMokjangReports();
+	List<Report> selectMokjangReports(Map criteria);
 
 	void deleteMokjangReport(Report report);
 

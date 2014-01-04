@@ -213,6 +213,44 @@
 			mreport.id = #{reportId}
 	</select>
 	
+	<select id="selectMokjangReports" parameterType="map" resultMap="report">
+		select  
+			mreport.id
+			,mreport.group_id
+			,mreport.weeks
+			,mreport.meet_date
+			,mreport.meet_place
+			,mreport.welcome_member
+			,mreport.worship_member
+			,mreport.word_member
+			,mreport.next_meet_place
+			,mreport.offering
+			,preport.id personal_id
+			,preport.group_id personal_group_id
+			<!-- 
+			,preport.member_id personal_member_id
+			-->
+			,preport.weeks personal_weeks
+			,preport.attend_mokjang personal_attend_mokjang
+			,preport.attendant_8weeks personal_attendant_8weeks
+			,preport.graduate_nurture personal_graduate_nurture
+			,preport.graduate_school personal_graduate_school
+			,preport.enroll_church_after_enroll_mokjang personal_enroll_church_after_enroll_mokjang
+			,preport.enroll_church personal_enroll_church
+			,preport.enroll_mokjang_after_enroll_church personal_enroll_mokjang_after_enroll_church
+			,preport.decrease_mokjang personal_decrease_mokjang
+			,preport.sent_church personal_sent_church
+			,preport.restaurant_service personal_restaurant_service
+			,preport.enroll_mokjang personal_enroll_mokjang
+			,oegroup.id group_id
+		from 
+			oe_mokjang_report mreport 
+			inner join oe_personal_report preport on mreport.group_id = preport.group_id and mreport.weeks=preport.weeks
+			inner join oe_group oegroup on oegroup.id = mreport.group_id
+		where
+			mreport.group_id = #{member.group.id}
+	</select>
+	
 	<update id="updateMokjangReport">
 	</update>
 

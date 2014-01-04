@@ -1,7 +1,9 @@
 package kr.ch.oe.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -38,8 +40,15 @@ public class ReportController {
 	private MokjangService mokjangService;
 	
 	@RequestMapping("/list.oe")
-	public String list(){
-		 
+	public String list(HttpServletRequest request, Model model){
+		HttpSession session = request.getSession();
+		
+		Map criteria = new HashMap();
+		criteria.put("member", (Member) session.getAttribute("loggedMember"));
+		List<Report> reports  = reportService.getMokjangReportsByCriteria(criteria );
+		
+		model.addAttribute("reports", reports);
+		
 		return "report/report_list";
 	}
 	
@@ -66,10 +75,9 @@ public class ReportController {
 		
 		Member member = (Member) session.getAttribute("loggedMember");
 		Mokjang mokjang = mokjangService.getMokjangByLeader(member);
-		System.out.println(mokjang.getId());
 		
 		model.addAttribute("members", mokjang.getMembers());
-		System.out.println(mokjang.getMembers().size());
+		
 		return "report/report_regist";
 	}
 	
