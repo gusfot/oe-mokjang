@@ -6,7 +6,7 @@
 	<resultMap id="mokjang" type="kr.ch.oe.model.Mokjang">
 		<id property="id" column="id" />
 		<association property="group" resultMap="group"></association>
-		<collection property="members" resultMap="member"/>
+		<collection property="members" resultMap="member" columnPrefix="member_" />
 	</resultMap>
 	
 	<resultMap id="role" type="kr.ch.oe.model.Role">
@@ -21,7 +21,7 @@
 	</resultMap>
 	
 	<resultMap id="member" type="kr.ch.oe.model.Member">
-		<id property="id" column="member_id" />
+		<id property="id" column="id" />
 		<result property="password" column="password" />
 		<result property="email" column="email" />
 		<result property="name" column="name" />
@@ -38,13 +38,13 @@
 			,mokjang.group_id
 			,leader_id
 			,member.id member_id
-			,member.email
-			,member.name
-			,member.birthday
-			,member.job
-			,member.address
-			,member. mobile_phone
-			,member.home_phone
+			,member.email member_email
+			,member.name member_name
+			,member.birthday member_birthday
+			,member.job member_job
+			,member.address member_address
+			,member.mobile_phone member_mobile_phone 
+			,member.home_phone member_home_phone
 		from 
 			oe_mokjang mokjang
 		inner join oe_member member on mokjang.group_id = member.group_id 
