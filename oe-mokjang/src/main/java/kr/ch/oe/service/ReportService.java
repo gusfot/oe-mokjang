@@ -1,5 +1,6 @@
 package kr.ch.oe.service;
 
+import java.util.List;
 import java.util.Map;
 
 import kr.ch.oe.model.PersonalReport;
@@ -13,7 +14,7 @@ public interface ReportService {
 	void modifyMokjangReport(Report report);
 	void removeMokjangReport(long reportId);
 	Report getMokjangReport(long reportId);
-	void getMokjangReportsByCriteria(Map criteria);
+	List<Report> getMokjangReportsByCriteria(Map criteria);
 	
 	void registPersonalReport(PersonalReport report);
 	void modifyPersonalReport(PersonalReport report);
