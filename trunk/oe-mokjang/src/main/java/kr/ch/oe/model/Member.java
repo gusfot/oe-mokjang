@@ -9,19 +9,53 @@ package kr.ch.oe.model;
  */
 public class Member {
 	
-	private long id;
+	private long userId;
 	private String password;
 	private String name;
-	private String birthday;
+	private String birth;
 	private String job;
-	private String mobilePhone;
+	private String cellPhone;
 	private String homePhone;
 	private String email;
 	private String address;
-	private Group group;
-	private Role role;
-	private Education education;
+	private long groupSeq;
 	
+	public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public String getCellPhone() {
+		return cellPhone;
+	}
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
+	}
 	public String getHomePhone() {
 		return homePhone;
 	}
@@ -40,59 +74,11 @@ public class Member {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Education getEducation() {
-		return education;
+	public long getGroupSeq() {
+		return groupSeq;
 	}
-	public void setEducation(Education education) {
-		this.education = education;
-	}
-	public String getBirthday() {
-		return birthday;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-	public String getJob() {
-		return job;
-	}
-	public void setJob(String job) {
-		this.job = job;
-	}
-	public String getMobilePhone() {
-		return mobilePhone;
-	}
-	public void setMobilePhone(String mobilePhone) {
-		this.mobilePhone = mobilePhone;
-	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
-	public Group getGroup() {
-		return group;
-	}
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setGroupSeq(long groupSeq) {
+		this.groupSeq = groupSeq;
 	}
 	
 	
