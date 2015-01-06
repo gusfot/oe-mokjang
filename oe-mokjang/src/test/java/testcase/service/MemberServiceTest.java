@@ -24,44 +24,4 @@ public class MemberServiceTest {
 	@Autowired
 	MemberService memberService;
 	
-	//@Test
-	public void regist(){
-		Role role = new Role();
-		Mokjang mokjang = new Mokjang();
-		
-		Member member = new Member();
-		member.setRole(role);
-		Group group = new Group();
-		member.setGroup(group );
-		
-		memberService.regist(member);
-		
-	}
-	
-	@Test
-	public void remove(){
-		
-		Member member = new Member();
-		
-		memberService.remove(member.getId());
-	}
-	
-	@Test
-	public void modify(){
-		Member member = new Member();
-		
-		memberService.modify(member);
-	}
-	
-	@Test
-	public void getMember(){
-		int id = 0;
-		Member member = memberService.getMember(id);
-	}
-	
-	@Test
-	public void getMembers(){
-		Map criteria = new HashMap();
-		List<Member> member = memberService.getMembers(criteria);
-	}
 }
