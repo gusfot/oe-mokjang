@@ -1,14 +1,9 @@
 package testcase.dao;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import kr.ch.oe.dao.MemberMapper;
-import kr.ch.oe.model.Group;
-import kr.ch.oe.model.Member;
-import kr.ch.oe.model.Mokjang;
-import kr.ch.oe.model.Role;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,5 +20,12 @@ public class MemberMapperTest {
 	@Autowired
 	MemberMapper memberMapper;
 	
+	@Test
+	public void selectList() {
+		
+		Map criteria = new HashMap<String, Object>();
+		memberMapper.selectMembersByCriteria(criteria );
+		
+	}
 	
 }
