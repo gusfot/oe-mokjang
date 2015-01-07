@@ -9,7 +9,8 @@ package kr.ch.oe.model;
  */
 public class Member {
 	
-	private long userId;
+	private long user_seq;
+	private String userId;
 	private String password;
 	private String name;
 	private String birth;
@@ -17,13 +18,13 @@ public class Member {
 	private String cellPhone;
 	private String homePhone;
 	private String email;
-	private String address;
+	private String addr;
 	private long groupSeq;
 	
-	public long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getPassword() {
@@ -68,17 +69,23 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
+	public String getAddr() {
+		return addr;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 	public long getGroupSeq() {
 		return groupSeq;
 	}
 	public void setGroupSeq(long groupSeq) {
 		this.groupSeq = groupSeq;
+	}
+	public long getUser_seq() {
+		return user_seq;
+	}
+	public void setUser_seq(long user_seq) {
+		this.user_seq = user_seq;
 	}
 	
 	

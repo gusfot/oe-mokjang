@@ -4,155 +4,30 @@
 <mapper namespace="kr.ch.oe.dao.MemberMapper">
 	
 	<resultMap id="member" type="kr.ch.oe.model.Member">
-		<id property="id" column="id" />
+		<id property="userId" column="user_id" />
 		<result property="password" column="password" />
 		<result property="email" column="email" />
-		<result property="name" column="name" />
-		<result property="birthday" column="birthday" />
+		<result property="name" column="user_name" />
+		<result property="birth" column="birth" />
 		<result property="job" column="job" />
-		<result property="address" column="address" />
-		<result property="mobilePhone" column="mobile_phone" />
+		<result property="addr" column="addr" />
+		<result property="cellPhone" column="cell_phone" />
 		<result property="homePhone" column="home_phone" />
-		<association property="role" resultMap="role"></association>
-		<association property="group" resultMap="group"></association>
 	</resultMap>
 	
-	<resultMap id="role" type="kr.ch.oe.model.Role">
-		<id property="id" column="role_id" />
-		<result property="type" column="type" />
-	</resultMap>
-	
-	<resultMap id="group" type="kr.ch.oe.model.Group">
-		<id property="id" column="group_id" />
-		<result property="churchId" column="church_id" />
-		<result property="zoId" column="zo_id" />
-		<result property="mokjangId" column="mokjang_id" />
-		
-	</resultMap>
-	
-	<update id="udpate" parameterType="kr.ch.oe.model.Member">
-	  update oe_member
-	  <set>
-	  	group_id = #{groupId}
-	  	,role_id = #{roleId}
-	  	,password = #{password}
-	  	,email = #{email}
-	  	,name = #{name}
-	  	,birthday = #{birthday}
-	  	,job = #{job}
-	  	,address = #{address}
-	  	,mobile_Phone = #{mobilePhone}
-	  	,home_Phone = #{homePhone}
-	  </set>
-	  where id = #{id}
-	</update>
-	
-	<insert id="insert" parameterType="kr.ch.oe.model.Member">
-	 <selectKey keyProperty="id" resultType="int" order="BEFORE">
-    	select nextval('sq_member')
-  	</selectKey>
-  
-		insert into oe_member(
-		  	id,
-		  	group_id, 
-		  	role_id,
-		  	password,
-		  	email,
-		  	name,
-		  	birthday,
-		  	job,
-		  	address,
-		  	mobile_phone,
-		  	home_phone,
-		  	reg_time
-		  ) values(
-		  	#{id},
-		  	#{group.id},
-		  	#{role.id},
-		  	#{password},
-		  	#{email},
-		  	#{name},
-		  	#{birthday},
-		  	#{job},
-		  	#{address},
-		  	#{mobilePhone},
-		  	#{homePhone},
-		  	now()
-	  	)
-	</insert>
-	
-	<select id="selectMemberById" parameterType="long" resultMap="member">
-		select 
-			member.id, 
-		  	member.password,
-		  	member.email,
-		  	member.name,
-		  	member.birthday,
-		  	member.job,
-		  	member.address,
-		  	member.mobile_phone,
-		  	member.home_phone,
-		  	oerole.id role_id,
-		  	oegroup.id group_id,
-		  	oegroup.gyogu_id,
-		  	oegroup.mokjang_id
-		from 
-			oe_member member
-		inner join oe_group oegroup on member.group_id = oegroup.id
-		inner join oe_role oerole on member.role_id = oerole.id
-		where 
-			member.id = #{id}
-	</select>
-	
-	<select id="selectMemberByEmailAndPassword" parameterType="kr.ch.oe.model.Member" resultMap="member">
-		select 
-			member.id, 
-		  	member.password,
-		  	member.email,
-		  	member.name,
-		  	member.birthday,
-		  	member.job,
-		  	member.address,
-		  	member.mobile_phone,
-		  	member.home_phone,
-		  	oerole.id role_id,
-		  	oegroup.id group_id,
-		  	oegroup.gyogu_id,
-		  	oegroup.mokjang_id
-		from 
-			oe_member member
-		inner join oe_group oegroup on member.group_id = oegroup.id
-		inner join oe_role oerole on member.role_id = oerole.id
-		where 
-			member.email = #{email}
-			and member.password = #{password}
-	</select>
-
 	<select id="selectMembersByCriteria" parameterType="map" resultMap="member">
 		select 
-			member.id, 
+			member.user_id, 
 		  	member.password,
 		  	member.email,
-		  	member.name,
-		  	member.birthday,
+		  	member.user_name,
+		  	member.birth,
 		  	member.job,
-		  	member.address,
-		  	member.mobile_phone,
-		  	member.home_phone,
-		  	oerole.id role_id,
-		  	oegroup.id group_id,
-		  	oegroup.gyogu_id,
-		  	oegroup.mokjang_id
+		  	member.addr,
+		  	member.cell_phone,
+		  	member.home_phone
 		from 
-			oe_member member
-		inner join oe_group oegroup on member.group_id = oegroup.id
-		inner join oe_role oerole on member.role_id = oerole.id
+			member member
 	</select>
 	
-	<delete id="delete" parameterType="int">
-		delete from 
-			oe_member 
-		where 
-			id = #{memberId}
-	</delete>
 </mapper>
