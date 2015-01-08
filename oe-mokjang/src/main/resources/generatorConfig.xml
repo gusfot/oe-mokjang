@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<classPathEntry location="C:\Users\gusfot\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://52ch.kr:3307/mokjang" userId="mokjang" password="!inpion00" />
+    <javaModelGenerator targetPackage="kr.ch.oe.model" targetProject="oe-mokjang" />
+    <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
+    <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
+    <!-- 
+    <table schema="mokjang" tableName="edu" >
+      <columnOverride column="edu_seq" property="eduSeq" />
+      <columnOverride column="edu_name" property="eduName" />
+    </table>
+    <table schema="mokjang" tableName="member" >
+      <columnOverride column="user_seq" property="eduSeq" />
+      <columnOverride column="user_name" property="eduName" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="password" property="password" />
+      <columnOverride column="reg_dt" property="regDt" />
+      <columnOverride column="addr" property="addr" />
+      <columnOverride column="role_id" property="roleId" />
+      <columnOverride column="cell_phone" property="cellPhone" />
+      <columnOverride column="home_phone" property="homePhone" />
+      <columnOverride column="job" property="job" />
+      <columnOverride column="gender" property="gender" />
+      <columnOverride column="birth" property="birth" />
+      <columnOverride column="email" property="email" />
+      <columnOverride column="group_seq" property="groupSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+    <table schema="mokjang" tableName="study" >
+      <columnOverride column="study_seq" property="studySeq" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="edu_seq" property="eduSeq" />
+      <columnOverride column="status" property="status" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+     -->
+    <table schema="mokjang" tableName="department" >
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="dept_name" property="deptName" />
+      <columnOverride column="parent_seq" property="parentSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+  </context>
+</generatorConfiguration>

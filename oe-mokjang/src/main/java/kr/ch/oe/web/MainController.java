@@ -3,10 +3,6 @@
  */
 package kr.ch.oe.web;
 
-import kr.ch.oe.service.GroupService;
-import kr.ch.oe.service.TestService;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,11 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-	@Autowired
-	TestService testService ;
-	
-	@Autowired
-	GroupService groupService;
 	
 	@RequestMapping("/main.oe")
 	public String main(){
