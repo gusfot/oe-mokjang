@@ -1,13 +1,6 @@
 package testcase.dao;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import kr.ch.oe.dao.MemberMapper;
-
-import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,16 +9,4 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations={//"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
 		"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context.xml"})
 public class MemberMapperTest {
-
-	@Autowired
-	MemberMapper memberMapper;
-	
-	@Test
-	public void selectList() {
-		
-		Map criteria = new HashMap<String, Object>();
-		memberMapper.selectMembersByCriteria(criteria );
-		
-	}
-	
 }
