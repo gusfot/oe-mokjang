@@ -36,4 +36,26 @@ public class UserMapperTest {
 		System.out.println(userList.size());
 		Assert.assertTrue(userList.size() > 0);
 	}
+	
+	@Test
+	public void insertUser() {
+		User user= new User();
+
+		user.setUserId("test1");
+		user.setUserName("테스트1");
+		user.setEmail("test1@52ch.kr");
+		user.setCellPhone("01011112222");
+		user.setHomePhone("0233334444");
+		user.setDeptSeq(0l);
+		user.setPassword("test1");
+		user.setBirth("20000101");
+		user.setAddr("경기도 광명시");
+		user.setRoleId("1");
+		user.setRegDt("20150109");
+		user.setJob("직업");
+		
+		int result = userMapper.insertSelective(user);
+		
+		Assert.assertTrue(result > 0);
+	}
 }
