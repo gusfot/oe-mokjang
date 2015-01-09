@@ -22,6 +22,7 @@
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <result column="role_id" jdbcType="CHAR" property="roleId" />
+    
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
