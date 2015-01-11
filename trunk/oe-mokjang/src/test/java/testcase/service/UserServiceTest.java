@@ -1,7 +1,5 @@
 package testcase.service;
 
-import kr.ch.oe.dao.DepartmentMapper;
-import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.UserService;
 
