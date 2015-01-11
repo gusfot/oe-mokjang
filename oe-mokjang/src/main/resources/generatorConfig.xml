@@ -12,7 +12,6 @@
       <columnOverride column="edu_seq" property="eduSeq" />
       <columnOverride column="edu_name" property="eduName" />
     </table>
-    -->
     <table schema="mokjang" tableName="user" >
       <columnOverride column="user_seq" property="userSeq" />
       <columnOverride column="user_name" property="userName" />
@@ -30,7 +29,6 @@
       <columnOverride column="dept_seq" property="deptSeq" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-    <!-- 
     <table schema="mokjang" tableName="study" >
       <columnOverride column="study_seq" property="studySeq" />
       <columnOverride column="user_id" property="userId" />
@@ -38,7 +36,6 @@
       <columnOverride column="status" property="status" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-    
     <table schema="mokjang" tableName="department" >
       <columnOverride column="dept_seq" property="deptSeq" />
       <columnOverride column="dept_name" property="deptName" />
@@ -46,5 +43,16 @@
       <columnOverride column="reg_time" property="regTime" />
     </table>
      -->
+     <table schema="mokjang" tableName="report" >
+      <columnOverride column="report_seq" property="reportSeq" />
+      <columnOverride column="weeks" property="weeks" />
+      <columnOverride column="worship_dt" property="worshipDt" />
+      <columnOverride column="worship_place" property="worshipPlace" />
+      <columnOverride column="offering" property="offering" />
+      <columnOverride column="total_score" property="totalScore" />
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
   </context>
 </generatorConfiguration>
