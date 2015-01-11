@@ -50,7 +50,7 @@ public class UserMapperTest {
 		user.setPassword("test1");
 		user.setBirth("20000101");
 		user.setAddr("경기도 광명시");
-		user.setRoleId("1");
+		user.setRoleSeq(1l);
 		user.setRegDt("20150109");
 		user.setJob("직업");
 		
