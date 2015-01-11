@@ -3,6 +3,7 @@ package testcase.service;
 import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.User;
+import kr.ch.oe.service.UserService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,10 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class UserServiceTest {
 
 	@Autowired
-	UserMapper userMapper;
+	UserService userService;
 	
 	@Autowired
-	DepartmentMapper departmentMapper;
+	
 	
 	@Test
 	public void insertUser() {
@@ -31,7 +32,6 @@ public class UserServiceTest {
 		user.setDeptSeq(2l);
 		user.setRoleSeq(8l);
 		
-		userMapper.insertSelective(user);
 		
 	}
 	
