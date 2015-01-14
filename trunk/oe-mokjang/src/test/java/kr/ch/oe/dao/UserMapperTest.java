@@ -97,6 +97,7 @@ public class UserMapperTest {
 		} catch (Exception e) {
 			System.out.println("ExceptionMessage"+e.getMessage());
 			Assert.assertTrue(true);
+			
 		}
 	}
 	
@@ -111,8 +112,6 @@ public class UserMapperTest {
 		int result  = userMapper.deleteByPrimaryKey("asdfasdfasd");
 		Assert.assertTrue(result==0);
 	}
-	
-	
 	
 	
 }
