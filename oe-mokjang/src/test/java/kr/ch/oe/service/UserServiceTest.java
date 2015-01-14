@@ -58,8 +58,8 @@ public class UserServiceTest {
 		user.setJob("직업");
 		user.setGender("1");
 		
-		int result = userService.registerUser(user);
-		Assert.assertTrue(result > 0);
+		boolean result = userService.registerUser(user);
+		Assert.assertTrue(result);
 		
 	}
 	@Test
@@ -79,8 +79,8 @@ public class UserServiceTest {
 		User user =  userService.getUser("test123114");
 		user.setJob("개발자");
 		user.setGender("2");
-		int result = userService.modifyUser(user);
-		Assert.assertTrue(result>0);
+		boolean result = userService.modifyUser(user);
+		Assert.assertTrue(result);
 		
 	}
 	
@@ -99,8 +99,8 @@ public class UserServiceTest {
 	@Test
 	public void failToRemoveUser() {
 		
-		int result = userService.removeUser("test123114");
-		Assert.assertTrue(result>0);
+		boolean result = userService.removeUser("test123114");
+		Assert.assertTrue(result);
 	}
 	
 }

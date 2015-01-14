@@ -29,19 +29,19 @@ public class UserServiceImpl implements UserService {
 	}
 	//user 를 등록한다
 	@Override
-	public int registerUser(User user) {
-		return userMapper.insertSelective(user);
+	public boolean registerUser(User user) {
+		return userMapper.insertSelective(user) > 0 ? true : false;
 	}
 	//user 정보를 수정한다
 	@Override
-	public int modifyUser(User user) {
-		return userMapper.updateByPrimaryKeySelective(user);
+	public boolean modifyUser(User user) {
+		return userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
 		
 	}
 	//user 정보를 삭제한다
 	@Override
-	public int removeUser(String userId) {
-		return userMapper.deleteByPrimaryKey(userId);
+	public boolean removeUser(String userId) {
+		return userMapper.deleteByPrimaryKey(userId) > 0 ? true : false;
 	}
 
 
