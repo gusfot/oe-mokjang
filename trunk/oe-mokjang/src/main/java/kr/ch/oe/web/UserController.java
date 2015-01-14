@@ -12,21 +12,20 @@ public class UserController {
 @RequestMapping("/list.oe")
 public String getUserList() {
 	
-	return "/";
+	return "user/list";
 	
 }
-	
 	
 @RequestMapping("/userInfo.oe")
 public String getUserInfo() {
 	
-	return "/";
+	return "user/modify";
 }
 	
 @RequestMapping("/register.oe")
 public String registerUser(){
 	
-	return"/";
+	return"user/regist";
 	
 }
 
