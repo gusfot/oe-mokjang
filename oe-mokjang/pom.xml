@@ -175,6 +175,12 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.9</version>
 		</dependency>
+		<!-- Framework -->
+		<dependency>
+			<groupId>com.inpion</groupId>
+			<artifactId>framework.exception</artifactId>
+			<version>0.0.1</version>
+		</dependency>
 		
 		<!-- JXLS -->
 		<dependency>

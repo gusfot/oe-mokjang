@@ -29,3 +29,4 @@ public class ReportController {
 		return "report/report_detail";
 	}
 }
+
