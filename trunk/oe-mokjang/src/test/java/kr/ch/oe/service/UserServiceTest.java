@@ -82,6 +82,7 @@ public class UserServiceTest {
 		boolean result = userService.modifyUser(user);
 		Assert.assertTrue(result);
 		
+		
 	}
 	
 	@Test

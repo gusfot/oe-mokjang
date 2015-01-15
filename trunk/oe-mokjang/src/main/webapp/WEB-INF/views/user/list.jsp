@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>로그인</title>
+<title>User 목록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -32,36 +32,68 @@
           </ul>
         </div>
 </nav>
+
+<div class="container">
+	
+	<div class="col-md-9">
+		<h5>
+			<span class="glyphicon glyphicon-list-alt"></span> 목록
+		</h5>
+		<table class="table table-bordered">
+			<colgroup>
+				<col width="100" id="name"/>
+				<col width="200" id = "reg_datd" />
+				<col width="150" id="user_id" />
+				<col width="300" id="addr" align="center" />
+				<col width="250" id="cell_Phone" />
+				<col width="100" id="job"/>
+				<col width="180" id="birth" />
+				<col width="180" id="reg_itme" />
+			</colgroup>
+			<thead style="background-color: #efefef;">
+				<tr>
+					<th>이름</th>
+					<th>교회등록일</th>
+					<th>사용자ID</th>
+					<th>주소</th>
+					<th>휴대전화번호</th>
+					<th>직업</th>
+					<th>생년월일</th>
+					<th>등록시간</th>
+				</tr>
+			</thead>
+			<tbody id="tbody-item-list">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-center">
+			<ul class="pagination" id="ul-paging">
+				<li><a href="#">&laquo;</a></li>
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li class="active"><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">&raquo;</a></li>
+			</ul>
+		</div>
 	</div>
-	<div>
-	<form class="form-horizontal" role="form" action="/login.oe" method="post" >
-	  <div class="form-group">
-	    <label for="inputEmail1" class="col-lg-2 control-label">Email</label>
-	    <div class="col-lg-10">
-	      <input type="email" class="form-control" id="inputEmail1" name="id" placeholder="Email">
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputPassword1" class="col-lg-2 control-label">Password</label>
-	    <div class="col-lg-10">
-	      <input type="password" class="form-control" id="inputPassword1" name="password" placeholder="Password">
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-lg-offset-2 col-lg-10">
-	      <div class="checkbox">
-	        <label>
-	          <input type="checkbox"> Remember me
-	        </label>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-lg-offset-2 col-lg-10">
-	      <button type="submit" class="btn btn-default">Sign in</button>
-	    </div>
-	  </div>
-	</form>
-	</div>
+			</div>
+</div>
+		
 </body>
 </html>
