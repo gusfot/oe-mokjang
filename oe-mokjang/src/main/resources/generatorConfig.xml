@@ -42,7 +42,7 @@
       <columnOverride column="parent_seq" property="parentSeq" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-     -->
+     
      
      <table schema="mokjang" tableName="mokjang_report" >
       <columnOverride column="mokjang_report_seq" property="mokjangReportSeq" />
@@ -54,7 +54,7 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-    
+    -->
     <table schema="mokjang" tableName="report" >
       <columnOverride column="report_seq" property="reportSeq" />
       <columnOverride column="dept_seq" property="deptSeq" />
@@ -62,6 +62,7 @@
       <columnOverride column="weeks" property="weeks" />
       <columnOverride column="mokjang_yn" property="mokjangYn" />
       <columnOverride column="sunday_yn" property="sundayYn" />
+      <columnOverride column="mokjang_report_seq" property="mokjangReportSeq" />
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
