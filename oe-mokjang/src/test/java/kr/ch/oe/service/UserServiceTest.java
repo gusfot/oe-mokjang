@@ -88,6 +88,7 @@ public class UserServiceTest {
 	@Test
 	public void failToModifyUser() {
 		
+		// 뭐하러 예외처리를 하지..?
 		User user = userService.getUser("test123114");
 		user.setUserId("test1");
 		try {
@@ -96,6 +97,11 @@ public class UserServiceTest {
 			System.out.println("ExceptionMessage"+e.getMessage());
 			Assert.assertTrue(true);
 		}
+		/** 그냥 이렇게만 처리해도 될거 같은데..이유가 있나?
+		boolean result = userService.modifyUser(user);
+		
+		Assert.assertTrue(result);
+		*/
 	}
 	@Test
 	public void failToRemoveUser() {
