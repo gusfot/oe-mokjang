@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>User ¸ñ·Ï</title>
+<title>User ëª©ë¡</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -15,8 +14,53 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
+/* 	var html = '';
+	var item = "${userList}";
+ 	for (var i=0; i<"${userList}".length; i++) {
+		item = "userList"+[i];
+		
+		html += '<tr>';
+		html += '	<td>' + item.userName + '</td>';
+		html += '	<td>' + item.regDy + '</td>';
+		html += '	<td>' + item.userId + '</td>';
+		html += '	<td>' + item.addr + '</td>';
+		html += '	<td>' + item.job + '</td>';
+		html += '	<td>' + item.cellPhone + '</td>';
+		html += '	<td>' + item.birth + '</td>';
+		html += '	<td>' + item.regTime + '</td>';
+		html += '</tr>';
+	} 
+	
+    $(document).ready(function () {
+    	$('#tbody-item-list').html(html);
+    	});  
+ */
+ 
+ function greeting2() {
+	 
+	 $.ajax({                          // ì´ë¶€ë¶„ë¶€í„° ë¹„ë™ê¸°í†µì‹ ì„ í•˜ê²Œ ëœë‹¤. ìœ„ì—ì„œ ì„¤ì •í•œ ê°’ë“¤ì„ ì…ë ¥í›„
+	        type: "GET",
+	        url: 'register.oe',
+	        success: function(msg) {  //ì„±ê³µì‹œ ì´ í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•œë‹¤.
+	        	alert(msg)
+	        	alert("success") ;
+	       }
+	    });
+ }
+    
+ function greeting() {
+			var i ="${userList}"; 	
+    		var html = ''
+    		  html+='	<input type = button value = ShowModalDialog onclick = showModalPop(';
+    	      html+= '"son.html"';	
+    	      html+=')>';
+    	      $('#pagingbar').html(html);
+    		alert("${userList[0].userName}");
+    		}
 
+</script>
 </head>
 <body>
 	<div class="page-header">
@@ -37,7 +81,7 @@
 	
 	<div class="col-md-9">
 		<h5>
-			<span class="glyphicon glyphicon-list-alt"></span> ¸ñ·Ï
+			<span class="glyphicon glyphicon-list-alt"></span> ëª©ë¡
 		</h5>
 		<table class="table table-bordered">
 			<colgroup>
@@ -52,17 +96,18 @@
 			</colgroup>
 			<thead style="background-color: #efefef;">
 				<tr>
-					<th>ÀÌ¸§</th>
-					<th>±³È¸µî·ÏÀÏ</th>
-					<th>»ç¿ëÀÚID</th>
-					<th>ÁÖ¼Ò</th>
-					<th>ÈŞ´ëÀüÈ­¹øÈ£</th>
-					<th>Á÷¾÷</th>
-					<th>»ı³â¿ùÀÏ</th>
-					<th>µî·Ï½Ã°£</th>
+					<th>ì´ë¦„</th>
+					<th>êµíšŒë“±ë¡ì¼</th>
+					<th>ì‚¬ìš©ìID</th>
+					<th>ì£¼ì†Œ</th>
+					<th>íœ´ëŒ€ì „í™”ë²ˆí˜¸</th>
+					<th>ì§ì—…</th>
+					<th>ìƒë…„ì›”ì¼</th>
+					<th>ë“±ë¡ì‹œê°„</th>
 				</tr>
 			</thead>
 			<tbody id="tbody-item-list">
+				
 				<tr>
 					<td></td>
 					<td></td>
@@ -75,7 +120,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<div class="text-center">
+		<div id = "pagingbar" class="text-center">
 			<ul class="pagination" id="ul-paging">
 				<li><a href="#">&laquo;</a></li>
 				<li><a href="#">1</a></li>
@@ -93,6 +138,7 @@
 		</div>
 	</div>
 			</div>
+			<input type="button" value="AjaxTeest" onclick="greeting2()">
 </div>
 		
 </body>
