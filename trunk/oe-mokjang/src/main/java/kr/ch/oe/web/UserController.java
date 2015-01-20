@@ -1,10 +1,9 @@
 package kr.ch.oe.web;
 
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 import kr.ch.oe.service.UserService;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -41,16 +41,13 @@ public String getUserInfo() {
 }
 	
 @RequestMapping(value={"/register.oe"},method=RequestMethod.GET)
-public String registerUser(Model model ){
-	
+public @ResponseBody Paging<User>registerUser(Model model ){
 	System.out.println("************Ajax In? ************");
 	UserExample example = null;
-	List<User> userList =  userService.getUserList(example);
-	 Map resultMap = new HashMap();
-     resultMap.put("list", userList);
-	//model.addAttribute("response", userList);
-	return"user/regist";
-	
+	Paging<User> pageList = userService.getPagingUserList(example,1);
+	System.out.println("page = = = = "+pageList.getPage());
+	System.out.println("pageSize = = = = "+pageList.getPageSize());
+	return pageList;
 }
 
 }

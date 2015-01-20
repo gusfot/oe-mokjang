@@ -2,6 +2,7 @@ package kr.ch.oe.service.impl;
 
 import java.util.List;
 
+import kr.ch.oe.common.Paging;
 import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
@@ -42,6 +43,14 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean removeUser(String userId) {
 		return userMapper.deleteByPrimaryKey(userId) > 0 ? true : false;
+	}
+
+	@Override
+	public Paging<User> getPagingUserList(UserExample example,int page) {
+		int totalNumberOfItem = userMapper.countByExample(example);
+		List<User> userList = userMapper.selectByExample(example);
+		Paging<User> result = new Paging<>(page, 10, totalNumberOfItem, userList); 
+		return result;
 	}
 
 

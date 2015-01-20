@@ -2,6 +2,7 @@ package kr.ch.oe.service;
 
 import java.util.List;
 
+import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 
@@ -42,6 +43,7 @@ public interface UserService {
 	 */
 	boolean removeUser(String userId);
 
-
-
+	Paging<User> getPagingUserList (UserExample example, int page);
+	
+	
 }
