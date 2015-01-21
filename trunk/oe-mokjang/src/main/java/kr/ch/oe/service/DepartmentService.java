@@ -6,7 +6,7 @@ import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
 
 
-public interface DepartMentService {
+public interface DepartmentService {
 	
 	/**
 	 * 조직리스트를 가져옵니다

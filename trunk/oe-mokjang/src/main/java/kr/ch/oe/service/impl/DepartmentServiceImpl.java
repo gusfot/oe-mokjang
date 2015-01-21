@@ -5,13 +5,13 @@ import java.util.List;
 import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
-import kr.ch.oe.service.DepartMentService;
+import kr.ch.oe.service.DepartmentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DepartMentServiceImpl implements DepartMentService {
+public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
 	private DepartmentMapper deptMapper;
