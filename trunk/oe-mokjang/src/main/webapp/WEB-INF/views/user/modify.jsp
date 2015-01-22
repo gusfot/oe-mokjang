@@ -15,14 +15,15 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="/resources/bootstrap/js/Test.js"></script>
+<script type="text/javascript" src="/resources/bootstrap/js/paging.js"></script>
 <script type="text/javascript">
 	function greeting() {
-		alert('97779asdfasd9hi');
-		retest();
+		alert('1');
+		new greeting7();
 		Pagin123();
 		
 	}
+	
 
 </script>
 
