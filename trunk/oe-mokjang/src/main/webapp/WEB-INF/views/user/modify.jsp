@@ -15,7 +15,16 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="/resources/bootstrap/js/Test.js"></script>
+<script type="text/javascript">
+	function greeting() {
+		alert('97779asdfasd9hi');
+		retest();
+		Pagin123();
+		
+	}
 
+</script>
 
 </head>
 <body>
@@ -59,6 +68,7 @@
 	  <div class="form-group">
 	    <div class="col-lg-offset-2 col-lg-10">
 	      <button type="submit" class="btn btn-default">Sign in</button>
+	      <input type="button" value="AjaxTest" onclick="greeting()" > 
 	    </div>
 	  </div>
 	</form>
