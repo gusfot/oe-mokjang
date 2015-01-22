@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class DeparMentServiceTest {
 
 	@Autowired
-	private DepartMentService deptService;
+	private DepartmentService deptService;
 	
 	@Test
 	public void successToGetDeptList() {
