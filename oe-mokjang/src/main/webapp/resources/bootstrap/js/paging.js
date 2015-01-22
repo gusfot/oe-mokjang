@@ -8,7 +8,7 @@
  */
 //Paging = function(page, pageSize, totalNumOfItems) 
 function Paging12(page,pageSize,totalnumOfItems){
-	alert("In paging");
+alert("In paging");
 	/*var totalPage = parseInt(totalNumOfItems/pageSize) + (totalNumOfItems%pageSize > 0 ? 1 : 0);
 	var firstPage = parseInt((page-1)/10)*10 + (totalPage%10 > 0 ? 1 : 0);
 	// 페이징 UI(맨앞, 페이징이전페이지, 1/2/3/4/.../10, 페이징다음페이지, 맨끝)를 생성한다.

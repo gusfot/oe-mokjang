@@ -17,12 +17,9 @@
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/bootstrap/js/paging.js"></script>
+
 <script type="text/javascript">
 	 
-	 function greeting2(){
-		 temp('url');
-		 
-	 }
 	 
 	 var item = null
 	 var html = '';
