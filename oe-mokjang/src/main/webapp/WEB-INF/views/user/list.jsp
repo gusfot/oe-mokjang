@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>User 목록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
@@ -14,17 +16,27 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/resources/bootstrap/js/paging.js"></script>
 <script type="text/javascript">
+	 
+	 function greeting2(){
+		 temp('url');
+		 
+	 }
+	 
 	 var item = null
 	 var html = '';
  function greeting(){
+	
+	 
 	 $.ajax({                          // 이부분부터 비동기통신을 하게 된다. 위에서 설정한 값들을 입력후
 	        type: "GET",
-	        url: 'register.oe',
+	        url: 'list.oe',
 	        success: function(msg) {  //성공시 이 함수를 호출한다.
-	        	for (var i = 0; i < msg.items.length; i++) {
+	        	alert('success');
+	        	alert(msg.pageList);
+	        	/* for (var i = 0; i < msg.items.length; i++) {
 	        		item = msg.items[i];
-	        		
 	        		html += '<tr>';
 	    			html += '	<td>' + item.userName + '</td>';
 	    			html += '	<td>' + item.regDt + '</td>';
@@ -35,18 +47,18 @@
 	    			html += '	<td>' + item.birth+ '</td>';
 	    			html += '	<td>' + item.regTime+ '</td>';
 	    			html += '</tr>';
+	        	$('#tbody-item-list').html(html); 
 				}
-	        	$('#tbody-item-list').html(html);
-	        	
-	       }
+	        	*/
+//	        	alert(msg.page+'##############'+msg.pageSize+'##########'+msg.totalNumOfItems);
+	        }
 	    });
  };
- 
 
- $(document).ready(function() {
-		greeting();
-	});
- 
+/*  $(document).ready(function() {
+	greeting();
+		
+	}); */
  
 </script>
 </head>
@@ -64,9 +76,7 @@
           </ul>
         </div>
 </nav>
-
 <div class="container">
-	
 	<div class="col-md-9">
 		<h5>
 			<span class="glyphicon glyphicon-list-alt"></span> 목록
@@ -85,6 +95,7 @@
 				</tr>
 			</thead>
 			<tbody id="tbody-item-list">
+			
 				<tr>
 					<td></td>
 					<td></td>
@@ -114,6 +125,7 @@
 			</ul>
 		</div>
 	</div>
+	<input type="button" value="AjaxRest" onclick="greeting2()">
 			</div>
 </div>
 		

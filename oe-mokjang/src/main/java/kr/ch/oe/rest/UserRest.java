@@ -1,5 +1,8 @@
 package kr.ch.oe.rest;
 
+import kr.ch.oe.common.Paging;
+import kr.ch.oe.model.User;
+import kr.ch.oe.model.UserExample;
 import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +20,12 @@ public class UserRest {
 	@Autowired 
 	private UserService userService;
 	
-	@ResponseBody
-	@RequestMapping(value = {"rest/user/list"}, method=RequestMethod.POST)
-	public String getUserList(){
-
-		return "";
+	
+	@RequestMapping(value = {"rest/user/list"}, method=RequestMethod.GET)
+	public @ResponseBody Paging<User> getUserList(){
+		UserExample example = null;
+		Paging<User> pageList = userService.getPagingUserList(example,1);
+		return pageList;
 		
 	}
 	

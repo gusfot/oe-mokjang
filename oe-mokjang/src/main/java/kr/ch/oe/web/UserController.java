@@ -1,8 +1,6 @@
 package kr.ch.oe.web;
 
 
-import java.util.List;
-
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
@@ -25,12 +23,8 @@ private UserService userService;
 	
 	
 @RequestMapping(value={"/list.oe"},method=RequestMethod.GET)
-public String getUserList(Model model) {
-	
-	System.out.println("************Controller In? ************");
-	UserExample example = null;
-	List<User> userList =  userService.getUserList(example);
-	model.addAttribute("userList", userList);
+public String getUserList(Model model ){
+		
 	return "user/list";
 }
 	
@@ -45,8 +39,6 @@ public @ResponseBody Paging<User>registerUser(Model model ){
 	System.out.println("************Ajax In? ************");
 	UserExample example = null;
 	Paging<User> pageList = userService.getPagingUserList(example,1);
-	System.out.println("page = = = = "+pageList.getPage());
-	System.out.println("pageSize = = = = "+pageList.getPageSize());
 	return pageList;
 }
 
