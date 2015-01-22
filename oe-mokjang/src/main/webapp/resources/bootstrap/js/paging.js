@@ -37,3 +37,8 @@ var temp = function (url){
 greeting4 = function(){
 	alert('greeting4');
 };
+
+
+function greeting7(){
+	alert('greeting777');
+}
