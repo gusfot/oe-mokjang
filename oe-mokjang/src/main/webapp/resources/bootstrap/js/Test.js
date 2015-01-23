@@ -1,5 +1,0 @@
-function retest(){
-	alert('retest');
-	
-}
-

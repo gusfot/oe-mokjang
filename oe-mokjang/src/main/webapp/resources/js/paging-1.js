@@ -1,15 +1,14 @@
 
 
+
 /*
  * 페이징 UI를 생성하여 화면에 바인딩한다.
  * @param page 현재페이지번호
  * @param pageSize 페이지크기
- * @param totalNumberOfItems 전체갯수
- */
-//Paging = function(page, pageSize, totalNumOfItems) 
-function Paging12(page,pageSize,totalnumOfItems){
-alert("In paging");
-	/*var totalPage = parseInt(totalNumOfItems/pageSize) + (totalNumOfItems%pageSize > 0 ? 1 : 0);
+ * @param totalNumberOfItems 전체갯수*/
+ 
+function paging(page, pageSize, totalNumOfItems){ 
+	var totalPage = parseInt(totalNumOfItems/pageSize) + (totalNumOfItems%pageSize > 0 ? 1 : 0);
 	var firstPage = parseInt((page-1)/10)*10 + (totalPage%10 > 0 ? 1 : 0);
 	// 페이징 UI(맨앞, 페이징이전페이지, 1/2/3/4/.../10, 페이징다음페이지, 맨끝)를 생성한다.
 	var html = '';
@@ -23,22 +22,7 @@ alert("In paging");
 	}
 	html += '<li ' + (totalPage < firstPage+10 ? 'class="disabled"' : '') + '><a href="#" data-page="' + (firstPage+10) + '">&rsaquo;</a></li>';
 	html += '<li><a href="#" data-page="' + totalPage + '">&raquo;</a></li>';
-	
-return html;*/
-	return 1;
+return html;
 };
 
 
-var temp = function (url){
-	alert(url);
-	
-};
-
-greeting4 = function(){
-	alert('greeting4');
-};
-
-
-function greeting7(){
-	alert('greeting777');
-}

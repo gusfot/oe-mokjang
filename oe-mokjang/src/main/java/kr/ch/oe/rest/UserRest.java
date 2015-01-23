@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @Scope(value="request")
+@RequestMapping("/user")
 public class UserRest {
 	@Autowired 
 	private UserService userService;
@@ -25,7 +26,9 @@ public class UserRest {
 	public @ResponseBody Paging<User> getUserList(){
 		UserExample example = null;
 		Paging<User> pageList = userService.getPagingUserList(example,1);
+		
 		return pageList;
+		
 		
 	}
 	
