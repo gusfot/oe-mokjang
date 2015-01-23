@@ -14,8 +14,8 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
-	<mvc:resources mapping="/**" location="/resources/" />
-	
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<!-- <resources mapping="/js/**" location="/js/" /> -->
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
 

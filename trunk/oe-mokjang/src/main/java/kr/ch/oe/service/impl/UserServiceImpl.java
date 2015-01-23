@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	public Paging<User> getPagingUserList(UserExample example,int page) {
 		int totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
-		Paging<User> result = new Paging<>(page, 10, totalNumberOfItem, userList); 
+		Paging<User> result = new Paging<>(page, 5, totalNumberOfItem, userList); 
 		return result;
 	}
 
