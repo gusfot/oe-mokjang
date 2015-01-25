@@ -16,6 +16,31 @@
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
   </resultMap>
+  
+  <resultMap id="MokjangReportResultMap" type="kr.ch.oe.model.MokjangReport">
+    <id column="mokjangreport_mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
+    <result column="mokjangreport_weeks" jdbcType="INTEGER" property="weeks" />
+    <result column="mokjangreport_dept_seq" jdbcType="BIGINT" property="deptSeq" />
+    <result column="mokjangreport_worship_dt" jdbcType="VARCHAR" property="worshipDt" />
+    <result column="mokjangreport_worship_place" jdbcType="VARCHAR" property="worshipPlace" />
+    <result column="mokjangreport_offering" jdbcType="BIGINT" property="offering" />
+    <result column="mokjangreport_reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="mokjangreport_reg_time" jdbcType="TIMESTAMP" property="regTime" />
+    <collection property="reports" resultMap="ReportResultMap" columnPrefix="report_" />
+  </resultMap>
+  
+  <resultMap id="ReportResultMap" type="kr.ch.oe.model.Report">
+    <id column="report_seq" jdbcType="BIGINT" property="reportSeq" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
+    <result column="weeks" jdbcType="INTEGER" property="weeks" />
+    <result column="mokjang_yn" jdbcType="CHAR" property="mokjangYn" />
+    <result column="sunday_yn" jdbcType="CHAR" property="sundayYn" />
+    <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
+    <result column="reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+  </resultMap>
+  
   <sql id="Example_Where_Clause">
     <!--
       WARNING - @mbggenerated
@@ -93,6 +118,28 @@
     mokjang_report_seq, weeks, dept_seq, worship_dt, worship_place, offering, reg_id, 
     reg_time
   </sql>
+  
+  <sql id="MokjangReport_Column_List">
+    mokjangreport.mokjang_report_seq mokjangreport_mokjang_report_seq, 
+    mokjangreport.weeks mokjangreport_weeks, 
+    mokjangreport.dept_seq mokjangreport_dept_seq, 
+    mokjangreport.worship_dt mokjangreport_worship_dt, 
+    mokjangreport.worship_place mokjangreport_worship_place, 
+    mokjangreport.offering mokjangreport_offering, 
+    mokjangreport.reg_id mokjangreport_reg_id, 
+    mokjangreport.reg_time mokjangreport_reg_time
+  </sql>
+  
+  <sql id="Report_Column_List">
+    report.report_seq report_report_seq, 
+    report.user_id report_user_id, 
+    report.weeks report_weeks, 
+    report.dept_seq report_dept_seq, 
+    report.mokjang_yn report_mokjang_yn, 
+    report.sunday_yn report_sunday_yn, 
+    report.reg_id report_reg_id, 
+    report.reg_time report_reg_time
+  </sql>  
   <select id="selectByExample" parameterType="kr.ch.oe.model.MokjangReportExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbggenerated
@@ -332,11 +379,13 @@
     where mokjang_report_seq = #{mokjangReportSeq,jdbcType=BIGINT}
   </update>
   
-  <select id="selectMokjangReport" parameterType="map" resultMap="BaseResultMap">
+  <select id="selectMokjangReport" parameterType="map" resultMap="MokjangReportResultMap">
     select 
-    <include refid="Base_Column_List" />
+    <include refid="MokjangReport_Column_List" />
+    ,<include refid="Report_Column_List" />
     from mokjang_report mokjangreport
-    left join report report on report.weeks = mokjangreport.weeks
-    <!-- where mokjang_report_seq = #{mokjangReportSeq,jdbcType=BIGINT} -->
+    left join report report on report.weeks = mokjangreport.weeks and report.dept_seq=mokjangreport.dept_seq
+    where mokjangreport.dept_seq = #{deptSeq}
+    and mokjangreport.weeks = #{weeks}
   </select>
 </mapper>
