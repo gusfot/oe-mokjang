@@ -6,6 +6,7 @@ import java.util.List;
 import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.Report;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,18 @@ public class MokjangReportServiceTest {
 		
 		mokjangReportService.regist(mokjangReport);
 		
+	}
+	
+	@Test
+	public void getMokjangReport() {
+		MokjangReport mokjangReport = mokjangReportService.getMokjangReport(1l);
+		Assert.assertTrue(mokjangReport != null);
+	}
+	
+	@Test
+	public void getMokjangReports() {
+		List<MokjangReport> mokjangReports = mokjangReportService.getMokjangReports(14);
+		Assert.assertTrue(mokjangReports.size() > 0);
 	}
 	
 	
