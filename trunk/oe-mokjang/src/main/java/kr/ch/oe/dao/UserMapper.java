@@ -1,8 +1,10 @@
 package kr.ch.oe.dao;
 
 import java.util.List;
+
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
@@ -74,4 +76,6 @@ public interface UserMapper {
 	 * @mbggenerated  Thu Jan 08 11:00:07 KST 2015
 	 */
 	int updateByPrimaryKey(User record);
+	
+	User selectByUserId(String userId);
 }

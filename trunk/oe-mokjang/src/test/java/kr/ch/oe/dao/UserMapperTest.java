@@ -22,14 +22,14 @@ public class UserMapperTest {
 
 	@Test
 	public void successToselectUser() {
-		User user = userMapper.selectByPrimaryKey("admin");
+		User user = userMapper.selectByPrimaryKey("gusfot");
 		System.out.println(user.getUserName());
 		Assert.assertTrue(user != null);
 	}
 	
 	@Test
 	public void failToSelectUser(){
-		User user = userMapper.selectByPrimaryKey("1234");
+		User user = userMapper.selectByPrimaryKey("gusfot");
 		Assert.assertNull(user);
 	}
 	
@@ -71,9 +71,6 @@ public class UserMapperTest {
 		user.setUserId("admin");
 		
 		int result = userMapper.insertSelective(user);
-		
-		
-
 	}
 	
 	
@@ -101,10 +98,9 @@ public class UserMapperTest {
 	}
 	
 	@Test
-	public void failToDeleteUser() {
-		int result  = userMapper.deleteByPrimaryKey("asdfasdfasd");
-		Assert.assertTrue(result==0);
+	public void selectByUserId() {
+		User user  = userMapper.selectByUserId("gusfot");
+		Assert.assertTrue("김현래목장".equals(user.getDepartment().getDeptName()));
 	}
-	
 	
 }
