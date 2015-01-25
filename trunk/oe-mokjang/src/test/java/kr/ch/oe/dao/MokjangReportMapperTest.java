@@ -21,7 +21,6 @@ public class MokjangReportMapperTest {
 	@Autowired
 	private MokjangReportMapper mokjangReportMapper;
 	
-	
 	@Test
 	public void selectMokjangReport() {
 		Map<String, Object> params = new HashMap<>();
