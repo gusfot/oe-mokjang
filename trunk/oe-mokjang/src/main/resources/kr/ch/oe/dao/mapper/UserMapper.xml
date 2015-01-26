@@ -24,6 +24,18 @@
     <result column="role_seq" jdbcType="CHAR" property="roleSeq" />
     
   </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
+  	<association property="department" javaType="kr.ch.oe.model.Department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.Department" id="DepartmentResultMap">
+  	 <id column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
+    <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
+    <result column="parentSeq" jdbcType="BIGINT" property="parentSeq" />
+    <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
+  </resultMap>
+
   <sql id="Example_Where_Clause">
     <!--
       WARNING - @mbggenerated
@@ -100,6 +112,29 @@
     -->
     user_id, user_seq, user_name, reg_dt, password, addr, cell_phone, home_phone, job, 
     gender, birth, email, dept_seq, reg_time, role_seq
+  </sql>
+  <sql id="User_Column_List">
+    user.user_id, 
+    user.user_seq, 
+    user.user_name, 
+    user.reg_dt, 
+    user.password, 
+    user.addr, 
+    user.cell_phone, 
+    user.home_phone, 
+    user.job, 
+    user.gender, 
+    user.birth, 
+    user.email, 
+    user.dept_seq, 
+    user.reg_time, 
+    user.role_seq
+  </sql>
+  <sql id="Dept_Column_List">
+    dept.dept_seq dept_dept_seq , 
+    dept.dept_name dept_dept_name, 
+    dept.parent_seq dept_parent_seq, 
+    dept.reg_time dept_reg_time 
   </sql>
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
@@ -443,4 +478,13 @@
       role_seq = #{roleSeq,jdbcType=CHAR}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
+  
+  <select id="selectByUserId" parameterType="string" resultMap="UserResultMap">
+    select 
+    <include refid="User_Column_List" />
+    ,<include refid="Dept_Column_List" />
+    from user user
+    left join dept dept on dept.dept_seq = user.dept_seq
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
 </mapper>
