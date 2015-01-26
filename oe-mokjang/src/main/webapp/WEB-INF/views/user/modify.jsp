@@ -15,17 +15,6 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/paging-1.js"></script>
 <!-- <script type="text/javascript" src="/js/paging-1.js"></script> -->
-<script type="text/javascript">
-
-	function greeting() {
-		alert('111');
-		greeting7();
-		Pagin123();
-	}
-	$(document).ready(function(){
-		greeting();
-	});
-</script>
 
 </head>
 <body>

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+html {height:100%; overflow-x;hidden; overflow-y:scroll;}
+body {width:100%; height:100%; margin:0; padding:0; font-size:13px; line-height:17px; font-family:���怨��, NanumGothic, 援대┝, Gulim; background-color:#FFFFFF; color:#666666;}
+
+div, p, span, ol, ul, li, dl, dt, dd, table, thead, tbody, tfoot, th, td, textarea, select, input, a {margin:0; padding:0; font-size:13px; line-height:17px; font-family:���怨��, NanumGothic, 援대┝, Gulim;}
+
+iframe, form, fieldset {margin:0; padding:0; border:0;}
+img {border:0; vertical-align:top;}
+img a {vertical-align:middle;}
+
+h1, h2, h3, h4, h5, h6 {margin:0; padding:0;}
+ul, ol, li {list-style:none;}
+td, li, dd, p {word-break:keep-all; word-wrap:bread-word;}
+
+legend, caption {overflow:hidden; width:0; height:0; margin:0; padding:0; visibility:hidden;}
+textarea {padding:2px 0; border:1px solid #DDDDDD; background-color:#FFFFFF;}
+select {height:20px; border:1px solid #DDDDDD; background-color:#FFFFFF;}
+input {vertical-align:middle;}
+	input.text {height;16px; padding:4px 10px 4px 10px; background-color#FFFFFF; border:1px solid #D6D5D2;}
+
+label {vertical-align:middle;}
+label img {margin-top:-1px;}
+
+a {color:#999999;}
+a:link, a:active, a:visited {color:#003D7F; text-decoration:none;}
+a:hover {color:#003D7F; text-decoration:none;}
+
+.btn1 {border:1px solid #CCCCCC; background-color:#DDDDDD; width:20px; text-align:center;}
+.btn2 {border:1px solid #CCCCCC; background-color:#FDD900; padding:10px 20px 10px 20px; }
+.btn3 {border:1px solid #CCCCCC; background-color:#FDD900; padding:5px 10px 5px 10px;}
+.btn4 {border:1px solid #CCCCCC; background-color:#DDDDDD; padding:2px; margin: 0 5px 0 5px;}
+
+table.list {width:100%; border:0px; padding:0px; }
+table.list th {padding:10px 0 10px 0px; border-left:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; background-color:#D7F0FF; border-top:1px solid #CCCCCC;}
+table.list td {padding:10px 0 10px 0px; border-left:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; text-align:center;}
+table.list th.first{border-left:0px;}
+table.list td.first{border-left:0px;}
+table.list td.list_paging{border-left:0px; border-bottom:0px;}
