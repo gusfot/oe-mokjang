@@ -149,12 +149,33 @@
 		  <version>1.2.0</version>
 		</dependency>
 		
-		<!-- postgresql  -->
+		<!-- commons-lang3  -->
 		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.1-901.jdbc4</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
 		</dependency>
+
+		<!-- excel download -->
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-core</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-examples</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		
+		
+<!--  		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls</artifactId>
+			<version>1.0.6</version>
+		</dependency> -->
+
 	
 		<!-- Test -->
 		<dependency>
