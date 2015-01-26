@@ -25,9 +25,9 @@ public class UserRest {
 	@RequestMapping(value = {"rest/user/list"}, method=RequestMethod.GET)
 	public @ResponseBody Paging<User> getUserList(){
 		UserExample example = null;
-		Paging<User> pageList = userService.getPagingUserList(example,1);
+		//Paging<User> pageList = userService.getPagingUserList(example,1);
 		
-		return pageList;
+		return null;
 		
 		
 	}
