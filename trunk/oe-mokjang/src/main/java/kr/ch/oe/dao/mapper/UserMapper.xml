@@ -26,14 +26,36 @@
   </resultMap>
   
   <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
-  	<association property="department" javaType="kr.ch.oe.model.Department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
+  	<association property="department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
+  	<collection property="studyStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
+  	<collection property="missionWorkStatusList" columnPrefix="mws_" resultMap="MissionWorkStatusResultMap" />
   </resultMap>
   
   <resultMap type="kr.ch.oe.model.Department" id="DepartmentResultMap">
   	 <id column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
-    <result column="parentSeq" jdbcType="BIGINT" property="parentSeq" />
+    <result column="parent_seq" jdbcType="BIGINT" property="parentSeq" />
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.StudyStatus" id="StudyStatusResultMap">
+  	 <id column="study_status_seq" jdbcType="BIGINT" property="studyStatusSeq" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
+    <result column="study_date" jdbcType="VARCHAR" property="studyDate" />
+    <result column="study_unit" jdbcType="BIGINT" property="studyUnit" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.MissionWorkStatus" id="MissionWorkStatusResultMap">
+  	 <id column="mission_work_status_seq" jdbcType="BIGINT" property="missionWorkStatusSeq" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="new_user_id" jdbcType="VARCHAR" property="newUserId" />
+    <result column="reg_date" jdbcType="VARCHAR" property="regDate" />
+    <result column="reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
   </resultMap>
 
   <sql id="Example_Where_Clause">
@@ -135,6 +157,24 @@
     dept.dept_name dept_dept_name, 
     dept.parent_seq dept_parent_seq, 
     dept.reg_time dept_reg_time 
+  </sql>
+  <sql id="StudyStatus_Column_List">
+    ss.study_status_seq ss_study_status_seq,
+    ss.user_id ss_user_id ,
+    ss.edu_seq ss_edu_seq, 
+    ss.study_date ss_study_date, 
+    ss.study_unit ss_study_unit ,
+    ss.state ss_state, 
+    ss.reg_id ss_reg_id, 
+    ss.reg_time ss_reg_time 
+  </sql>
+  <sql id="MissisonWorkStatus_Column_List">
+    mws.mission_work_status_seq mws_mission_work_status_seq, 
+    mws.user_id mws_user_id,
+    mws.new_user_id mws_new_user_id,
+    mws.reg_date mws_reg_date,
+    mws.reg_id mws_reg_id,
+    mws.reg_time mws_reg_time
   </sql>
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
@@ -483,8 +523,12 @@
     select 
     <include refid="User_Column_List" />
     ,<include refid="Dept_Column_List" />
+    ,<include refid="StudyStatus_Column_List" />
+    ,<include refid="MissisonWorkStatus_Column_List" />
     from user user
     left join dept dept on dept.dept_seq = user.dept_seq
-    where user_id = #{userId,jdbcType=VARCHAR}
+    left join study_status ss on ss.user_id = user.user_id 
+    left join mission_work_status mws on mws.user_id = user.user_id 
+    where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
 </mapper>
