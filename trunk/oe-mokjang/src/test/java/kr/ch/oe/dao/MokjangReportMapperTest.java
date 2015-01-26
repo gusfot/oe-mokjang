@@ -1,5 +1,6 @@
 package kr.ch.oe.dao;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,4 +34,13 @@ public class MokjangReportMapperTest {
 		Assert.assertTrue(mokjangReport != null);
 	}
 	
+	@Test
+	public void getWeeks(){
+		Calendar cal = Calendar.getInstance();
+	    cal.set(Calendar.YEAR, 2015);
+	    cal.set(Calendar.MONTH, Calendar.JANUARY);
+	    cal.set(Calendar.DAY_OF_MONTH, 26);
+	    System.out.println(cal.get(Calendar.WEEK_OF_YEAR));
+	    
+	}
 }
