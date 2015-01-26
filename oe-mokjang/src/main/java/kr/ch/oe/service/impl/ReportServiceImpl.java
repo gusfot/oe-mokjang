@@ -43,6 +43,7 @@ public class ReportServiceImpl implements ReportService {
 		Criteria criteria = new ReportExample().createCriteria();
 		criteria.andDeptSeqEqualTo(deptSeq);	// 부서정보seq								
 		criteria.andWeeksEqualTo(weeks);		// 몇번째주
+		
 
 		return reportMapper.selectByExample(example);
 	}
