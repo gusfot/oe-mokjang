@@ -9,11 +9,12 @@ import kr.ch.oe.model.UserExample;
 public interface UserService {
 
 	/**
-	 * User 목록을 가지고온다
+	 *  user List 를 가지고온다
 	 * @param example
+	 * @param page
 	 * @return
 	 */
-	List<User> getUserList(UserExample example);
+	Paging<User> getPagingUserList ( int page, int pageSize);
 	
 	/**
 	 * user 한명 정보를 가지고온다 
@@ -43,7 +44,19 @@ public interface UserService {
 	 */
 	boolean removeUser(String userId);
 
-	Paging<User> getPagingUserList (UserExample example, int page);
+	/**
+	 * 한목장의 list 를 가지고온다
+	 */
 	
+	Paging<User> getFarmUserList(String FarmmerId);
 	
 }
+
+
+
+
+
+
+
+
+
