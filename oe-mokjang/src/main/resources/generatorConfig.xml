@@ -65,18 +65,19 @@
       <columnOverride column="mokjang_report_seq" property="mokjangReportSeq" />
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
-      
+      -->
       <table schema="mokjang" tableName="study_status" >
       <columnOverride column="study_status_seq" property="studyStatusSeq" />
       <columnOverride column="user_id" property="userId" />
-      <columnOverride column="study_seq" property="studySeq" />
+      <columnOverride column="edu_seq" property="eduSeq" />
       <columnOverride column="study_date" property="studyDate" />
       <columnOverride column="study_unit" property="studyUnit" />
       <columnOverride column="state" property="state" />
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-     -->
+     
+     <!-- 
      <table schema="mokjang" tableName="mission_work_status" >
       <columnOverride column="mission_work_status_seq" property="missionWorkStatusSeq" />
       <columnOverride column="user_id" property="userId" />
@@ -85,5 +86,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
       </table>
+       -->
   </context>
 </generatorConfiguration>
