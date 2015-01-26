@@ -100,6 +100,7 @@ public class UserMapperTest {
 	@Test
 	public void selectByUserId() {
 		User user  = userMapper.selectByUserId("gusfot");
+		System.out.println(user.toString());
 		Assert.assertTrue("김현래목장".equals(user.getDepartment().getDeptName()));
 	}
 	
