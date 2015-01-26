@@ -1,8 +1,9 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>로그인</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
@@ -12,39 +13,20 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
-
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/resources/js/paging-1.js"></script>
+<script type="text/javascript" src="/js/paging-1.js"></script>
+<!-- <script type="text/javascript" src="/js/paging-1.js"></script> -->
 
 <script type="text/javascript">
-function parent(){
-	greeting();
-}
-$(document).ready(function(){
-	parent();
-});
-
+	function modal(){
+		$('#myModal').modal('toggle');
+	}
 </script>
+
 </head>
 <body>
-	<div class="page-header">
-	  <h1>Example page header <small>Subtext for header</small></h1>
-	</div>
-	<div>
-		<nav class="navbar navbar-inverse" role="navigation">
-  		<div class="collapse navbar-collapse navbar-ex8-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/main.oe">HHome</a></li>
-            <li><a href="regist.oe">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-</nav>
-	</div>
-	<!--레이어팝업배경-->
-		<div class="layerBack"></div>
 		<!--레이어팝업-->
 		<div class="layerpopupBack">
 			<div class="layerPopupWrap">
@@ -63,6 +45,7 @@ $(document).ready(function(){
 							 ~ 
 							<input type="text" id="" name="" class="text" title="검색조건 입력" value="20131231" onfocus="this.value=''" style="width:80px;" />
 							<span class="btn3"><a href="#" >검색 </a></span>
+							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
 						<span class="total">총 50건의 목장원이 검색되었습니다.</span>
 						<!--리스트영역-->
@@ -71,8 +54,8 @@ $(document).ready(function(){
 							<colgroup>
 								<col style="width:50px;">
 								<col style="width:80px;">
-								<col style="width:150px;">
-								<col style="">
+								<col style="width:100px;">
+								<col style="width:100px">
 								<col style="width:80px;">
 							</colgroup>
 							<thead>
@@ -82,21 +65,20 @@ $(document).ready(function(){
 								<th scope="col">생년월일</th>
 								<th scope="col">성별</th>
 							</thead>
+							<c:forEach var = "list" items="${pageList.items}" begin="0" end="4"  varStatus="s">
 							<tr>
-								<td class="first"><input type="checkbox" id="" /></td>
-								<td>홍길동</td>
-								<td>홍길동 목장</td>
-								<td>1977.12.11</td>
-								<td>남</td>
+								<td ><input type="checkbox" id="" /></td>
+								<td>${list.userName}</td>
+								<td>${list.roleName}</td>
+								<td>${list.birth }</td>
+								<c:if test="${list.gender==1}">
+								<td> 남</td>
+								</c:if>
+								<c:if test="${list.gender==2}">
+								<td> 여</td>
+								</c:if>
 							</tr>
-						
-							<tr>
-								<td class="first"><input type="checkbox" id="" /></td>
-								<td>홍길동</td>
-								<td>홍길동 목장</td>
-								<td>1977.12.11</td>
-								<td>남</td>
-							</tr>
+							</c:forEach>
 							<tr>
 								<td class="first" colspan="5">검색된 항목이 없습니다.</td>
 							</tr>							
@@ -118,11 +100,10 @@ $(document).ready(function(){
 							</table>
 
 					</div>
-					
 					<div class="layerTail">
 						<div class="layerBtn">
 							<a href="#"><span class="btn2">선택 항목 추가</span></a>
-							<a href="#"><span class="btn2">취소</span></a>
+							<a href="list.oe"><span class="btn2">취소</span></a>
 						</div>
 					</div>
 				</div>

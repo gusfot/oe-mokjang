@@ -10,28 +10,38 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="page-header">
-	  <h1>회원 가입 <small>Subtext for header</small></h1>
-	</div>
-	<div>
-		<nav class="navbar navbar-inverse" role="navigation">
-  		<div class="collapse navbar-collapse navbar-ex8-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-		</nav>
-	</div>
+				<div class="headWrap">
+				<div class="head">
+					<!--로고-->
+					<h1>회원가입</h1>
+					<!--커스톰메뉴영역-->
+					<ul class="customMenu">
+						<li>환영합니다. <span>${pageList.items[0].userName}</span> <span>목자</span>님, 오늘은 <span>2014년 8월 13일 목요일</span>입니다.</li>
+						<li>로그아웃</li>
+						<li>비밀번호변경</li>
+					</ul>
+					<!--메인메뉴영역-->
+					<ul class="gnbMenu">
+						<li><a href="#"><h3>목장원관리</h3></a></li>
+						<li><a href="#"><h3>목장관리</h3></a></li>
+						<li><a href="list.oe"><h3>성도관리</h3></a></li>
+						<li><a href="#"><h3>코드관리</h3></a></li>
+						<li><a href="#"><h3>통계관리</h3></a></li>						
+						<li><a href="#"><h3>공지관리</h3></a></li>
+					</ul>
+				</div>
+
+			</div>
 	<div class="container">
-		<form class="form-horizontal" role="form" action="/member/regist.oe" method="post">
+		<form class="form-horizontal" role="form" action="/user/regist.oe" method="post">
 		  <div class="form-group">
 		    <label class="col-sm-2" for="email">이메일 주소</label>
 		     <div class="col-sm-10">
@@ -111,12 +121,8 @@
 			</div>
 		  </div>
 		  -->
-		  <div class="checkbox">
-		    <label>
-		      <input type="checkbox"> Check me out
-		    </label>
-		  </div>
-		  <button type="submit" class="btn btn-default">Submit</button>
+		  <button type="submit" class="btn btn-default">등록</button>
+		 <a href="list.oe"><intput type="button"  class="btn btn-default" />취소</a> 
 		</form>
 	</div>
 </body>
