@@ -22,18 +22,41 @@
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <result column="role_seq" jdbcType="CHAR" property="roleSeq" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     
   </resultMap>
   
   <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
-  	<association property="department" javaType="kr.ch.oe.model.Department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
+  	<association property="department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
+  	<collection property="studyStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
+  	<collection property="missionWorkStatusList" columnPrefix="mws_" resultMap="MissionWorkStatusResultMap" />
   </resultMap>
   
   <resultMap type="kr.ch.oe.model.Department" id="DepartmentResultMap">
   	 <id column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
-    <result column="parentSeq" jdbcType="BIGINT" property="parentSeq" />
+    <result column="parent_seq" jdbcType="BIGINT" property="parentSeq" />
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.StudyStatus" id="StudyStatusResultMap">
+  	 <id column="study_status_seq" jdbcType="BIGINT" property="studyStatusSeq" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
+    <result column="study_date" jdbcType="VARCHAR" property="studyDate" />
+    <result column="study_unit" jdbcType="BIGINT" property="studyUnit" />
+    <result column="state" jdbcType="CHAR" property="state" />
+    <result column="reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.MissionWorkStatus" id="MissionWorkStatusResultMap">
+  	 <id column="mission_work_status_seq" jdbcType="BIGINT" property="missionWorkStatusSeq" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="new_user_id" jdbcType="VARCHAR" property="newUserId" />
+    <result column="reg_date" jdbcType="VARCHAR" property="regDate" />
+    <result column="reg_id" jdbcType="VARCHAR" property="regId" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
   </resultMap>
 
   <sql id="Example_Where_Clause">
@@ -111,7 +134,7 @@
       This element was generated on Thu Jan 08 11:00:07 KST 2015.
     -->
     user_id, user_seq, user_name, reg_dt, password, addr, cell_phone, home_phone, job, 
-    gender, birth, email, dept_seq, reg_time, role_seq
+    gender, birth, email, dept_seq, reg_time, role_seq, role_name
   </sql>
   <sql id="User_Column_List">
     user.user_id, 
@@ -129,12 +152,31 @@
     user.dept_seq, 
     user.reg_time, 
     user.role_seq
+    user.role_name
   </sql>
   <sql id="Dept_Column_List">
     dept.dept_seq dept_dept_seq , 
     dept.dept_name dept_dept_name, 
     dept.parent_seq dept_parent_seq, 
     dept.reg_time dept_reg_time 
+  </sql>
+  <sql id="StudyStatus_Column_List">
+    ss.study_status_seq ss_study_status_seq,
+    ss.user_id ss_user_id ,
+    ss.edu_seq ss_edu_seq, 
+    ss.study_date ss_study_date, 
+    ss.study_unit ss_study_unit ,
+    ss.state ss_state, 
+    ss.reg_id ss_reg_id, 
+    ss.reg_time ss_reg_time 
+  </sql>
+  <sql id="MissisonWorkStatus_Column_List">
+    mws.mission_work_status_seq mws_mission_work_status_seq, 
+    mws.user_id mws_user_id,
+    mws.new_user_id mws_new_user_id,
+    mws.reg_date mws_reg_date,
+    mws.reg_id mws_reg_id,
+    mws.reg_time mws_reg_time
   </sql>
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
@@ -153,6 +195,9 @@
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
+    </if>
+    <if test="limitByClause != null">
+    limit ${limitByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -196,13 +241,14 @@
       reg_dt, password, addr, 
       cell_phone, home_phone, job, 
       gender, birth, email, 
-      dept_seq, reg_time, role_seq
+      dept_seq, reg_time, role_seq, role_name
       )
     values (#{userId,jdbcType=VARCHAR}, #{userSeq,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
       #{regDt,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
       #{cellPhone,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birth,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{deptSeq,jdbcType=BIGINT}, #{regTime,jdbcType=TIMESTAMP}, #{roleSeq,jdbcType=CHAR}
+      #{deptSeq,jdbcType=BIGINT}, #{regTime,jdbcType=TIMESTAMP}, #{roleSeq,jdbcType=CHAR}, 
+      #{roleName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="kr.ch.oe.model.User">
@@ -258,6 +304,9 @@
       <if test="roleSeq != null">
         role_seq,
       </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -304,6 +353,9 @@
       </if>
       <if test="roleSeq != null">
         #{roleSeq,jdbcType=CHAR},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -371,6 +423,9 @@
       <if test="record.roleSeq != null">
         role_seq = #{record.roleSeq,jdbcType=CHAR},
       </if>
+      <if test="record.roleName != null">
+        role_name = #{record.rolename,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -397,7 +452,8 @@
       email = #{record.email,jdbcType=VARCHAR},
       dept_seq = #{record.deptSeq,jdbcType=BIGINT},
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
-      role_seq = #{record.roleSeq,jdbcType=CHAR}
+      role_seq = #{record.roleSeq,jdbcType=CHAR},
+      role_name = #{record.roleName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -452,6 +508,9 @@
       <if test="roleSeq != null">
         role_seq = #{roleSeq,jdbcType=CHAR},
       </if>
+      <if test="record.roleName != null">
+        role_name = #{record.rolename,jdbcType=VARCHAR},
+      </if>
     </set>
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
@@ -475,7 +534,8 @@
       email = #{email,jdbcType=VARCHAR},
       dept_seq = #{deptSeq,jdbcType=BIGINT},
       reg_time = #{regTime,jdbcType=TIMESTAMP},
-      role_seq = #{roleSeq,jdbcType=CHAR}
+      role_seq = #{roleSeq,jdbcType=CHAR},
+      role_name = #{rolename.jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
   
@@ -483,8 +543,12 @@
     select 
     <include refid="User_Column_List" />
     ,<include refid="Dept_Column_List" />
+    ,<include refid="StudyStatus_Column_List" />
+    ,<include refid="MissisonWorkStatus_Column_List" />
     from user user
     left join dept dept on dept.dept_seq = user.dept_seq
-    where user_id = #{userId,jdbcType=VARCHAR}
+    left join study_status ss on ss.user_id = user.user_id 
+    left join mission_work_status mws on mws.user_id = user.user_id 
+    where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
 </mapper>

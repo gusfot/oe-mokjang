@@ -38,7 +38,6 @@
 						<li><a href="#"><h3>공지관리</h3></a></li>
 					</ul>
 				</div>
-
 			</div>
 	<div class="container">
 		<form class="form-horizontal" role="form" action="/user/regist.oe" method="post">
@@ -48,6 +47,12 @@
 		    <input type="email" class="col-sm-10 form-control" id="email" name="email" placeholder="Email">
 		  	</div>
 		  </div>
+		  <div class="form-group">
+		    <label class="col-sm-2" for="memberId">아이디</label>
+		     <div class="col-sm-10">
+		    <input type="text" class="form-control" id="userId" name="userId" placeholder="Id 입력">
+		  	</div>
+		  	</div>
 		  <div class="form-group">
 		    <label class="col-sm-2" for="password">비밀번호</label>
 		     <div class="col-sm-10">
@@ -59,6 +64,15 @@
 		     <div class="col-sm-10">
 		    <input type="text" class="form-control" id="name" name="name" placeholder="이름">
 		  	</div>
+		  </div>
+		  	<div class="form-group">
+		  	<label class="col-sm-2" for="gender">성별</label>
+		    <div class="col-sm-10">
+			    <select class="form-control" id="gender" name="gender">
+				  <option value="1"> 남자</option>
+				  <option value="2">여자</option>
+				</select>
+			</div>
 		  </div>
 		  <div class="form-group">
 		  	<label class="col-sm-2" for="exampleInputPassword1">직업</label>
@@ -94,14 +108,15 @@
 		  	<label class="col-sm-2" for="gyogu">교구</label>
 		    <div class="col-sm-10">
 			    <select class="form-control" id="gyogu" name="gyogu">
-				  <option value="1">소하1교구</option>
-				  <option value="2">소하2교구</option>
-				  <option value="3">소하3교구</option>
-				  <option value="4">소하4교구</option>
-				  <option value="5">소하5교구</option>
-				  <option value="6">소하6교구</option>
-				  <option value="7">소하7교구</option>
-				  <option value="8">소하8교구</option>
+				  <option value="5">소하1교구</option>
+				  <option value="6">소하2교구</option>
+				  <option value="6">소하3교구</option>
+				  <option value="10">소하4교구</option>
+				  <option value="7">소하5교구</option>
+				  <option value="8">소하6교구</option>
+				  <option value="11">광명1교구</option>
+				  <option value="12">대학청년교구</option>
+				  <option value="13">교육부</option>
 				</select>
 			</div>
 		  </div>

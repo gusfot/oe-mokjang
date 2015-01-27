@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -28,10 +29,19 @@ public class UserRest {
 		//Paging<User> pageList = userService.getPagingUserList(example,1);
 		
 		return null;
-		
-		
+	}
+
+	@RequestMapping(value = { "rest/user/registSheep.oe" }, method = RequestMethod.GET)
+	public @ResponseBody Paging<User> registerSheep(
+			@RequestParam(value="page", required=true ,defaultValue ="1")int page
+			) {
+		System.out.println(page);
+		Paging<User>pagingList =  userService.getPagingUserList(page, 5);
+		return pagingList;
 	}
 	
-	
+
 
 }
+
+

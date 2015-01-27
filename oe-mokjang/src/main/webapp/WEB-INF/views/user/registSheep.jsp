@@ -16,15 +16,47 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/paging-1.js"></script>
+<script type="text/javascript" src="/resources/js/paging-1.js"></script>
 <!-- <script type="text/javascript" src="/js/paging-1.js"></script> -->
 
 <script type="text/javascript">
 	function modal(){
 		$('#myModal').modal('toggle');
 	}
+	//var page = paging(msg.page,msg.pageSize,msg.totalNumOfItems);
+	function sheepPage(param){
+			
+		var html = '';
+		var item = null;
+		$.ajax({
+			type:"GET",
+			url:"rest/user/registSheep.oe?page="+param,
+		success : function(result) {
+			 for (var i=0; i<result.items.length; i++) {
+				item = result.items[i];
+				html += '<tr>';
+				html += '	<td><input type="checkbox"/></td>';
+				html += '	<td>' + item.userName + '</td>';
+				html += '	<td>' + item.roleName + '</td>';
+				html += '	<td>' + item.birth+ '</td>';
+				html += '	<td>' + item.gender+ '</td>';
+				html += '</tr>';
+			} 
+			var page = paging(result.page, result.pageSize, result.totalNumOfItems);
+			$('#tbody-item-list').html(html);
+			$('#page-bar').html(page);
+		}
+		});
+	}
+	
+	function greeting3(){
+		alert("greeting3");
+	}
+	$(document).ready(function() {
+		sheepPage(1);
+		});
+	
 </script>
-
 </head>
 <body>
 		<!--레이어팝업-->
@@ -33,17 +65,16 @@
 				<div class="layerPopup">
 					<div class="layerHead">
 						<h2>목장원 추가</h2>
-						<a href="#"><span>×</span></a>
 						<div class="line"></div>
 					</div>
 					<div class="layerContent">
 						<div class="listSearch">
 							<span>목장명</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="홍길동" onfocus="this.value=''" style="width:100px;" />
+							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:100px;" />
 							<span>등록일</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="20130101" onfocus="this.value=''" style="width:80px;" />
+							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:80px;" />
 							 ~ 
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="20131231" onfocus="this.value=''" style="width:80px;" />
+							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:80px;" />
 							<span class="btn3"><a href="#" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
@@ -65,7 +96,18 @@
 								<th scope="col">생년월일</th>
 								<th scope="col">성별</th>
 							</thead>
-							<c:forEach var = "list" items="${pageList.items}" begin="0" end="4"  varStatus="s">
+							<tbody id = "tbody-item-list">
+							<tr >
+								<td ><input type="checkbox" id="" /></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							</tbody>
+							
+							
+							<%-- <c:forEach var = "list" items="${pageList.items}"  varStatus="s">
 							<tr>
 								<td ><input type="checkbox" id="" /></td>
 								<td>${list.userName}</td>
@@ -78,22 +120,18 @@
 								<td> 여</td>
 								</c:if>
 							</tr>
-							</c:forEach>
+							</c:forEach> --%>
 							<tr>
 								<td class="first" colspan="5">검색된 항목이 없습니다.</td>
 							</tr>							
 							<tr>
 								<td class="list_paging" colspan="5">
-								<div class="paging">									
-										<a href="#"><span class="btn4"> << </span></a>
-										<a href="#"><span class="btn4"> < </span></a>
-										<a href="#"><span class="btn4">1 </span></a>
-										<a href="#"><span class="btn4">2 </span></a>
-										<a href="#"><span class="btn4">3 </span></a>
-										<a href="#"><span class="btn4">4 </span></a>
-										<a href="#"><span class="btn4">5 </span></a>
-										<a href="#"><span class="btn4"> > </span></a>
-										<a href="#"><span class="btn4"> >> </span></a>						
+								<div class="paging" id="">									
+									<ul class="pagination" id="page-bar">
+											<li><a href="#">5</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">&raquo;</a></li>
+										</ul>					
 								</div>									
 								</td>
 							</tr>
