@@ -66,17 +66,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
 
-      <table schema="mokjang" tableName="study_status" >
-      <columnOverride column="study_status_seq" property="studyStatusSeq" />
-      <columnOverride column="user_id" property="userId" />
-      <columnOverride column="edu_seq" property="eduSeq" />
-      <columnOverride column="study_date" property="studyDate" />
-      <columnOverride column="study_unit" property="studyUnit" />
-      <columnOverride column="state" property="state" />
-      <columnOverride column="reg_id" property="regId" />
-      <columnOverride column="reg_time" property="regTime" />
-    </table>
-     
      <table schema="mokjang" tableName="mission_work_status" >
       <columnOverride column="mission_work_status_seq" property="missionWorkStatusSeq" />
       <columnOverride column="user_id" property="userId" />
@@ -87,11 +76,24 @@
       </table>
        -->
        
-       <table schema="mokjang" tableName="notice" >
+       <!-- 
+      <table schema="mokjang" tableName="notice" >
       <columnOverride column="notice_seq" property="noticeSeq" />
       <columnOverride column="title" property="title" />
       <columnOverride column="content" property="content" />
       <columnOverride column="openYn" property="openYn" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+     -->
+     
+     <table schema="mokjang" tableName="edu_status" >
+      <columnOverride column="edu_status_seq" property="eduStatusSeq" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="edu_seq" property="eduSeq" />
+      <columnOverride column="edu_date" property="eduDate" />
+      <columnOverride column="edu_unit" property="eduUnit" />
+      <columnOverride column="state" property="state" />
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
