@@ -86,6 +86,7 @@
 					<!--버튼영역-->
 					<ul class="btnWrap">
 						<li ><a data-toggle="modal" href="registSheep.oe" data-target="#myModal"><span class="btn2">목장원추가</span></a></li>
+						<!-- <li><a onclick="modal()"><span class="btn2">목장원추가</span></a></li> -->
 						<!--<li><a href="#"><span class="btn2">목장원추가</span></a></li>
 						<li><a href="#"><span class="btn2">목장원추가</span></a></li>-->
 					</ul>
@@ -143,19 +144,19 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
+    <!-- <div class="modal-content"> -->
+      <!-- <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title">Modal title</h4>
-      </div>
+      </div> -->
       <div class="modal-body">
-        <%@ include file="../user/registSheep.jsp" %>
+        <%-- <%@ include file="../user/registSheep.jsp" %> --%>
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div> -->
-    </div><!-- /.modal-content -->
+    <!-- </div> --><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 </body>
