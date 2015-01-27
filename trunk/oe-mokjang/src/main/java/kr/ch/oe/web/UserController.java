@@ -1,6 +1,5 @@
 package kr.ch.oe.web;	
 
-import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
