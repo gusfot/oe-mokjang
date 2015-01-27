@@ -4,7 +4,11 @@ package kr.ch.oe.web;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+/**
+ * 목장보고서 관련 controller
+ * @author gusfot
+ *
+ */
 @Controller
 @RequestMapping("/report")
 public class ReportController {
