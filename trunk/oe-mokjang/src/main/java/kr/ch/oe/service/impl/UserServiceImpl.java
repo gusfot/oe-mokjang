@@ -1,12 +1,12 @@
 package kr.ch.oe.service.impl;
 
+
 import java.util.List;
 
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
-import kr.ch.oe.model.UserExample.Criteria;
 import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,26 +18,38 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserMapper userMapper;
 	
-// 모든 userList  를가지고온다
+	/**
+	 * 모든 사용자 목록을 가지고 온다.
+	 */
 	@Override
 	public Paging<User> getPagingUserList(int page,int pageSize) {
 		UserExample example = new UserExample();
+		
 		int totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
-		Paging<User> result = new Paging<>(page, pageSize, totalNumberOfItem, userList); 
-		return result;
+
+		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
 	}
-	//user 한명 정보를 가지고온다
+	
+	/**
+	 * 사용자 한명의 정보를 가지고 온다.
+	 */
 	@Override
 	public User getUser(String userId) {
 		return userMapper.selectByPrimaryKey(userId);
 	}
-	//user 를 등록한다
+	
+	/**
+	 * 사용자를 등록한다.
+	 */
 	@Override
 	public boolean registerUser(User user) {
 		return userMapper.insertSelective(user) > 0 ? true : false;
 	}
 	//user 정보를 수정한다
+	
+	/**
+	 */
 	@Override
 	public boolean modifyUser(User user) {
 		return userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
@@ -51,18 +63,26 @@ public class UserServiceImpl implements UserService {
 	/**
 	 *  목장목록을 가지고온다
 	 */
+	
+	
+	// TODO : 목장목록? 목장원목록?
+	/**
+	 * 목장목록을 가지고 온다.
+	 */
 	@Override
 	public Paging<User> getFarmUserList(String FarmmerId) {
-	UserExample example = new UserExample();
-	User user = userMapper.selectByPrimaryKey(FarmmerId);
-	
-	int totalNumofItems = userMapper.countByExample(example);
-	long deptSeq = user.getDeptSeq();
-	example.createCriteria().andDeptSeqEqualTo(deptSeq);
-	example.setOrderByClause("user_seq");
-	List<User>items= userMapper.selectByExample(example);
-	Paging<User> result = new Paging<>(1, 10, totalNumofItems, items);
-	return result;
+
+		User user = userMapper.selectByPrimaryKey(FarmmerId);
+		long deptSeq = user.getDeptSeq();
+		
+		
+		UserExample example = new UserExample();
+		example.createCriteria().andDeptSeqEqualTo(deptSeq);
+		example.setOrderByClause("user_seq");
+		
+		int totalNumofItems = userMapper.countByExample(example);
+
+		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
 	}
 	
 	
