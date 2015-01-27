@@ -22,6 +22,8 @@ public class UserServiceTest {
 	@Autowired
 	UserService userService;
 	
+	// TODO : 목장원이 목자가 될 경우 일어나는 경우
+	// TODO : 목장원이 목장 또는 교구를 변경하는 경우
 	
 	@Test
 	public void successToGetUserList(){
