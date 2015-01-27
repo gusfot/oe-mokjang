@@ -1,7 +1,5 @@
 package kr.ch.oe.web;	
 
-import java.util.Date;
-
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
@@ -30,30 +28,36 @@ public class UserController {
 				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId) {
 		
 		ModelAndView mav = new ModelAndView();
-		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
-		mav.addObject("pageList", pagingList);
+		mav.addObject("pageList", userService.getFarmUserList(farmmerId));
 		mav.setViewName("user/list");
+		
 		return mav;
 	}
 
 	@RequestMapping("/userInfo.oe")
 	public ModelAndView getUserInfo() {
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/detail");
+		
 		return mav;
 	}
 
 	@RequestMapping("/detail.oe")
 	public ModelAndView getUser() {
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/detail");
+		
 		return mav;
 	}
 
 	@RequestMapping(value = { "/registForm.oe"}, method = RequestMethod.GET)
 	public ModelAndView registerUserForm() {
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/regist");
+		
 		return mav;
 	}
 	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)
@@ -93,10 +97,12 @@ public class UserController {
 	
 	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
 	public ModelAndView registerSheep() {
+		
 		ModelAndView mav = new ModelAndView();
-		Paging<User>pagingList =  userService.getPagingUserList(1, 10);
-		mav.addObject("pageList", pagingList);
+		
+		mav.addObject("pageList", userService.getPagingUserList(1, 10));
 		mav.setViewName("user/registSheep");
+		
 		return mav;
 	}
 	
