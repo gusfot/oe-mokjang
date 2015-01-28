@@ -4,10 +4,33 @@ import java.util.List;
 
 import kr.ch.oe.model.Report;
 
+/**
+ * 개인 보고서 Service
+ * @author gusfot
+ *
+ */
 public interface ReportService {
 
-	boolean regist(List<Report> reports);
+	/**
+	 * 개인 보고서 목록 등록
+	 * @param reports
+	 * @return
+	 */
+	boolean registReports(List<Report> reports);
+	
+	/**
+	 * 단건 개인 보고서 등록
+	 * @param report
+	 * @return
+	 */
+	boolean regist(Report report);
 
+	/**
+	 * 해당주와 부서의 보고서 조회
+	 * @param deptSeq
+	 * @param weeks
+	 * @return
+	 */
 	List<Report> getReports(long deptSeq, int weeks);
 
 }

@@ -20,7 +20,7 @@ public class ReportServiceImpl implements ReportService {
 	
 	@Transactional
 	@Override
-	public boolean regist(List<Report> reports) {
+	public boolean registReports(List<Report> reports) {
 		boolean result = false;
 		
 		// TODO Controller 단에서 보고서 작성자의 deptSeq, userId 세팅
@@ -35,6 +35,11 @@ public class ReportServiceImpl implements ReportService {
 		}
 		
 		return result;
+	}
+	
+	@Override
+	public boolean regist(Report report) {
+		return reportMapper.insert(report) > 0 ? true : false;
 	}
 
 	@Override
