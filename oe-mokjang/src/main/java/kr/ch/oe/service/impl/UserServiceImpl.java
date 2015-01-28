@@ -24,10 +24,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Paging<User> getPagingUserList(int page,int pageSize) {
 		UserExample example = new UserExample();
-		
+		int startIndex = pageSize*page-pageSize;
+		String lmit = Integer.toString(startIndex)+","+Integer.toString(pageSize);
+		example.setOrderByClause("user_seq");
+		example.setLimitByClause(lmit);
 		int totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
-
 		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
 	}
 	
@@ -66,6 +68,10 @@ public class UserServiceImpl implements UserService {
 	
 	
 	// TODO : 목장목록? 목장원목록?
+	/**
+	 * Re :  목장원 목록임돠 충상형님께서 보내주신 페이지보면 목장원관리 페이지에 사용되는거입니다
+	 * 목자 아이디로 목장원 명단만 가지고옵니다!
+	 */
 	/**
 	 * 목장목록을 가지고 온다.
 	 */
