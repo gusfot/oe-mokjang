@@ -1,5 +1,6 @@
 package kr.ch.oe.web;	
 
+import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
@@ -27,9 +28,11 @@ public class UserController {
 				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId) {
 		
 		ModelAndView mav = new ModelAndView();
+		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
+		System.out.println(pagingList.getItems().get(0).getRoleName()); 
+		mav.addObject("pageList", pagingList);
 		mav.addObject("pageList", userService.getFarmUserList(farmmerId));
 		mav.setViewName("user/list");
-		
 		return mav;
 	}
 
@@ -69,41 +72,67 @@ public class UserController {
 			@RequestParam(value="birthday")String birth,
 			@RequestParam(value="mobilePhone")String mobilePhone,
 			@RequestParam(value="homePhone")String homephone,
+			@RequestParam(value="gender")String gneder,
+			@RequestParam(value="userId")String userId,
 			@RequestParam(value="gyogu")long gyogu
 			) {
 		ModelAndView mav = new ModelAndView();
 		User user = new User();
-		System.out.println(gyogu);
-		Department dept = deptService.getDepatment(1L);
-		System.out.println(dept.getDeptName()); 
-		
-		
-		/*
-		 * 
+		String rebirth = birth.replace("-","");
 		Department dept = deptService.getDepatment(gyogu);
-		System.out.println(dept.getDeptSeq()); 
-		 * 
-		 * user.setAddr(addr);
-		user.setBirth(birth);
+ 	    user.setUserName(name);
+		user.setAddr(addr);
+		user.setBirth(rebirth );
 		user.setCellPhone(mobilePhone);
 		user.setJob(job);
 		user.setDepartment(dept);
 		user.setDeptSeq(dept.getDeptSeq());
+		user.setUserId(userId);
+		user.setGender(gneder);
+		user.setPassword(password);
 		userService.registerUser(user);
-		mav.setViewName("user/list");*/
-		return null;
+		mav.setViewName("user/list");
+		return mav;
 	}
 	
-	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
-	public ModelAndView registerSheep() {
+/*	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
+	public ModelAndView registerSheep(
+			@RequestParam(value="page", required=true ,defaultValue ="1")int page
+			) {
 		
 		ModelAndView mav = new ModelAndView();
+<<<<<<< .mine
+		System.out.println(page);
+		Paging<User>pagingList =  userService.getPagingUserList(page, 5);
+		mav.addObject("pageList", pagingList);
+=======
 		
 		mav.addObject("pageList", userService.getPagingUserList(1, 10));
+>>>>>>> .r152
 		mav.setViewName("user/registSheep");
 		
 		return mav;
 	}
+*/	
+	
+	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
+	public String registerSheep(
+			) {
+		return "user/registSheep";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
