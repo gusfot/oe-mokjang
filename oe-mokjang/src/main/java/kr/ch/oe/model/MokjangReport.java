@@ -3,6 +3,11 @@ package kr.ch.oe.model;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 목장 보고서
+ * @author gusfot
+ *
+ */
 public class MokjangReport {
 
 	/**

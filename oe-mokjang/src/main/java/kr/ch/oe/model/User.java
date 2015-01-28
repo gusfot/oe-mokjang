@@ -3,6 +3,11 @@ package kr.ch.oe.model;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 사용자(담임목사, 대교구장, 교구장, 목자, 목장원, 새신자 등)
+ * @author gusfot
+ *
+ */
 public class User {
 
 	/**

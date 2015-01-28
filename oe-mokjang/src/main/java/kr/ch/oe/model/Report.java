@@ -2,6 +2,11 @@ package kr.ch.oe.model;
 
 import java.util.Date;
 
+/**
+ * 개인 보고서
+ * @author gusfot
+ *
+ */
 public class Report {
 
 	/**
