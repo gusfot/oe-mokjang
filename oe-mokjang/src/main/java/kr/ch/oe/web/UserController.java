@@ -101,14 +101,11 @@ public class UserController {
 			) {
 		
 		ModelAndView mav = new ModelAndView();
-<<<<<<< .mine
 		System.out.println(page);
 		Paging<User>pagingList =  userService.getPagingUserList(page, 5);
 		mav.addObject("pageList", pagingList);
-=======
 		
 		mav.addObject("pageList", userService.getPagingUserList(1, 10));
->>>>>>> .r152
 		mav.setViewName("user/registSheep");
 		
 		return mav;
@@ -118,6 +115,7 @@ public class UserController {
 	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
 	public String registerSheep(
 			) {
+		
 		return "user/registSheep";
 	}
 	
