@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author gusfot
  *
  */
+@RequestMapping("")
 @Controller
 public class MainController {
 
