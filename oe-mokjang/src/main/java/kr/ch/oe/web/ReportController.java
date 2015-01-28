@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author gusfot
  *
  */
-@Controller
 @RequestMapping("/report")
+@Controller
 public class ReportController {
 
 	@RequestMapping("/list.oe")

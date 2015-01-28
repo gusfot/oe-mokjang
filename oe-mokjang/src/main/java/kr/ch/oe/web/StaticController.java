@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 전도 관련 controller
+ * 각종 통계에 관련된 통계 controller
  * @author gusfot
  *
  */
-@RequestMapping("/missionWork")
+@RequestMapping("/static")
 @Controller
-public class MissionWorkController {
+public class StaticController {
 
 }
