@@ -35,11 +35,16 @@
 			 for (var i=0; i<result.items.length; i++) {
 				item = result.items[i];
 				html += '<tr>';
-				html += '	<td><input type="checkbox"/></td>';
+				html += '	<td><input type="checkbox" name="box" value = "A"/></td>';
 				html += '	<td>' + item.userName + '</td>';
 				html += '	<td>' + item.roleName + '</td>';
 				html += '	<td>' + item.birth+ '</td>';
-				html += '	<td>' + item.gender+ '</td>';
+				if (item.gender==1) {
+					html += '	<td> 남자</td>';
+				};
+				if (item.gender!=1) {
+					html += '	<td>여자</td>';
+		    	 };
 				html += '</tr>';
 			} 
 			var page = paging(result.page, result.pageSize, result.totalNumOfItems);
@@ -48,20 +53,33 @@
 		}
 		});
 	}
-	
 	function greeting3(){
 		alert("greeting3");
 	}
+	
+/* 	function registSheep(){
+		$("#checkList").click(function() {
+			$("input[name=box]:checked").each(function() {
+				var test = $(this).val();
+				alert(test);
+			});
+		});
+	} */
+	
 	$(document).ready(function() {
 		sheepPage(1);
+		
+		$("#checkList").click(function() {
+			$("input[name=box]:checked").each(function() {
+				var test = $(this).val();
+			}); 
+		});
 		});
 	
 </script>
 </head>
 <body>
 		<!--레이어팝업-->
-		<div class="layerpopupBack">
-			<div class="layerPopupWrap">
 				<div class="layerPopup">
 					<div class="layerHead">
 						<h2>목장원 추가</h2>
@@ -78,9 +96,10 @@
 							<span class="btn3"><a href="#" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
-						<span class="total">총 50건의 목장원이 검색되었습니다.</span>
+						<span class="total" id="total">총 건의 목장원이 검색되었습니다.</span>
 						<!--리스트영역-->
-						<table cellpadding="0" cellspacing="0" class="list">
+						<table cellpadding="0" cellspacing="0" class="list" >
+							
 							<caption>테스트</caption>
 							<colgroup>
 								<col style="width:50px;">
@@ -90,11 +109,13 @@
 								<col style="width:80px;">
 							</colgroup>
 							<thead>
-								<th scope="col" class="first"><input type="checkbox" id="" /></th>
+							<tr>
+								<th scope="col" ><input type="checkbox" id="" /></th>
 								<th scope="col">성도명</th>
 								<th scope="col">목장명</th>
 								<th scope="col">생년월일</th>
 								<th scope="col">성별</th>
+								</tr>
 							</thead>
 							<tbody id = "tbody-item-list">
 							<tr >
@@ -105,8 +126,6 @@
 								<td></td>
 							</tr>
 							</tbody>
-							
-							
 							<%-- <c:forEach var = "list" items="${pageList.items}"  varStatus="s">
 							<tr>
 								<td ><input type="checkbox" id="" /></td>
@@ -136,17 +155,15 @@
 								</td>
 							</tr>
 							</table>
-
 					</div>
 					<div class="layerTail">
-						<div class="layerBtn">
-							<a href="#"><span class="btn2">선택 항목 추가</span></a>
+						<div class="layerBtn">	
+<!-- 							<a href="#"><span class="btn2" id = "checkList" >선택 항목 추가</span></a> -->
+							<input type="button" class="btn2" value="chekc 확인" id="checkList">
 							<a href="list.oe"><span class="btn2">취소</span></a>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 		
 </body>
 </html>

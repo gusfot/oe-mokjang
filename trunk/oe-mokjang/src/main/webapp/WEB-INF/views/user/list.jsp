@@ -58,8 +58,8 @@
 					<div class="line"></div><!--구분선-->
 					<!--목장 요약영역-->
 					<ul class="listSummary">
-						<li><span>홍길동 목장</span>은</li>
-						<li>총 <span>5명</span>의 목장원이 있으며</li>
+						<li><span>${pageList.items[0].userName}목장</span>은</li>
+						<li>총 <span>${pageList.totalNumOfItems}명</span>의 목장원이 있으며</li>
 						<li>목장의 금주점수는 <span>32,000점</span>, </li>
 						<li>목장의 누적점수는 <span>99,000점</span>입니다.</li>	
 					</ul>

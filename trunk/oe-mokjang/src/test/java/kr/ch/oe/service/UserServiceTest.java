@@ -61,9 +61,12 @@ public class UserServiceTest {
 		user.setRegDt("20150109");
 		user.setJob("직업");
 		user.setGender("1");
+		user.setRoleSeq(8L);
+		user.setEmail("test@52ch.kr");
 		user.setRoleName("새신자");
 		
 		boolean result = userService.registerUser(user);
+		
 		
 		Assert.assertTrue(result);
 		

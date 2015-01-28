@@ -8,6 +8,7 @@ import kr.ch.oe.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,11 +33,12 @@ public class UserRest {
 	}
 
 	@RequestMapping(value = { "rest/user/registSheep.oe" }, method = RequestMethod.GET)
-	public @ResponseBody Paging<User> registerSheep(
+	public @ResponseBody Paging<User> registerSheep(Model model,
 			@RequestParam(value="page", required=true ,defaultValue ="1")int page
 			) {
 		System.out.println(page);
 		Paging<User>pagingList =  userService.getPagingUserList(page, 5);
+		model.addAttribute("userList", pagingList);
 		return pagingList;
 	}
 	

@@ -178,6 +178,19 @@
     mws.reg_id mws_reg_id,
     mws.reg_time mws_reg_time
   </sql>
+  <sql id="EduStatus_Column_List">
+    es.edu_status_seq es_edu_satus_seq,
+    es.user_id es_user_id,
+    es.edu_seq es_edu_seq,
+    es.edu_date es_edu_date, 
+    es.edu_unit es_edu_unit
+    es.state es_state, 
+    es.reg_id es_reg_id,
+    es.reg_time es_reg_time
+  </sql>
+  
+  
+  
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbggenerated

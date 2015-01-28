@@ -27,7 +27,7 @@
 .contents .listSearch {position:absolute; top:50px; left:0; width:100%; background-color:#EFEFEF; padding:8px 0 8px 0;}
 .contents .listSearch span {margin-left:15px;}
 
-.contents .line {position:absolute; top:35px; width:100%; border-bottom:1px solid #CCCCCC;}
+.contents .line {position:absolute; top:35px; width:0%; border-bottom:1px solid #CCCCCC;}
 
 .contents .calCtrl {overflow:hidden; position:absolute; top:118px; left:0; }
 .contents .calCtrl li {float:left; margin-right:10px; }
@@ -51,8 +51,8 @@
 .layerPopup {width:700px; margin: 0 auto; background-color:#FFFFFF; height:500px; margin-top:50px; padding:20px;}
 .layerPopup .layerHead {position:relative; width:700px;}
 .layerPopup .layerHead span {position:absolute; top:0; right:0; font-size:30px;}
-.layerPopup .layerHead .line {position:absolute; top:30px; width:100%; border-bottom:1px solid #CCCCCC;}
-.layerPopup .layerContent {position:relative; width:700px;}
+.layerPopup .layerHead .line {position:absolute; top:30px; width:92%; border-bottom:1px solid #CCCCCC;}
+.layerPopup .layerContent {position:relative; width:650px;}
 .layerPopup .layerContent .listSearch{position:absolute; top:30px; left:0; width:100%; background-color:#EFEFEF; padding:8px 0 8px 0;}
 .layerPopup .layerContent .listSearch span {margin-left:15px;}
 .layerPopup .layerContent .total{position:absolute; top:85px;}
