@@ -28,7 +28,7 @@
   
   <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
   	<association property="department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
-  	<collection property="studyStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
+  	<collection property="eduStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
   	<collection property="missionWorkStatusList" columnPrefix="mws_" resultMap="MissionWorkStatusResultMap" />
   </resultMap>
   
@@ -39,12 +39,12 @@
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
   </resultMap>
   
-  <resultMap type="kr.ch.oe.model.StudyStatus" id="StudyStatusResultMap">
-  	 <id column="study_status_seq" jdbcType="BIGINT" property="studyStatusSeq" />
+  <resultMap type="kr.ch.oe.model.EduStatus" id="EduStatusResultMap">
+  	 <id column="edu_status_seq" jdbcType="BIGINT" property="eduStatusSeq" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
-    <result column="study_date" jdbcType="VARCHAR" property="studyDate" />
-    <result column="study_unit" jdbcType="BIGINT" property="studyUnit" />
+    <result column="edu_date" jdbcType="VARCHAR" property="eduDate" />
+    <result column="edu_unit" jdbcType="BIGINT" property="edUnit" />
     <result column="state" jdbcType="CHAR" property="state" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
@@ -543,11 +543,11 @@
     select 
     <include refid="User_Column_List" />
     ,<include refid="Dept_Column_List" />
-    ,<include refid="StudyStatus_Column_List" />
+    ,<include refid="EduStatus_Column_List" />
     ,<include refid="MissisonWorkStatus_Column_List" />
     from user user
     left join dept dept on dept.dept_seq = user.dept_seq
-    left join study_status ss on ss.user_id = user.user_id 
+    left join edu_status es on es.user_id = user.user_id 
     left join mission_work_status mws on mws.user_id = user.user_id 
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>

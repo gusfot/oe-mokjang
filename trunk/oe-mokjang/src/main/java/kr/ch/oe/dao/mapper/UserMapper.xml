@@ -28,7 +28,7 @@
   
   <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
   	<association property="department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
-  	<collection property="eduStatusList" columnPrefix="es_" resultMap="EduStatusResultMap" />
+  	<collection property="eduStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
   	<collection property="missionWorkStatusList" columnPrefix="mws_" resultMap="MissionWorkStatusResultMap" />
   </resultMap>
   
@@ -39,7 +39,7 @@
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
   </resultMap>
   
-  <resultMap type="kr.ch.oe.model.StudyStatus" id="EduStatusResultMap">
+  <resultMap type="kr.ch.oe.model.EduStatus" id="EduStatusResultMap">
   	 <id column="edu_status_seq" jdbcType="BIGINT" property="eduStatusSeq" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
@@ -161,14 +161,14 @@
     dept.reg_time dept_reg_time 
   </sql>
   <sql id="StudyStatus_Column_List">
-    es.study_status_seq ss_study_status_seq,
-    es.user_id es_user_id ,
-    es.edu_seq es_edu_seq, 
-    es.study_date es_study_date, 
-    es.study_unit es_study_unit ,
-    es.state es_state, 
-    es.reg_id es_reg_id, 
-    es.reg_time es_reg_time 
+    ss.study_status_seq ss_study_status_seq,
+    ss.user_id ss_user_id ,
+    ss.edu_seq ss_edu_seq, 
+    ss.study_date ss_study_date, 
+    ss.study_unit ss_study_unit ,
+    ss.state ss_state, 
+    ss.reg_id ss_reg_id, 
+    ss.reg_time ss_reg_time 
   </sql>
   <sql id="MissisonWorkStatus_Column_List">
     mws.mission_work_status_seq mws_mission_work_status_seq, 
@@ -195,6 +195,9 @@
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
+    </if>
+    <if test="limitByClause != null">
+    limit ${limitByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
@@ -540,7 +543,7 @@
     select 
     <include refid="User_Column_List" />
     ,<include refid="Dept_Column_List" />
-    ,<include refid="StudyStatus_Column_List" />
+    ,<include refid="EduStatus_Column_List" />
     ,<include refid="MissisonWorkStatus_Column_List" />
     from user user
     left join dept dept on dept.dept_seq = user.dept_seq
