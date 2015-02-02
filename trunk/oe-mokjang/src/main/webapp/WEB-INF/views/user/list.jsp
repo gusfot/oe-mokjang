@@ -28,7 +28,7 @@
 <body>
 	<div class="containerWrap">
 			<div class="headWrap">
-				<div class="head">
+				<%-- <div class="head">
 					<!--로고-->
 					<h1>목장보고서비스</h1>
 					<!--커스톰메뉴영역-->
@@ -46,13 +46,11 @@
 						<li><a href="#"><h3>통계관리</h3></a></li>						
 						<li><a href="#"><h3>공지관리</h3></a></li>
 					</ul>
-				</div>
-
+				</div> --%>
+			<%@ include file="../include/header.jsp" %>
 			</div>
 			<div class="contentsWrap">
 				<div class="contents">
-					<!--서브타이틀영역-->
-					<h2>목장원관리</h2>
 					<!--페이지네비게이션영역-->
 					<div class="pageNavi"><a href="#">홈</a> > <a href="#">목장원관리</a> > 목록</div>
 					<div class="line"></div><!--구분선-->
@@ -119,7 +117,7 @@
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
 							<td>${s.count}</td>
 							<td>${list.roleName}</td>
-							<td>${list.userName}</td>
+							<td><a data-toggle="modal" href="detail.oe?userId=${list.userId}" data-target="#myModal">${list.userName}</a></td>
 							<td>${list.birth}</td>
 							<td>999.99</td>
 							<td>9999.99</td>

@@ -46,6 +46,12 @@ public interface UserService {
 	 */
 	
 	Paging<User> getFarmUserList(String FarmmerId);
+	/**
+	 *  아이디 중복확인
+	 * @param userId
+	 * @return
+	 */
+	boolean overlapUserId(String userId);
 	
 }
 

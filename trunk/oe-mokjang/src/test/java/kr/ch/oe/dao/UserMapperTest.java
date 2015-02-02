@@ -6,6 +6,7 @@ import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,11 +98,21 @@ public class UserMapperTest {
 		Assert.assertTrue(result>0);
 	}
 	
+	
 	@Test
 	public void selectByUserId() {
 		User user  = userMapper.selectByUserId("gusfot");
 		System.out.println(user.toString());
 		Assert.assertTrue("김현래목장".equals(user.getDepartment().getDeptName()));
 	}
+	
+	@Test
+	public void successOverlapUserId(){
+		Assert.assertTrue(userMapper.selectOverlapUserId("xx")==null);
+		
+	}
+	
+	
+	
 	
 }
