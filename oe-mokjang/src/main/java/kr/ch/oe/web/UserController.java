@@ -1,5 +1,7 @@
 package kr.ch.oe.web;	
 
+import javax.servlet.http.HttpServletResponse;
+
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @RequestMapping("/user")
@@ -32,7 +35,7 @@ public class UserController {
 		System.out.println(pagingList.getItems().get(0).getRoleName()); 
 		mav.addObject("pageList", pagingList);
 		mav.addObject("pageList", userService.getFarmUserList(farmmerId));
-		mav.setViewName("user/list");
+//		mav.setViewName("user/list");
 		return mav;
 	}
 
@@ -45,12 +48,15 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping("/detail.oe")
-	public ModelAndView getUser() {
-		
+	@RequestMapping(value={"/detail.oe"},method=RequestMethod.GET)
+	public ModelAndView detailUserInfo(
+				@RequestParam(value="userId")String userId
+			) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(userId);
+		User user = userService.getUser(userId);
+		mav.addObject("user", user);
 		mav.setViewName("user/detail");
-		
 		return mav;
 	}
 
@@ -63,7 +69,8 @@ public class UserController {
 		return mav;
 	}
 	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)
-	public ModelAndView registerUser(
+	public String registerUser(
+			HttpServletResponse response,
 			@RequestParam(value="email")String email,
 			@RequestParam(value="password")String password,
 			@RequestParam(value="name")String name,
@@ -92,7 +99,7 @@ public class UserController {
 		user.setPassword(password);
 		userService.registerUser(user);
 		mav.setViewName("user/list");
-		return mav;
+		return "redirect:../user/list.oe";
 	}
 	
 /*	@RequestMapping(value = { "/registSheep.oe" }, method = RequestMethod.GET)
@@ -117,6 +124,15 @@ public class UserController {
 			) {
 		
 		return "user/registSheep";
+	}
+	
+	@RequestMapping(value = { "/overlapUserId.oe" }, method = RequestMethod.GET)
+	public @ResponseBody boolean overlaUserId(
+			@RequestParam(value="userId") String userId
+			) {
+		System.out.println("in ovelap");
+		boolean checkId = userService.overlapUserId(userId);
+		return checkId;
 	}
 	
 	

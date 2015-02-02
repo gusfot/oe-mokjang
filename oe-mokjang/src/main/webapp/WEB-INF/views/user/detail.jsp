@@ -1,4 +1,6 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,105 +31,90 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<div class="page-header">
-	  <h1>Example page header <small>Subtext for header</small></h1>
-	</div>
-	<div>
-		<nav class="navbar navbar-inverse" role="navigation">
-  		<div class="collapse navbar-collapse navbar-ex8-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/main.oe">HHome</a></li>
-            <li><a href="regist.oe">Link</a></li>
-            <li><a href="#">Link</a></li>
-          </ul>
-        </div>
-</nav>
-	</div>
-	<!--레이어팝업배경-->
-		<div class="layerBack"></div>
-		<!--레이어팝업-->
-		<div class="layerpopupBack">
-			<div class="layerPopupWrap">
-				<div class="layerPopup">
-					<div class="layerHead">
-						<h2>목장원 추가</h2>
-						<a href="#"><span>×</span></a>
-						<div class="line"></div>
-					</div>
-					<div class="layerContent">
-						<div class="listSearch">
-							<span>목장명</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="홍길동" onfocus="this.value=''" style="width:100px;" />
-							<span>등록일</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="20130101" onfocus="this.value=''" style="width:80px;" />
-							 ~ 
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="20131231" onfocus="this.value=''" style="width:80px;" />
-							<span class="btn3"><a href="#" >검색 </a></span>
-						</div>
-						<span class="total">총 50건의 목장원이 검색되었습니다.</span>
-						<!--리스트영역-->
-						<table cellpadding="0" cellspacing="0" class="list">
-							<caption>테스트</caption>
-							<colgroup>
-								<col style="width:50px;">
-								<col style="width:80px;">
-								<col style="width:150px;">
-								<col style="">
-								<col style="width:80px;">
-							</colgroup>
-							<thead>
-								<th scope="col" class="first"><input type="checkbox" id="" /></th>
-								<th scope="col">성도명</th>
-								<th scope="col">목장명</th>
-								<th scope="col">생년월일</th>
-								<th scope="col">성별</th>
-							</thead>
-							<tr>
-								<td class="first"><input type="checkbox" id="" /></td>
-								<td>홍길동</td>
-								<td>홍길동 목장</td>
-								<td>1977.12.11</td>
-								<td>남</td>
-							</tr>
-						
-							<tr>
-								<td class="first"><input type="checkbox" id="" /></td>
-								<td>홍길동</td>
-								<td>홍길동 목장</td>
-								<td>1977.12.11</td>
-								<td>남</td>
-							</tr>
-							<tr>
-								<td class="first" colspan="5">검색된 항목이 없습니다.</td>
-							</tr>							
-							<tr>
-								<td class="list_paging" colspan="5">
-								<div class="paging">									
-										<a href="#"><span class="btn4"> << </span></a>
-										<a href="#"><span class="btn4"> < </span></a>
-										<a href="#"><span class="btn4">1 </span></a>
-										<a href="#"><span class="btn4">2 </span></a>
-										<a href="#"><span class="btn4">3 </span></a>
-										<a href="#"><span class="btn4">4 </span></a>
-										<a href="#"><span class="btn4">5 </span></a>
-										<a href="#"><span class="btn4"> > </span></a>
-										<a href="#"><span class="btn4"> >> </span></a>						
-								</div>									
-								</td>
-							</tr>
-							</table>
+<%-- <%@ include file="../include/header.jsp"%> --%>
 
-					</div>
-					
-					<div class="layerTail">
-						<div class="layerBtn">
-							<a href="#"><span class="btn2">선택 항목 추가</span></a>
-							<a href="#"><span class="btn2">취소</span></a>
-						</div>
+	<div class="layerPopupDetail">
+	<div class="container">
+		<div class="page-header">
+			<form class="form-horizontal" role="form" action="/user/regist.oe"
+				method="post">
+				<div class="form-group">
+					<label class="col-sm-2" for="email">이메일 주소</label>
+					<div class="col-sm-10">
+						<input type="email" class="col-sm-10 form-control" id="email"	name="email" value="${user.email}">
 					</div>
 				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="memberId">아이디</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="userId" name="userId" value="${user.userId }">
+					</div>
+	
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="memberName">이름</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="name" name="name"value="${user.userName }">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="exampleInputPassword1">직업</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="job" name="job"value="${user.job }">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="address">집주소</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="address"name="address" value="${user.addr}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="birthday">생일</label>	<div class="col-sm-10">
+						<input type="text" class="form-control" id="birthday"	name="birthday" value="${user.birth}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="mobilePhone">휴대폰</label>
+					<div class="col-sm-10">
+						<input type="tel" class="form-control" id="mobilePhone"
+							name="mobilePhone" value="${user.cellPhone}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="homePhone">집전화번호</label>
+					<div class="col-sm-10">
+						<input type="tel" class="form-control" id="homePhone"name="homePhone" value="${user.homePhone}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="gyogu">교구</label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" id="roleName"name="roleName" value="${user.roleName}">
+						
+					</div>
+				</div>
+				<!-- 
+		  <div class="form-group">
+		  	<label class="col-sm-2" >직분</label>
+		    <div class="col-sm-10">
+			   <label class="radio-inline">
+				  <input type="radio" name="role" id="role1" value="1"> 교구장 
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="role" id="role2" value="2"> 목자
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="role" id="role3" value="3"> 목장원 
+				</label>
 			</div>
+		  </div>
+		  -->
+				<button type="submit" class="btn btn-default">수정</button>
+			</form>
+				<button calss="button button-default" ><a href="list.oe">취소</a></button> 
 		</div>
-		
+	</div>
+	</div>
 </body>
 </html>

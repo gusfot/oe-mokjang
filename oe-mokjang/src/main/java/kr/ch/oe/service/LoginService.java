@@ -7,5 +7,6 @@ package kr.ch.oe.service;
  */
 public interface LoginService {
 
+	public boolean loginUser(String userId ,String pw);
 	
 }

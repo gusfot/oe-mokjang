@@ -72,6 +72,7 @@ public class UserServiceImpl implements UserService {
 	 * Re :  목장원 목록임돠 충상형님께서 보내주신 페이지보면 목장원관리 페이지에 사용되는거입니다
 	 * 목자 아이디로 목장원 명단만 가지고옵니다!
 	 */
+	
 	/**
 	 * 목장목록을 가지고 온다.
 	 */
@@ -90,6 +91,17 @@ public class UserServiceImpl implements UserService {
 
 		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
 	}
-	
+/**
+ * 아이디 중복 체크
+ */
+	@Override
+	public boolean overlapUserId(String userId) {
+		String checkId = userMapper.selectOverlapUserId(userId);
+		if(checkId!=null){
+		return false;
+		}
+		else
+			return true;
+	}
 	
 }
