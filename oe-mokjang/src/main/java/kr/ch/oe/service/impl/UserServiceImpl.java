@@ -4,7 +4,9 @@ package kr.ch.oe.service.impl;
 import java.util.List;
 
 import kr.ch.oe.common.Paging;
+import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.dao.UserMapper;
+import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 import kr.ch.oe.service.UserService;
@@ -17,7 +19,8 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserMapper userMapper;
-	
+	@Autowired
+	DepartmentMapper deptMapper;
 	/**
 	 * 모든 사용자 목록을 가지고 온다.
 	 */
@@ -38,7 +41,10 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public User getUser(String userId) {
-		return userMapper.selectByPrimaryKey(userId);
+		User user =userMapper.selectByPrimaryKey(userId);
+		Department dept = deptMapper.selectByPrimaryKey(user.getDeptSeq());
+		user.setDepartment(dept);
+		return user;
 	}
 	
 	/**
@@ -46,6 +52,8 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public boolean registerUser(User user) {
+		String roleName = userMapper.selectRoleName(user.getRoleSeq());
+		user.setRoleName(roleName);
 		return userMapper.insertSelective(user) > 0 ? true : false;
 	}
 	//user 정보를 수정한다
@@ -103,5 +111,39 @@ public class UserServiceImpl implements UserService {
 		else
 			return true;
 	}
+
+@Override
+public boolean registUserFarm(String farmmerId, String UserId) {
+	User user = userMapper.selectByPrimaryKey(UserId);
+	System.out.println("1");
+	User farmmer = userMapper.selectByPrimaryKey(farmmerId);
+	System.out.println("2");
+	user.setRoleSeq(7l);
+	String roleName=userMapper.selectRoleName(user.getRoleSeq());
+	System.out.println("3");
+	System.out.println(user.getAddr());
+	System.out.println(user.getBirth());
+	System.out.println(user.getCellPhone());
+	System.out.println(user.getEmail());
+	System.out.println(user.getGender());
+	System.out.println(user.getHomePhone());
+	System.out.println(user.getJob());
+	System.out.println(user.getPassword());
+	System.out.println(user.getRegDt());
+	System.out.println(user.getRoleName());
+	System.out.println(user.getUserId());
+	System.out.println(user.getUserName());
+	System.out.println(user.getUserSeq());
 	
+	
+	
+	
+	
+	user.setRoleName(roleName);
+	user.setDeptSeq(farmmer.getDeptSeq());
+	return userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+	/*boolean test = userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+	 System.out.println("4");
+	 return test;*/
+}
 }

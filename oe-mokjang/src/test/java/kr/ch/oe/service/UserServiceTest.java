@@ -85,7 +85,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void successToModifyUser() {
-		User user =  userService.getUser("test123114");
+		User user =  userService.getUser("test293");
 		user.setJob("개발자");
 		user.setGender("2");
 		boolean result = userService.modifyUser(user);
@@ -109,4 +109,11 @@ public class UserServiceTest {
 		List<User> list = pagingList.getItems();
 		Assert.assertTrue(list.size() > 0);
 	}
+	@Test
+	public void successToregistUserFarm(){
+		Assert.assertTrue(userService.registUserFarm("sms", "test293")); 
+		
+		
+	}
+	
 }

@@ -16,29 +16,84 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="jquery.jstree.min.js"></script>
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-	function overlapId(){
-		alert("in");
+	function checkfield(){
 		var userId = $("input[name=userId]").val();
-	$.ajax({
-				type : "GET",
-				url : "overlapUserId.oe?userId=" + userId,
-				success : function(result) {
-					alert("success");
-					if(result==true){
-						alert("사용가능한 아이디입니다");
-					}
-					else{
-						alert("이미 존재하는 아이디입니다");
-						$("input[name=userId]").val("");
-						$("input[name=userId]").focus();
-					}
-					}
-			});
+	     var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+		
+		if(document.regist_form.email.value==""){
+			alert("이메일주소를 입력하세요");
+			document.regist_form.email.focus();
+			exit;
+			
+		}else if(document.regist_form.userId.value==""){
+			alert("아이디를 입력하세요");
+			document.regist_form.userId.focus();
+			exit;
+			
+		}else if(document.regist_form.password.value==""){
+			alert("비밀번호를 입력하세요");
+			document.regist_form.password.focus();
+			exit;
+			
+		}else if(document.regist_form.name.value==""){
+			alert("이름을 입력하세요");
+			document.regist_form.name.focus();
+			exit;
+			
+		}else if(document.regist_form.job.value==""){
+			alert("직업을 입력하세요");
+			document.regist_form.job.focus();
+			exit;
+			
+		}else if(document.regist_form.address.value==""){
+			alert(" 주소를 입력하세요");
+			document.regist_form.address.focus();
+			exit;
+			
+		}else if(document.regist_form.birthday.value==""){
+			alert(" 생일을 입력하세요");
+			document.regist_form.birthday.focus();
+			exit;
+			
+		}else if(document.regist_form.mobilePhone.value==""){
+			alert(" 핸드폰 번호를 입력하세요");
+			document.regist_form.mobilePhone.focus();
+			exit;
+			
+		}else if(document.regist_form.homePhone.value==""){
+			alert(" 집전화 번호를 입력하세요");
+			document.regist_form.homePhone.focus();
+			exit;
+			
+		}
+	     
+	     if(phonestr.test(document.regist_form.mobilePhone.value)==false){
+	    	 alert("핸드폰번호 형식이 맞지않습니다 ");
+	    	 document.regist_form.mobilePhone.focus();
+				exit;
+	     }
+	     if(phonestr.test(document.regist_form.homePhone.value)==false){
+	    	 alert(" 전화번호 형식이 맞지않습니다 ");
+	    	 document.regist_form.homePhone.focus();
+				exit;
+	     } 
+		$.ajax({
+					type : "GET",
+					url : "overlapUserId.oe?userId=" + userId,
+					success : function(result) {
+						if(result==true){
+						document.regist_form.submit();
+						}
+						else{
+							alert("아이디가 이미 존재합니다");
+							$("input[name=userId]").val("");
+							$("input[name=userId]").focus();
+						}
+						}
+				});
 	}
 </script>
 </head>
@@ -69,35 +124,30 @@
 
 	<div class="container">
 		<div class="page-header">
-			<form class="form-horizontal" role="form" action="/user/regist.oe"
-				method="post">
+			<form class="form-horizontal" role="form" action="/user/regist.oe"	method="post" name="regist_form">
 				<div class="form-group">
 					<label class="col-sm-2" for="email">이메일 주소</label>
 					<div class="col-sm-10">
-						<input type="email" class="col-sm-10 form-control" id="email"
-							name="email" placeholder="Email">
+						<input type="email" class="col-sm-10 form-control" id="email"name="email" placeholder="Email">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="memberId">아이디</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="userId" name="userId"placeholder="Id 입력">
-						<input type="button" class="btn btn-default" value="ID중복확인" onclick="overlapId()">
 					</div>
 	
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="password">비밀번호</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="password"
-							name="password" placeholder="비밀번호">
+						<input type="password" class="form-control" id="password"name="password" placeholder="비밀번호">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="memberName">이름</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" name="name"
-							placeholder="이름">
+						<input type="text" class="form-control" id="name" name="name"placeholder="이름">
 					</div>
 				</div>
 				<div class="form-group">
@@ -112,42 +162,44 @@
 				<div class="form-group">
 					<label class="col-sm-2" for="exampleInputPassword1">직업</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="job" name="job"
-							placeholder="직업">
+						<input type="text" class="form-control" id="job" name="job"placeholder="직업">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="address">집주소</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="address"
-							name="address" placeholder="집주소">
+						<input type="text" class="form-control" id="address"name="address" placeholder="집주소">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="birthday">생일</label>
 					<div class="col-sm-10">
-						<input type="date" class="form-control" id="birthday"
-							name="birthday" placeholder="생일">
+						<input type="date" class="form-control" id="birthday"	name="birthday" placeholder="생일">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="mobilePhone">휴대폰</label>
 					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="mobilePhone"
-							name="mobilePhone" placeholder="휴대폰">
+						<input type="tel" class="form-control" id="mobilePhone"	name="mobilePhone" placeholder="휴대폰(010-0000-000)형식에 맞춰서입력해주세요">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="homePhone">집전화번호</label>
 					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="homePhone"
-							name="homePhone" placeholder="집전화번호">
+						<input type="tel" class="form-control" id="homePhone"name="homePhone" placeholder="집전화번호(000-0000-0000)형식에 맞춰서 입력해주세요">
+					</div>
+				</div>
+						<div class="form-group">
+					<label class="col-sm-2" for="regDate">등록일</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="regDate"	name="regDate" value="${regdate}">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2" for="gyogu">교구</label>
+					<label class="col-sm-2" for="gyogu">목장</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="gyogu" name="gyogu">
+							<option value="1">오병이어교회</option>
 							<option value="5">소하1교구</option>
 							<option value="6">소하2교구</option>
 							<option value="6">소하3교구</option>
@@ -157,6 +209,17 @@
 							<option value="11">광명1교구</option>
 							<option value="12">대학청년교구</option>
 							<option value="13">교육부</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="role">직분</label>
+					<div class="col-sm-10">
+						<select class="form-control" id="role" name="role">
+							<option value="5">목자</option>
+							<option value="6">예비목자</option>
+							<option value="7">목장원</option>
+							<option value="8">새신자</option>
 						</select>
 					</div>
 				</div>
@@ -176,9 +239,9 @@
 			</div>
 		  </div>
 		  -->
-				<button type="submit" class="btn btn-default">등록</button>
-				<a href="list.oe"><intput type="button" class="btn btn-default" />취소</a>
 			</form>
+				<input type="button" class="btn btn-default" onclick="checkfield()" value="등록">
+				<a href="list.oe"><intput type="button" class="btn btn-default" />취소</a>
 		</div>
 	</div>
 </body>

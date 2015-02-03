@@ -21,7 +21,7 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
-    <result column="role_seq" jdbcType="CHAR" property="roleSeq" />
+    <result column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     
   </resultMap>
@@ -178,6 +178,19 @@
     mws.reg_id mws_reg_id,
     mws.reg_time mws_reg_time
   </sql>
+  <sql id="EduStatus_Column_List">
+    es.edu_status_seq es_edu_satus_seq,
+    es.user_id es_user_id,
+    es.edu_seq es_edu_seq,
+    es.edu_date es_edu_date, 
+    es.edu_unit es_edu_unit
+    es.state es_state, 
+    es.reg_id es_reg_id,
+    es.reg_time es_reg_time
+  </sql>
+  
+  
+  
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbggenerated
@@ -508,7 +521,7 @@
       <if test="roleSeq != null">
         role_seq = #{roleSeq,jdbcType=CHAR},
       </if>
-      <if test="record.roleName != null">
+      <if test="roleName != null">
         role_name = #{record.rolename,jdbcType=VARCHAR},
       </if>
     </set>
@@ -551,4 +564,18 @@
     left join mission_work_status mws on mws.user_id = user.user_id 
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
+  <select id="selectOverlapUserId" parameterType="string" resultType="string">
+    select 
+	user_id
+    from user user
+    where user.user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectRoleName" parameterType="long" resultType="string">
+    select 
+	role_name
+    from role role
+    where role.role_seq = #{roleSeq,jdbcType=VARCHAR}
+  </select>
+  
+  
 </mapper>

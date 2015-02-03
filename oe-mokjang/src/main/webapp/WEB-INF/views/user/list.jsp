@@ -83,7 +83,7 @@
 					</ul>
 					<!--버튼영역-->
 					<ul class="btnWrap">
-						<li ><a data-toggle="modal" href="registSheep.oe" data-target="#myModal"><span class="btn2">목장원추가</span></a></li>
+						<li ><a data-toggle="modal" href="registSheepForm.oe" data-target="#myModal"><span class="btn2">목장원추가</span></a></li>
 						<!-- <li><a onclick="modal()"><span class="btn2">목장원추가</span></a></li> -->
 						<!--<li><a href="#"><span class="btn2">목장원추가</span></a></li>
 						<li><a href="#"><span class="btn2">목장원추가</span></a></li>-->
