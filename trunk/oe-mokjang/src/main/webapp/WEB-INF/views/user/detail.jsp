@@ -18,8 +18,6 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/resources/js/paging-1.js"></script>
-
 <script type="text/javascript">
 function parent(){
 	greeting();
@@ -28,16 +26,34 @@ $(document).ready(function(){
 	parent();
 });
 
+function cancel(){
+	yesorno = confirm("이페이지에서 나가시겠습니까?")
+	if(yesorno == true){
+	location.href='list.oe';
+	}
+	 
+}
+function modify(){
+	 yesorno = confirm("정보를 수정하시겠습니까?");
+	if(yesorno == true) {
+	document.modify_form.submit();
+	}
+}
+
 </script>
 </head>
 <body>
 <%-- <%@ include file="../include/header.jsp"%> --%>
-
-	<div class="layerPopupDetail">
+<!-- 	<div class="layerPopupDetail"> -->
+	<div class="layerPopup">
+	<div class="layerHead">
+						<h2>회원정보</h2>
+						<a href="list.oe"><span>×</span></a>
+						<div class="line"></div>
+					</div>
 	<div class="container">
 		<div class="page-header">
-			<form class="form-horizontal" role="form" action="/user/regist.oe"
-				method="post">
+			<form class="form-horizontal" role="form" action="/user/modify.oe"method="post"name="modify_form">
 				<div class="form-group">
 					<label class="col-sm-2" for="email">이메일 주소</label>
 					<div class="col-sm-10">
@@ -47,9 +63,8 @@ $(document).ready(function(){
 				<div class="form-group">
 					<label class="col-sm-2" for="memberId">아이디</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="userId" name="userId" value="${user.userId }">
+						<input type="text" class="form-control" id="userId" name="userId" value="${user.userId }" readonly="readonly">
 					</div>
-	
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="memberName">이름</label>
@@ -71,7 +86,7 @@ $(document).ready(function(){
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="birthday">생일</label>	<div class="col-sm-10">
-						<input type="text" class="form-control" id="birthday"	name="birthday" value="${user.birth}">
+						<input type="date" class="form-control" id="birthday"	name="birthday" value="${birth}">
 					</div>
 				</div>
 				<div class="form-group">
@@ -87,14 +102,13 @@ $(document).ready(function(){
 						<input type="tel" class="form-control" id="homePhone"name="homePhone" value="${user.homePhone}">
 					</div>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-2" for="gyogu">교구</label>
+			 <div class="form-group">
+					<label class="col-sm-2" for="gyogu">목장</label>
 					<div class="col-sm-10">
-					<input type="text" class="form-control" id="roleName"name="roleName" value="${user.roleName}">
-						
-					</div>
+					<input type="text" class="form-control" id="roleName"name="roleName" value="${user.department.deptName}" readonly="readonly">
+					</div> 
 				</div>
-				<!-- 
+		<!-- 
 		  <div class="form-group">
 		  	<label class="col-sm-2" >직분</label>
 		    <div class="col-sm-10">
@@ -109,10 +123,10 @@ $(document).ready(function(){
 				</label>
 			</div>
 		  </div>
-		  -->
-				<button type="submit" class="btn btn-default">수정</button>
+		-->
 			</form>
-				<button calss="button button-default" ><a href="list.oe">취소</a></button> 
+				<input type="button" class="btn btn-default" onclick="modify()"value="수정">
+				<input type="button" class="btn btn-default" onclick="cancel()" value="취소">
 		</div>
 	</div>
 	</div>

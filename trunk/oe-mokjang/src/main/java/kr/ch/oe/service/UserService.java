@@ -53,6 +53,9 @@ public interface UserService {
 	 */
 	boolean overlapUserId(String userId);
 	
+	
+	boolean registUserFarm(String farmmerId,String UserId);
+	
 }
 
 

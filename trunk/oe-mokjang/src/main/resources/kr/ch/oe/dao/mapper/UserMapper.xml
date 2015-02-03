@@ -21,7 +21,7 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
-    <result column="role_seq" jdbcType="CHAR" property="roleSeq" />
+    <result column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     
   </resultMap>
@@ -521,7 +521,7 @@
       <if test="roleSeq != null">
         role_seq = #{roleSeq,jdbcType=CHAR},
       </if>
-      <if test="record.roleName != null">
+      <if test="roleName != null">
         role_name = #{record.rolename,jdbcType=VARCHAR},
       </if>
     </set>
@@ -570,7 +570,12 @@
     from user user
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
-  
+  <select id="selectRoleName" parameterType="long" resultType="string">
+    select 
+	role_name
+    from role role
+    where role.role_seq = #{roleSeq,jdbcType=VARCHAR}
+  </select>
   
   
 </mapper>

@@ -78,7 +78,18 @@ public interface UserMapper {
 	int updateByPrimaryKey(User record);
 	
 	User selectByUserId(String userId);
-	
+	/**
+	 * 아이디 중복확인
+	 * @param userId
+	 * @return
+	 */
 	String selectOverlapUserId(String userId);
+	
+	/**
+	 * 직분이름가져오기
+	 * @param roleSeq
+	 * @return
+	 */
+	String selectRoleName(long roleSeq);
 	
 }

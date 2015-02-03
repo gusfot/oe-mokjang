@@ -35,8 +35,9 @@
 			 for (var i=0; i<result.items.length; i++) {
 				item = result.items[i];
 				html += '<tr>';
-				html += '	<td><input type="checkbox" name="box" value = "A"/></td>';
+				html += '	<td><input type="checkbox" name="box" value = "'+item.userId+'"/></td>';
 				html += '	<td>' + item.userName + '</td>';
+				/*html += '	<td><a href="detail.oe?userId='+item.userId+'">' + item.userName + '</a></td>';  */
 				html += '	<td>' + item.roleName + '</td>';
 				html += '	<td>' + item.birth+ '</td>';
 				if (item.gender==1) {
@@ -53,10 +54,13 @@
 		}
 		});
 	}
+		
 	function greeting3(){
-		alert("greeting3");
+		$("input[name=box]:checked").each(function() {
+			var test = $(this).val();
+			location.href='registSheep.oe?userId='+test+'&farmmerId=sms';
+		});
 	}
-	
 /* 	function registSheep(){
 		$("#checkList").click(function() {
 			$("input[name=box]:checked").each(function() {
@@ -69,11 +73,11 @@
 	$(document).ready(function() {
 		sheepPage(1);
 		
-		$("#checkList").click(function() {
+	/* 	$("#checkList").click(function() {
 			$("input[name=box]:checked").each(function() {
 				var test = $(this).val();
 			}); 
-		});
+		}); */
 		});
 	
 </script>
@@ -83,16 +87,13 @@
 				<div class="layerPopup">
 					<div class="layerHead">
 						<h2>목장원 추가</h2>
+						<a href="list.oe"><span>×</span></a>
 						<div class="line"></div>
 					</div>
 					<div class="layerContent">
 						<div class="listSearch">
-							<span>목장명</span>
+							<span>이름</span>
 							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:100px;" />
-							<span>등록일</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:80px;" />
-							 ~ 
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:80px;" />
 							<span class="btn3"><a href="#" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
@@ -110,7 +111,7 @@
 							</colgroup>
 							<thead>
 							<tr>
-								<th scope="col" ><input type="checkbox" id="" /></th>
+								<th scope="col" ><input type="checkbox" name="box"  /></th>
 								<th scope="col">성도명</th>
 								<th scope="col">목장명</th>
 								<th scope="col">생년월일</th>
@@ -119,7 +120,7 @@
 							</thead>
 							<tbody id = "tbody-item-list">
 							<tr >
-								<td ><input type="checkbox" id="" /></td>
+								<td ><input type="checkbox" id="box" /></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -159,7 +160,7 @@
 					<div class="layerTail">
 						<div class="layerBtn">	
 <!-- 							<a href="#"><span class="btn2" id = "checkList" >선택 항목 추가</span></a> -->
-							<input type="button" class="btn2" value="chekc 확인" id="checkList">
+							<input type="button" class="btn2" value="chekc 확인" onclick="greeting3()">
 							<a href="list.oe"><span class="btn2">취소</span></a>
 						</div>
 					</div>

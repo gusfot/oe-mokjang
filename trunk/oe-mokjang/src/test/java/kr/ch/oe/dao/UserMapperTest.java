@@ -112,6 +112,12 @@ public class UserMapperTest {
 		
 	}
 	
+	@Test
+	public void successgetUserRolename(){
+		String str = userMapper.selectRoleName(1l);
+		System.out.println(str);
+		Assert.assertTrue(true);
+	}
 	
 	
 	
