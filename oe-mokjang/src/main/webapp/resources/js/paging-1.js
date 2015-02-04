@@ -18,8 +18,6 @@ function paging(page, pageSize, totalNumOfItems){
 		else
 			html += '<li class="disabled"><a href="#" data-page="' + i + '">' + i + '</a></li>';
 	}
-//	html += '<li ' + (totalPage < firstPage+10 ? 'class="enable"' : '') + '><a href="#" data-page="' + (firstPage+10) + '">&rsaquo;</a></li>';
-//html += '<li ' + (totalPage < firstPage+10 ? 'class="disabled"' : '"enable"') + '><a href="#" data-page="' + (firstPage+10) + '">Sdf;</a></li>';
 	html += '<li ' + (page == totalPage ? 'class="disabled"' : '"enable"') + '><a '+(page == totalPage ? 'href="#"':' href="#" onclick="sheepPage('+(pageInt+1))+')" data-page="' + (page++) + '">&rsaquo;</a></li>';
 	html += '<li><a href="#" onclick="sheepPage('+totalPage+')" data-page="' + totalPage + '">&raquo;</a></li>';
 return html;

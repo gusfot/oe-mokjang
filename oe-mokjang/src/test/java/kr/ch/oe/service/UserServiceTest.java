@@ -27,7 +27,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void successToGetUserList(){
-		Paging<User>pageList  =  userService.getPagingUserList(1, 10);
+		Paging<User>pageList  =  userService.getPagingUserList(1, 10,"");
 		Assert.assertTrue(pageList.getItems().size()>0);
 	}
 	
@@ -85,7 +85,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void successToModifyUser() {
-		User user =  userService.getUser("test293");
+		User user =  userService.getUser("test84");
 		user.setJob("개발자");
 		user.setGender("2");
 		boolean result = userService.modifyUser(user);
@@ -111,9 +111,11 @@ public class UserServiceTest {
 	}
 	@Test
 	public void successToregistUserFarm(){
-		Assert.assertTrue(userService.registUserFarm("sms", "test293")); 
-		
-		
+		String[] list=null;
+		Assert.assertTrue(userService.registUserFarm(list, "test69")); 
 	}
-	
+	@Test
+	public void successRemoveSheep(){
+		Assert.assertTrue(userService.removeSheep("test4"));
+	}
 }

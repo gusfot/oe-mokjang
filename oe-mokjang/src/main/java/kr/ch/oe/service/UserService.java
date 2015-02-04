@@ -1,5 +1,7 @@
 package kr.ch.oe.service;
 
+import java.util.List;
+
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.User;
 
@@ -11,7 +13,7 @@ public interface UserService {
 	 * @param page
 	 * @return
 	 */
-	Paging<User> getPagingUserList ( int page, int pageSize);
+	Paging<User> getPagingUserList ( int page, int pageSize, String keyword);
 	
 	/**
 	 * user 한명 정보를 가지고온다 
@@ -52,9 +54,21 @@ public interface UserService {
 	 * @return
 	 */
 	boolean overlapUserId(String userId);
+
+	/**
+	 * 목장원추가 선택으로 목장원을 추가할떄
+	 * @param farmmerId
+	 * @param UserId
+	 * @return
+	 */
+	boolean registUserFarm(String[] farmmerId,String UserId);
+	/**
+	 * 목장목록에서 목장원을 삭제할때
+	 * @param sheepId
+	 * @return
+	 */
 	
-	
-	boolean registUserFarm(String farmmerId,String UserId);
+	boolean removeSheep(String sheepId);
 	
 }
 

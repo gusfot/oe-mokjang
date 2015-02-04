@@ -84,7 +84,6 @@ public interface UserMapper {
 	 * @return
 	 */
 	String selectOverlapUserId(String userId);
-	
 	/**
 	 * 직분이름가져오기
 	 * @param roleSeq

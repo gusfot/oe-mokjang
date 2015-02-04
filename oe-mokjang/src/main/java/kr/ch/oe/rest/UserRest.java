@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
-
 @Controller
 @Scope(value="request")
 @RequestMapping("/user")
@@ -34,15 +32,15 @@ public class UserRest {
 
 	@RequestMapping(value = { "rest/user/registSheep.oe" }, method = RequestMethod.GET)
 	public @ResponseBody Paging<User> registerSheep(Model model,
-			@RequestParam(value="page", required=true ,defaultValue ="1")int page
+			@RequestParam(value="page", required=true ,defaultValue ="1")int page,
+			@RequestParam(value="keyword", required=false ,defaultValue = "" )String keyword
 			) {
 		System.out.println(page);
-		Paging<User>pagingList =  userService.getPagingUserList(page, 5);
+		Paging<User>pagingList =  userService.getPagingUserList(page, 5, keyword);
 		model.addAttribute("userList", pagingList);
 		return pagingList;
 	}
 	
-
 
 }
 
