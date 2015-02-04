@@ -23,6 +23,7 @@
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <result column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="flag" jdbcType="BIGINT" property="flag" />
     
   </resultMap>
   
@@ -134,7 +135,7 @@
       This element was generated on Thu Jan 08 11:00:07 KST 2015.
     -->
     user_id, user_seq, user_name, reg_dt, password, addr, cell_phone, home_phone, job, 
-    gender, birth, email, dept_seq, reg_time, role_seq, role_name
+    gender, birth, email, dept_seq, reg_time, role_seq, role_name,flag
   </sql>
   <sql id="User_Column_List">
     user.user_id, 
@@ -153,6 +154,7 @@
     user.reg_time, 
     user.role_seq
     user.role_name
+    user.flag
   </sql>
   <sql id="Dept_Column_List">
     dept.dept_seq dept_dept_seq , 
@@ -254,14 +256,14 @@
       reg_dt, password, addr, 
       cell_phone, home_phone, job, 
       gender, birth, email, 
-      dept_seq, reg_time, role_seq, role_name
+      dept_seq, reg_time, role_seq, role_name,flag
       )
     values (#{userId,jdbcType=VARCHAR}, #{userSeq,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
       #{regDt,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
       #{cellPhone,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birth,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{deptSeq,jdbcType=BIGINT}, #{regTime,jdbcType=TIMESTAMP}, #{roleSeq,jdbcType=CHAR}, 
-      #{roleName,jdbcType=VARCHAR}
+      #{roleName,jdbcType=VARCHAR},#{flag,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="kr.ch.oe.model.User">
@@ -320,6 +322,9 @@
       <if test="roleName != null">
         role_name,
       </if>
+      <if test="flag != null">
+        flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -369,6 +374,9 @@
       </if>
       <if test="roleName != null">
         #{roleName,jdbcType=VARCHAR}
+      </if>
+      <if test="roleName != null">
+        #flag,jdbcType=BIGINT}
       </if>
     </trim>
   </insert>
@@ -439,6 +447,9 @@
       <if test="record.roleName != null">
         role_name = #{record.rolename,jdbcType=VARCHAR},
       </if>
+      <if test="record.flag != null">
+        role_name = #{record.flag,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -467,6 +478,7 @@
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
       role_seq = #{record.roleSeq,jdbcType=CHAR},
       role_name = #{record.roleName,jdbcType=VARCHAR}
+      flag = #{record.flag,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -522,7 +534,10 @@
         role_seq = #{roleSeq,jdbcType=CHAR},
       </if>
       <if test="roleName != null">
-        role_name = #{record.rolename,jdbcType=VARCHAR},
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=BIGINT},
       </if>
     </set>
     where user_id = #{userId,jdbcType=VARCHAR}
@@ -548,7 +563,8 @@
       dept_seq = #{deptSeq,jdbcType=BIGINT},
       reg_time = #{regTime,jdbcType=TIMESTAMP},
       role_seq = #{roleSeq,jdbcType=CHAR},
-      role_name = #{rolename.jdbcType=VARCHAR}
+      role_name = #{roleName.jdbcType=VARCHAR}
+      flag = #{flag.jdbcType=BIGINT}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
   

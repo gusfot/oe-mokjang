@@ -90,8 +90,10 @@ public class UserController {
 			@RequestParam(value="userId")String userId,
 			@RequestParam(value="regDate")String regDate,
 			@RequestParam(value="role")long roleSeq,
-			@RequestParam(value="gyogu")long gyogu
+			@RequestParam(value="gyogu")long gyogu,
+			@RequestParam(value="flag")long flag
 			) {
+		
 		User user = new User();
 		String rebirth = birth.replace("-","");
 		String remobilePhone = mobilePhone.replace("-","");
@@ -114,6 +116,7 @@ public class UserController {
 		user.setHomePhone(rehomePhone);
 		user.setRegDt(reRegDate);
 		user.setRoleSeq(roleSeq);
+		user.setFlag(flag);
 		userService.registerUser(user);
 		return "redirect:../user/list.oe";
 	}
@@ -122,6 +125,7 @@ public class UserController {
 	@RequestMapping(value = { "/registSheepForm.oe" }, method = RequestMethod.GET)
 	public String registerSheepForm(
 			) {
+		
 		return "user/registSheep";
 	}
 	
@@ -165,8 +169,17 @@ public class UserController {
 			@RequestParam(value="userId")String userId,
 			@RequestParam(value="farmmerId")String farmmerId
 			) {
-		userService.registUserFarm(farmmerId, userId);
+		String[] result = userId.split(",");
+			userService.registUserFarm(result, farmmerId);
 		
+			return "redirect:../user/list.oe";
+	}
+	
+	@RequestMapping(value = { "/removeSheep.oe"}, method = RequestMethod.GET)
+	public String removeSheep(
+			@RequestParam(value="userId")String userId
+			) {
+					userService.removeUser(userId);
 		return "redirect:../user/list.oe";
 	}
 	

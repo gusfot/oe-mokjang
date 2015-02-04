@@ -222,7 +222,8 @@
 							<option value="8">새신자</option>
 						</select>
 					</div>
-				</div>
+						<input type="hidden" value="0" id="flag" name="flag">
+					</div>
 				<!-- 
 		  <div class="form-group">
 		  	<label class="col-sm-2" >직분</label>

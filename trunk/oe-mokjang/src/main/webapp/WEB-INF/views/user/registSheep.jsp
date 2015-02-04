@@ -25,12 +25,13 @@
 	}
 	//var page = paging(msg.page,msg.pageSize,msg.totalNumOfItems);
 	function sheepPage(param){
-			
+		var keyword = $('#keyword').val();
 		var html = '';
+		var total=""
 		var item = null;
 		$.ajax({
 			type:"GET",
-			url:"rest/user/registSheep.oe?page="+param,
+			url:"rest/user/registSheep.oe?page="+param+"&keyword="+keyword,
 		success : function(result) {
 			 for (var i=0; i<result.items.length; i++) {
 				item = result.items[i];
@@ -54,30 +55,21 @@
 		}
 		});
 	}
-		
 	function greeting3(){
-		$("input[name=box]:checked").each(function() {
-			var test = $(this).val();
-			location.href='registSheep.oe?userId='+test+'&farmmerId=sms';
-		});
+		
+		var str = "";  
+	    $("input:checkbox:checked").each(function (index) {  
+	        str += $(this).val() + ",";  
+	    });
+	    if (str==""){
+	    	alert("목장원을  선택해주세요");
+	    	exit;
+	    }
+			location.href='registSheep.oe?userId='+str+'&farmmerId=sms';
 	}
-/* 	function registSheep(){
-		$("#checkList").click(function() {
-			$("input[name=box]:checked").each(function() {
-				var test = $(this).val();
-				alert(test);
-			});
-		});
-	} */
 	
 	$(document).ready(function() {
 		sheepPage(1);
-		
-	/* 	$("#checkList").click(function() {
-			$("input[name=box]:checked").each(function() {
-				var test = $(this).val();
-			}); 
-		}); */
 		});
 	
 </script>
@@ -93,11 +85,10 @@
 					<div class="layerContent">
 						<div class="listSearch">
 							<span>이름</span>
-							<input type="text" id="" name="" class="text" title="검색조건 입력" value="" onfocus="this.value=''" style="width:100px;" />
-							<span class="btn3"><a href="#" >검색 </a></span>
+							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onfocus="this.value=''" style="width:100px;" />
+							<span class="btn3"><a href="#" onclick="sheepPage(1)" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
-						<span class="total" id="total">총 건의 목장원이 검색되었습니다.</span>
 						<!--리스트영역-->
 						<table cellpadding="0" cellspacing="0" class="list" >
 							
@@ -113,7 +104,7 @@
 							<tr>
 								<th scope="col" ><input type="checkbox" name="box"  /></th>
 								<th scope="col">성도명</th>
-								<th scope="col">목장명</th>
+								<th scope="col">직분</th>
 								<th scope="col">생년월일</th>
 								<th scope="col">성별</th>
 								</tr>
@@ -160,7 +151,7 @@
 					<div class="layerTail">
 						<div class="layerBtn">	
 <!-- 							<a href="#"><span class="btn2" id = "checkList" >선택 항목 추가</span></a> -->
-							<input type="button" class="btn2" value="chekc 확인" onclick="greeting3()">
+							<input type="button" class="btn2" value="확인" onclick="greeting3()">
 							<a href="list.oe"><span class="btn2">취소</span></a>
 						</div>
 					</div>

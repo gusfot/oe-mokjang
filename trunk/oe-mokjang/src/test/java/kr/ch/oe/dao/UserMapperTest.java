@@ -70,15 +70,14 @@ public class UserMapperTest {
 	public void failToInsertUser() {
 		User user = new User();
 		user.setUserId("admin");
-		
 		int result = userMapper.insertSelective(user);
 	}
 	
 	
 	@Test
 	public void successToUpdateUser() {
-		User user = userMapper.selectByPrimaryKey("test12");
-				user.setUserName("update테스트");
+		User user = userMapper.selectByPrimaryKey("test");
+				user.setUserName("테스트");
 	  int reuslt = userMapper.updateByPrimaryKeySelective(user);
 	  Assert.assertTrue(reuslt>0);
 				
@@ -87,9 +86,8 @@ public class UserMapperTest {
 	public void failToUpdateUser() {
 		User user = userMapper.selectByPrimaryKey("test");
 		user.setUserId("test1");
-		
 		userMapper.updateByPrimaryKeySelective(user);
-			
+						  
 	}
 	
 	@Test
@@ -118,6 +116,7 @@ public class UserMapperTest {
 		System.out.println(str);
 		Assert.assertTrue(true);
 	}
+	
 	
 	
 	

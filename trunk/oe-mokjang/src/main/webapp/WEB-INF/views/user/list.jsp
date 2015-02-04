@@ -23,30 +23,27 @@
 		$('#myModal').modal('show');
 		
 	}
+	function removeSheep(param){
+
+		alert(typeof param);
+		param=String(param);
+		alert(typeof param);
+		var str='${pageList.items[0].userName}';
+		alert(str);
+		
+		/* alert('${pageList.items[0].userName}'); */
+		
+		
+		/* yesorno = confirm("목장원을 삭제하시겠습니까?")
+		if(yesorno == true){
+		location.href='removeSheep.oe?userId=${list.userId}';
+		} */
+	}
 </script>
 </head>
 <body>
 	<div class="containerWrap">
 			<div class="headWrap">
-				<%-- <div class="head">
-					<!--로고-->
-					<h1>목장보고서비스</h1>
-					<!--커스톰메뉴영역-->
-					<ul class="customMenu">
-						<li>환영합니다. <span>${pageList.items[0].userName}</span> <span>목자</span>님, 오늘은 <span>2014년 8월 13일 목요일</span>입니다.</li>
-						<li>로그아웃</li>
-						<li>비밀번호변경</li>
-					</ul>
-					<!--메인메뉴영역-->
-					<ul class="gnbMenu">
-						<li><a href="#"><h3>목장원관리</h3></a></li>
-						<li><a href="#"><h3>목장관리</h3></a></li>
-						<li><a href="list.oe"><h3>성도관리</h3></a></li>
-						<li><a href="#"><h3>코드관리</h3></a></li>
-						<li><a href="#"><h3>통계관리</h3></a></li>						
-						<li><a href="#"><h3>공지관리</h3></a></li>
-					</ul>
-				</div> --%>
 			<%@ include file="../include/header.jsp" %>
 			</div>
 			<div class="contentsWrap">
@@ -123,7 +120,8 @@
 							<td>9999.99</td>
 							<td><a href="#"><span class="btn3">점수입력</span></a></td>
 							<td><a href="#"><span class="btn3">심방입력</span></a></td>
-							<td><a href="#"><span class="btn3">삭제</span></a></td>
+<%-- 							<td><a href="#" onclick="removeSheep(${list.userId})"><span class="btn3">삭제</span></a></td> --%>
+- 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">삭제</span></a></td> -
 						</tr>
 							</c:forEach>
 						<tr>
