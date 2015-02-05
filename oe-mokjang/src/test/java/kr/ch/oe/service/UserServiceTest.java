@@ -116,6 +116,6 @@ public class UserServiceTest {
 	}
 	@Test
 	public void successRemoveSheep(){
-		Assert.assertTrue(userService.removeSheep("test4"));
+		Assert.assertTrue(userService.removeSheep("test4",1l));
 	}
 }

@@ -30,15 +30,19 @@
 		alert(typeof param);
 		var str='${pageList.items[0].userName}';
 		alert(str);
+
 		
-		/* alert('${pageList.items[0].userName}'); */
-		
-		
-		/* yesorno = confirm("목장원을 삭제하시겠습니까?")
-		if(yesorno == true){
-		location.href='removeSheep.oe?userId=${list.userId}';
-		} */
 	}
+		$(document).ready(function() {
+		alert('asdf112121S11');
+		var page = '${pageList.page}';
+		var pageSize = '${pageList.pageSize}';
+		var totalNumOfItems = '${pageList.totalNumOfItems}';
+		var page = paging(page,pageSize,totalNumOfItems);
+		$('#page-bar').html(page);
+		
+			});
+		
 </script>
 </head>
 <body>
@@ -49,15 +53,7 @@
 			<div class="contentsWrap">
 				<div class="contents">
 					<!--페이지네비게이션영역-->
-					<div class="pageNavi"><a href="#">홈</a> > <a href="#">목장원관리</a> > 목록</div>
-					<div class="line"></div><!--구분선-->
-					<!--목장 요약영역-->
-					<ul class="listSummary">
-						<li><span>${pageList.items[0].userName}목장</span>은</li>
-						<li>총 <span>${pageList.totalNumOfItems}명</span>의 목장원이 있으며</li>
-						<li>목장의 금주점수는 <span>32,000점</span>, </li>
-						<li>목장의 누적점수는 <span>99,000점</span>입니다.</li>	
-					</ul>
+					
 					
 					<!--검색조건입력
 					<div class="listSearch">
@@ -107,8 +103,8 @@
 							<th scope="col">주소</th>
 							<th scope="col">핸드폰번호</th>
 							<th scope="col">등록일</th>
-							<th scope="col">재적상태</th>
-							<th scope="col">삭제</th>
+							<th scope="col">상태</th>
+							<th scope="col">재적</th>
 						</thead>
 						<tr>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
@@ -125,12 +121,20 @@
 						<c:if test="${list.flag==1}">
     						<td>재적</td>
    						</c:if>
-- 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">삭제</span></a></td> -
+- 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">재적</span></a></td> -
 						</tr>
 							</c:forEach>
-						<tr>
-							<td class="first" colspan="9">조회할 내용이 없습니다.</td>
-						</tr>									
+							<tr>
+								<td class="list_paging" colspan="5">
+								<div class="paging" id="">									
+									<ul class="pagination" id="page-bar">
+											<li><a href="#">5</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">&raquo;</a></li>
+										</ul>					
+								</div>									
+								</td>
+							</tr>									
 					</table>
 				</div>
 			</div>
