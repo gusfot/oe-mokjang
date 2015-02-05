@@ -2,11 +2,14 @@ package kr.ch.oe.web;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
+import kr.ch.oe.model.DepartmentExample;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.UserService;
@@ -35,11 +38,11 @@ public class UserController {
 		
 		ModelAndView mav = new ModelAndView();
 		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
-		System.out.println(pagingList.getItems().get(0).getRoleName()); 
+		System.out.println(pagingList.getItems().get(0).getRoleName());
 		mav.addObject("pageList", pagingList);
-		mav.addObject("pageList", userService.getFarmUserList(farmmerId));
 		mav.setViewName("user/list");
 		return mav;
+		
 	}
 
 
@@ -66,32 +69,33 @@ public class UserController {
 	public ModelAndView registerUserForm() {
 		
 		ModelAndView mav = new ModelAndView();
-		System.out.println("registForm? ");
 		Date date = new java.util.Date();
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd"); 
 		String regdate = sd.format(date);
+		DepartmentExample example = new DepartmentExample();
+		List<Department>deptList= deptService.getDeptList(example);
+		mav.addObject("deptList", deptList);
 		mav.addObject("regdate", regdate);
 		mav.setViewName("user/regist");
 		return mav;
 	}
 	
-	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
 	public String registerUser(
-			HttpServletResponse response,
-			@RequestParam(value="email")String email,
-			@RequestParam(value="password")String password,
-			@RequestParam(value="name")String name,
-			@RequestParam(value="job")String job,
-			@RequestParam(value="address")String addr,
-			@RequestParam(value="birthday")String birth,
-			@RequestParam(value="mobilePhone")String mobilePhone,
-			@RequestParam(value="homePhone")String homephone,
-			@RequestParam(value="gender")String gneder,
-			@RequestParam(value="userId")String userId,
-			@RequestParam(value="regDate")String regDate,
-			@RequestParam(value="role")long roleSeq,
-			@RequestParam(value="gyogu")long gyogu,
-			@RequestParam(value="flag")long flag
+			@RequestParam(value="email", required=true)String email,
+			@RequestParam(value="password", required=true)String password,
+			@RequestParam(value="name", required=true)String name,
+			@RequestParam(value="job", required=true)String job,
+			@RequestParam(value="address", required=true)String addr,
+			@RequestParam(value="birthday", required=true)String birth,
+			@RequestParam(value="mobilePhone", required=true)String mobilePhone,
+			@RequestParam(value="homePhone", required=true)String homephone,
+			@RequestParam(value="gender", required=true)String gneder,
+			@RequestParam(value="userId", required=true)String userId,
+			@RequestParam(value="regDate", required=true)String regDate,
+			@RequestParam(value="role", required=true)long roleSeq,
+			@RequestParam(value="gyogu", required=true)long gyogu,
+			@RequestParam(value="flag", required=true)long flag
 			) {
 		
 		User user = new User();
@@ -100,6 +104,7 @@ public class UserController {
 		String rehomePhone = homephone.replace("-","");
 		String reRegDate= regDate.replace("-","");
 		
+		System.out.println(gyogu);
 
 		Department dept = deptService.getDepatment(gyogu);
 		user.setEmail(email);
@@ -134,6 +139,7 @@ public class UserController {
 	public @ResponseBody boolean overlaUserId(
 			@RequestParam(value="userId") String userId
 			) {
+		System.out.println(userId);
 		boolean checkId = userService.overlapUserId(userId);
 		return checkId;
 	}
@@ -141,14 +147,14 @@ public class UserController {
 	@RequestMapping(value = { "/modify.oe" }, method = RequestMethod.POST)
 	public String modifyUser(
 			HttpServletResponse response,
-			@RequestParam(value="email")String email,
-			@RequestParam(value="name")String name,
-			@RequestParam(value="job")String job,
-			@RequestParam(value="address")String addr,
-			@RequestParam(value="birthday")String birth,	
-			@RequestParam(value="mobilePhone")String mobilePhone,
-			@RequestParam(value="userId")String userId,
-			@RequestParam(value="homePhone")String homephone
+			@RequestParam(value="email", required=true) String email,
+			@RequestParam(value="name", required=true) String name,
+			@RequestParam(value="job", required=true) String job,
+			@RequestParam(value="address", required=true) String addr,
+			@RequestParam(value="birthday", required=true) String birth,	
+			@RequestParam(value="mobilePhone", required=true) String mobilePhone,
+			@RequestParam(value="userId", required=true) String userId,
+			@RequestParam(value="homePhone", required=true) String homephone
 			) {
 		ModelAndView mav = new ModelAndView();
 		User user = new User();
@@ -182,5 +188,34 @@ public class UserController {
 					userService.removeUser(userId);
 		return "redirect:../user/list.oe";
 	}
+	
+	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
+	public ModelAndView getSaintList(
+				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId,
+				HttpSession session) {
+		///////임시 세션//////////
+		
+		
+		
+		//////////////////
+		
+		ModelAndView mav = new ModelAndView();
+		Paging<User>pagingList =  userService.getPagingUserList(1, 5, "");
+		mav.addObject("pageList", pagingList);
+		mav.setViewName("user/saint/list");
+		return mav;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

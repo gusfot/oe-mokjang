@@ -28,14 +28,14 @@ public class UserServiceImpl implements UserService {
 	public Paging<User> getPagingUserList(int page,int pageSize, String keyword) {
 		UserExample example = new UserExample();
 		int startIndex = pageSize*page-pageSize;
-		System.out.println("=-------------------"+keyword);
 		String lmit = Integer.toString(startIndex)+","+Integer.toString(pageSize);
 		example.setOrderByClause("user_seq");
 		example.setLimitByClause(lmit);
 		if(!keyword .equals("")){
-		example.createCriteria().andUserNameLike(keyword);
+			String likekeyword ="%"+keyword+"%";
+		example.createCriteria().andUserNameLike(likekeyword);
 		}
-		
+		example.createCriteria().andRoleSeqBetween("3","9");
 		int totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
 		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
 		
 		UserExample example = new UserExample();
 		example.createCriteria().andDeptSeqEqualTo(deptSeq);
-		example.setOrderByClause("user_seq");
+		example.setOrderByClause("role_seq");
 		
 		int totalNumofItems = userMapper.countByExample(example);
 

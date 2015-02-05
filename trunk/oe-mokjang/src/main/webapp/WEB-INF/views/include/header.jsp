@@ -13,8 +13,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="divider"><a href="list.oe">목장원 관리</a></li>
-            <li class="divider"><a href="#">목장 보고서</a></li>
+            <li class="divider"><a href="/user/list.oe">목장원 관리</a></li>
+            <li class="divider"><a href="/user/saintList.oe">성도관리</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">목장보고서<b class="caret"></b></a>
               <ul class="dropdown-menu">

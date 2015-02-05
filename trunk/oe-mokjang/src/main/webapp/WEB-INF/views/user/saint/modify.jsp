@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>로그인</title>
+<title>濡쒓렇�씤</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -15,10 +13,12 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript"></script>
+<script type="text/javascript" src="/js/paging-1.js"></script>
+<!-- <script type="text/javascript" src="/js/paging-1.js"></script> -->
 
 </head>
 <body>
+
 	<div class="page-header">
 	  <h1>Example page header <small>Subtext for header</small></h1>
 	</div>
@@ -59,6 +59,7 @@
 	  <div class="form-group">
 	    <div class="col-lg-offset-2 col-lg-10">
 	      <button type="submit" class="btn btn-default">Sign in</button>
+	      <input type="button" value="AjaxTest" onclick="greeting()" > 
 	    </div>
 	  </div>
 	</form>

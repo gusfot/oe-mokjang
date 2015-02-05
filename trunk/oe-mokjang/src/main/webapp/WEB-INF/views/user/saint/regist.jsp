@@ -124,7 +124,7 @@
 					</ul>
 				</div>
 			</div> --%>
-	<%@ include file="../include/header.jsp"%>
+	<%@ include file="../../include/header.jsp"%>
 	<header class="jumbotron subhead" id="overview"> </header>
 
 	<div class="container">
