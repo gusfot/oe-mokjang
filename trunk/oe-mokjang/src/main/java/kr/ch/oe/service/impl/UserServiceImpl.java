@@ -139,7 +139,7 @@ public boolean registUserFarm(String[] userId, String farmmerId) {
  * 목장원을 목장목록에서 제외한다
  */
 @Override
-public boolean removeSheep( String sheeprId) {
+public boolean removeSheep( String sheeprId , long flag) {
 	User sheep = userMapper.selectByPrimaryKey(sheeprId);
 	sheep.setDeptSeq(1l);
 	sheep.setRoleSeq(9L);

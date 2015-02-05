@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -34,8 +35,12 @@ public class UserController {
 	
 	@RequestMapping(value = { "/list.oe" }, method = RequestMethod.GET)
 	public ModelAndView getUserList(
-				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId) {
-		
+				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId,
+					HttpSession session)throws Exception {
+		////////임시세션////////
+		User userSession = userService.getUser(farmmerId);
+		session.setAttribute("sessionId", userSession);
+		//////////////////
 		ModelAndView mav = new ModelAndView();
 		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
 		System.out.println(pagingList.getItems().get(0).getRoleName());
@@ -191,18 +196,16 @@ public class UserController {
 	
 	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
 	public ModelAndView getSaintList(
-				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId,
-				HttpSession session) {
+				@RequestParam(value="id", required=true ,defaultValue ="admin")String sessionId,
+				HttpSession session) throws Exception{
 		///////임시 세션//////////
-		
-		
-		
+		User userSession = userService.getUser(sessionId);
+		session.setAttribute("sessionId", userSession);
 		//////////////////
-		
 		ModelAndView mav = new ModelAndView();
 		Paging<User>pagingList =  userService.getPagingUserList(1, 5, "");
 		mav.addObject("pageList", pagingList);
-		mav.setViewName("user/saint/list");
+		mav.setViewName("user/saint/saint_list");
 		return mav;
 		
 	}

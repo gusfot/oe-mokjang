@@ -68,7 +68,7 @@ public interface UserService {
 	 * @return
 	 */
 	
-	boolean removeSheep(String sheepId);
+	boolean removeSheep(String sheepId, long flag);
 	
 }
 

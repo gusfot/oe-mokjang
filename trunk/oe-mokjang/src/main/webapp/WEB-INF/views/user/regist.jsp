@@ -20,7 +20,8 @@
 
 <script type="text/javascript">
 	function checkfield(){
-		alert($('#gyogu').val());
+		alert('in1111');
+		alert('${sessionId.userName}');
 		var userId = $("input[name=userId]").val();
 	     var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
 		
