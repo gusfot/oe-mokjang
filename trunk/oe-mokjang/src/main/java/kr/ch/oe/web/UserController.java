@@ -145,7 +145,7 @@ public class UserController {
 			@RequestParam(value="name")String name,
 			@RequestParam(value="job")String job,
 			@RequestParam(value="address")String addr,
-			@RequestParam(value="birthday")String birth,
+			@RequestParam(value="birthday")String birth,	
 			@RequestParam(value="mobilePhone")String mobilePhone,
 			@RequestParam(value="userId")String userId,
 			@RequestParam(value="homePhone")String homephone
