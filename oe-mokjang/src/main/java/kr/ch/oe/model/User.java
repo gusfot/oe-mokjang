@@ -102,6 +102,7 @@ public class User {
 	 *  직분 번호
 	 */
 	private Long roleSeq;
+	
 
 	/**
 	 * 해당직분
