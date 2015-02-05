@@ -4,8 +4,6 @@
 <head>
 <title>로그인</title>
 <!-- Latest compiled and minified CSS -->
-
-
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,11 +11,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<!-- Optional theme -->
-
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	
 	<!-- Custom styles for this template -->
     <link href="/resources/bootstrap/css/signin.css" rel="stylesheet">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -34,23 +30,21 @@
 
 </head>
  <body>
-
+<%@ include file="include/header.jsp"%>
+<header class="jumbotron subhead" id="overview"> </header>
     <div class="container">
-
       <form class="form-signin" role="form" method="post" action="/login.oe">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="text" class="form-control" placeholder="Email address" name="id" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" name="password" required>
+        <h2 class="form-signin-heading">52 목장관리시스템</h2>
+        <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="id" required autofocus>
+        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" required>
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> 아이디 저장하기
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입</button>
       </form>
-
-    </div> <!-- /container -->
-
-
+    </div>
+     <!-- /container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
