@@ -24,12 +24,9 @@
 		
 	}
 	function removeSheep(param){
-
-		alert(typeof param);
-		param=String(param);
-		alert(typeof param);
-		var str='${pageList.items[0].userName}';
-		alert(str);
+		alert('in?')
+		alert(param);		
+		
 		
 		/* alert('${pageList.items[0].userName}'); */
 		
@@ -38,6 +35,7 @@
 		if(yesorno == true){
 		location.href='removeSheep.oe?userId=${list.userId}';
 		} */
+		
 	}
 </script>
 </head>
@@ -120,8 +118,8 @@
 							<td>9999.99</td>
 							<td><a href="#"><span class="btn3">점수입력</span></a></td>
 							<td><a href="#"><span class="btn3">심방입력</span></a></td>
-<%-- 							<td><a href="#" onclick="removeSheep(${list.userId})"><span class="btn3">삭제</span></a></td> --%>
-- 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">삭제</span></a></td> -
+<%-- - 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">삭제</span></a></td> - --%>
+- 							<td><a href="#" onclick="removeSheep(${list.userName})"><span class="btn3">삭제</span></a></td> -
 						</tr>
 							</c:forEach>
 						<tr>

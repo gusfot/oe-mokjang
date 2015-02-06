@@ -188,9 +188,11 @@ public class UserController {
 	
 	@RequestMapping(value = { "/removeSheep.oe"}, method = RequestMethod.GET)
 	public String removeSheep(
-			@RequestParam(value="userId")String userId
+			@RequestParam(value="userId")String userId,
+			@RequestParam(value="flag")long flag
+			
 			) {
-					userService.removeUser(userId);
+					userService.removeSheep(userId, flag);
 		return "redirect:../user/list.oe";
 	}
 	
@@ -203,7 +205,7 @@ public class UserController {
 		session.setAttribute("sessionId", userSession);
 		//////////////////
 		ModelAndView mav = new ModelAndView();
-		Paging<User>pagingList =  userService.getPagingUserList(1, 5, "");
+		Paging<User>pagingList =  userService.getPagingUserList(1, 10, "");
 		mav.addObject("pageList", pagingList);
 		mav.setViewName("user/saint/saint_list");
 		return mav;

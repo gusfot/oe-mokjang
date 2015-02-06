@@ -29,7 +29,13 @@ $(document).ready(function(){
 function cancel(){
 	yesorno = confirm("이페이지에서 나가시겠습니까?")
 	if(yesorno == true){
-	location.href='list.oe';
+	if('${sessionId.roleSeq}'<=4){
+		alert('1');
+	 location.href='/user/saintList.oe'; 
+	}else{
+		alert('2');
+	 	location.href='/user/list.oe';
+		}
 	}
 	 
 }
@@ -108,6 +114,22 @@ function modify(){
 					<input type="text" class="form-control" id="roleName"name="roleName" value="${user.department.deptName}" readonly="readonly">
 					</div> 
 				</div>
+				<div class="form-group">
+					<label class="col-sm-2" for="flag">제적상태</label>
+					<div class="col-sm-10">
+						<select class="form-control" id="flag" name="flag">
+						<c:if test="${user.flag==0 }">
+							<option value=0>등록</option>
+							<option value=1>제적</option>
+   						</c:if>
+   						<c:if test="${list.flag==1}">
+							<option value=1>제적</option>
+    						<option value=0>등록</option>
+   						</c:if>
+						</select>
+					</div>
+				</div>
+				
 		<!-- 
 		  <div class="form-group">
 		  	<label class="col-sm-2" >직분</label>
@@ -115,12 +137,12 @@ function modify(){
 			   <label class="radio-inline">
 				  <input type="radio" name="role" id="role1" value="1"> 교구장 
 				</label>
-				<label class="radio-inline">
-				  <input type="radio" name="role" id="role2" value="2"> 목자
-				</label>
-				<label class="radio-inline">
-				  <input type="radio" name="role" id="role3" value="3"> 목장원 
-				</label>
+					<label class="radio-inline">
+					  <input type="radio" name="role" id="role2" value="2"> 목자
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="role" id="role3" value="3"> 목장원 
+					</label>
 			</div>
 		  </div>
 		-->
