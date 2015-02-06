@@ -48,7 +48,7 @@
 .layerBack{position:absolute; width:100%; height:100%; top:0px; left:0px; background-color:black;filter:alpha(opacity=40); opacity:0.4; z-index:9997;}
 .layerpopupBack{position:absolute; top:0px; left:0px; width:100%; height:100%;z-index:9998;}
 .layerPopupWrap {position:relative;}
-.layerPopup {width:730px; margin: 0 auto; background-color:#FFFFFF; height:600px; margin-top:50px; padding:20px;}
+.layerPopup {width:730px; margin: 0 auto; background-color:#FFFFFF; height:650px; margin-top:50px; padding:20px;}
 .layerPopup .layerHead {position:relative; width:700px;}
 .layerPopup .layerHead span {position:absolute; top:0; right:0; font-size:30px;}
 .layerPopup .layerHead .line {position:absolute; top:30px; width:92%; border-bottom:1px solid #CCCCCC;}

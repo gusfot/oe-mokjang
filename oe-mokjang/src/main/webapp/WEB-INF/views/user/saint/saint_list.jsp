@@ -23,18 +23,21 @@
 		$('#myModal').modal('show');
 		
 	}
-	function removeSheep(param){
-
-		alert(typeof param);
-		param=String(param);
-		alert(typeof param);
-		var str='${pageList.items[0].userName}';
-		alert(str);
-
+	function expelSaint(userId,userName,userFlag){
+		yesorno = confirm(userName+"님을 삭제하시겠습니까?");
+		if(yesorno == true){
+			$.ajax({
+				type:"GET",
+				url:'removeSheep.oe?userId='+userId+'&flag='+userFlag,
+				success : function(result) {
+				alert(2);
+					location.reload();
+				}
+			});
+		}
 		
 	}
-		$(document).ready(function() {
-		alert('asdf112121S11');
+		$(document).ready(function() {	
 		var page = '${pageList.page}';
 		var pageSize = '${pageList.pageSize}';
 		var totalNumOfItems = '${pageList.totalNumOfItems}';
@@ -104,7 +107,7 @@
 							<th scope="col">핸드폰번호</th>
 							<th scope="col">등록일</th>
 							<th scope="col">상태</th>
-							<th scope="col">재적</th>
+							<th scope="col">제적적</th>
 						</thead>
 						<tr>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
@@ -119,9 +122,9 @@
     						<td>등록</td>
    						</c:if>
 						<c:if test="${list.flag==1}">
-    						<td>재적</td>
+    						<td>제적</td>
    						</c:if>
-- 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">재적</span></a></td> -
+- 							<td><a href="#" ><input class="btn3"' type="button" onclick="expelSaint('${list.userId}','${list.userName}',${list.flag})" value="제적"/></a></td> 
 						</tr>
 							</c:forEach>
 							<tr>
@@ -136,11 +139,6 @@
 								</td>
 							</tr>									
 					</table>
-				</div>
-			</div>
-			<div class="tailWrap">
-				<div class="tail">
-				COPYRIGHT @ 2014 오병이어교회, ALL RIGHTS RESERVED
 				</div>
 			</div>
 		</div>
