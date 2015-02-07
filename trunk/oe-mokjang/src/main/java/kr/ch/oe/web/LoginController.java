@@ -28,6 +28,8 @@ public class LoginController {
 		return "/login";
 	}
 	
+	
+	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
 	public String login(
 			HttpSession session,
