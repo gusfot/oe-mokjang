@@ -37,6 +37,8 @@
 		
 			type:"POST",
 			url : "/login/login.oe",
+			data : {userId : userId, pw : userPw},
+			dataType : 'json',
 			success: function(result){
 				
 				if(result==true){
@@ -58,7 +60,7 @@
 </head>
  <body>
 <%@ include file="include/header.jsp"%>
-<header class="jumbotron subhead" id="overview"> </header>
+<header class="jumbotron subhead" id="overview"> header</header>
     <div class="container">
       <form class="form-signin" role="form" method="post" action="/login.oe">
         <h2 class="form-signin-heading">52 목장관리시스템</h2>
@@ -67,7 +69,7 @@
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> 아이디 저장하기
         </label>
-        <input type="button" class="btn btn-lg btn-primary btn-block" onclick="login()" value=로그인>
+        <input type="button" class="btn btn-lg btn-primary btn-block" onclick="login();" value="로그인">
         <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입</button>
       </form>
     </div>
