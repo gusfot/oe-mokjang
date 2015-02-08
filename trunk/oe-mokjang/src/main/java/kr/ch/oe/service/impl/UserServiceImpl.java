@@ -46,9 +46,13 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public User getUser(String userId) {
+		
+		// FIXME : 사용자 정보 가지고 올 때 부서정보 join 해서 가져오도록 하자.
+		
 		User user =userMapper.selectByPrimaryKey(userId);
 		Department dept = deptMapper.selectByPrimaryKey(user.getDeptSeq());
 		user.setDepartment(dept);
+		
 		return user;
 	}
 	
@@ -57,8 +61,10 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public boolean registerUser(User user) {
+		
 		String roleName = userMapper.selectRoleName(user.getRoleSeq());
 		user.setRoleName(roleName);
+		
 		return userMapper.insertSelective(user) > 0 ? true : false;
 	}
 	//user 정보를 수정한다
@@ -109,12 +115,7 @@ public class UserServiceImpl implements UserService {
  */
 	@Override
 	public boolean overlapUserId(String userId) {
-		String checkId = userMapper.selectOverlapUserId(userId);
-		if(checkId!=null){
-		return false;
-		}
-		else
-			return true;
+		return userMapper.selectOverlapUserId(userId) != null ? false : true;
 	}
 	/**
 	 * 목장원추가 버튼으로 목장원을 추가한다

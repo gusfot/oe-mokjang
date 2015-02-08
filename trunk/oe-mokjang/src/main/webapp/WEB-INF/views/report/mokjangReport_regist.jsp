@@ -22,29 +22,29 @@
 </div>
 <div class="row">
   <div class="col-md-3">
-  <form class="form-horizontal">
+  <form class="form-horizontal" id="mokjangReportForm">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-3 control-label">교구</label>
         <div class="col-sm-8">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="교구">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword3" class="col-sm-3 control-label">목장</label>
+        <label for="deptSeq" class="col-sm-3 control-label">목장</label>
         <div class="col-sm-8">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          <input type="text" class="form-control" name="deptSeq" id="deptSeq" placeholder="목장">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword4" class="col-sm-3 control-label">집회일시</label>
+        <label for="worshipDt" class="col-sm-3 control-label">집회일시</label>
         <div class="col-sm-8">
-          <input type="date" class="form-control" id="inputPassword4" placeholder="">
+          <input type="date" class="form-control" name="worshipDt" id="worshipDt" placeholder="집회장소">
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword5" class="col-sm-3 control-label">집회장소</label>
+        <label for="worshipPlace" class="col-sm-3 control-label">집회장소</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword5" placeholder="">
+          <input type="text" class="form-control" name="worshipPlace" id="worshipPlace" placeholder="집회장소">
         </div>
       </div>
       <div class="form-group">
@@ -78,15 +78,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="inputPassword11" class="col-sm-3 control-label">목장선교헌금</label>
+        <label for="offering" class="col-sm-3 control-label">목장선교헌금</label>
         <div class="col-sm-8">
-          <input type="number" class="form-control" id="inputPassword11" placeholder="원">
+          <input type="number" class="form-control" name="offering" id="offering" placeholder="원">
         </div>
       </div>
       <div class="form-group">
-     	 <label for="inputPassword12" class="col-sm-3 control-label">기타보고사항</label>
+     	 <label for="etcReportContent" class="col-sm-3 control-label">기타보고사항</label>
         <div class="col-sm-8">
-          <textarea rows="" cols="" id="inputPassword12"></textarea>
+          <textarea rows="" cols="" id="etcReportContent"></textarea>
         </div>
       </div>
     </form>
@@ -95,7 +95,7 @@
 	<table class="table table-bordered">
       <caption>Optional table caption.</caption>
       <colgroup>
-      	<col width="5%">
+      	<col width="2%">
       	<col width="5%">
       	<col width="5%">
       	<col width="5%">
@@ -185,7 +185,30 @@
     
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
+	<script type="text/javascript">
+	
+	var report = {
+			mokjang : {
+					regist : function() {
+						var $f = $('#mokjangReportForm'),
+						 formData;
+						 
+						formData = $f.serialize();
+						 
+						 $.ajax({
+							 url: '/report/mokjang/regist.oe',
+							 type: 'POST',
+							 data: formData,
+							 success:function(data){
+							   alert(data);
+							 }
+							});
+					
+					}
+			}
+	}
+	
+	</script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="/resources/assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
