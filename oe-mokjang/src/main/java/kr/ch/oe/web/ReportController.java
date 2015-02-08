@@ -69,7 +69,7 @@ public class ReportController {
 	public @ResponseBody String regist(@ModelAttribute MokjangReport mokjangReport, Model model) {
 		
 		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
-		int weeks = DateUtil.getWeeks(2015, 1, 10);
+		int weeks = DateUtil.getWeeksOfYear(2015, 1, 10);
 		System.out.println(weeks + "번째 주입니다.");
 		System.out.println(mokjangReport.toString());
 		
