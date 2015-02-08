@@ -52,7 +52,7 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
     <result column="edu_date" jdbcType="VARCHAR" property="eduDate" />
-    <result column="edu_unit" jdbcType="BIGINT" property="edUnit" />
+    <result column="edu_unit" jdbcType="BIGINT" property="eduUnit" />
     <result column="state" jdbcType="CHAR" property="state" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
