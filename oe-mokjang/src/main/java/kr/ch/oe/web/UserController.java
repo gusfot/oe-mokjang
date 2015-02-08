@@ -75,16 +75,22 @@ public class UserController {
 		
 		ModelAndView mav = new ModelAndView();
 		Date date = new java.util.Date();
+		
+		// FIXME : 교회 등록 날짜는 화면에서 입력 받아 처리해야 할 듯..
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd"); 
 		String regdate = sd.format(date);
+		
 		DepartmentExample example = new DepartmentExample();
 		List<Department>deptList= deptService.getDeptList(example);
+		
 		mav.addObject("deptList", deptList);
 		mav.addObject("regdate", regdate);
 		mav.setViewName("user/regist");
+		
 		return mav;
 	}
 	
+	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
 	public String registerUser(
 			@RequestParam(value="email", required=true)String email,
@@ -102,8 +108,13 @@ public class UserController {
 			@RequestParam(value="gyogu", required=true)long gyogu,
 			@RequestParam(value="flag", required=true)String flag
 			) {
+		// @ModelAttribute 를 사용하면 request form을 좀 더 편하게 할 수 있을듯..
+		// FIXME : @ModelAttribute User user
 		
 		User user = new User();
+		
+		
+		// FIXME : "-" replace는 db insert 할때 replace 하자~
 		String rebirth = birth.replace("-","");
 		String remobilePhone = mobilePhone.replace("-","");
 		String rehomePhone = homephone.replace("-","");
@@ -133,6 +144,7 @@ public class UserController {
 	}
 	
 	
+	// FIXME : Sheep이란 단어보다는 공통적인 User를 사용하는게 어때?
 	@RequestMapping(value = { "/registSheepForm.oe" }, method = RequestMethod.GET)
 	public String registerSheepForm(
 			) {
@@ -146,10 +158,15 @@ public class UserController {
 			@RequestParam(value="userId") String userId
 			) {
 		System.out.println(userId);
+		
+		// FIXME checkId라는 변수가 다시 사용하지 않으면 변수에 담지 않고 바로 return 하는게 좋을거 같아
+		// FIXME return userService.overlapUserId(userId);
+		
 		boolean checkId = userService.overlapUserId(userId);
 		return checkId;
 	}
 	
+	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value = { "/modify.oe" }, method = RequestMethod.POST)
 	public String modifyUser(
 			HttpServletResponse response,
@@ -162,18 +179,23 @@ public class UserController {
 			@RequestParam(value="userId", required=true) String userId,
 			@RequestParam(value="homePhone", required=true) String homephone
 			) {
+		
 		ModelAndView mav = new ModelAndView();
+		
 		User user = new User();
 		String rebirth = birth.replace("-","");
 		System.out.println(rebirth);
+		
  	    user.setUserName(name);
 		user.setAddr(addr);
 		user.setBirth(rebirth);
 		user.setCellPhone(mobilePhone);
 		user.setJob(job);
 		user.setUserId(userId);
+		
 		userService.modifyUser(user);
 		mav.setViewName("user/list");
+		
 		return "redirect:../user/list.oe";
 	}
 	@RequestMapping(value = { "/registSheep.oe"}, method = RequestMethod.GET)
@@ -193,9 +215,12 @@ public class UserController {
 			@RequestParam(value="flag")long flag
 			
 			) {
-					userService.removeSheep(userId, flag);
+					
+		userService.removeSheep(userId, flag);
+		
 		return "redirect:../user/list.oe";
 	}
+	
 	
 	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
 	public ModelAndView getSaintList(

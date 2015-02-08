@@ -10,6 +10,15 @@ import java.util.List;
  */
 public class MokjangReport {
 
+	@Override
+	public String toString() {
+		return "MokjangReport [reports=" + reports + ", mokjangReportSeq="
+				+ mokjangReportSeq + ", weeks=" + weeks + ", deptSeq="
+				+ deptSeq + ", worshipDt=" + worshipDt + ", worshipPlace="
+				+ worshipPlace + ", offering=" + offering + ", regId=" + regId
+				+ ", regTime=" + regTime + "]";
+	}
+
 	/**
 	 * 개인 보고서목록
 	 */
