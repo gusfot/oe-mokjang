@@ -23,9 +23,9 @@ public class ReportController {
 		return "report/report_view";
 	}
 	
-	@RequestMapping("/regist.oe")
+	@RequestMapping("/mokjang/regist.oe")
 	public String regist() {
-		return "report/report_regist";
+		return "report/mokjangReport";
 	}
 	
 	@RequestMapping("/detail.oe")

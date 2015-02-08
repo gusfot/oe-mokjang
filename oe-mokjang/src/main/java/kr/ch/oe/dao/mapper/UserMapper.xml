@@ -29,7 +29,8 @@
   
   <resultMap type="kr.ch.oe.model.User" id="UserResultMap" extends="BaseResultMap">
   	<association property="department" columnPrefix="dept_" resultMap="DepartmentResultMap"/>
-  	<collection property="eduStatusList" columnPrefix="ss_" resultMap="StudyStatusResultMap" />
+  	<association property="role" columnPrefix="role_" resultMap="RoleResultMap"/>
+  	<collection property="eduStatusList" columnPrefix="es_" resultMap="EduStatusResultMap" />
   	<collection property="missionWorkStatusList" columnPrefix="mws_" resultMap="MissionWorkStatusResultMap" />
   </resultMap>
   
@@ -38,6 +39,12 @@
     <result column="dept_name" jdbcType="VARCHAR" property="deptName" />
     <result column="parent_seq" jdbcType="BIGINT" property="parentSeq" />
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
+  </resultMap>
+  
+  <resultMap type="kr.ch.oe.model.Role" id="RoleResultMap">
+  	 <id column="role_seq" jdbcType="BIGINT" property="roleSeq" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
   </resultMap>
   
   <resultMap type="kr.ch.oe.model.EduStatus" id="EduStatusResultMap">
@@ -152,8 +159,8 @@
     user.email, 
     user.dept_seq, 
     user.reg_time, 
-    user.role_seq
-    user.role_name
+    user.role_seq,
+    user.role_name,
     user.flag
   </sql>
   <sql id="Dept_Column_List">
@@ -161,6 +168,11 @@
     dept.dept_name dept_dept_name, 
     dept.parent_seq dept_parent_seq, 
     dept.reg_time dept_reg_time 
+  </sql>
+  <sql id="Role_Column_List">
+    role.role_seq role_role_seq, 
+    role.role_name role_role_name, 
+    role.reg_time role_reg_time 
   </sql>
   <sql id="StudyStatus_Column_List">
     ss.study_status_seq ss_study_status_seq,
@@ -185,7 +197,7 @@
     es.user_id es_user_id,
     es.edu_seq es_edu_seq,
     es.edu_date es_edu_date, 
-    es.edu_unit es_edu_unit
+    es.edu_unit es_edu_unit,
     es.state es_state, 
     es.reg_id es_reg_id,
     es.reg_time es_reg_time
@@ -574,10 +586,12 @@
     ,<include refid="Dept_Column_List" />
     ,<include refid="EduStatus_Column_List" />
     ,<include refid="MissisonWorkStatus_Column_List" />
+    ,<include refid="Role_Column_List" />
     from user user
     left join dept dept on dept.dept_seq = user.dept_seq
     left join edu_status es on es.user_id = user.user_id 
     left join mission_work_status mws on mws.user_id = user.user_id 
+    left join role role on role.role_seq = user.role_seq
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
   <select id="selectOverlapUserId" parameterType="string" resultType="string">
@@ -586,6 +600,7 @@
     from user user
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
+  
   <select id="selectRoleName" parameterType="long" resultType="string">
     select 
 	role_name
