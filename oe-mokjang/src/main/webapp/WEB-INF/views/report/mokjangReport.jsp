@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -61,12 +64,12 @@
 	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/resources/assets/js/docs.min.js"></script>
+    <!-- <script src="/resources/assets/js/docs.min.js"></script> -->
     
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/resources/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script src="/resources/assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>
