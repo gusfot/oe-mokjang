@@ -37,12 +37,10 @@ public class LoginController {
 			@RequestParam(value="pw",required=true)String pw) throws Exception {
 		
 		 User loginUser = loginService.loginUser(userId, pw);
-		if (loginUser != null) {
-			session.setAttribute("user", loginUser);
-			return "user/list";
-		} else {
-			return "/login";
-		}
+		 session.setAttribute("user", loginUser);
+			
+		return loginUser != null ? "user/list" : "login";
+		
 	}
 	@RequestMapping(value="/editAccount", method=RequestMethod.GET)
 	public String editAccount() {
