@@ -1345,11 +1345,6 @@ public class UserExample {
 		return (Criteria) this;
 	}
 	
-	
-	
-	
-	
-	
 	public Criteria andFlagIsNull() {
 		addCriterion("flag is null");
 		return (Criteria) this;
@@ -1360,62 +1355,62 @@ public class UserExample {
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagEqualTo(Long value) {
+	public Criteria andFlagEqualTo(String value) {
 		addCriterion("flag =", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagNotEqualTo(Long value) {
+	public Criteria andFlagNotEqualTo(String value) {
 		addCriterion("flag <>", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagGreaterThan(Long value) {
+	public Criteria andFlagGreaterThan(String value) {
 		addCriterion("flag >", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagGreaterThanOrEqualTo(Long value) {
+	public Criteria andFlagGreaterThanOrEqualTo(String value) {
 		addCriterion("flag >=", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagLessThan(Long value) {
+	public Criteria andFlagLessThan(String value) {
 		addCriterion("flag <", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagLessThanOrEqualTo(Long value) {
+	public Criteria andFlagLessThanOrEqualTo(String value) {
 		addCriterion("flag <=", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagLike(Long value) {
+	public Criteria andFlagLike(String value) {
 		addCriterion("flag like", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagNotLike(Long value) {
+	public Criteria andFlagNotLike(String value) {
 		addCriterion("flag not like", value, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagIn(List<Long> values) {
+	public Criteria andFlagIn(List<String> values) {
 		addCriterion("flag in", values, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagNotIn(List<Long> values) {
+	public Criteria andFlagNotIn(List<String> values) {
 		addCriterion("flag not in", values, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagBetween(Long value1, Long value2) {
+	public Criteria andFlagBetween(String value1, String value2) {
 		addCriterion("flag between", value1, value2, "flag");
 		return (Criteria) this;
 	}
 
-	public Criteria andFlagNotBetween(Long value1, Long value2) {
+	public Criteria andFlagNotBetween(String value1, String value2) {
 		addCriterion("flag not between", value1, value2, "flag");
 		return (Criteria) this;
 	}

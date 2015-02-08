@@ -100,7 +100,7 @@ public class UserController {
 			@RequestParam(value="regDate", required=true)String regDate,
 			@RequestParam(value="role", required=true)long roleSeq,
 			@RequestParam(value="gyogu", required=true)long gyogu,
-			@RequestParam(value="flag", required=true)long flag
+			@RequestParam(value="flag", required=true)String flag
 			) {
 		
 		User user = new User();
@@ -128,6 +128,7 @@ public class UserController {
 		user.setRoleSeq(roleSeq);
 		user.setFlag(flag);
 		userService.registerUser(user);
+		
 		return "redirect:../user/list.oe";
 	}
 	
@@ -200,6 +201,7 @@ public class UserController {
 	public ModelAndView getSaintList(
 				@RequestParam(value="id", required=true ,defaultValue ="admin")String sessionId,
 				HttpSession session) throws Exception{
+		
 		///////임시 세션//////////
 		User userSession = userService.getUser(sessionId);
 		session.setAttribute("sessionId", userSession);
@@ -208,6 +210,7 @@ public class UserController {
 		Paging<User>pagingList =  userService.getPagingUserList(1, 10, "");
 		mav.addObject("pageList", pagingList);
 		mav.setViewName("user/saint/saint_list");
+		
 		return mav;
 		
 	}

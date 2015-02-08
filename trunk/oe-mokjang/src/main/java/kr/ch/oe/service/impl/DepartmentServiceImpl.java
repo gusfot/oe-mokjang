@@ -3,8 +3,12 @@ package kr.ch.oe.service.impl;
 import java.util.List;
 
 import kr.ch.oe.dao.DepartmentMapper;
+import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
+import kr.ch.oe.model.User;
+import kr.ch.oe.model.UserExample;
+import kr.ch.oe.model.UserExample.Criteria;
 import kr.ch.oe.service.DepartmentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Autowired
 	private DepartmentMapper deptMapper;
 	
+	@Autowired
+	private UserMapper userMapper;
 	
 	/**
 	 * 조직리스트를 가지고온다
@@ -52,6 +58,18 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public int removeDeparment(Long deptseq) {
 		return deptMapper.deleteByPrimaryKey(deptseq);
+	}
+	
+	@Override
+	public List<User> getMokjangUsers(long deptSeq) {
+		
+		UserExample example = new UserExample();
+		Criteria  criteria = example.createCriteria();
+		criteria.andDeptSeqEqualTo(deptSeq);
+		criteria.andFlagEqualTo("0");
+		example.setOrderByClause("user_seq");
+		
+		return userMapper.selectByExample(example);
 	}
 
 }

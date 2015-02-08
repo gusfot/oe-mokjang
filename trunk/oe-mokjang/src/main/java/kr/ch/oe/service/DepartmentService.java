@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
+import kr.ch.oe.model.User;
 
 
 public interface DepartmentService {
@@ -38,5 +39,12 @@ public interface DepartmentService {
 	 * @return
 	 */
 	int removeDeparment(Long deptseq);
+	
+	/**
+	 * 목장seq로 목장원 조회
+	 * @param deptSeq
+	 * @return
+	 */
+	List<User> getMokjangUsers(long deptSeq);
 	
 }

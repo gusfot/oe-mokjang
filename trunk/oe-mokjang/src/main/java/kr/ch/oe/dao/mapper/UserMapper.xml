@@ -23,7 +23,7 @@
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <result column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="flag" jdbcType="BIGINT" property="flag" />
+    <result column="flag" jdbcType="CHAR" property="flag" />
     
   </resultMap>
   
@@ -276,7 +276,7 @@
       #{cellPhone,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birth,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{deptSeq,jdbcType=BIGINT}, #{regTime,jdbcType=TIMESTAMP}, #{roleSeq,jdbcType=CHAR}, 
-      #{roleName,jdbcType=VARCHAR},#{flag,jdbcType=BIGINT}
+      #{roleName,jdbcType=VARCHAR},#{flag,jdbcType=CHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="kr.ch.oe.model.User">
@@ -388,8 +388,8 @@
       <if test="roleName != null">
         #{roleName,jdbcType=VARCHAR}
       </if>
-      <if test="roleName != null">
-        #flag,jdbcType=BIGINT}
+      <if test="flag != null">
+        #flag,jdbcType=CHAR}
       </if>
     </trim>
   </insert>
@@ -461,7 +461,7 @@
         role_name = #{record.rolename,jdbcType=VARCHAR},
       </if>
       <if test="record.flag != null">
-        role_name = #{record.flag,jdbcType=BIGINT},
+        role_name = #{record.flag,jdbcType=CHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -491,7 +491,7 @@
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
       role_seq = #{record.roleSeq,jdbcType=CHAR},
       role_name = #{record.roleName,jdbcType=VARCHAR}
-      flag = #{record.flag,jdbcType=BIGINT}
+      flag = #{record.flag,jdbcType=CHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -550,7 +550,7 @@
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
       <if test="flag != null">
-        flag = #{flag,jdbcType=BIGINT},
+        flag = #{flag,jdbcType=CHAR},
       </if>
     </set>
     where user_id = #{userId,jdbcType=VARCHAR}
@@ -577,7 +577,7 @@
       reg_time = #{regTime,jdbcType=TIMESTAMP},
       role_seq = #{roleSeq,jdbcType=CHAR},
       role_name = #{roleName.jdbcType=VARCHAR}
-      flag = #{flag.jdbcType=BIGINT}
+      flag = #{flag.jdbcType=CHAR}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
   
