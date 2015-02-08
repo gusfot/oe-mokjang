@@ -143,7 +143,7 @@ public boolean removeSheep( String sheeprId , long flag) {
 	User sheep = userMapper.selectByPrimaryKey(sheeprId);
 	sheep.setDeptSeq(1l);
 	sheep.setRoleSeq(9L);
-	sheep.setFlag(1l);
+	sheep.setFlag("1");
 	String roleName = userMapper.selectRoleName(sheep.getRoleSeq());
 	sheep.setRoleName(roleName);
 	return userMapper.updateByPrimaryKeySelective(sheep) > 0 ? true : false;

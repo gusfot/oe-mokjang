@@ -94,6 +94,22 @@
   <div class="col-md-7">
 	<table class="table table-bordered">
       <caption>Optional table caption.</caption>
+      <colgroup>
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="5%">
+      	<col width="*">
+      </colgroup>
       <thead>
         <tr>
           <th>번호</th>
@@ -112,186 +128,48 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+	      	<tr>
+		      <th scope="row">${i.count}</th>
+	          <td>${user.userName}</td>
+	          <td>
+	          	<select class="form-control">
+				  <option value="Y">O</option>
+				  <option value="N">X</option>
+				</select>
+		      </td>
+	          <td>
+			    	<input type="number" class="form-control" placeholder="목장새등록자">
+	          </td>
+	          <td>
+	          		<input type="number" class="form-control" placeholder="8주차참석자">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="목장등록후 교회등록">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="양육1권수료자">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="학교양육1권수료">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="교회등록">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="교회등록후목장참석">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="목장집회1명감소">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="번식하여나가는분">
+	          </td>
+	          <td>
+	          	<input type="number" class="form-control" placeholder="식당봉사">
+	          </td>
+	      	</tr>
+      	</c:forEach>
       </tbody>
     </table>
   </div>
