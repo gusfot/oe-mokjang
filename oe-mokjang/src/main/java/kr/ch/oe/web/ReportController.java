@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 
 /**
@@ -54,15 +53,14 @@ public class ReportController {
 	}
 	
 	@RequestMapping(value="/mokjang/regist.oe", method=RequestMethod.POST)
-	public @ResponseBody Gson regist(@ModelAttribute MokjangReport mokjangReport, Model model) {
-		Gson returnObj = new Gson();
-		System.out.println(mokjangReport.toString());
-		// FIXME : 목자가 목장보고서 등록할 경우..테스트 data, 차후에 session에서 가져온다.
-		long deptSeq = 14l;
-		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
-		model.addAttribute("mokjangUsers", mokjangUsers);
+	public @ResponseBody String regist(@ModelAttribute MokjangReport mokjangReport, Model model) {
 		
-		return returnObj;
+		System.out.println(mokjangReport.toString());
+		JsonObject innerObject = new JsonObject();
+		innerObject.addProperty("success", true);
+		innerObject.addProperty("data", "data1");
+		
+		return innerObject.toString();
 	}
 	
 	@RequestMapping("/detail.oe")
