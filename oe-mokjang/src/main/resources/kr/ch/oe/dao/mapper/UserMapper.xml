@@ -52,6 +52,7 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="edu_seq" jdbcType="BIGINT" property="eduSeq" />
     <result column="edu_date" jdbcType="VARCHAR" property="eduDate" />
+    <result column="edu_name" jdbcType="VARCHAR" property="eduName" />
     <result column="edu_unit" jdbcType="BIGINT" property="eduUnit" />
     <result column="state" jdbcType="CHAR" property="state" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
@@ -160,7 +161,6 @@
     user.dept_seq, 
     user.reg_time, 
     user.role_seq,
-    user.role_name,
     user.flag
   </sql>
   <sql id="Dept_Column_List">
@@ -196,6 +196,7 @@
     es.edu_status_seq es_edu_satus_seq,
     es.user_id es_user_id,
     es.edu_seq es_edu_seq,
+    es.edu_name es_edu_name,
     es.edu_date es_edu_date, 
     es.edu_unit es_edu_unit,
     es.state es_state, 
@@ -588,10 +589,10 @@
     ,<include refid="MissisonWorkStatus_Column_List" />
     ,<include refid="Role_Column_List" />
     from user user
-    left join dept dept on dept.dept_seq = user.dept_seq
-    left join edu_status es on es.user_id = user.user_id 
-    left join mission_work_status mws on mws.user_id = user.user_id 
-    left join role role on role.role_seq = user.role_seq
+    left outer join dept dept on dept.dept_seq = user.dept_seq
+    left outer join ( select es.*, edu.edu_name from edu_status es inner join edu edu on edu.edu_seq=es.edu_seq) es on es.user_id = user.user_id 
+    left outer join mission_work_status mws on mws.user_id = user.user_id 
+    left outer join (select rolemapping.*,role.role_name  from role_mapping rolemapping inner join role on role.role_seq = rolemapping.role_seq ) role on role.role_seq = user.role_seq
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>
   <select id="selectOverlapUserId" parameterType="string" resultType="string">
