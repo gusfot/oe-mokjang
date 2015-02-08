@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class User {
 
+	private Role role;
 	/**
 	 * 소속 정보
 	 */
@@ -421,5 +422,13 @@ public class User {
 
 	public void setEduStatusListList(List<EduStatus> eduStatusListList) {
 		this.eduStatusListList = eduStatusListList;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 }
