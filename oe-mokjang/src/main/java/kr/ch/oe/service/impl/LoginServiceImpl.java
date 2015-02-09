@@ -10,19 +10,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-	
 	@Autowired
 	UserService userService;
-	
+
 	@Override
 	public User loginUser(String userId, String pw) {
-		
+		System.out.println("1");
 		User user = userService.getUser(userId);
-		if (!user.getPassword().equals(pw)){
-			return user;
+		System.out.println("2");
+		if (user != null) {
+			if (user.getPassword().equals(pw)) {
+				System.out.println("3");
+				return user;
+			}
 		}
-		
-		return null ;
+		System.out.println("4");
+		return null;
+
 	}
 
 }
+	

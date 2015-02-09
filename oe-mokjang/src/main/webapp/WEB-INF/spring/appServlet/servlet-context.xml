@@ -18,6 +18,24 @@
 	<!-- <resources mapping="/js/**" location="/js/" /> -->
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />
+	
+	<mvc:interceptors>
+	<mvc:interceptor> 
+           <mvc:mapping path="/user/list.oe"/>
+           <mvc:mapping path="/user/saintList.oe"/>
+           <mvc:mapping path="/user/registForm.oe"/>
+           <mvc:mapping path="/user/detail.oe"/>
+           <mvc:mapping path="/user/registSheepForm.oe"/>
+           <mvc:mapping path="/user/removeSheep.oe"/>
+           
+           <!-- 로그인체크 인터셉터 클래스 -->
+           <beans:bean class="kr.ch.oe.interceptor.Interceptor"/>
+        </mvc:interceptor>
+	</mvc:interceptors>
+	
+	
+	
+	
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

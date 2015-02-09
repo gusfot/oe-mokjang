@@ -33,36 +33,46 @@
 		var userId = $("input[name=userId]").val();
 		var userPw= $("input[name=password]").val();
 		
-		$.ajax({
+		if(userId==""){
+			alert("아이디를 입력하세요");
+			$("input[name=userId]").val("");
+			$("input[name=userId]").focus();
+			exit;
+		}
+		if(userPw==""){
+			alert("비밀번호를 입력하세요");
+			$("input[name=password]").val("");
+			$("input[name=password]").focus();
+			exit;
+		}
 		
+		
+		 $.ajax({
 			type:"POST",
 			url : "/login/login.oe",
-			data : {userId : userId, pw : userPw},
+		 	data : ({userId : userId, pw : userPw}),
 			dataType : 'json',
-			success: function(result){
-				
-				if(result==true){
-					alert(true);
+			success:function(result){
+			 	if(result==true){
+			 		location.href="/main.oe";
+				}else{
+					alert('아이디 또는 비밀번호를 확인해주세요');
+					$("input[name=userId]").val("");
+					$("input[name=password]").val("");
+					$("input[name=userId]").focus();
+					
 				}
-				alert(false);
-				
 			}
-			
-		});
-		
-		
+		}); 	
 	}
 	
-	
 	</script>
-
-
 </head>
  <body>
 <%@ include file="include/header.jsp"%>
-<header class="jumbotron subhead" id="overview"> header</header>
+<header class="jumbotron subhead" id="overview" ></header>
     <div class="container">
-      <form class="form-signin" role="form" method="post" action="/login.oe">
+      <form class="form-signin" role="form" method="post" action="#" id="form-login" name="form-login">
         <h2 class="form-signin-heading">52 목장관리시스템</h2>
         <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="userId" id="userId" required autofocus>
         <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" id="password" required>
@@ -70,7 +80,7 @@
           <input type="checkbox" value="remember-me"> 아이디 저장하기
         </label>
         <input type="button" class="btn btn-lg btn-primary btn-block" onclick="login();" value="로그인">
-        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입</button>
+        <%-- <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입 ${sessionId.userName}3</button> --%>
       </form>
     </div>
      <!-- /container -->

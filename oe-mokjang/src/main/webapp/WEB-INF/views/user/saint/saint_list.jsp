@@ -35,9 +35,13 @@
 				}
 			});
 		}
-		
 	}
-		$(document).ready(function() {	
+		$(document).ready(function() {
+			 
+			if('${sessionId.roleSeq}'>3){
+				alert('페이지를 열 권한이 없습니다')
+				location.href="../main.oe";
+			} 
 		var page = '${pageList.page}';
 		var pageSize = '${pageList.pageSize}';
 		var totalNumOfItems = '${pageList.totalNumOfItems}';

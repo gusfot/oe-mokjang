@@ -37,8 +37,8 @@ public class UserController {
 				@RequestParam(value="id", required=true ,defaultValue ="sms")String farmmerId,
 					HttpSession session)throws Exception {
 		////////임시세션////////
-		User userSession = userService.getUser(farmmerId);
-		session.setAttribute("sessionId", userSession);
+//		User userSession = userService.getUser(farmmerId);
+	//	session.setAttribute("sessionId", userSession);
 		//////////////////
 		ModelAndView mav = new ModelAndView();
 		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
@@ -212,14 +212,10 @@ public class UserController {
 	public String removeSheep(
 			@RequestParam(value="userId")String userId,
 			@RequestParam(value="flag")long flag
-			
 			) {
-					
 		userService.removeSheep(userId, flag);
-		
 		return "redirect:../user/list.oe";
 	}
-	
 	
 	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
 	public ModelAndView getSaintList(
@@ -227,8 +223,8 @@ public class UserController {
 				HttpSession session) throws Exception{
 		
 		///////임시 세션//////////
-		User userSession = userService.getUser(sessionId);
-		session.setAttribute("sessionId", userSession);
+//		User userSession = userService.getUser(sessionId);
+	//	session.setAttribute("sessionId", userSession);
 		//////////////////
 		ModelAndView mav = new ModelAndView();
 		Paging<User>pagingList =  userService.getPagingUserList(1, 10, "");
@@ -238,15 +234,6 @@ public class UserController {
 		return mav;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
