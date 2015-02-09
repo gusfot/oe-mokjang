@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequestMapping("/login")
 @Controller
@@ -31,21 +32,25 @@ public class LoginController {
 	
 	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
-	public String login(
+	public @ResponseBody boolean login(
 			HttpSession session,
 			@RequestParam(value="userId",required=true)String userId,
 			@RequestParam(value="pw",required=true)String pw) throws Exception {
-		
 		 User loginUser = loginService.loginUser(userId, pw);
-		 session.setAttribute("user", loginUser);
-			
-		return loginUser != null ? "user/list" : "login";
-		
+		 if(loginUser!=null){
+			 System.out.println("세션심겼다");
+		 session.setAttribute("sessionId", loginUser);
+		 }
+		 return loginUser != null ? true : false;
+
 	}
-	@RequestMapping(value="/editAccount", method=RequestMethod.GET)
-	public String editAccount() {
-		return "users/editAccount";
+	@RequestMapping(value="/logout.oe", method=RequestMethod.GET)
+	public String editAccount(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login/loginForm.oe";
 	}
+	
+	
 	/*
 	@RequestMapping(value="/editAccount", method=RequestMethod.POST)
 	public String editAccount(User user, HttpSession session) throws Exception {

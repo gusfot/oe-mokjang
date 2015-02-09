@@ -50,6 +50,9 @@ public class UserServiceImpl implements UserService {
 		// FIXME : 사용자 정보 가지고 올 때 부서정보 join 해서 가져오도록 하자.
 		
 		User user =userMapper.selectByPrimaryKey(userId);
+		if(user==null){
+			return null;
+		}
 		Department dept = deptMapper.selectByPrimaryKey(user.getDeptSeq());
 		user.setDepartment(dept);
 		

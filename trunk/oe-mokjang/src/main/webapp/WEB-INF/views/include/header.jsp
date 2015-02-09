@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
        <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -9,12 +11,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">목장보고관리시스템</a>
+          <a class="navbar-brand" href="../main.oe">목장보고관리시스템</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="divider"><a href="/user/list.oe">목장원 관리</a></li>
             <li class="divider"><a href="/user/saintList.oe">성도관리</a></li>
+            <li class="divider"><a href="/user/group.oe">조직관리</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">목장보고서<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -41,7 +44,13 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
-            <li><a href="#"><span class="glyphicon glyphicon-off"></span> 로그아웃</a></li>
+            <c:if test="${sessionId.userId==null}">
+            <li><a href="/login/loginForm.oe"><span class="glyphicon glyphicon-on"></span>로그인</a></li>
+          </c:if>
+          <c:if test="${sessionId!=null}">
+            <li><a href="/login/logout.oe"><span class="glyphicon glyphicon-off"></span>로그아웃</a></li>
+          </c:if>
+          
           </ul>
         </div><!--/.nav-collapse -->
       </div>
