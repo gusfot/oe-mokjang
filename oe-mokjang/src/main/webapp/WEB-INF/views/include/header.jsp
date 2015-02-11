@@ -2,6 +2,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
        <!-- Fixed navbar -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script type="text/javascript">
+</script>
+</head>
+  
+  <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -15,9 +25,21 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
+          <c:if test="${sessionId.roleSeq>4 || sessionId==null}">
             <li class="divider"><a href="/user/list.oe">목장원 관리</a></li>
+            </c:if>
             <li class="divider"><a href="/user/saintList.oe">성도관리</a></li>
-            <li class="divider"><a href="/user/group.oe">조직관리</a></li>
+            
+            <li class="dropdown">
+          <a href="../main.oe" class="dropdown-toggle" data-toggle="dropdown">조직관리<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/dept/list.oe?group=교구">교구관리</a></li>
+                <!-- <li><a href="/dept/list.oe?group=목장">목장관리</a></li> -->
+                <li><a href="/dept/list.oe?group=교육부">교육부</a></li>
+                <li><a href="/dept/list.oe?group=부서">부서관리</a></li>
+              </ul>
+            </li>
+            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">목장보고서<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -30,8 +52,7 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">마이페이지 <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -55,3 +76,5 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+    </body>
+    </html>

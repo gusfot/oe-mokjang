@@ -47,6 +47,8 @@ public class LoginController {
 	@RequestMapping(value="/logout.oe", method=RequestMethod.GET)
 	public String editAccount(HttpSession session) {
 		session.invalidate();
+		
+		
 		return "redirect:/login/loginForm.oe";
 	}
 	

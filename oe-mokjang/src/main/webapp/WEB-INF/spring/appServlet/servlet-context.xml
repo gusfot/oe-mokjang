@@ -20,17 +20,31 @@
 	<mvc:annotation-driven />
 	
 	<mvc:interceptors>
+	
 	<mvc:interceptor> 
-           <mvc:mapping path="/user/list.oe"/>
-           <mvc:mapping path="/user/saintList.oe"/>
+           <mvc:mapping path="/user/*"/>
+           <mvc:mapping path="/dept/*"/>
+<!--            <mvc:mapping path="/user/saintList.oe"/>
            <mvc:mapping path="/user/registForm.oe"/>
            <mvc:mapping path="/user/detail.oe"/>
            <mvc:mapping path="/user/registSheepForm.oe"/>
            <mvc:mapping path="/user/removeSheep.oe"/>
-           
-           <!-- 로그인체크 인터셉터 클래스 -->
-           <beans:bean class="kr.ch.oe.interceptor.Interceptor"/>
+           <mvc:mapping path="/dept/list.oe"/>
+ -->
+            <!-- 로그인체크 인터셉터 클래스 -->
+           <beans:bean class="kr.ch.oe.interceptor.LoginInterceptor"  />
         </mvc:interceptor>
+        
+	<mvc:interceptor> 
+           <mvc:mapping path="/user/saintList.oe"/>
+           <mvc:mapping path="/dept/list.oe"/>
+           <mvc:mapping path="/dept/registForm.oe"/>
+           <mvc:mapping path="/dept/detail.oe"/>
+           <!-- 권한체크 인터셉터 클래스 -->
+           <beans:bean class="kr.ch.oe.interceptor.RoleCheckInterceptor"/>
+           
+        </mvc:interceptor>
+        
 	</mvc:interceptors>
 	
 	

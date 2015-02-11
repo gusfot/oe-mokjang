@@ -1,9 +1,6 @@
 package kr.ch.oe.service;
 
-import java.util.List;
-
 import kr.ch.oe.model.Department;
-import kr.ch.oe.model.DepartmentExample;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,10 +19,12 @@ public class DeparmentServiceTest {
 	
 	@Test
 	public void successToGetDeptList() {
-		DepartmentExample deptExam = new DepartmentExample();
-		List<Department>deptList = deptService.getDeptList(deptExam);
-		Assert.assertNotNull(deptList);
+
+		deptService.getDeptList(0, 0,"");
 		
+		/*List<Department>deptList = deptService.getDeptList(deptExam);
+		Assert.assertNotNull(deptList);
+		*/
 	}
 	
 	@Test
@@ -33,22 +32,24 @@ public class DeparmentServiceTest {
 		Department dept = deptService.getDepatment(1L);
 		Assert.assertNotNull(dept);
 	}
-	
+	 
 	@Test
 	public void successToRegisterDept(){
 		Department dept = new Department();
 		dept.setDeptName("고등부");
 		dept.setParentSeq(13L);
 		int result = deptService.registerDepartment(dept);
+		
 		Assert.assertTrue(result>0);
 		
 	}
 	
 @Test
 public void successToModifyDept(){
-	Department dept = deptService.getDepatment(15L);
-	dept.setDeptName("update_고등부");
-	int result = deptService.modifyDepartMent(dept);
+	Department dept = new Department();
+	dept.setDeptName("update_123");
+	dept.setParentSeq(0L);
+	int result = deptService.modifyDepartMent(dept,26L);
 	Assert.assertTrue(result>0);
 	
 }
