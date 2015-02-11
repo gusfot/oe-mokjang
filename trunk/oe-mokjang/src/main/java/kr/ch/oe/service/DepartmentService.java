@@ -2,6 +2,7 @@ package kr.ch.oe.service;
 
 import java.util.List;
 
+import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
 import kr.ch.oe.model.User;
@@ -14,7 +15,7 @@ public interface DepartmentService {
 	 * @param deptExam
 	 * @return
 	 */
-	List<Department> getDeptList(DepartmentExample deptExam);
+	Paging<Department> getDeptList(int page, int pageSize,String group);
 	/**
 	 * 조직 한개의 정보를 가지고 옵니다
 	 * @param deptseq
@@ -32,7 +33,7 @@ public interface DepartmentService {
 	 * @param dept
 	 * @return
 	 */
-	int modifyDepartMent(Department dept);
+	int modifyDepartMent(Department updateDept ,long deptSeq);
 	/**
 	 * 조직을 삭제합니다
 	 * @param deptseq
@@ -46,5 +47,28 @@ public interface DepartmentService {
 	 * @return
 	 */
 	List<User> getMokjangUsers(long deptSeq);
+	
+	/**
+	 * 소속 조직의 하위조직 갯수 가져오기
+	 */
+	
+	public int getRowGroupTotalNumber(Long deptSeq);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

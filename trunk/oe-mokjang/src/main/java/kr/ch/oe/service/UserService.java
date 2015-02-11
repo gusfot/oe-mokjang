@@ -65,10 +65,10 @@ public interface UserService {
 	/**
 	 * 목장목록에서 목장원을 삭제할때
 	 * @param sheepId
-	 * @return
+	 * @return	
 	 */
 	
-	boolean removeSheep(String sheepId, long flag);
+	boolean removeSheep(String sheepId, String flag);
 	
 }
 

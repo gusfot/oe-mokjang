@@ -122,7 +122,7 @@ function modify(){
 							<option value=0>등록</option>
 							<option value=1>제적</option>
    						</c:if>
-   						<c:if test="${list.flag==1}">
+   						<c:if test="${user.flag==1}">
 							<option value=1>제적</option>
     						<option value=0>등록</option>
    						</c:if>

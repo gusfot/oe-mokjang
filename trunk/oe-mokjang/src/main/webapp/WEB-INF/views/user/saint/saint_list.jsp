@@ -38,10 +38,6 @@
 	}
 		$(document).ready(function() {
 			 
-			if('${sessionId.roleSeq}'>3){
-				alert('페이지를 열 권한이 없습니다')
-				location.href="../main.oe";
-			} 
 		var page = '${pageList.page}';
 		var pageSize = '${pageList.pageSize}';
 		var totalNumOfItems = '${pageList.totalNumOfItems}';
@@ -61,17 +57,6 @@
 				<div class="contents">
 					<!--페이지네비게이션영역-->
 					
-					
-					<!--검색조건입력
-					<div class="listSearch">
-						<span>목장명</span>
-						<input type="text" id="" name="" class="text" title="검색조건 입력" value="홍길동" onfocus="this.value=''" style="width:100px;" />
-						<span>등록일</span>
-						<input type="text" id="" name="" class="text" title="검색조건 입력" value="20130101" onfocus="this.value=''" style="width:80px;" />
-						 ~ 
-						<input type="text" id="" name="" class="text" title="검색조건 입력" value="20131231" onfocus="this.value=''" style="width:80px;" />
-						<span class="btn3"><a href="#" >검색 </a></span>
-					</div>-->
 					<!--년주영역-->
 					<ul class="calCtrl">
 						<li class="btn1"><a href="#"> << </a></li>

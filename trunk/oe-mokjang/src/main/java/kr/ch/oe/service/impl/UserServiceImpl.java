@@ -21,16 +21,21 @@ public class UserServiceImpl implements UserService {
 	UserMapper userMapper;
 	@Autowired
 	DepartmentMapper deptMapper;
+	
 	/**
-	 * 모든 사용자 목록을 가지고 온다.
+	 *모든 사용자 목록을 가지고온다  
 	 */
 	@Override
 	public Paging<User> getPagingUserList(int page,int pageSize, String keyword) {
+		
 		UserExample example = new UserExample();
+		
 		int startIndex = pageSize*page-pageSize;
 		String lmit = Integer.toString(startIndex)+","+Integer.toString(pageSize);
+		
 		example.setOrderByClause("user_seq");
 		example.setLimitByClause(lmit);
+		
 		if(!keyword .equals("")){
 			String likekeyword ="%"+keyword+"%";
 		example.createCriteria().andUserNameLike(likekeyword);
@@ -40,7 +45,7 @@ public class UserServiceImpl implements UserService {
 		List<User> userList = userMapper.selectByExample(example);
 		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
 	}
-	
+		
 	/**
 	 * 사용자 한명의 정보를 가지고 온다.
 	 */
@@ -67,6 +72,9 @@ public class UserServiceImpl implements UserService {
 		
 		String roleName = userMapper.selectRoleName(user.getRoleSeq());
 		user.setRoleName(roleName);
+		
+		System.out.println(user.getRoleName());
+		
 		
 		return userMapper.insertSelective(user) > 0 ? true : false;
 	}
@@ -123,7 +131,7 @@ public class UserServiceImpl implements UserService {
 	/**
 	 * 목장원추가 버튼으로 목장원을 추가한다
 	 */
-@Override
+@Override	
 public boolean registUserFarm(String[] userId, String farmmerId) {
 	boolean result=true;
 	
@@ -143,7 +151,7 @@ public boolean registUserFarm(String[] userId, String farmmerId) {
  * 목장원을 목장목록에서 제외한다
  */
 @Override
-public boolean removeSheep( String sheeprId , long flag) {
+public boolean removeSheep( String sheeprId , String flag) {
 	User sheep = userMapper.selectByPrimaryKey(sheeprId);
 	sheep.setDeptSeq(1l);
 	sheep.setRoleSeq(9L);

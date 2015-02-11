@@ -23,20 +23,29 @@
 		$('#myModal').modal('show');
 		
 	}
-	function removeSheep(param){
-		alert('in?')
-		alert(param);		
-		
-		
-		/* alert('${pageList.items[0].userName}'); */
-		
-		
-		/* yesorno = confirm("목장원을 삭제하시겠습니까?")
+	function removeSheep(userId,flag){
+		 yesorno = confirm("목장원을 삭제하시겠습니까?")
 		if(yesorno == true){
-		location.href='removeSheep.oe?userId=${list.userId}';
-		} */
+			
+			$.ajax({
+				type : "GET",
+				url : "removeSheep.oe?userId="+userId+"&flag="+flag,
+				success : function(response) {
+					if (response == true) {
+						alert('삭제되었습니다');
+						window.location.reload();	
+					} else {
+						alert('실패하였습니다');
+					}
+				}
+			});
 		
+		} 
 	}
+		$(document).ready(function() {
+			 
+			});
+		
 </script>
 </head>
 <body>
@@ -108,8 +117,8 @@
 							<th scope="col">심방입력</th>
 							<th scope="col">삭제</th>
 						</thead>
-						<tr>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
+						<tr>
 							<td>${s.count}</td>
 							<td>${list.roleName}</td>
 							<td><a data-toggle="modal" href="detail.oe?userId=${list.userId}" data-target="#myModal">${list.userName}</a></td>
@@ -119,7 +128,7 @@
 							<td><a href="#"><span class="btn3">점수입력</span></a></td>
 							<td><a href="#"><span class="btn3">심방입력</span></a></td>
 <%-- - 							<td><a href="removeSheep.oe?userId=${list.userId}"><span class="btn3">삭제</span></a></td> - --%>
-- 							<td><a href="#" onclick="removeSheep(${list.userName})"><span class="btn3">삭제</span></a></td> -
+ 							<td><a href="#" onclick="removeSheep('${list.userId}',${list.flag})"><span class="btn3">삭제</span></a></td> 
 						</tr>
 							</c:forEach>
 						<tr>
