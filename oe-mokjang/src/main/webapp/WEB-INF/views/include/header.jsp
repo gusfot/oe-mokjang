@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<%@ page import="java.net.URLEncoder" %>
        <!-- Fixed navbar -->
 <!DOCTYPE html>
 <html>
@@ -28,17 +29,20 @@
           <c:if test="${sessionId.roleSeq>4 || sessionId==null}">
             <li class="divider"><a href="/user/list.oe">목장원 관리</a></li>
             </c:if>
+            <c:if test="${sessionId.roleSeq<4 || sessionId==null}">
             <li class="divider"><a href="/user/saintList.oe">성도관리</a></li>
             
             <li class="dropdown">
           <a href="../main.oe" class="dropdown-toggle" data-toggle="dropdown">조직관리<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/dept/list.oe?group=교구">교구관리</a></li>
+<%--                 <li><a href="/dept/list.oe?group=<%=URLEncoder.encode("교구", "UTF-8")%>">교구관리</a></li> --%>
                 <!-- <li><a href="/dept/list.oe?group=목장">목장관리</a></li> -->
                 <li><a href="/dept/list.oe?group=교육부">교육부</a></li>
                 <li><a href="/dept/list.oe?group=부서">부서관리</a></li>
               </ul>
             </li>
+            </c:if>
             
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">목장보고서<b class="caret"></b></a>

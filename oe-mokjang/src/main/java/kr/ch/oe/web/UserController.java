@@ -16,6 +16,7 @@ import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,63 +87,32 @@ public class UserController {
 		return mav;
 	}
 	
-	// FIXME : 시간이 좀 있으면 ajax 처리하자
-	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
-	public String registerUser(
-			@RequestParam(value="email", required=true)String email,
-			@RequestParam(value="password", required=true)String password,
-			@RequestParam(value="name", required=true)String name,
-			@RequestParam(value="job", required=true)String job,
-			@RequestParam(value="address", required=true)String addr,
-			@RequestParam(value="birthday", required=true)String birth,
-			@RequestParam(value="mobilePhone", required=true)String mobilePhone,
-			@RequestParam(value="homePhone", required=true)String homephone,
-			@RequestParam(value="gender", required=true)String gneder,
-			@RequestParam(value="userId", required=true)String userId,
-			@RequestParam(value="regDate", required=true)String regDate,
-			@RequestParam(value="role", required=true)long roleSeq,
-			@RequestParam(value="gyogu", required=true)long gyogu,
-			@RequestParam(value="flag", required=true)String flag
-			) {
-		// @ModelAttribute 를 사용하면 request form을 좀 더 편하게 할 수 있을듯..
-		// FIXME : @ModelAttribute User user
-		//RE: 리펙토링할때 고치겠슴돠!
-		
-		User user = new User();
-		
-		
-		// FIXME : "-" replace는 db insert 할때 replace 하자~
-		//RE: 넵알겠슴돠!
-		
-		String rebirth = birth.replace("-","");
-		String remobilePhone = mobilePhone.replace("-","");
-		String rehomePhone = homephone.replace("-","");
-		String reRegDate= regDate.replace("-","");
-		
-		System.out.println(gyogu);
-
-		Department dept = deptService.getDepatment(gyogu);
-		
-		user.setUserName(name);
-		user.setRegDt(reRegDate);
-		user.setUserId(userId);
-		user.setPassword(password);
-		user.setAddr(addr);
-		user.setCellPhone(remobilePhone);
-		user.setHomePhone(rehomePhone);
-		user.setJob(job);
-		user.setGender(gneder);
-		user.setBirth(rebirth );
-		user.setEmail(email);
-		user.setDeptSeq(dept.getDeptSeq());
-		user.setRoleSeq(roleSeq);
-		user.setFlag(flag);
-		user.setDepartment(dept);
-		userService.registerUser(user);
-		
-		return "redirect:../user/list.oe";
-	}
 	
+	// FIXME : 시간이 좀 있으면 ajax 처리하자
+		@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
+		public @ResponseBody boolean registerUser(
+				@RequestParam(value="gyogu", required=true)long gyogu,
+				@ModelAttribute User user
+				) {
+			// @ModelAttribute 를 사용하면 request form을 좀 더 편하게 할 수 있을듯..
+			// FIXME : @ModelAttribute User user
+			//RE: 리펙토링할때 고치겠슴돠!
+			// FIXME : "-" replace는 db insert 할때 replace 하자~
+			//RE: 넵알겠슴돠!
+			System.out.println("@modelAttribute Test");
+			String rebirth = user.getBirth().replace("-","");
+			String remobilePhone = user.getCellPhone().replace("-","");
+			String rehomePhone = user.getHomePhone().replace("-","");
+			String reRegDate= user.getRegDt().replace("-","");
+			Department dept = deptService.getDepatment(gyogu);
+			user.setCellPhone(remobilePhone);
+			user.setHomePhone(rehomePhone);
+			user.setBirth(rebirth );
+			user.setRegDt(reRegDate);
+			user.setDeptSeq(dept.getDeptSeq());
+			user.setDepartment(dept);
+			return userService.registerUser(user);
+		}
 	
 	// FIXME : Sheep이란 단어보다는 공통적인 User를 사용하는게 어때?
 	@RequestMapping(value = { "/registSheepForm.oe" }, method = RequestMethod.GET)
@@ -160,6 +130,7 @@ public class UserController {
 		// FIXME checkId라는 변수가 다시 사용하지 않으면 변수에 담지 않고 바로 return 하는게 좋을거 같아
 		// FIXME return userService.overlapUserId(userId);
 		//RE:넵 알겠슴돠!
+		System.out.println("ovelrapUaserId");
 		return userService.overlapUserId(userId);
 	}
 	
@@ -218,17 +189,18 @@ public class UserController {
 	
 	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
 	public ModelAndView getSaintList(
+			@RequestParam(value="keyword" ,required=false, defaultValue="")String keyword,
+			@RequestParam(value="page" ,required=false, defaultValue= "1" )int page,
 				HttpSession session) throws Exception{
-		User sessionId = (User)session.getAttribute("sessionId");
+		System.out.println(keyword);
 		ModelAndView mav = new ModelAndView();
-		Paging<User>pagingList =  userService.getPagingUserList(1, 10, "");
+		Paging<User>pagingList =  userService.getPagingUserList(page, 10, keyword);
 		mav.addObject("pageList", pagingList);
 		mav.setViewName("user/saint/saint_list");
 		
 		return mav;
 		
 	}
-	
-	
+
 	
 }

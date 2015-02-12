@@ -12,7 +12,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("InterCeptor IN? ");
+		
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		try {
 			if (request.getSession().getAttribute("sessionId") == null) {
 				response.sendRedirect("/login/loginForm.oe");
