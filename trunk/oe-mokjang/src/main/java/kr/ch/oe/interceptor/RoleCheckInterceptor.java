@@ -22,9 +22,10 @@ public class RoleCheckInterceptor implements HandlerInterceptor {
 		User sessionUser = (User)session.getAttribute("sessionId");
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+		
 		try {
-			if(sessionUser.getRoleSeq()>4){
+			if(sessionUser.getRoleSeq()<0){
+				PrintWriter out = response.getWriter();
 				System.out.println("if ?");
 				out.println("<script>alert('권한이 없습니다.');history.go(-1);</script>"); 
 				out.flush(); 

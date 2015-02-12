@@ -30,10 +30,8 @@ function cancel(){
 	yesorno = confirm("이페이지에서 나가시겠습니까?")
 	if(yesorno == true){
 	if('${sessionId.roleSeq}'<=4){
-		alert('1');
 	 location.href='/user/saintList.oe'; 
 	}else{
-		alert('2');
 	 	location.href='/user/list.oe';
 		}
 	}
@@ -54,7 +52,12 @@ function modify(){
 	<div class="layerPopup">
 	<div class="layerHead">
 						<h2>회원정보</h2>
+						<c:if test="${sessionId.roleSeq<=4}">
+						<a href="saintList.oe"><span>×</span></a>
+						</c:if>
+						<c:if test="${sessionId.roleSeq>4}">
 						<a href="list.oe"><span>×</span></a>
+						</c:if>
 						<div class="line"></div>
 					</div>
 	<div class="container">

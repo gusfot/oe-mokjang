@@ -24,7 +24,7 @@
 		$('#myModal').modal('toggle');
 	}
 	//var page = paging(msg.page,msg.pageSize,msg.totalNumOfItems);
-	function sheepPage(param){
+	function pageR(param){
 		var keyword = $('#keyword').val();
 		var html = '';
 		var total=""
@@ -67,7 +67,7 @@
 			location.href='registSheep.oe?userId='+str+'&farmmerId=sms';
 	}
 	$(document).ready(function() {
-		sheepPage(1);
+		pageR(1);
 		});
 	
 </script>
@@ -84,7 +84,7 @@
 						<div class="listSearch">
 							<span>이름</span>
 							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onfocus="this.value=''" style="width:100px;" />
-							<span class="btn3"><a href="#" onclick="sheepPage(1)" >검색 </a></span>
+							<span class="btn3"><a href="#" onclick="page(1)" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
 						<!--리스트영역-->

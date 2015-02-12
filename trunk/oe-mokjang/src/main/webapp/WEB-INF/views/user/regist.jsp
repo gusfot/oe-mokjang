@@ -20,10 +20,27 @@
 
 <script type="text/javascript">
 	function checkfield(){
-		alert('in1111');
-		alert('${sessionId.userName}');
-		var userId = $("input[name=userId]").val();
-	     var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+		
+		var jsuserId = $("input[name=userId]").val();
+		var jsuserName = $("input[name=userName]").val();
+		var jspassword = $("input[name=password]").val();
+		var jsaddr = $("input[name=addr]").val();
+		var jscellPhone = $("input[name=cellPhone]").val();
+		var jshomePhone = $("input[name=homePhone]").val();
+		var jsjob = $("input[name=job]").val();
+		var jsgender = $("select[name=gender]").val();
+		var jsroleSeq = $("select[name=role]").val();
+		var jsbirth = $("input[name=birth]").val();
+		var jsemail = $("input[name=email]").val();
+		var jsflag = $("input[name=flag]").val();
+		var jsregDt =$("input[name=regDate]").val();
+		var jsgyogu = $("select[name=gyogu]").val();
+		
+/* 	alert(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
+			+jsflag+jsregDt+jsgyogu);
+		 */
+		
+		var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
 		
 		if(document.regist_form.email.value==""){
 			alert("이메일주소를 입력하세요");
@@ -40,9 +57,9 @@
 			document.regist_form.password.focus();
 			exit;
 			
-		}else if(document.regist_form.name.value==""){
+		}else if(document.regist_form.userName.value==""){
 			alert("이름을 입력하세요");
-			document.regist_form.name.focus();
+			document.regist_form.userName.focus();
 			exit;
 			
 		}else if(document.regist_form.job.value==""){
@@ -50,53 +67,84 @@
 			document.regist_form.job.focus();
 			exit;
 			
-		}else if(document.regist_form.address.value==""){
+		}else if(document.regist_form.addr.value==""){
 			alert(" 주소를 입력하세요");
-			document.regist_form.address.focus();
+			document.regist_form.addr.focus();
 			exit;
 			
-		}else if(document.regist_form.birthday.value==""){
+		}else if(document.regist_form.birth.value==""){
 			alert(" 생일을 입력하세요");
-			document.regist_form.birthday.focus();
+			document.regist_form.birth.focus();
 			exit;
 			
-		}else if(document.regist_form.mobilePhone.value==""){
+		}else if(document.regist_form.cellPhone.value==""){
 			alert(" 핸드폰 번호를 입력하세요");
-			document.regist_form.mobilePhone.focus();
+			document.regist_form.cellPhone.focus();
 			exit;
 			
 		}else if(document.regist_form.homePhone.value==""){
 			alert(" 집전화 번호를 입력하세요");
 			document.regist_form.homePhone.focus();
 			exit;
-			
 		}
 	     
-	     if(phonestr.test(document.regist_form.mobilePhone.value)==false){
+	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
 	    	 alert("핸드폰번호 형식이 맞지않습니다 ");
 	    	 document.regist_form.mobilePhone.focus();
 				exit;
 	     }
-	     if(phonestr.test(document.regist_form.homePhone.value)==false){
+	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
 	    	 alert(" 전화번호 형식이 맞지않습니다 ");
 	    	 document.regist_form.homePhone.focus();
 				exit;
 	     } 
+	
 		$.ajax({
 					type : "GET",
 					url : "overlapUserId.oe?userId=" + userId,
 					success : function(result) {
 						if(result==true){
-							alert('success');
-						document.regist_form.submit();
+							alert("사용가능한아이디");
+						//document.regist_form.submit();
 						}
 						else{
 							alert("아이디가 이미 존재합니다");
 							$("input[name=userId]").val("");
 							$("input[name=userId]").focus();
+							exit;
 						}
 						}
 				});
+		$.ajax({
+			type : "POST",
+			url : "regist.oe",
+			data : ({ userId : jsuserId, userName : jsuserName, password : jspassword, addr : jsaddr, 
+						cellPhone : jscellPhone, homePhone : jshomePhone, job : jsjob, gender : jsgender, 
+						birth : jsbirth, email : jsemail , flag : jsflag, regDt : jsregDt , 
+				  	    gyogu : jsgyogu, roleSeq : jsroleSeq }),
+			dataType:'json',
+			success : function(result) {
+				if(result==true){
+					alert('등록되었습니다');
+				}
+				else{
+					alert("실패하였습니다");
+					exit;
+				}
+				}
+		});
+	}
+	
+	function cancel(){
+		yesorno = confirm("이페이지에서 나가시겠습니까?")
+		if(yesorno == true){
+		if('${sessionId.roleSeq}'<=4){
+		 location.href='/user/saintList.oe'; 
+		}else{
+		 	location.href='/user/list.oe';
+			}
+		}
+		 
 	}
 	
 </script>
@@ -151,7 +199,7 @@
 				<div class="form-group">
 					<label class="col-sm-2" for="memberName">이름</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" name="name"placeholder="이름">
+						<input type="text" class="form-control" id="userName" name="userName"placeholder="이름">
 					</div>
 				</div>
 				<div class="form-group">
@@ -172,19 +220,19 @@
 				<div class="form-group">
 					<label class="col-sm-2" for="address">집주소</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="address"name="address" placeholder="집주소">
+						<input type="text" class="form-control" id="addr"name="addr" placeholder="집주소">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="birthday">생일</label>
 					<div class="col-sm-10">
-						<input type="date" class="form-control" id="birthday"	name="birthday" placeholder="생일">
+						<input type="date" class="form-control" id="birth"	name="birth" placeholder="생일">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-2" for="mobilePhone">휴대폰</label>
+					<label class="col-sm-2" for="cellPhone">휴대폰</label>
 					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="mobilePhone"	name="mobilePhone" placeholder="휴대폰(010-0000-000)형식에 맞춰서입력해주세요">
+						<input type="tel" class="form-control" id="cellPhone"	name="cellPhone" placeholder="휴대폰(010-0000-000)형식에 맞춰서입력해주세요">
 					</div>
 				</div>
 				<div class="form-group">
@@ -239,7 +287,7 @@
 		  -->
 			</form>
 				<input type="button" class="btn btn-default" onclick="checkfield()" value="등록">
-				<a href="list.oe"><intput type="button" class="btn btn-default" />취소</a>
+				<input type="button" class="btn btn-default" onclick="cancel()" value="취소" />
 		</div>
 	</div>
 </body>

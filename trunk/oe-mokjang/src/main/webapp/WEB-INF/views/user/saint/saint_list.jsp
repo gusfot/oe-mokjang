@@ -43,8 +43,16 @@
 		var totalNumOfItems = '${pageList.totalNumOfItems}';
 		var page = paging(page,pageSize,totalNumOfItems);
 		$('#page-bar').html(page);
-		
 			});
+		
+		function serch(){
+			var keyword = $("input[name=keyword]").val();
+			location.href="saintList.oe?keyword="+keyword;
+		
+		}	
+		function pageR(param){
+			location.href="saintList.oe?page="+param;
+		}
 		
 </script>
 </head>
@@ -55,24 +63,14 @@
 			</div>
 			<div class="contentsWrap">
 				<div class="contents">
-					<!--페이지네비게이션영역-->
+					<!--검색-->
+						<div class="saintListSearch">
+							<span>이름</span>
+							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onfocus="this.value=''" style="width:100px;" />
+							<span class="btn3"><a href="#" onclick="serch()" >검색 </a></span>
+						<a href="registForm.oe" ><span class="btn3">성도 등록</span></a>
+						</div>
 					
-					<!--년주영역-->
-					<ul class="calCtrl">
-						<li class="btn1"><a href="#"> << </a></li>
-						<li class="btn1"><a href="#"> < </a></li>
-						<li><h3>2013년</h3></li>
-						<li><h3>32째주</h3></li>
-						<li class="btn1"><a href="#"> &#62; </a></li>
-						<li class="btn1"><a href="#"> &#62;&#62; </a></li>					
-					</ul>
-					<!--버튼영역-->
-					<ul class="btnWrap">
-						<li ><a href="registForm.oe" ><span class="btn2">성도 등록</span></a></li>
-						<!-- <li><a onclick="modal()"><span class="btn2">목장원추가</span></a></li> -->
-						<!--<li><a href="#"><span class="btn2">목장원추가</span></a></li>
-						<li><a href="#"><span class="btn2">목장원추가</span></a></li>-->
-					</ul>
 					<!--리스트영역-->
 					<table cellpadding="0" cellspacing="0" class="list">
 						<caption>테스트</caption>
@@ -117,17 +115,18 @@
 						</tr>
 							</c:forEach>
 							<tr>
-								<td class="list_paging" colspan="5">
-								<div class="paging" id="">									
+								<td class="list_paging" colspan="10">
 									<ul class="pagination" id="page-bar">
 											<li><a href="#">5</a></li>
 											<li><a href="#">5</a></li>
 											<li><a href="#">&raquo;</a></li>
 										</ul>					
-								</div>									
 								</td>
-							</tr>									
+							</tr>
+							<tr>									
+						</tr>
 					</table>
+				
 				</div>
 			</div>
 		</div>

@@ -27,7 +27,7 @@ public class DepartMentController {
 			@RequestParam(value="group",required=true)String group){
 		ModelAndView mav = new ModelAndView();
 		Paging<Department>pagingList = deptService.getDeptList(1,10,group);
-		
+		System.out.println("그룹그룹"+group);
 		mav.addObject("pageList", pagingList);
 		mav.addObject("groupName", group);
 		mav.setViewName("group/gyogu/gyogu_list");
@@ -61,7 +61,7 @@ public class DepartMentController {
 	public ModelAndView registDeptForm(
 			@RequestParam(value="group",required=true)String group){
 		ModelAndView mav = new ModelAndView();
-		Paging<Department>pagingList = deptService.getDeptList(1,10,group);
+		Paging<Department>pagingList = deptService.getDeptList(1,10,"");
 		mav.addObject("pageList", pagingList);
 		mav.addObject("group", group);
 		mav.setViewName("group/gyogu/gyogu_regist");
@@ -79,8 +79,6 @@ public class DepartMentController {
 				@RequestParam(value="deptSeq")Long deptSeq,
 				@ModelAttribute Department dept
 				) {
-			System.out.println(dept.getDeptName());
-			System.out.println(dept.getParentSeq());
 			return deptService.modifyDepartMent(dept,deptSeq) >0 ? true : false;
 		}
 		
@@ -88,7 +86,6 @@ public class DepartMentController {
 		public@ResponseBody boolean removeDept(
 				@RequestParam(value="deptSeq")Long deptSeq
 				) {
-
 			return deptService.removeDeparment(deptSeq) > 0 ? true: false;
 		}
 		

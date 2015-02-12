@@ -23,15 +23,12 @@ function regist(){
 	var groupName = $("input[name=groupName]").val();
 	var parish = $("input[name=parish]").val();
 	var highDept =$("select[name=highDept]").val();
-	alert(highDept);
-	
 	$.ajax({
 		
 		type:"POST",
 		url:"regist.oe",
 		data:({deptName : groupName , parentSeq: highDept, }),
 		success:function(response){
-			alert(response);
 			location.href="list.oe?group=${group}"
 			
 		}
@@ -58,13 +55,13 @@ function cancel(){
 			<form class="form-horizontal" role="form" action="/user/modify.oe"method="post"name="modify_form">
 			
 				<div class="form-group">
-					<label class="col-sm-2" for="groupName">교구이름</label>
+					<label class="col-sm-2" for="groupName">${group}이름</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="groupName" name="groupName" >
 					</div>
 				</div>
 			<div class="form-group">
-					<label class="col-sm-2" for="gyogu">담당 교구장</label>
+					<label class="col-sm-2" for="gyogu">담당 ${group}장</label>
 					<div class="col-sm-10">
 					<input type="text" class="form-control" id="parish"name="parish">
 					</div> 
@@ -75,19 +72,13 @@ function cancel(){
 					<label class="col-sm-2" for="highDept">상위부서</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="highDept" name="highDept">
+							<option value="0"></option>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
 							<option value="${list.deptSeq}">${list.deptName}</option>
 							</c:forEach>
 						</select>
 					</div>
 				</div>				
-				
-				
-				
-				
-				
-				
-				
 		
 				<input type="button" class="btn btn-default" onclick="regist()"value="추가">
 				<input type="button" class="btn btn-default" onclick="cancel()" value="취소">

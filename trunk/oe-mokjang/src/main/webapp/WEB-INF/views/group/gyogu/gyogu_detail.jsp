@@ -37,7 +37,7 @@
 	function modify() {
 		var deptName = $("input[name=deptName]").val();
 		var highDept = $("select[name=highDept]").val();
-		yesorno = confirm("정보를 수정하시겠습니까?");
+		yesorno = confirm("정보를 수정하시겠습니까11?");
 		if (yesorno == true) {
 			$.ajax({
 				type : "POST",
@@ -48,11 +48,11 @@
 					deptSeq : '${dept.deptSeq}'
 				}),
 				success : function(response) {
-					if (response == true) {
+					if (response==true) {
 						alert('정보가 수정되었습니다');
 						location.href = "list.oe?group=${group}";
 					} else {
-						alert('실패하였습니다');
+						alert('실패하였습니다');	
 						location.href = "list.oe?group=${group}";
 
 					}
@@ -67,11 +67,12 @@
 				type : "GET",
 				url : "remove.oe?deptSeq=${dept.deptSeq}",
 				success : function(response) {
+					alert(response);
 					if (response == true) {
 						alert('삭제되었습니다');
 						location.href = "list.oe?group=${group}";
 					} else {
-						alert('실패하였습니다');
+						alert('실패_하였습니다');
 						location.href = "list.oe?group=${group}";
 					}
 				}

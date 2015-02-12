@@ -37,7 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		}else if(group.equals("교육부")){
 			deptExam.createCriteria().andParentSeqEqualTo(13L);
 		}else if(group.equals("부서")){
-			deptExam.createCriteria().andParentSeqEqualTo(0L);
+			deptExam.createCriteria().andParentSeqEqualTo(43L);
 		}
 		int count = deptMapper.countByExample(deptExam);
 		return new Paging<>(1, 1, count, deptMapper.selectByExample(deptExam));
