@@ -38,6 +38,17 @@ function cancel(){
 	 
 }
 function modify(){
+/* 	var jsuserId = $("input[name=userId]").val();
+	var jsuserName = $("input[name=userName]").val();
+	var jsaddr = $("input[name=addr]").val();
+	var jscellPhone = $("input[name=cellPhone]").val();
+	var jshomePhone = $("input[name=homePhone]").val();
+	var jsjob = $("input[name=job]").val();
+	var jsroleSeq = $("select[name=role]").val();
+	var jsbirth = $("input[name=birth]").val();
+	var jsemail = $("input[name=email]").val();
+	 var jsflag = $("input[name=flag]").val();
+ */
 	 yesorno = confirm("정보를 수정하시겠습니까?");
 	if(yesorno == true) {
 	document.modify_form.submit();
@@ -78,7 +89,7 @@ function modify(){
 				<div class="form-group">
 					<label class="col-sm-2" for="memberName">이름</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" name="name"value="${user.userName }">
+						<input type="text" class="form-control" id="userName" name="userName"value="${user.userName }">
 					</div>
 				</div>
 				<div class="form-group">
@@ -90,19 +101,19 @@ function modify(){
 				<div class="form-group">
 					<label class="col-sm-2" for="address">집주소</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="address"name="address" value="${user.addr}">
+						<input type="text" class="form-control" id="addr"name="addr" value="${user.addr}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="birthday">생일</label>	<div class="col-sm-10">
-						<input type="date" class="form-control" id="birthday"	name="birthday" value="${birth}">
+						<input type="date" class="form-control" id="birth"	name="birth" value="${birth}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2" for="mobilePhone">휴대폰</label>
 					<div class="col-sm-10">
 						<input type="tel" class="form-control" id="mobilePhone"
-							name="mobilePhone" value="${user.cellPhone}">
+							name="cellPhone" value="${user.cellPhone}">
 					</div>
 				</div>
 				<div class="form-group">
@@ -114,7 +125,7 @@ function modify(){
 			 <div class="form-group">
 					<label class="col-sm-2" for="gyogu">목장</label>
 					<div class="col-sm-10">
-					<input type="text" class="form-control" id="roleName"name="roleName" value="${user.department.deptName}" readonly="readonly">
+					<input type="text" class="form-control" id="gyogu"name="gyogu" value="${user.department.deptName}" readonly="readonly">
 					</div> 
 				</div>
 				<div class="form-group">

@@ -4,12 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
-import kr.ch.oe.model.DepartmentExample;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.UserService;
@@ -137,17 +135,17 @@ public class UserController {
 	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value = { "/modify.oe" }, method = RequestMethod.POST)
 	public String modifyUser(
-			HttpServletResponse response,
+			HttpSession session,
 			@RequestParam(value="email", required=true) String email,
-			@RequestParam(value="name", required=true) String name,
+			@RequestParam(value="userName", required=true) String name,
 			@RequestParam(value="job", required=true) String job,
-			@RequestParam(value="address", required=true) String addr,
-			@RequestParam(value="birthday", required=true) String birth,	
-			@RequestParam(value="mobilePhone", required=true) String mobilePhone,
+			@RequestParam(value="addr", required=true) String addr,
+			@RequestParam(value="birth", required=true) String birth,	
+			@RequestParam(value="cellPhone", required=true) String mobilePhone,
 			@RequestParam(value="userId", required=true) String userId,
 			@RequestParam(value="homePhone", required=true) String homephone,
 			@RequestParam(value="flag", required=true)String flag
-			) {
+			)throws Exception {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -166,6 +164,11 @@ public class UserController {
 		userService.modifyUser(user);
 		mav.setViewName("user/list");
 		
+		User sessionUser  = (User)session.getAttribute("sessionId");
+		if(sessionUser.getRoleSeq()<=4L){
+			
+			return "redirect:../user/saintList.oe";
+		}
 		return "redirect:../user/list.oe";
 	}
 	@RequestMapping(value = { "/registSheep.oe"}, method = RequestMethod.GET)
