@@ -9,9 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 <script type="text/javascript">
+function test(){
+	location.href="../main.oe";
+	alert();
+	$('#"my down').dropdown();
+	$('.dropdown-toggle').dropdown();
+}
 </script>
 </head>
-  
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -32,18 +37,20 @@
             <c:if test="${sessionId.roleSeq<4 || sessionId==null}">
             <li class="divider"><a href="/user/saintList.oe">성도관리</a></li>
             
-            <li class="dropdown">
-          <a href="../main.oe" class="dropdown-toggle" data-toggle="dropdown">조직관리<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/dept/list.oe?group=교구">교구관리</a></li>
-<%--                 <li><a href="/dept/list.oe?group=<%=URLEncoder.encode("교구", "UTF-8")%>">교구관리</a></li> --%>
+          <!-- <a href="#">조직관리</a> -->
+            <li class="dropdown" id="menu1">
+<!--           <a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="test()"><b class="caret"></b></a> -->
+          	<a href="/dept/main.oe?gyogu=gyogu&edu=edu&depart=depart" > 조직관리  <button style="background-color: rgb(0, 0, 0);" class="dropdown-toggle" data-toggle="dropdown" data-target="#menu1"><b class="caret"></b></button> </a>
+              <ul class="dropdown-menu" >
+                <li><a href="/dept/list.oe?group=gyogu">교구관리</a></li>
                 <!-- <li><a href="/dept/list.oe?group=목장">목장관리</a></li> -->
-                <li><a href="/dept/list.oe?group=교육부">교육부</a></li>
-                <li><a href="/dept/list.oe?group=부서">부서관리</a></li>
+                <li><a href="/dept/list.oe?group=edu">교육부</a></li>
+                <li><a href="/dept/list.oe?group=depart">부서관리</a></li>
               </ul>
             </li>
             </c:if>
-            
+            <!-- 
+            잠시만 묶어놓곘슴돠~
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">목장보고서<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -68,7 +75,7 @@
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
-            </li>
+            </li> -->
             <c:if test="${sessionId.userId==null}">
             <li><a href="/login/loginForm.oe"><span class="glyphicon glyphicon-on"></span>로그인</a></li>
           </c:if>

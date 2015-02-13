@@ -37,7 +37,6 @@ public class UserRest {
 			) {
 		System.out.println(page);
 		Paging<User>pagingList =  userService.getPagingUserList(page, 5, keyword);
-		model.addAttribute("userList", pagingList);
 		return pagingList;
 	}
 	

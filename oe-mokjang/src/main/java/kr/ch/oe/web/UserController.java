@@ -11,7 +11,6 @@ import kr.ch.oe.model.Department;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,6 +30,12 @@ public class UserController {
 	@Autowired
 	private DepartmentService deptService;
 	
+	/**
+	 * 사용자 목록조회
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = { "/list.oe" }, method = RequestMethod.GET)
 	public ModelAndView getUserList(
 					HttpSession session)throws Exception {
@@ -46,27 +51,31 @@ public class UserController {
 		return mav;
 		
 	}
-
-
+	/**
+	 * 사용자 한명의 정보조회
+	 * @param userId
+	 * @return
+	 */
 	@RequestMapping(value={"/detail.oe"},method=RequestMethod.GET)
 	public ModelAndView detailUserInfo(
 				@RequestParam(value="userId")String userId
 			) {
 		ModelAndView mav = new ModelAndView();
 		User user = userService.getUser(userId);
-
 		String birth = user.getBirth();
 		StringBuffer sb = new StringBuffer();
 		sb.append(birth);
 		sb.insert(4, "-");
 		sb.insert(7, "-");
-		
 		mav.addObject("birth", sb);
 		mav.addObject("user", user);
 		mav.setViewName("user/detail");
 		return mav;
 	}
-
+	/**
+	 * 사용자등록 폼 화면 반환
+	 * @return
+	 */
 	@RequestMapping(value = { "/registForm.oe"}, method = RequestMethod.GET)
 	public ModelAndView registerUserForm() {
 		
@@ -85,19 +94,20 @@ public class UserController {
 		return mav;
 	}
 	
-	
 	// FIXME : 시간이 좀 있으면 ajax 처리하자
-		@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
+	/**
+	 * 사용자 등록
+	 * @param gyogu
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = { "/regist.oe" }, method = RequestMethod.POST)	
 		public @ResponseBody boolean registerUser(
 				@RequestParam(value="gyogu", required=true)long gyogu,
 				@ModelAttribute User user
 				) {
-			// @ModelAttribute 를 사용하면 request form을 좀 더 편하게 할 수 있을듯..
-			// FIXME : @ModelAttribute User user
-			//RE: 리펙토링할때 고치겠슴돠!
 			// FIXME : "-" replace는 db insert 할때 replace 하자~
 			//RE: 넵알겠슴돠!
-			System.out.println("@modelAttribute Test");
 			String rebirth = user.getBirth().replace("-","");
 			String remobilePhone = user.getCellPhone().replace("-","");
 			String rehomePhone = user.getHomePhone().replace("-","");
@@ -113,14 +123,20 @@ public class UserController {
 		}
 	
 	// FIXME : Sheep이란 단어보다는 공통적인 User를 사용하는게 어때?
+	/**
+	 *  목장원 관리에서 목장원을 선택 등록
+	 * @return
+	 */
 	@RequestMapping(value = { "/registSheepForm.oe" }, method = RequestMethod.GET)
 	public String registerSheepForm(
 			) {
-		
 		return "user/registSheep";
 	}
-	
-	
+	/**
+	 * 아이디 중복확인
+	 * @param userId
+	 * @return
+	 */
 	@RequestMapping(value = { "/overlapUserId.oe" }, method = RequestMethod.GET)
 	public @ResponseBody boolean overlaUserId(
 			@RequestParam(value="userId") String userId
@@ -133,44 +149,20 @@ public class UserController {
 	}
 	
 	// FIXME : 시간이 좀 있으면 ajax 처리하자
+	/**
+	 * 사용자 정보수정
+	 * @param user
+	 * @return
+	 */
 	@RequestMapping(value = { "/modify.oe" }, method = RequestMethod.POST)
-	public String modifyUser(
-			HttpSession session,
-			@RequestParam(value="email", required=true) String email,
-			@RequestParam(value="userName", required=true) String name,
-			@RequestParam(value="job", required=true) String job,
-			@RequestParam(value="addr", required=true) String addr,
-			@RequestParam(value="birth", required=true) String birth,	
-			@RequestParam(value="cellPhone", required=true) String mobilePhone,
-			@RequestParam(value="userId", required=true) String userId,
-			@RequestParam(value="homePhone", required=true) String homephone,
-			@RequestParam(value="flag", required=true)String flag
-			)throws Exception {
-		
-		ModelAndView mav = new ModelAndView();
-		
-		User user = new User();
-		String rebirth = birth.replace("-","");
-		System.out.println("수정될 이름"+name);
-		
- 	    user.setUserName(name);
-		user.setAddr(addr);
+	public @ResponseBody boolean modifyUser(
+			@ModelAttribute User user
+			)  {
+		String rebirth = user.getBirth().replace("-","");
 		user.setBirth(rebirth);
-		user.setCellPhone(mobilePhone);
-		user.setJob(job);
-		user.setUserId(userId);
-		user.setFlag(flag);
-		
-		userService.modifyUser(user);
-		mav.setViewName("user/list");
-		
-		User sessionUser  = (User)session.getAttribute("sessionId");
-		if(sessionUser.getRoleSeq()<=4L){
-			
-			return "redirect:../user/saintList.oe";
-		}
-		return "redirect:../user/list.oe";
+		return userService.modifyUser(user) ;
 	}
+	
 	@RequestMapping(value = { "/registSheep.oe"}, method = RequestMethod.GET)
 	public String registerSheep(
 			@RequestParam(value="userId")String userId,
@@ -178,10 +170,14 @@ public class UserController {
 			) {
 		String[] result = userId.split(",");
 			userService.registUserFarm(result, farmmerId);
-		
 			return "redirect:../user/list.oe";
 	}
-	
+	/**
+	 * 목장원 삭제 (정보는 성도관리로 넘어간다)
+	 * @param userId
+	 * @param flag
+	 * @return
+	 */
 	@RequestMapping(value = { "/removeSheep.oe"}, method = RequestMethod.GET)
 	public@ResponseBody boolean removeSheep(
 			@RequestParam(value="userId")String userId,
@@ -189,7 +185,14 @@ public class UserController {
 			) {
 		return userService.removeSheep(userId, flag);
 	}
-	
+	/**
+	 * 모든 성도(목회자 관리자 제외) 조회
+	 * @param keyword
+	 * @param page
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = { "/saintList.oe" }, method = RequestMethod.GET)
 	public ModelAndView getSaintList(
 			@RequestParam(value="keyword" ,required=false, defaultValue="")String keyword,
@@ -200,10 +203,7 @@ public class UserController {
 		Paging<User>pagingList =  userService.getPagingUserList(page, 10, keyword);
 		mav.addObject("pageList", pagingList);
 		mav.setViewName("user/saint/saint_list");
-		
 		return mav;
-		
 	}
-
 	
 }

@@ -23,24 +23,48 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
 	private UserMapper userMapper;
-
+	
+	private enum Group{
+		 GYOGU, EDU,DEPART;
+		/*GYOGU("44L"), EDU("13L"),DEPART("43L");*/
+			
+		private Long seq;
+		
+		public Long getSeq() {
+			return seq;
+		}
+		
+	}
+	
+	
+	
+	
 	/**
 	 * 조직리스트를 가지고온다
+	 * 
+	 *: 음일단 하드코딩을 했습니다 리팩토링시 
+	 * 조금더 다듬도도록하겠습니다 확장성을생각해서!
 	 */
 	@Override
 	public Paging<Department> getDeptList(int page, int pageSize, String group) {
 		DepartmentExample deptExam = new DepartmentExample();
-		if (group.equals("교구")) {
+		
+		int startIndex = pageSize*page-pageSize;
+		String lmit = Integer.toString(startIndex)+","+Integer.toString(pageSize);
+		deptExam.setLimitByClause(lmit);
+		
+		if (group.equals("gyogu")) {
 			deptExam.createCriteria().andParentSeqBetween(1L, 3L);
 		}else if(group.equals("목장")){
 			deptExam.createCriteria().andParentSeqBetween(5L, 12L);
-		}else if(group.equals("교육부")){
+		}else if(group.equals("edu")){
 			deptExam.createCriteria().andParentSeqEqualTo(13L);
-		}else if(group.equals("부서")){
+		}else if(group.equals("depart")){
 			deptExam.createCriteria().andParentSeqEqualTo(43L);
 		}
+		
 		int count = deptMapper.countByExample(deptExam);
-		return new Paging<>(1, 1, count, deptMapper.selectByExample(deptExam));
+		return new Paging<>(page, pageSize, count, deptMapper.selectByExample(deptExam));
 	}
 
 	/**

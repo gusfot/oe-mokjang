@@ -45,8 +45,6 @@
 			$("input[name=password]").focus();
 			exit;
 		}
-		
-		
 		 $.ajax({
 			type:"POST",
 			url : "/login/login.oe",
@@ -65,7 +63,6 @@
 			}
 		}); 	
 	}
-	
 	</script>
 </head>
  <body>
@@ -77,7 +74,7 @@
         <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="userId" id="userId" required autofocus>
         <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" id="password" required>
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> 아이디 저장하기
+          <!-- <input type="checkbox" value="remember-me"> 아이디 저장하기 -->
         </label>
         <input type="button" class="btn btn-lg btn-primary btn-block" onclick="login();" value="로그인">
         <%-- <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입 ${sessionId.userName}3</button> --%>

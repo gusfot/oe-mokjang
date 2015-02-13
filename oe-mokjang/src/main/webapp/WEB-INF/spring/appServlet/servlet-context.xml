@@ -21,6 +21,7 @@
 	
 	<mvc:interceptors>
 	
+	
 	<mvc:interceptor> 
            <mvc:mapping path="/user/*"/>
            <mvc:mapping path="/dept/*"/>
@@ -36,23 +37,16 @@
         </mvc:interceptor>
         
 	<mvc:interceptor> 
-           <mvc:mapping path="/user/*"/>
            <mvc:mapping path="/dept/*"/>
-           <!-- <mvc:mapping path="/user/saintList.oe"/>
+           <mvc:mapping path="/user/saintList.oe"/>
+           <!-- 
            <mvc:mapping path="/dept/list.oe"/>
            <mvc:mapping path="/dept/registForm.oe"/>
            <mvc:mapping path="/dept/detail.oe"/> -->
            <!-- 권한체크 인터셉터 클래스 -->
            <beans:bean class="kr.ch.oe.interceptor.RoleCheckInterceptor"/>
-           
         </mvc:interceptor>
-        
-	</mvc:interceptors>
-	
-	
-	
-	
-
+	</mvc:interceptors>	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
