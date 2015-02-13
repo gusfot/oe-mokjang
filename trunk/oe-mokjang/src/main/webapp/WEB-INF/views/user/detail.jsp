@@ -38,7 +38,7 @@ function cancel(){
 	 
 }
 function modify(){
-/* 	var jsuserId = $("input[name=userId]").val();
+ 	var jsuserId = $("input[name=userId]").val();
 	var jsuserName = $("input[name=userName]").val();
 	var jsaddr = $("input[name=addr]").val();
 	var jscellPhone = $("input[name=cellPhone]").val();
@@ -48,9 +48,25 @@ function modify(){
 	var jsbirth = $("input[name=birth]").val();
 	var jsemail = $("input[name=email]").val();
 	 var jsflag = $("input[name=flag]").val();
- */
+ 
 	 yesorno = confirm("정보를 수정하시겠습니까?");
 	if(yesorno == true) {
+		$.ajax({
+			type : "POST",
+			url : "modify.oe",
+			data : ({ userId : jsuserId, addr : jsaddr,	cellPhone : jscellPhone, homePhone : jshomePhone, job : jsjob, 
+						birth : jsbirth, email : jsemail , flag : jsflag, roleSeq : jsroleSeq }),
+			dataType:'json',
+			success : function(result) {
+				if(result==true){
+					alert('수정되었습니다');
+				}
+				else{
+					alert("실패하였습니다");
+					exit;
+				}
+				}
+		});
 	document.modify_form.submit();
 	}
 }

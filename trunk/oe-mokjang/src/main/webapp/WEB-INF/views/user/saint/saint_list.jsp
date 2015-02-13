@@ -45,7 +45,7 @@
 		$('#page-bar').html(page);
 			});
 		
-		function serch(){
+		function serch(){	
 			var keyword = $("input[name=keyword]").val();
 			location.href="saintList.oe?keyword="+keyword;
 		
