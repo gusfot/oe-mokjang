@@ -128,16 +128,10 @@
         </tr>
       </thead>
       <tbody>
-      	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+      	<c:forEach var="mokjangReport" items="${mokjangReports}" varStatus="i" >
 	      	<tr>
-		      <th scope="row">${i.count}</th>
-	          <td>${user.userName}</td>
-	          <td>
-	          	<select class="form-control">
-				  <option value="Y">O</option>
-				  <option value="N">X</option>
-				</select>
-		      </td>
+	          <td>${i.count}</td>
+	          <td>${mokjangReport.weeks}</td>
 	          <td>
 			    	<input type="number" class="form-control" placeholder="목장새등록자">
 	          </td>

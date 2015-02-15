@@ -5,6 +5,7 @@ import java.util.List;
 
 import kr.ch.oe.common.DateUtil;
 import kr.ch.oe.model.MokjangReport;
+import kr.ch.oe.model.Report;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.MokjangReportService;
@@ -74,9 +75,17 @@ public class ReportController {
 		System.out.println(mokjangReport.toString());
 		
 		// TODO : 목장보고서를 등록한다.
+		mokjangReport.setWeeks(weeks);
+		mokjangReport.setRegId("gusfot");
+		for(Report report : mokjangReport.getReports()){
+			report.setWeeks(weeks);
+			report.setRegId("gusfot");
+			report.setDeptSeq(mokjangReport.getDeptSeq());
+		}
+		boolean result = mokjangReportService.regist(mokjangReport);
 		
 		JsonObject innerObject = new JsonObject();
-		innerObject.addProperty("success", true);
+		innerObject.addProperty("success", result);
 		innerObject.addProperty("data", "data1");
 		
 		return innerObject.toString();
