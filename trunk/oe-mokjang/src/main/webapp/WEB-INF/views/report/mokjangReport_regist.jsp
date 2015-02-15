@@ -20,9 +20,9 @@
 <div>
 	<h2>목장집회 보고서 (하나님은 정직한 사람을 복 주십니다.)</h2>
 </div>
+<form class="form-horizontal" id="mokjangReportForm">
 <div class="row">
   <div class="col-md-3">
-  <form class="form-horizontal" id="mokjangReportForm">
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-3 control-label">교구</label>
         <div class="col-sm-8">
@@ -89,7 +89,6 @@
           <textarea rows="" cols="" id="etcReportContent"></textarea>
         </div>
       </div>
-    </form>
   </div>
   <div class="col-md-7">
 	<table class="table table-bordered">
@@ -115,6 +114,7 @@
           <th>번호</th>
           <th>목장원이름</th>
           <th>목장집회참석</th>
+          <th>주일예배참석</th>
           <th>목장새등록자</th>
           <th>8주차참석자</th>
           <th>목장등록후 교회등록</th>
@@ -122,7 +122,6 @@
           <th>학교양육1권수료</th>
           <th>교회등록</th>
           <th>교회등록후목장참석</th>
-          <th>목장집회1명감소</th>
           <th>번식하여나가는분</th>
           <th>식당봉사</th>
         </tr>
@@ -131,15 +130,23 @@
       	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
 	      	<tr>
 		      <th scope="row">${i.count}</th>
-	          <td>${user.userName}</td>
+	          <td>${user.userName}
+	          	<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" placeholder="목장새등록자">
+	          </td>
 	          <td>
-	          	<select class="form-control">
+	          	<select name="reports[${i.index}].mokjangYn" class="form-control">
 				  <option value="Y">O</option>
 				  <option value="N">X</option>
 				</select>
 		      </td>
 	          <td>
-			    	<input type="number" class="form-control" placeholder="목장새등록자">
+	          	<select name="reports[${i.index}].sundayYn" class="form-control">
+				  <option value="Y">O</option>
+				  <option value="N">X</option>
+				</select>
+		      </td>
+	          <td>
+			    	<input type="number" class="form-control" name="" placeholder="목장새등록자">
 	          </td>
 	          <td>
 	          		<input type="number" class="form-control" placeholder="8주차참석자">
@@ -160,9 +167,6 @@
 	          	<input type="number" class="form-control" placeholder="교회등록후목장참석">
 	          </td>
 	          <td>
-	          	<input type="number" class="form-control" placeholder="목장집회1명감소">
-	          </td>
-	          <td>
 	          	<input type="number" class="form-control" placeholder="번식하여나가는분">
 	          </td>
 	          <td>
@@ -174,6 +178,7 @@
     </table>
   </div>
 </div>
+</form>
 
 
     <!-- Bootstrap core JavaScript
