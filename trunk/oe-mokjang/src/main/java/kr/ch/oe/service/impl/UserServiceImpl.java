@@ -37,10 +37,11 @@ public class UserServiceImpl implements UserService {
 		example.setLimitByClause(lmit);
 		
 		if(!keyword .equals("")){
-			String likekeyword ="%"+keyword+"%";
+			String likekeyword ="%"+keyword+"%";	
 		example.createCriteria().andUserNameLike(likekeyword);
 		}
 		example.createCriteria().andRoleSeqBetween("3","9");
+		example.setOrderByClause("reg_time DESC");
 		int totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
 		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
@@ -95,14 +96,11 @@ public class UserServiceImpl implements UserService {
 	/**
 	 *  목장목록을 가지고온다
 	 */
-	
-	
 	// TODO : 목장목록? 목장원목록?
 	/**
 	 * Re :  목장원 목록임돠 충상형님께서 보내주신 페이지보면 목장원관리 페이지에 사용되는거입니다
 	 * 목자 아이디로 목장원 명단만 가지고옵니다!
 	 */
-	
 	/**
 	 * 목장목록을 가지고 온다.
 	 */
@@ -111,14 +109,10 @@ public class UserServiceImpl implements UserService {
 
 		User user = userMapper.selectByPrimaryKey(FarmmerId);
 		long deptSeq = user.getDeptSeq();
-		
-		
 		UserExample example = new UserExample();
 		example.createCriteria().andDeptSeqEqualTo(deptSeq);
 		example.setOrderByClause("role_seq");
-		
 		int totalNumofItems = userMapper.countByExample(example);
-
 		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
 	}
 /**
@@ -126,6 +120,8 @@ public class UserServiceImpl implements UserService {
  */
 	@Override
 	public boolean overlapUserId(String userId) {
+		/*return userMapper.selectOverlapUserId(userId) != null ? true: false;*/
+		System.out.println("userId = = = = ="+userId);
 		return userMapper.selectOverlapUserId(userId) != null ? false : true;
 	}
 	/**

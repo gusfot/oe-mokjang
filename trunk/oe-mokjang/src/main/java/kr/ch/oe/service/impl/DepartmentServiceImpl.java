@@ -62,7 +62,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		}else if(group.equals("depart")){
 			deptExam.createCriteria().andParentSeqEqualTo(43L);
 		}
-		
+		deptExam.setOrderByClause("dept_name");
 		int count = deptMapper.countByExample(deptExam);
 		return new Paging<>(page, pageSize, count, deptMapper.selectByExample(deptExam));
 	}

@@ -45,24 +45,6 @@ public class DepartMentController {
 		
 	}
 	
-	@RequestMapping(value = { "mainList.oe" }, method = RequestMethod.GET)
-	public @ResponseBody List<Department> registerSheep(
-			@RequestParam(value="group",required=true)String group,
-			Model model){
-		System.out.println("mainList dEpt In?");
-		String[] result = group.split(",");
-		System.out.println(result+"**********************");
-		Paging<Department>pagingList = deptService.getDeptList(1,4,group);
-		
-		
-		model.addAttribute("list", pagingList);
-		
-		
-		
-		
-		return pagingList.getItems();
-	}
-	
 	/**
 	 * 조직정보를 가져옵니다
 	 * @param group
@@ -103,17 +85,20 @@ public class DepartMentController {
 		ModelAndView mav = new ModelAndView();
 		Paging<Department>parentList = deptService.getDeptList(1,10,group);
 		Department dept = deptService.getDepatment(deptSeq);
-		Department parentDept = deptService.getDepatment(dept.getParentSeq());
-		
+		String groupName="";
+		if(group.equals("교구")){
+			groupName = "gyogu";
+		}else if(group.equals("교육부")){
+			groupName = "edu";
+		}else if(group.equals("부서")){
+			groupName = "depart";
+		}
 		mav.addObject("pageList", parentList);
-		mav.addObject("group", group);
+		mav.addObject("group", groupName);
 		mav.addObject("dept",dept);
 		mav.addObject("deptTotalNum", deptService.getRowGroupTotalNumber(deptSeq));
-		mav.addObject("parentDept", parentDept);
 		mav.setViewName("group/gyogu/gyogu_detail");
-		
 		return mav;
-		
 	}
 	/**
 	 * 조직등록 폼 화면제공
@@ -125,8 +110,16 @@ public class DepartMentController {
 			@RequestParam(value="group",required=true)String group){
 		ModelAndView mav = new ModelAndView();
 		Paging<Department>pagingList = deptService.getDeptList(1,10,"");
+		String groupName="";
+		if(group.equals("교구")){
+			groupName = "gyogu";
+		}else if(group.equals("교육부")){
+			groupName = "edu";
+		}else if(group.equals("부서")){
+			groupName = "depart";
+		}
 		mav.addObject("pageList", pagingList);
-		mav.addObject("group", group);
+		mav.addObject("group", groupName);
 		mav.setViewName("group/gyogu/gyogu_regist");
 		return mav;
 		
@@ -168,7 +161,23 @@ public class DepartMentController {
 			return deptService.removeDeparment(deptSeq) > 0 ? true: false;
 		}
 		
-		
+		/**
+		 * 조직관리 선택시 각부서 리스트를 뽑아 옵니다
+		 * @param group
+		 * @param model
+		 * @return
+		 */
+	/*	@RequestMapping(value = { "mainList.oe" }, method = RequestMethod.GET)
+		public @ResponseBody List<Department> registerSheep(
+				@RequestParam(value="group",required=true)String group,
+				Model model){
+			System.out.println("mainList dEpt In?");
+			String[] result = group.split(",");
+			System.out.println(result+"**********************");
+			Paging<Department>pagingList = deptService.getDeptList(1,4,group);
+			model.addAttribute("list", pagingList);
+			return pagingList.getItems();
+		}*/
 		
 		
 		

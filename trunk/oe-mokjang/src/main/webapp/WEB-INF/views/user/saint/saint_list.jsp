@@ -24,13 +24,12 @@
 		
 	}
 	function expelSaint(userId,userName,userFlag){
-		yesorno = confirm(userName+"님을 삭제하시겠습니까?");
+		yesorno = confirm(userName+"님을 제적하시겠습니까?");
 		if(yesorno == true){
 			$.ajax({
 				type:"GET",
 				url:'removeSheep.oe?userId='+userId+'&flag='+userFlag,
 				success : function(result) {
-				alert(2);
 					location.reload();
 				}
 			});
@@ -44,6 +43,21 @@
 		var page = paging(page,pageSize,totalNumOfItems);
 		$('#page-bar').html(page);
 			});
+		
+		function removeSaint(userId,userName){
+			yesorno = confirm(userName+"님을 삭제하시겠습니까? (완전삭제후에는 복구가 안됩니다)");
+			if(yesorno == true){
+				$.ajax({
+					type:"GET",
+					url:'removeUser.oe?userId='+userId,
+					success : function(result) {
+						location.reload();
+					}
+				});
+			}
+			
+		}
+		
 		
 		function serch(){	
 			var keyword = $("input[name=keyword]").val();
@@ -94,7 +108,7 @@
 							<th scope="col">핸드폰번호</th>
 							<th scope="col">등록일</th>
 							<th scope="col">상태</th>
-							<th scope="col">제적적</th>
+							<th scope="col">제적</th>
 						</thead>
 						<tr>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
@@ -107,11 +121,12 @@
 							<td>${list.regDt}</td>
 						<c:if test="${list.flag==0 }">
     						<td>등록</td>
+- 							<td><a href="#" ><input class="btn3"' type="button" onclick="expelSaint('${list.userId}','${list.userName}',${list.flag})" value="제적"/></a></td> 
    						</c:if>
 						<c:if test="${list.flag==1}">
     						<td>제적</td>
+- 							<td><a href="#" ><input class="btn3"' type="button" onclick="removeSaint('${list.userId}','${list.userName}')" value="완전삭제"/></a></td> 
    						</c:if>
-- 							<td><a href="#" ><input class="btn3"' type="button" onclick="expelSaint('${list.userId}','${list.userName}',${list.flag})" value="제적"/></a></td> 
 						</tr>
 							</c:forEach>
 							<tr>

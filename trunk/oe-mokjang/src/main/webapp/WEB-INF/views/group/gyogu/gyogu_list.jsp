@@ -15,6 +15,14 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="U
 	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/js/paging-1.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	alert('${pageList.items[0].parent}');
+		});
+	
+</script>
+
+
 </head>
 <body>
         <%@ include file="../../include/header.jsp" %>
@@ -45,7 +53,7 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="U
                 <tr>
                   <td>${s.count}</td>
                   <td><a data-toggle="modal" href="detail.oe?deptSeq=${list.deptSeq}&group=${groupName}" data-target="#myModal">${list.deptName}</a></td>
-                  <td>오병이어교회</td>
+                  <td>${list.parent.deptName}</td>
                 </tr>
                 </c:forEach>
               </tbody>
