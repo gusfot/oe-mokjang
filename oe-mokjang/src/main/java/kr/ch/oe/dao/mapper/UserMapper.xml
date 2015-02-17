@@ -41,6 +41,7 @@
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
   </resultMap>
   
+  
   <resultMap type="kr.ch.oe.model.Role" id="RoleResultMap">
   	 <id column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
@@ -203,8 +204,6 @@
     es.reg_id es_reg_id,
     es.reg_time es_reg_time
   </sql>
-  
-  
   
   <select id="selectByExample" parameterType="kr.ch.oe.model.UserExample" resultMap="BaseResultMap">
     <!--
@@ -599,7 +598,7 @@
   </select>
   <select id="selectOverlapUserId" parameterType="string" resultType="string">
     select 
-	user_id
+	user_id	
     from user user
     where user.user_id = #{userId,jdbcType=VARCHAR}
   </select>

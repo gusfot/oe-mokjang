@@ -144,7 +144,7 @@ public class UserController {
 		// FIXME checkId라는 변수가 다시 사용하지 않으면 변수에 담지 않고 바로 return 하는게 좋을거 같아
 		// FIXME return userService.overlapUserId(userId);
 		//RE:넵 알겠슴돠!
-		System.out.println("ovelrapUaserId");
+		System.out.println("ovelrapUaserId"+userId);
 		return userService.overlapUserId(userId);
 	}
 	
@@ -204,6 +204,13 @@ public class UserController {
 		mav.addObject("pageList", pagingList);
 		mav.setViewName("user/saint/saint_list");
 		return mav;
+	}
+	
+	@RequestMapping(value = { "/removeUser.oe"}, method = RequestMethod.GET)
+	public@ResponseBody boolean removeUser(
+			@RequestParam(value="userId")String userId
+			) {
+		return userService.removeUser(userId);
 	}
 	
 }

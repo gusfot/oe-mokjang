@@ -247,23 +247,14 @@ $(document).ready(function() {
 	/* pageR(1); */
 	});
 
-
 </script>
-
-
  </head>
-
-
-
-
  <body>
  <%@ include file="../include/header.jsp" %>
  <!-- //////header//////-->
 <header id="main_header">
 
 </header>
-
-
 <!--//////content//////-->
 <div id="content">
 	<section id="main_section">
@@ -287,9 +278,7 @@ $(document).ready(function() {
                   </c:forEach>
               </tbody>
             </table>
-            
             </article>
-            
             
 			<article class="main_article">
                 <a href="list.oe?group=edu"><h3>교육부</h3></a>
@@ -311,7 +300,6 @@ $(document).ready(function() {
                   </c:forEach>
               </tbody>
             </table>
-            
 
             </article>
 			<article class="main_article">
@@ -334,14 +322,9 @@ $(document).ready(function() {
                   </c:forEach>
               </tbody>
             </table>
-            
-
             </article>
 	</section>
-	
 </div>
-
-
 <!--//////footer//////-->
 <footer id="main_footer">
 	<%@ include file="../include/footer.jsp" %>

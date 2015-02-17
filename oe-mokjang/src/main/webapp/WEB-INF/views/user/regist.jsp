@@ -101,10 +101,11 @@
 	
 		$.ajax({
 					type : "GET",
-					url : "overlapUserId.oe?userId=" + userId,
+					url : "overlapUserId.oe?userId=" + jsuserId,
 					success : function(result) {
+						
 						if(result==true){
-							alert("사용가능한아이디");
+							alert("사용가능한아이디입니다");
 						//document.regist_form.submit();
 						}
 						else{
@@ -115,7 +116,7 @@
 						}
 						}
 				});
-		$.ajax({
+	 	$.ajax({
 			type : "POST",
 			url : "regist.oe",
 			data : ({ userId : jsuserId, userName : jsuserName, password : jspassword, addr : jsaddr, 
@@ -126,6 +127,11 @@
 			success : function(result) {
 				if(result==true){
 					alert('등록되었습니다');
+					if('${sessionId.roleSeq}'<=4){
+						 location.href='/user/saintList.oe'; 
+						}else{
+						 	location.href='/user/list.oe';
+							}
 				}
 				else{
 					alert("실패하였습니다");
@@ -133,7 +139,8 @@
 				}
 				}
 		});
-	}
+		
+	} 
 	
 	function cancel(){
 		yesorno = confirm("이페이지에서 나가시겠습니까?")
@@ -144,9 +151,7 @@
 		 	location.href='/user/list.oe';
 			}
 		}
-		 
 	}
-	
 </script>
 </head>
 <body>
@@ -168,7 +173,7 @@
 						<li><a href="#"><h3>코드관리</h3></a></li>
 						<li><a href="#"><h3>통계관리</h3></a></li>						
 						<li><a href="#"><h3>공지관리</h3></a></li>
-					</ul>
+					</ul>	
 				</div>
 			</div> --%>
 	<%@ include file="../include/header.jsp"%>

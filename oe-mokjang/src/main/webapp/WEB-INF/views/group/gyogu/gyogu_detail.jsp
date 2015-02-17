@@ -120,7 +120,7 @@
 						<label class="col-sm-2" for="highDept">상위부서</label>
 						<div class="col-sm-10">
 							<select class="form-control" id="highDept" name="highDept">
-								<option value="${parentDept.deptSeq}">${parentDept.deptName}
+								<option value="${dept.parent.deptSeq}">${dept.parent.deptName}
 								</option>
 								<c:forEach var="list" items="${pageList.items}" varStatus="s">
 									<option value="${list.deptSeq}">${list.deptName}</option>

@@ -33,8 +33,8 @@ public class DepartmentMapperTest {
 	
 	@Test
 	public void successToSelectDept() {
-		Department dept = deptMapper.selectByPrimaryKey(14L);
-		
+		Department dept = deptMapper.selectByPrimaryKey(15L);
+		System.out.println(dept.getParent().getDeptName());
 		Assert.assertNotNull(dept);
 	}
 	
