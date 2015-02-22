@@ -106,7 +106,7 @@ public class UserController {
 				@RequestParam(value="gyogu", required=true)long gyogu,
 				@ModelAttribute User user
 				) {
-			// FIXME : "-" replace는 db insert 할때 replace 하자~
+			// FIXME : 2015-01-01
 			//RE: 넵알겠슴돠!
 			String rebirth = user.getBirth().replace("-","");
 			String remobilePhone = user.getCellPhone().replace("-","");
@@ -119,6 +119,7 @@ public class UserController {
 			user.setRegDt(reRegDate);
 			user.setDeptSeq(dept.getDeptSeq());
 			user.setDepartment(dept);
+			
 			return userService.registerUser(user);
 		}
 	
