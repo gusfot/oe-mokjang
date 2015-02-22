@@ -52,9 +52,12 @@ public class DepartMentController {
 	 */
 	@RequestMapping(value={"/list.oe"}, method=RequestMethod.GET)
 	public ModelAndView getDeptList(
-			@RequestParam(value="group",required=true)String group){
+			@RequestParam(value="group",required=true)String group,
+			@RequestParam(value="page",required=true)int page
+			
+			){
 		ModelAndView mav = new ModelAndView();
-		Paging<Department>pagingList = deptService.getDeptList(1,10,group);
+		Paging<Department>pagingList = deptService.getDeptList(page,5,group);
 		String groupName="";		
 		if(group.equals("gyogu")){
 			groupName = "교구";

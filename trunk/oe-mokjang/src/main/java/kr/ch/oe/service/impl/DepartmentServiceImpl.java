@@ -36,9 +36,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 		
 	}
 	
-	
-	
-	
 	/**
 	 * 조직리스트를 가지고온다
 	 * 

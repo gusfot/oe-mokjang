@@ -16,8 +16,15 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="U
 <script type="text/javascript" src="/resources/js/paging-1.js"></script>
 
 <script type="text/javascript">
+
+
+
 $(document).ready(function() {
-	alert('${pageList.items[0].parent}');
+	var page = '${pageList.page}';
+	var pageSize = '${pageList.pageSize}';
+	var totalNumOfItems = '${pageList.totalNumOfItems}';
+	var page = paging(page,pageSize,totalNumOfItems);
+	$('#page-bar').html(page);
 		});
 	
 </script>
@@ -56,6 +63,15 @@ $(document).ready(function() {
                   <td>${list.parent.deptName}</td>
                 </tr>
                 </c:forEach>
+                	<tr>
+						<td class="list_paging" colspan="10">
+									<ul class="pagination" id="page-bar">
+											<li><a href="#">5</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#">&raquo;</a></li>
+										</ul>					
+								</td>
+							</tr>
               </tbody>
             </table>
             <%-- <a data-toggle="modal" href="registForm.oe" data-target="#myModal"><button>${groupName }추가</button></a> --%>
