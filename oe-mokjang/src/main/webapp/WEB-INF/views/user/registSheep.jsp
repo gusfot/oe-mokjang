@@ -49,6 +49,7 @@
 		    	 };
 				html += '</tr>';
 			} 
+			 
 			var page = paging(result.page, result.pageSize, result.totalNumOfItems);
 			$('#tbody-item-list').html(html);
 			$('#page-bar').html(page);
@@ -64,7 +65,8 @@
 	    	alert("목장원을  선택해주세요");
 	    	exit;
 	    }
-			location.href='registSheep.oe?userId='+str+'&farmmerId=sms';
+	    
+			location.href='registSheep.oe?userId='+str+'&farmmerId=${sessionId.userId}';
 	}
 	$(document).ready(function() {
 		pageR(1);
