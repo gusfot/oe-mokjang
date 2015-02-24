@@ -259,7 +259,7 @@ $(document).ready(function() {
 <div id="content">
 	<section id="main_section">
 		<article class="main_article">
-                <a href="list.oe?group=gyogu"><h3>교구</h3></a>
+                <a href="list.oe?group=gyogu&page=1"><h3>교구</h3></a>
                  <table class="table table-striped">
               <thead>
                 <tr>
@@ -281,7 +281,7 @@ $(document).ready(function() {
             </article>
             
 			<article class="main_article">
-                <a href="list.oe?group=edu"><h3>교육부</h3></a>
+                <a href="list.oe?group=edu&page=1"><h3>교육부</h3></a>
                  <table class="table table-striped">
               <thead>
                 <tr>
@@ -298,12 +298,12 @@ $(document).ready(function() {
                   <td>오병이어교회</td>
                 </tr>
                   </c:forEach>
-              </tbody>
+              </tbo	dy>
             </table>
 
             </article>
 			<article class="main_article">
-                <a href="list.oe?group=depart"><h3>부서</h3></a>
+                <a href="list.oe?group=depart&page=1"><h3>부서</h3></a>
                  <table class="table table-striped">
 			<thead>              
                 <tr>
@@ -329,6 +329,5 @@ $(document).ready(function() {
 <footer id="main_footer">
 	<%@ include file="../include/footer.jsp" %>
 </footer>
-
  </body>
 </html>
