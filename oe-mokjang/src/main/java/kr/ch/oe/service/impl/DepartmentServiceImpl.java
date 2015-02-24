@@ -111,7 +111,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		UserExample example = new UserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andDeptSeqEqualTo(deptSeq);
-		criteria.andFlagEqualTo("0");
+		criteria.andFlagEqualTo("0");     
 		example.setOrderByClause("user_seq");
 		return userMapper.selectByExample(example);
 	}

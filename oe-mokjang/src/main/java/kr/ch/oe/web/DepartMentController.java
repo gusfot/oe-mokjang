@@ -53,7 +53,7 @@ public class DepartMentController {
 	@RequestMapping(value={"/list.oe"}, method=RequestMethod.GET)
 	public ModelAndView getDeptList(
 			@RequestParam(value="group",required=true)String group,
-			@RequestParam(value="page",required=true)int page
+			@RequestParam(value="page",required=true, defaultValue="1")int page
 			
 			){
 		ModelAndView mav = new ModelAndView();
@@ -68,6 +68,7 @@ public class DepartMentController {
 		}
 		
 		mav.addObject("pageList", pagingList);
+		mav.addObject("group", group);
 		mav.addObject("groupName", groupName);
 		mav.setViewName("group/gyogu/gyogu_list");
 		return mav;

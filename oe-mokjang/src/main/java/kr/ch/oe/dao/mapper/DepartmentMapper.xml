@@ -123,10 +123,8 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-   ,<include refid="Dept_Column_List" />
     from dept dept 
-	  inner join dept dept2 on dept.parent_seq = dept2.dept_seq
-    <if test="_parameter != null" >
+	    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
     <if test="orderByClause != null" >
