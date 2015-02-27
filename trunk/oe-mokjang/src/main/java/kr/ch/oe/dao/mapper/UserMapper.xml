@@ -609,6 +609,4 @@
     from role role
     where role.role_seq = #{roleSeq,jdbcType=VARCHAR}
   </select>
-  
-  
 </mapper>

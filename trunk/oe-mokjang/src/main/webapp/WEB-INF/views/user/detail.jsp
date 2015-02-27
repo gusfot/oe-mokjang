@@ -60,6 +60,7 @@ function modify(){
 			success : function(result) {
 				if(result==true){
 					alert('수정되었습니다');
+					location.href = "list.oe";
 				}
 				else{
 					alert("실패하였습니다");
@@ -108,7 +109,7 @@ function modify(){
 						<input type="text" class="form-control" id="userName" name="userName"value="${user.userName }">
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group">	
 					<label class="col-sm-2" for="exampleInputPassword1">직업</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="job" name="job"value="${user.job }">
@@ -158,9 +159,10 @@ function modify(){
    						</c:if>
 						</select>
 					</div>
-				</div>
-				
-		<!-- 
+
+					</div>
+
+					<!-- 
 		  <div class="form-group">
 		  	<label class="col-sm-2" >직분</label>
 		    <div class="col-sm-10">
@@ -176,6 +178,7 @@ function modify(){
 			</div>
 		  </div>
 		-->
+		
 			</form>
 				<input type="button" class="btn btn-default" onclick="modify()"value="수정">
 				<input type="button" class="btn btn-default" onclick="cancel()" value="취소">

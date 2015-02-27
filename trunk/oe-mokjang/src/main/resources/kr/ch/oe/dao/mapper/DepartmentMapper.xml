@@ -293,8 +293,8 @@
 	 where dept1.dept_seq= #{deptSeq,jdbcType=BIGINT}
 
   </select>
-  
   <select id="selectByPrimaryKey" resultMap="DeptResultMap" parameterType="java.lang.Long" >
+  
     select 
     <include refid="Base_Column_List" />
     ,<include refid="Dept_Column_List" />
@@ -302,6 +302,5 @@
 	  inner join dept dept2 on dept.parent_seq = dept2.dept_seq
 	 where dept.dept_seq= #{deptSeq,jdbcType=BIGINT}
   </select>
-  
   
 </mapper>

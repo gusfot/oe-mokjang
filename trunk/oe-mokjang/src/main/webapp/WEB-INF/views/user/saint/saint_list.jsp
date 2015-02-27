@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
 <!-- Optional theme -->
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
@@ -18,10 +17,8 @@
 <script	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/resources/js/paging-1.js"></script>
 <script type="text/javascript">
-	
 	function modal(){
 		$('#myModal').modal('show');
-		
 	}
 	function expelSaint(userId,userName,userFlag){
 		yesorno = confirm(userName+"님을 제적하시겠습니까?");
@@ -35,6 +32,7 @@
 			});
 		}
 	}
+	
 		$(document).ready(function() {
 			 
 		var page = '${pageList.page}';
@@ -55,14 +53,19 @@
 					}
 				});
 			}
-			
 		}
-		
-		
+		function enterSerch(e) {
+			if(e.keyCode==13){
+				serch();
+			return false;
+			}
+			else{
+			return true;			
+			}
+		}
 		function serch(){	
 			var keyword = $("input[name=keyword]").val();
 			location.href="saintList.oe?keyword="+keyword;
-		
 		}	
 		function pageR(param){
 			location.href="saintList.oe?page="+param;
@@ -80,7 +83,7 @@
 					<!--검색-->
 						<div class="saintListSearch">
 							<span>이름</span>
-							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onfocus="this.value=''" style="width:100px;" />
+							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력"  onkeypress="return enterSerch(event)" onfocus="this.value=''" style="width:100px;" />
 							<span class="btn3"><a href="#" onclick="serch()" >검색 </a></span>
 						<a href="registForm.oe" ><span class="btn3">성도 등록</span></a>
 						</div>
@@ -99,6 +102,7 @@
 							<col style="width:100px;">
 							<col style="width:80px;">
 						</colgroup>
+						
 						<thead>
 							<th scope="col" class="first">No</th>
 							<th scope="col">구분</th>
@@ -110,6 +114,7 @@
 							<th scope="col">상태</th>
 							<th scope="col">제적</th>
 						</thead>
+						
 						<tr>
 							<c:forEach var = "list" items="${pageList.items}" varStatus="s">
 							<td>${s.count}</td>

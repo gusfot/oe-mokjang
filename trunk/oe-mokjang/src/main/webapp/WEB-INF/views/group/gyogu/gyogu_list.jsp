@@ -8,8 +8,6 @@ r<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="U
 <title>등록 교구 목록</title>
 <link rel="stylesheet"
 	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	
-
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -23,14 +21,12 @@ $(document).ready(function() {
 	var page = paging(page,pageSize,totalNumOfItems);
 	$('#page-bar').html(page);
 		});
-		
  function pageR(param){
-	 
 	location.href="/dept/list.oe?group=${group}	&page="+param;
 														
 }
-	 
-</script>
+
+ </script>
 </head>
 <body>
         <%@ include file="../../include/header.jsp" %>
@@ -57,14 +53,12 @@ $(document).ready(function() {
                 </tr>
               </thead>
               <tbody>
-              
               <c:forEach var="list" items="${pageList.items}" varStatus="s">
                 <tr>
                   <td>${s.count}</td>
-                  <td><a data-toggle="modal" href="detail.oe?deptSeq=${list.deptSeq}&group=${groupName}" data-target="#myModal">${list.deptName}</a></td>
+                  <td><a data-toggle="modal" href="detail.oe?deptSeq=${list.deptSeq}&group=${group}" data-target="#myModal">${list.deptName}</a></td>
                   <%-- <td>${list.parent.deptName}</td> --%>
                   <td>오병이어교회</td>
-                  
                 </tr>
                 </c:forEach>
                 	<tr>
@@ -84,13 +78,11 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
-    
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-body">
       </div>
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-							
 </body>
 </html>

@@ -98,7 +98,8 @@ public class DepartMentController {
 			groupName = "depart";
 		}
 		mav.addObject("pageList", parentList);
-		mav.addObject("group", groupName);
+		mav.addObject("groupName", groupName);
+		mav.addObject("group", group);
 		mav.addObject("dept",dept);
 		mav.addObject("deptTotalNum", deptService.getRowGroupTotalNumber(deptSeq));
 		mav.setViewName("group/gyogu/gyogu_detail");
@@ -123,7 +124,7 @@ public class DepartMentController {
 			groupName = "depart";
 		}
 		mav.addObject("pageList", pagingList);
-		mav.addObject("group", groupName);
+		mav.addObject("groupName", groupName);
 		mav.setViewName("group/gyogu/gyogu_regist");
 		return mav;
 		
@@ -165,6 +166,7 @@ public class DepartMentController {
 			return deptService.removeDeparment(deptSeq) > 0 ? true: false;
 		}
 		
+		
 		/**
 		 * 조직관리 선택시 각부서 리스트를 뽑아 옵니다
 		 * @param group
@@ -176,7 +178,7 @@ public class DepartMentController {
 				@RequestParam(value="group",required=true)String group,
 				Model model){
 			System.out.println("mainList dEpt In?");
-			String[] result = group.split(",");
+			String[] result = group.split(",");	
 			System.out.println(result+"**********************");
 			Paging<Department>pagingList = deptService.getDeptList(1,4,group);
 			model.addAttribute("list", pagingList);
