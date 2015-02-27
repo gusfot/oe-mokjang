@@ -109,16 +109,15 @@ public class UserController {
 			// FIXME : 2015-01-01
 			//RE: 넵알겠슴돠!
 			String rebirth = user.getBirth().replace("-","");
-			String remobilePhone = user.getCellPhone().replace("-","");
-			String rehomePhone = user.getHomePhone().replace("-","");
 			String reRegDate= user.getRegDt().replace("-","");
+			String reRegds=user.getAddr().concat("");
 			Department dept = deptService.getDepatment(gyogu);
-			user.setCellPhone(remobilePhone);
-			user.setHomePhone(rehomePhone);
 			user.setBirth(rebirth );
 			user.setRegDt(reRegDate);
 			user.setDeptSeq(dept.getDeptSeq());
 			user.setDepartment(dept);
+			
+			
 			
 			return userService.registerUser(user);
 		}
@@ -188,7 +187,7 @@ public class UserController {
 	}
 	/**
 	 * 모든 성도(목회자 관리자 제외) 조회
-	 * @param keyword
+	 * @param keyword	
 	 * @param page
 	 * @param session
 	 * @return

@@ -22,4 +22,23 @@ public class MainController {
 		
 		return "main";
 	}
+	
+	
+	
+	@RequestMapping("/fileUpTest.oe")
+	public String fileUpTest(){
+		
+		return "test/fileSend";
+	}
+	
+	@RequestMapping("/fileDownTest.oe")
+	public String fileDownTest(){
+		
+		return "test/fileDown";
+	}
+	
+	
+	
+	
+	
 }

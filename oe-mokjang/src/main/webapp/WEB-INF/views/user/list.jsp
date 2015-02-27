@@ -132,7 +132,6 @@
 						</tr>
 							</c:forEach>
 						<tr>
-							<td class="first" colspan="9">조회할 내용이 없습니다.</td>
 						</tr>									
 					</table>
 				</div>

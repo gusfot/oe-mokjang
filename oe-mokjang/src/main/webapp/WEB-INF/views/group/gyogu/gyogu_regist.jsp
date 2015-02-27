@@ -29,8 +29,7 @@ function regist(){
 		url:"regist.oe",
 		data:({deptName : groupName , parentSeq: highDept, }),
 		success:function(response){
-			location.href="list.oe?group=${group}"
-			
+			location.href = "list.oe?group=${groupName}";
 		}
 	});
 

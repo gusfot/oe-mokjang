@@ -68,6 +68,15 @@
 	    
 			location.href='registSheep.oe?userId='+str+'&farmmerId=${sessionId.userId}';
 	}
+	function enterSerch(e) {
+		if(e.keyCode==13){
+			pageR(1);
+		return false;
+		}
+		else{
+		return true;			
+		}
+	}
 	$(document).ready(function() {
 		pageR(1);
 		});
@@ -85,8 +94,8 @@
 					<div class="layerContent">
 						<div class="listSearch">
 							<span>이름</span>
-							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onfocus="this.value=''" style="width:100px;" />
-							<span class="btn3"><a href="#" onclick="page(1)" >검색 </a></span>
+							<input type="text" id="keyword" name="keyword" class="text" title="검색조건 입력" onkeypress="return enterSerch(event)" onfocus="this.value=''" style="width:100px;" />
+							<span class="btn3"><a href="#" onclick="pageR(1)" >검색 </a></span>
 							<span class="btn3"><a href="registForm.oe" >직접입력 </a></span>
 						</div>
 						<!--리스트영역-->
@@ -133,7 +142,6 @@
 							</tr>
 							</c:forEach> --%>
 							<tr>
-								<td class="first" colspan="5">검색된 항목이 없습니다.</td>
 							</tr>							
 							<tr>
 								<td class="list_paging" colspan="5">

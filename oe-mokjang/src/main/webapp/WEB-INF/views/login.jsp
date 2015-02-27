@@ -63,6 +63,18 @@
 			}
 		}); 	
 	}
+	
+	function enterLogin(e) {
+		if(e.keyCode==13){
+			login();
+		return false;
+		}
+		else{
+		return true;			
+		}
+	}
+	
+	
 	</script>
 </head>
  <body>
@@ -71,8 +83,8 @@
     <div class="container">
       <form class="form-signin" role="form" method="post" action="#" id="form-login" name="form-login">
         <h2 class="form-signin-heading">52 목장관리시스템</h2>
-        <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="userId" id="userId" required autofocus>
-        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="password" id="password" required>
+        <input type="text" class="form-control" placeholder="아이디를 입력해주세요"onkeypress="return enterLogin(event)"  name="userId" id="userId" required autofocus>
+        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요 "  onkeypress="return enterLogin(event)" name="password" id="password" required>
         <label class="checkbox">
           <!-- <input type="checkbox" value="remember-me"> 아이디 저장하기 -->
         </label>
