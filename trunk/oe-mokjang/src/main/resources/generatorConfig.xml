@@ -92,7 +92,7 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-     
+     -->
      
      <table schema="mokjang" tableName="edu_status" >
       <columnOverride column="edu_status_seq" property="eduStatusSeq" />
@@ -104,6 +104,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-    -->
+    
   </context>
 </generatorConfiguration>
