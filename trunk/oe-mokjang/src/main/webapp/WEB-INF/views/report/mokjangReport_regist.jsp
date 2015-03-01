@@ -26,13 +26,14 @@
       <div class="form-group">
         <label for="inputEmail3" class="col-sm-3 control-label">교구</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="교구">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="교구" value="">
         </div>
       </div>
       <div class="form-group">
         <label for="deptSeq" class="col-sm-3 control-label">목장</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" name="deptSeq" id="deptSeq" placeholder="목장">
+          <input type="text" class="form-control" name="deptName" id="deptName" value="${mokja.department.deptName}" readOnly>
+          <input type="hidden" name="deptSeq" id="deptSeq" value="${mokja.department.deptSeq}">
         </div>
       </div>
       <div class="form-group">
@@ -50,31 +51,31 @@
       <div class="form-group">
         <label for="inputPassword6" class="col-sm-3 control-label">마음열기</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword6" placeholder="">
+          <input type="text" class="form-control" name="welcomeUserName" id="welcomeUserName" placeholder="">
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword7" class="col-sm-3 control-label">찬송인도</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword7" placeholder="">
+          <input type="text" class="form-control" name="worshipUserName" id="worshipUserName" placeholder="찬송인도">
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword8" class="col-sm-3 control-label">말씀인도</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword8" placeholder="">
+          <input type="text" class="form-control" name="wordUserName" id="wordUserName" placeholder="말씀인도">
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword9" class="col-sm-3 control-label">사역인도</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword9" placeholder="">
+          <input type="text" class="form-control" name="workUserName" id="workUserName" placeholder="사역인도">
         </div>
       </div>
       <div class="form-group">
         <label for="inputPassword10" class="col-sm-3 control-label">다음장소</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" id="inputPassword10" placeholder="">
+          <input type="text" class="form-control" name="nextWorshipPlace" id="nextWorshipPlace" placeholder="다음장소">
         </div>
       </div>
       <div class="form-group">
@@ -86,7 +87,7 @@
       <div class="form-group">
      	 <label for="etcReportContent" class="col-sm-3 control-label">기타보고사항</label>
         <div class="col-sm-8">
-          <textarea rows="" cols="" id="etcReportContent"></textarea>
+          <textarea rows="" cols="" name="etcReportContent" id="etcReportContent"></textarea>
         </div>
       </div>
   </div>
