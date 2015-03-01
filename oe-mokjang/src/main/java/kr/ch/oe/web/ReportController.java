@@ -9,6 +9,7 @@ import kr.ch.oe.model.Report;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.MokjangReportService;
+import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,9 @@ public class ReportController {
 	@Autowired
 	private MokjangReportService mokjangReportService;
 	
+	@Autowired
+	private UserService userService;
+	
 	@RequestMapping("/mokjang/list.oe")
 	public String list(Model model) {
 		
@@ -62,6 +66,9 @@ public class ReportController {
 		long deptSeq = 14l;
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
+		User user = userService.getUserByUserId("gusfot");
+		//userService.get
+		model.addAttribute("mokja", user);
 		
 		return "report/mokjangReport_regist";
 	}
@@ -70,7 +77,8 @@ public class ReportController {
 	public @ResponseBody String regist(@ModelAttribute MokjangReport mokjangReport, Model model) {
 		
 		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
-		int weeks = DateUtil.getWeeksOfYear(2015, 1, 10);
+		String[] worshiDate = mokjangReport.getWorshipDt().split("-");
+		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
 		System.out.println(weeks + "번째 주입니다.");
 		System.out.println(mokjangReport.toString());
 		

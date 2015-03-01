@@ -115,47 +115,52 @@ public class UserServiceImpl implements UserService {
 		int totalNumofItems = userMapper.countByExample(example);
 		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
 	}
-/**
- * 아이디 중복 체크
- */
-	@Override
-	public boolean overlapUserId(String userId) {
-		/*return userMapper.selectOverlapUserId(userId) != null ? true: false;*/
-		System.out.println("userId = = = = ="+userId);
-		return userMapper.selectOverlapUserId(userId) != null ? false : true;
-	}
 	/**
-	 * 목장원추가 버튼으로 목장원을 추가한다
+	 * 아이디 중복 체크
 	 */
-@Override	
-public boolean registUserFarm(String[] userId, String farmmerId) {
-	boolean result=true;
-	
-	for (int i = 0; i < userId.length; i++) {
-		User user = userMapper.selectByPrimaryKey(userId[i]);
-		User farmmer = userMapper.selectByPrimaryKey(farmmerId);
-		user.setRoleSeq(7l);
-		String roleName=userMapper.selectRoleName(user.getRoleSeq());
-		user.setRoleName(roleName);
-		user.setDeptSeq(farmmer.getDeptSeq());
-	 result= userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+		@Override
+		public boolean overlapUserId(String userId) {
+			/*return userMapper.selectOverlapUserId(userId) != null ? true: false;*/
+			System.out.println("userId = = = = ="+userId);
+			return userMapper.selectOverlapUserId(userId) != null ? false : true;
+		}
+		/**
+		 * 목장원추가 버튼으로 목장원을 추가한다
+		 */
+	@Override	
+	public boolean registUserFarm(String[] userId, String farmmerId) {
+		boolean result=true;
+		
+		for (int i = 0; i < userId.length; i++) {
+			User user = userMapper.selectByPrimaryKey(userId[i]);
+			User farmmer = userMapper.selectByPrimaryKey(farmmerId);
+			user.setRoleSeq(7l);
+			String roleName=userMapper.selectRoleName(user.getRoleSeq());
+			user.setRoleName(roleName);
+			user.setDeptSeq(farmmer.getDeptSeq());
+		 result= userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+		}
+		return result;
 	}
-	return result;
-}
-
-/**
- * 목장원을 목장목록에서 제외한다
- */
-@Override
-public boolean removeSheep( String sheeprId , String flag) {
-	User sheep = userMapper.selectByPrimaryKey(sheeprId);
-	sheep.setDeptSeq(1l);
-	sheep.setRoleSeq(9L);
-	sheep.setFlag("1");
-	String roleName = userMapper.selectRoleName(sheep.getRoleSeq());
-	sheep.setRoleName(roleName);
-	return userMapper.updateByPrimaryKeySelective(sheep) > 0 ? true : false;
 	
-}
+	/**
+	 * 목장원을 목장목록에서 제외한다
+	 */
+	@Override
+	public boolean removeSheep( String sheeprId , String flag) {
+		User sheep = userMapper.selectByPrimaryKey(sheeprId);
+		sheep.setDeptSeq(1l);
+		sheep.setRoleSeq(9L);
+		sheep.setFlag("1");
+		String roleName = userMapper.selectRoleName(sheep.getRoleSeq());
+		sheep.setRoleName(roleName);
+		return userMapper.updateByPrimaryKeySelective(sheep) > 0 ? true : false;
+		
+	}
+	
+	@Override
+	public User getUserByUserId(String userId) {
+		return userMapper.selectByUserId(userId);
+	}
 
 }

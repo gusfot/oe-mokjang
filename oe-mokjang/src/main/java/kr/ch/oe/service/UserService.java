@@ -1,7 +1,5 @@
 package kr.ch.oe.service;
 
-import java.util.List;
-
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.User;
 
@@ -16,11 +14,18 @@ public interface UserService {
 	Paging<User> getPagingUserList ( int page, int pageSize, String keyword);
 	
 	/**
-	 * user 한명 정보를 가지고온다 
+	 * user 한명 기본정보를 가지고온다 
 	 * @param userId
 	 * @return
 	 */
 	User getUser(String userId);
+	
+	/**
+	 * user 연관된 정보를 가지고 온다.
+	 * @param userId
+	 * @return
+	 */
+	User getUserByUserId(String userId);
 	
 	/**
 	 * user 를 등록한다
