@@ -34,6 +34,7 @@ function regist(){
 	});
 
 }
+
 function cancel(){
 	yesorno = confirm("이페이지에서 나가시겠습니까?")
 	if(yesorno == true){

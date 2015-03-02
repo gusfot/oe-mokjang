@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 목장 보고?��
+ * 목장 보고서
  * @author gusfot
  *
  */
@@ -342,7 +342,7 @@ public class MokjangReport {
 	}
 
 	/**
-	 * 개인 보고?��목록
+	 * 개인 보고?��목록
 	 */
 	private List<Report> reports;
 	public List<Report> getReports() {
