@@ -10,6 +10,7 @@ public class Department {
 				+ ", parentSeq=" + parentSeq + ", regTime=" + regTime + "]";
 	}
 
+    private String leaderId;
     
     private Department parent;
 	/**
@@ -144,5 +145,13 @@ public class Department {
 
 	public void setParent(Department parent) {
 		this.parent = parent;
+	}
+
+	public String getLeaderId() {
+		return leaderId;
+	}
+
+	public void setLeaderId(String leaderId) {
+		this.leaderId = leaderId;
 	}
 }
