@@ -20,9 +20,9 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 function regist(){
-	var groupName = $("input[name=groupName]").val();
-	var parish = $("input[name=parish]").val();
-	var highDept =$("select[name=highDept]").val();
+	var groupName = $("input[name=groupName]").val(),
+		 parish = $("input[name=parish]").val(),
+		 highDept =$("select[name=highDept]").val();
 	$.ajax({
 		
 		type:"POST",
@@ -36,8 +36,8 @@ function regist(){
 }
 
 function cancel(){
-	yesorno = confirm("이페이지에서 나가시겠습니까?")
-	if(yesorno == true){
+	
+	if(confirm("이페이지에서 나가시겠습니까?")){
 			history.go(-1);
 	}
 	 
