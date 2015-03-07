@@ -107,5 +107,22 @@ public class ReportController {
 		
 		return "report/mokjangReport_detail";
 	}
+	
+	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.GET)
+	public String modifyPage(@RequestParam long mokjangReportSeq, Model model) {
+		
+		// TODO : 수정할 목장보고서의 상세내용을 조회하여 수정페이지에 뿌려준다.
+		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(mokjangReportSeq));
+		
+		return "report/mokjangReport_modify";
+	}
+	
+	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
+	public String modify(@ModelAttribute MokjangReport mokjangReport, Model model) {
+		
+		boolean result = mokjangReportService.modify(mokjangReport);
+		
+		return "report/mokjangReport_detail";
+	}
 }
 

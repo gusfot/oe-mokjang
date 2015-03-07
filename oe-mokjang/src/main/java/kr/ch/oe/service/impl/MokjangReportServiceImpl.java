@@ -26,6 +26,7 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 	@Transactional
 	@Override
 	public boolean regist(MokjangReport mokjangReport) {
+		
 		boolean result = false;
 		
 		try{
@@ -55,12 +56,33 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 
 	@Override
 	public List<MokjangReport> getMokjangReports(long deptSeq) {
+		
 		MokjangReportExample example = new MokjangReportExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andDeptSeqEqualTo(deptSeq);
 //		criteria.andWeeksEqualTo(weeks);
 		
 		return mokjangReportMapper.selectByExample(example );
+	}
+
+	
+	@Override
+	public MokjangReport getMokjangReport(long deptSeq, int weeks) {
+		
+		MokjangReportExample example = new MokjangReportExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andDeptSeqEqualTo(deptSeq);
+		criteria.andWeeksEqualTo(weeks);
+
+		List<MokjangReport> mokjangReports =mokjangReportMapper.selectByExample(example );
+		
+		return mokjangReports.size() > 0 ? mokjangReports.get(0) : null;
+	}
+
+	@Override
+	public boolean modify(MokjangReport mokjangReport) {
+		// TODO 목장보고서 수정 구현
+		return false;
 	}
 
 
