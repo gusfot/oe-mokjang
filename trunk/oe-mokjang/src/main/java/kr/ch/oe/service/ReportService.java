@@ -2,6 +2,7 @@ package kr.ch.oe.service;
 
 import java.util.List;
 
+import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.Report;
 
 /**
@@ -26,11 +27,11 @@ public interface ReportService {
 	boolean regist(Report report);
 
 	/**
-	 * 해당주와 부서의 보고서 조회
+	 * 해당주와 목장의 목장원들 개인보고서 조회
 	 * @param deptSeq
 	 * @param weeks
 	 * @return
 	 */
 	List<Report> getReports(long deptSeq, int weeks);
-
+	
 }
