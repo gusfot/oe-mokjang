@@ -621,7 +621,7 @@
 	user.role_seq AS roleSeq
     from user user
 	 inner join role role on role.role_seq=user.role_seq
-	 inner join dept dept on dept.dept_seq = user.dept_seq
+	 inner join department dept on dept.dept_seq = user.dept_seq
     where user.user_id = #{userId,jdbcType=VARCHAR}
     	and user.password = #{userPw,jdbcType=VARCHAR}
   </select>
