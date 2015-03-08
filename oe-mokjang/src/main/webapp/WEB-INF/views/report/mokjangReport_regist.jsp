@@ -32,8 +32,8 @@
       <div class="form-group">
         <label for="deptSeq" class="col-sm-3 control-label">목장</label>
         <div class="col-sm-8">
-          <input type="text" class="form-control" name="deptName" id="deptName" value="${mokja.department.deptName}" readOnly>
-          <input type="hidden" name="deptSeq" id="deptSeq" value="${mokja.department.deptSeq}">
+          <input type="text" class="form-control" name="deptName" id="deptName" value="${sessionUserVO.deptName}" readOnly>
+          <input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}">
         </div>
       </div>
       <div class="form-group">
