@@ -6,9 +6,27 @@ package kr.ch.oe.model;
 public class SessionUserVO {
 
 	private String userId;
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
 	private String userName;
 	private Long deptSeq;
+	private String deptName;
 	private Long roleSeq;
+	private String roleName;
 
 	public String getUserId() {
 		return userId;
