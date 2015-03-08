@@ -3,9 +3,13 @@ package kr.ch.oe.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import kr.ch.oe.common.DateUtil;
 import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.Report;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.MokjangReportService;
@@ -42,67 +46,64 @@ public class ReportController {
 	private UserService userService;
 	
 	@RequestMapping("/mokjang/list.oe")
-	public String list(Model model) {
+	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		// TODO : 목장보고서 목록을 가져온다.
-		// session에 저장되어 있는 로그인 사용자의 dept 정보기준으로 하위의 목장보고서 목록을 가져온다.
+		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+		long deptSeq = sessionUserVO.getDeptSeq();
 		
-		// FIXME : 차후에 session에서 가져온다.
-		long deptSeq = 14l;
 		model.addAttribute("mokjangReports", mokjangReportService.getMokjangReports(deptSeq ));
 		
 		return "report/mokjangReport_list";
 	}
 	
-	@RequestMapping("/view.oe")
-	public String view() {
-		return "report/report_view";
-	}
-	
 	@RequestMapping(value="/mokjang/regist.oe", method=RequestMethod.GET)
-	public String registForm(Model model) {
+	public String registForm(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		// FIXME : 목자가 목장보고서 등록할 경우..테스트 data, 차후에 session에서 가져온다.
-		long deptSeq = 14l;
+		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+		long deptSeq = sessionUserVO.getDeptSeq();
+		
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
-		User user = userService.getUserByUserId("gusfot");
-		//userService.get
-		model.addAttribute("mokja", user);
+		
+		model.addAttribute("mokja", sessionUserVO);
 		
 		return "report/mokjangReport_regist";
 	}
 	
 	@RequestMapping(value="/mokjang/regist.oe", method=RequestMethod.POST)
-	public @ResponseBody String regist(@ModelAttribute MokjangReport mokjangReport, Model model) {
+	public @ResponseBody String regist(HttpServletRequest request, HttpServletResponse response, 
+									   @ModelAttribute MokjangReport mokjangReport, Model model) {
+		
+		JsonObject returnObject = new JsonObject();
+		
+		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+		String userId = sessionUserVO.getUserId();
 		
 		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
 		String[] worshiDate = mokjangReport.getWorshipDt().split("-");
-		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
-		System.out.println(weeks + "번째 주입니다.");
-		System.out.println(mokjangReport.toString());
 		
-		// TODO : 목장보고서를 등록한다.
+		// 주차
+		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
+//		System.out.println(weeks + "번째 주입니다.");
+//		System.out.println(mokjangReport.toString());
+		
 		mokjangReport.setWeeks(weeks);
-		mokjangReport.setRegId("gusfot");
+		mokjangReport.setRegId(userId);
 		for(Report report : mokjangReport.getReports()){
 			report.setWeeks(weeks);
-			report.setRegId("gusfot");
+			report.setRegId(userId);
 			report.setDeptSeq(mokjangReport.getDeptSeq());
 		}
-		boolean result = mokjangReportService.regist(mokjangReport);
 		
-		JsonObject innerObject = new JsonObject();
-		innerObject.addProperty("success", result);
-		innerObject.addProperty("data", "data1");
+		returnObject.addProperty("success", mokjangReportService.regist(mokjangReport));
+		returnObject.addProperty("data", "data1");
 		
-		return innerObject.toString();
+		return returnObject.toString();
 	}
 	
 	@RequestMapping(value="/mokjang/detail.oe", method=RequestMethod.GET)
 	public String detail(@RequestParam long mokjangReportSeq, Model model) {
 		
-		// TODO : 선택한 목장보고서의 상세화면을 제공한다.
 		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(mokjangReportSeq));
 		
 		return "report/mokjangReport_detail";
@@ -111,18 +112,20 @@ public class ReportController {
 	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.GET)
 	public String modifyPage(@RequestParam long mokjangReportSeq, Model model) {
 		
-		// TODO : 수정할 목장보고서의 상세내용을 조회하여 수정페이지에 뿌려준다.
 		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(mokjangReportSeq));
 		
 		return "report/mokjangReport_modify";
 	}
 	
 	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
-	public String modify(@ModelAttribute MokjangReport mokjangReport, Model model) {
+	public  @ResponseBody String modify(@ModelAttribute MokjangReport mokjangReport, Model model) {
 		
-		boolean result = mokjangReportService.modify(mokjangReport);
+		JsonObject returnObject = new JsonObject();
 		
-		return "report/mokjangReport_detail";
+		returnObject.addProperty("success", mokjangReportService.modify(mokjangReport));
+		returnObject.addProperty("data", "data1");
+		
+		return returnObject.toString();
 	}
 }
 
