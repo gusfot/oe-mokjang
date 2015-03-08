@@ -110,10 +110,13 @@ public class UserServiceImpl implements UserService {
 
 		User user = userMapper.selectByPrimaryKey(FarmmerId);
 		long deptSeq = user.getDeptSeq();
+		
 		UserExample example = new UserExample();
 		example.createCriteria().andDeptSeqEqualTo(deptSeq);
 		example.setOrderByClause("role_seq");
+		
 		int totalNumofItems = userMapper.countByExample(example);
+		
 		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
 	}
 	/**
