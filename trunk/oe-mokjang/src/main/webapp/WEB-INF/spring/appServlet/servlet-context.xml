@@ -22,9 +22,12 @@
 	<mvc:interceptors>
 	
 	<mvc:interceptor> 
-           <mvc:mapping path="/user/*"/>
-           <mvc:mapping path="/dept/*"/>
-           <mvc:mapping path="/report/*"/>
+           <mvc:mapping path="/**/*.oe"/>
+           <mvc:exclude-mapping path="/login/loginForm.oe"/>
+           <mvc:exclude-mapping path="/login/login.oe"/>
+           
+           <!-- <mvc:mapping path="/dept/*"/>
+           <mvc:mapping path="/report/*"/> -->
            
 <!--            <mvc:mapping path="/user/saintList.oe"/>
            <mvc:mapping path="/user/registForm.oe"/>

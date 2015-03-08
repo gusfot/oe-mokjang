@@ -17,7 +17,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		try {
-			if (request.getSession().getAttribute("sessionUserVo") == null) {
+			if (request.getSession().getAttribute("sessionUserVO") == null) {
 				response.sendRedirect("/login/loginForm.oe");
 				return false;
 			}
