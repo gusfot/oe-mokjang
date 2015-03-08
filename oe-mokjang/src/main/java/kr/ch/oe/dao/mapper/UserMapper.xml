@@ -590,7 +590,7 @@
     ,<include refid="MissisonWorkStatus_Column_List" />
     ,<include refid="Role_Column_List" />
     from user user
-    left outer join dept dept on dept.dept_seq = user.dept_seq
+    left outer join department dept on dept.dept_seq = user.dept_seq
     left outer join ( select es.*, edu.edu_name from edu_status es inner join edu edu on edu.edu_seq=es.edu_seq) es on es.user_id = user.user_id 
     left outer join mission_work_status mws on mws.user_id = user.user_id 
     left outer join (select rolemapping.*,role.role_name  from role_mapping rolemapping inner join role on role.role_seq = rolemapping.role_seq ) role on role.role_seq = user.role_seq
