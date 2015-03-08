@@ -6,6 +6,12 @@ package kr.ch.oe.model;
 public class SessionUserVO {
 
 	private String userId;
+	private String userName;
+	private Long deptSeq;
+	private String deptName;
+	private Long roleSeq;
+	private String roleName;
+
 	public String getDeptName() {
 		return deptName;
 	}
@@ -21,13 +27,6 @@ public class SessionUserVO {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-
-	private String userName;
-	private Long deptSeq;
-	private String deptName;
-	private Long roleSeq;
-	private String roleName;
-
 	public String getUserId() {
 		return userId;
 	}
