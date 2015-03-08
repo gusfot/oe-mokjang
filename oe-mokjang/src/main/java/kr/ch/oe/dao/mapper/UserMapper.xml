@@ -609,4 +609,19 @@
     from role role
     where role.role_seq = #{roleSeq,jdbcType=VARCHAR}
   </select>
+  
+  <select id="selectSessionUserVO" parameterType="map" resultType="kr.ch.oe.model.SessionUserVO">
+    select 
+   user.user_id AS userId,
+   user.user_name AS userName,
+   user.dept_seq AS deptSeq,
+	dept.dept_name AS deptName,
+	role.role_name AS roleName,
+	user.role_seq AS roleSeq
+    from user user
+	 inner join role role on role.role_seq=user.role_seq
+	 inner join dept dept on dept.dept_seq = user.dept_seq
+    where user.user_id = #{userId,jdbcType=VARCHAR}
+    	and user.password = #{userPw,jdbcType=VARCHAR}
+  </select>
 </mapper>
