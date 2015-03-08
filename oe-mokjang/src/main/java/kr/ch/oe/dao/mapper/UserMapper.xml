@@ -144,7 +144,7 @@
       This element was generated on Thu Jan 08 11:00:07 KST 2015.
     -->
     user_id, user_seq, user_name, reg_dt, password, addr, cell_phone, home_phone, job, 
-    gender, birth, email, dept_seq, reg_time, role_seq, flag
+    gender, birth, email, dept_seq, reg_time, role_seq,  flag
   </sql>
   <sql id="User_Column_List">
     user.user_id, 
@@ -268,14 +268,14 @@
       reg_dt, password, addr, 
       cell_phone, home_phone, job, 
       gender, birth, email, 
-      dept_seq, reg_time, role_seq, role_name,flag
+      dept_seq, reg_time, role_seq, flag
       )
     values (#{userId,jdbcType=VARCHAR}, #{userSeq,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
       #{regDt,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
       #{cellPhone,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
       #{gender,jdbcType=CHAR}, #{birth,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{deptSeq,jdbcType=BIGINT}, #{regTime,jdbcType=TIMESTAMP}, #{roleSeq,jdbcType=CHAR}, 
-      #{roleName,jdbcType=VARCHAR},#{flag,jdbcType=VARCHAR}
+      #{flag,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="kr.ch.oe.model.User">
@@ -331,9 +331,6 @@
       <if test="roleSeq != null">
         role_seq,
       </if>
-      <if test="roleName != null">
-        role_name,
-      </if>
       <if test="flag != null">
         flag
       </if>
@@ -383,9 +380,6 @@
       </if>
       <if test="roleSeq != null">
         #{roleSeq,jdbcType=CHAR},
-      </if>
-      <if test="roleName != null">
-        #{roleName,jdbcType=VARCHAR},
       </if>
       <if test="flag != null">
         #{flag,jdbcType=VARCHAR}
@@ -457,9 +451,6 @@
       <if test="record.roleSeq != null">
         role_seq = #{record.roleSeq,jdbcType=CHAR},
       </if>
-      <if test="record.roleName != null">
-        role_name = #{record.rolename,jdbcType=VARCHAR},
-      </if>
       <if test="record.flag != null">
         role_flag = #{record.flag,jdbcType=VARCHAR}
       </if>
@@ -490,7 +481,6 @@
       dept_seq = #{record.deptSeq,jdbcType=BIGINT},
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
       role_seq = #{record.roleSeq,jdbcType=CHAR},
-      role_name = #{record.roleName,jdbcType=VARCHAR},
       flag = #{record.flag,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -546,9 +536,6 @@
       <if test="roleSeq != null">
         role_seq = #{roleSeq,jdbcType=CHAR},
       </if>
-      <if test="roleName != null">
-        role_name = #{roleName,jdbcType=VARCHAR},
-      </if>
       <if test="flag != null">
         flag = #{flag,jdbcType=VARCHAR}
       </if>
@@ -577,7 +564,6 @@
       dept_seq = #{deptSeq,jdbcType=BIGINT},
       reg_time = #{regTime,jdbcType=TIMESTAMP},
       role_seq = #{roleSeq,jdbcType=CHAR},
-      role_name = #{roleName.jdbcType=VARCHAR},
       flag = #{flag.jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=VARCHAR}
   </update>
