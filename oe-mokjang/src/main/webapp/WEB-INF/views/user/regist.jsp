@@ -21,20 +21,20 @@
 <script type="text/javascript">
 	function checkfield(){
 		
-		var jsuserId = $("input[name=userId]").val();
-		var jsuserName = $("input[name=userName]").val();
-		var jspassword = $("input[name=password]").val();
-		var jsaddr = $("input[name=addr]").val();
-		var jscellPhone = $("input[name=cellPhone]").val();
-		var jshomePhone = $("input[name=homePhone]").val();
-		var jsjob = $("input[name=job]").val();
-		var jsgender = $("select[name=gender]").val();
-		var jsroleSeq = $("select[name=role]").val();
-		var jsbirth = $("input[name=birth]").val();
-		var jsemail = $("input[name=email]").val();
-		var jsflag = $("input[name=flag]").val();
-		var jsregDt =$("input[name=regDate]").val();
-		var jsgyogu = $("select[name=gyogu]").val();
+		var jsuserId = $("input[name=userId]").val(),
+		 jsuserName = $("input[name=userName]").val(),
+		jspassword = $("input[name=password]").val(),
+		jsaddr = $("input[name=addr]").val(),
+		jscellPhone = $("input[name=cellPhone]").val(),
+		jshomePhone = $("input[name=homePhone]").val(),
+		jsjob = $("input[name=job]").val(),
+		jsgender = $("select[name=gender]").val(),
+		jsroleSeq = $("select[name=role]").val(),
+		jsbirth = $("input[name=birth]").val(),
+		jsemail = $("input[name=email]").val(),
+		 jsflag = $("input[name=flag]").val(),
+		jsregDt =$("input[name=regDate]").val(),
+		jsgyogu = $("select[name=gyogu]").val();
 		
 /* 	alert(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
 			+jsflag+jsregDt+jsgyogu);

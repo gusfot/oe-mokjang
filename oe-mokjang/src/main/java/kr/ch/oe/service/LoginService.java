@@ -1,6 +1,6 @@
 package kr.ch.oe.service;
 
-import kr.ch.oe.model.User;
+import kr.ch.oe.model.SessionUserVO;
 
 /**
  * 로그인 관련 Service
@@ -9,7 +9,7 @@ import kr.ch.oe.model.User;
  */
 public interface LoginService {
 
-	public User loginUser(String userId ,String pw);
+	public SessionUserVO loginUser(String userId ,String pw);
 	
 }
 	

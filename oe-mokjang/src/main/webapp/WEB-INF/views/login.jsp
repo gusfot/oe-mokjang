@@ -30,34 +30,35 @@
 
 	<script type="text/javascript">
 	function login(){
-		var userId = $("input[name=userId]").val();
-		var userPw= $("input[name=password]").val();
+		var $userId = $("input[name=userId]"),
+			 $userPw= $("input[name=password]");
 		
-		if(userId==""){
-			alert("아이디를 입력하세요");
-			$("input[name=userId]").val("");
-			$("input[name=userId]").focus();
-			exit;
+		if($userId===''){
+			alert('아이디를 입력하세요');
+			$userId.val('');
+			$userId.focus();
+			return;
 		}
-		if(userPw==""){
-			alert("비밀번호를 입력하세요");
-			$("input[name=password]").val("");
-			$("input[name=password]").focus();
-			exit;
+		
+		if($userPw===''){
+			$password.val('');
+			$password.focus();
+			return;
 		}
+		
 		 $.ajax({
 			type:"POST",
 			url : "/login/login.oe",
-		 	data : ({userId : userId, pw : userPw}),
+		 	data : ({userId : $userId.val(), pw : $userPw.val()}),
 			dataType : 'json',
 			success:function(result){
-			 	if(result==true){
+			 	if(result.success){
 			 		location.href="/main.oe";
 				}else{
-					alert('아이디 또는 비밀번호를 확인해주세요');
-					$("input[name=userId]").val("");
-					$("input[name=password]").val("");
-					$("input[name=userId]").focus();
+					alert(result.message);
+					$userId.val('');
+					$userId.focus();
+					$password.val('');
 					
 				}
 			}

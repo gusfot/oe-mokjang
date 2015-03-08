@@ -2,7 +2,7 @@ package kr.ch.oe.web;
 
 import javax.servlet.http.HttpSession;
 
-import kr.ch.oe.model.User;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.JsonObject;
 
 @RequestMapping("/login")
 @Controller
@@ -32,15 +34,25 @@ public class LoginController {
 	
 	// FIXME : 시간이 좀 있으면 ajax 처리하자
 	@RequestMapping(value="/login.oe", method=RequestMethod.POST)
-	public @ResponseBody boolean login(
+	public @ResponseBody String login(
 			HttpSession session,
 			@RequestParam(value="userId",required=true)String userId,
 			@RequestParam(value="pw",required=true)String pw) throws Exception {
-		 User loginUser = loginService.loginUser(userId, pw);
-		 if(loginUser!=null){
-		 session.setAttribute("sessionUserVO", loginUser);
+		
+		JsonObject returnObj = new JsonObject();
+		SessionUserVO sessionUserVO = loginService.loginUser(userId, pw); 
+		
+		 if(sessionUserVO!=null){
+			 session.setAttribute("sessionUserVO", sessionUserVO);
+			 
+			 returnObj.addProperty("success", true);
+			 returnObj.addProperty("message", "로그인에 성공하였습니다.");
+		 }else {
+			 returnObj.addProperty("success", false);
+			 returnObj.addProperty("message", "로그인에 실패하였습니다.");
 		 }
-		 return loginUser != null ? true : false;
+		 
+		 return returnObj.toString();
 
 	}
 	@RequestMapping(value="/logout.oe", method=RequestMethod.GET)

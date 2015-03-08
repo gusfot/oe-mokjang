@@ -2,10 +2,12 @@ package kr.ch.oe.dao;
 
 import java.util.List;
 
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 
 import org.apache.ibatis.annotations.Param;
+
 
 public interface UserMapper {
 
@@ -90,5 +92,11 @@ public interface UserMapper {
 	 * @return
 	 */
 	String selectRoleName(long roleSeq);
+
+	SessionUserVO selectSessionUserVO(@Param("userId") String userId ,@Param("userPw")String userPw);
+	
+	
+	
+	
 	
 }
