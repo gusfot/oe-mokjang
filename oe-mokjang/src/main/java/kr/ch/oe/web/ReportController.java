@@ -96,7 +96,7 @@ public class ReportController {
 		}
 		
 		returnObject.addProperty("success", mokjangReportService.regist(mokjangReport));
-//		returnObject.addProperty("data", "data1");
+		returnObject.addProperty("seq", mokjangReport.getMokjangReportSeq());
 		
 		return returnObject.toString();
 	}

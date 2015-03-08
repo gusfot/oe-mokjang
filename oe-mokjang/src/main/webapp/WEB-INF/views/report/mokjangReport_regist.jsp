@@ -208,6 +208,11 @@
 							 dataType : 'json',
 							 success:function(result){
 							   alert(result.success);
+							   if(result.success) {
+								   location.href = '/report/mokjang/detail.oe?seq='+result.seq;;
+							   }else {
+								   alert(result.message);
+							   }
 							 }
 							});
 					

@@ -1,6 +1,8 @@
 package kr.ch.oe.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.ch.oe.dao.MokjangReportMapper;
 import kr.ch.oe.dao.ReportMapper;
@@ -51,7 +53,11 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 
 	@Override
 	public MokjangReport getMokjangReport(long mokjangReportSeq) {
-		return mokjangReportMapper.selectByPrimaryKey(mokjangReportSeq);
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("mokjangReportSeq", mokjangReportSeq);
+		return mokjangReportMapper.selectMokjangReport(params );
+		//return mokjangReportMapper.selectByPrimaryKey(mokjangReportSeq);
 	}
 
 	@Override
