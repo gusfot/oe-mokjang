@@ -113,6 +113,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		criteria.andDeptSeqEqualTo(deptSeq);
 		criteria.andFlagEqualTo("0");     
 		example.setOrderByClause("user_seq");
+		
 		return userMapper.selectByExample(example);
 	}
 	/**
