@@ -11,6 +11,16 @@ import java.util.List;
 public class User {
 
 	/**
+	 * 금주 점수
+	 */
+	private int thisWeekPoint;
+	
+
+	/**
+	 * 누적 점수
+	 */
+	private int allPoint;
+	/**
 	 * 권한정보
 	 */
 	private Role role;
@@ -434,4 +444,21 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
+	public int getThisWeekPoint() {
+		return thisWeekPoint;
+	}
+
+	public void setThisWeekPoint(int thisWeekPoint) {
+		this.thisWeekPoint = thisWeekPoint;
+	}
+
+	public int getAllPoint() {
+		return allPoint;
+	}
+
+	public void setAllPoint(int allPoint) {
+		this.allPoint = allPoint;
+	}
+	
 }
