@@ -96,7 +96,7 @@ public class ReportController {
 		}
 		
 		returnObject.addProperty("success", mokjangReportService.regist(mokjangReport));
-		returnObject.addProperty("data", "data1");
+//		returnObject.addProperty("data", "data1");
 		
 		return returnObject.toString();
 	}
@@ -123,7 +123,7 @@ public class ReportController {
 		JsonObject returnObject = new JsonObject();
 		
 		returnObject.addProperty("success", mokjangReportService.modify(mokjangReport));
-		returnObject.addProperty("data", "data1");
+//		returnObject.addProperty("data", "data1");
 		
 		return returnObject.toString();
 	}
