@@ -38,8 +38,7 @@ public class LoginController {
 			@RequestParam(value="pw",required=true)String pw) throws Exception {
 		 User loginUser = loginService.loginUser(userId, pw);
 		 if(loginUser!=null){
-			 System.out.println("세션심겼다");
-		 session.setAttribute("sessionId", loginUser);
+		 session.setAttribute("sessionUserVO", loginUser);
 		 }
 		 return loginUser != null ? true : false;
 

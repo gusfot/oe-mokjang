@@ -49,6 +49,7 @@ function test(){
               </ul>
             </li>
             </c:if>
+                <li><a href="/report/mokjang/list.oe">목장보고서 목록보기</a></li>
             <!-- 
             잠시만 묶어놓곘슴돠~
             <li class="dropdown">

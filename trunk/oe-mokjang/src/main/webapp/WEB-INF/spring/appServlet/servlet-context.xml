@@ -21,10 +21,11 @@
 	
 	<mvc:interceptors>
 	
-	
 	<mvc:interceptor> 
            <mvc:mapping path="/user/*"/>
            <mvc:mapping path="/dept/*"/>
+           <mvc:mapping path="/report/*"/>
+           
 <!--            <mvc:mapping path="/user/saintList.oe"/>
            <mvc:mapping path="/user/registForm.oe"/>
            <mvc:mapping path="/user/detail.oe"/>
