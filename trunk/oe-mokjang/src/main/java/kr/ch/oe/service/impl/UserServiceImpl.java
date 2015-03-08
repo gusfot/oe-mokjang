@@ -7,6 +7,7 @@ import kr.ch.oe.common.Paging;
 import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.Department;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
 import kr.ch.oe.service.UserService;
@@ -161,6 +162,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByUserId(String userId) {
 		return userMapper.selectByUserId(userId);
+	}
+
+	@Override
+	public SessionUserVO getSessionUserVO(String userId, String userPw) {
+		return userMapper.selectSessionUserVO(userId,userPw);
+		
 	}
 
 }

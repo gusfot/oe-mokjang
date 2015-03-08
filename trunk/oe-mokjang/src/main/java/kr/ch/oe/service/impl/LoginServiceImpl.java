@@ -1,5 +1,6 @@
 package kr.ch.oe.service.impl;
 
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.LoginService;
 import kr.ch.oe.service.UserService;
@@ -14,20 +15,12 @@ public class LoginServiceImpl implements LoginService {
 	UserService userService;
 
 	@Override
-	public User loginUser(String userId, String pw) {
-		System.out.println("1");
-		User user = userService.getUser(userId);
-		System.out.println("2");
-		if (user != null) {
-			if (user.getPassword().equals(pw)) {
-				System.out.println("3");
-				return user;
-			}
-		}
-		System.out.println("4");
-		return null;
+	public SessionUserVO loginUser(String userId, String pw) {
 
+			return userService.getSessionUserVO(userId, pw);
+		
 	}
+
 
 }
 	

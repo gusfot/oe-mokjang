@@ -1,6 +1,7 @@
 package kr.ch.oe.service;
 
 import kr.ch.oe.common.Paging;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 
 public interface UserService {
@@ -74,6 +75,8 @@ public interface UserService {
 	 */
 	
 	boolean removeSheep(String sheepId, String flag);
+	
+	SessionUserVO getSessionUserVO(String userId, String userPw);
 	
 }
 
