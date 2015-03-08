@@ -563,7 +563,14 @@
     ,<include refid="Report_Column_List" />
     from mokjang_report mokjangreport
     left join report report on report.weeks = mokjangreport.weeks and report.dept_seq=mokjangreport.dept_seq
-    where mokjangreport.dept_seq = #{deptSeq}
-    and mokjangreport.weeks = #{weeks}
+    where 
+    <choose>
+	    <when test="mokjangReportSeq !=null">
+	    	mokjangreport.mokjang_report_seq = #{mokjangReportSeq}
+	    </when>
+	    <otherwise>
+		    mokjangreport.dept_seq = #{deptSeq} and mokjangreport.weeks = #{weeks}
+	    </otherwise>
+    </choose>
   </select>
 </mapper>
