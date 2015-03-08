@@ -8,9 +8,11 @@ import javax.servlet.http.HttpSession;
 
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -40,10 +42,11 @@ public class UserController {
 	public ModelAndView getUserList(
 					HttpSession session)throws Exception {
 		
-		User sessionId = (User)session.getAttribute("sessionId");
-		String farmmerId = sessionId.getUserId();
-		System.out.println(farmmerId);
 		ModelAndView mav = new ModelAndView();
+
+		SessionUserVO sessionUserVO =(SessionUserVO)session.getAttribute("sessionUserVO");
+		String farmmerId = sessionUserVO.getUserId();
+		System.out.println(farmmerId);
 		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
 		
 		mav.addObject("pageList", pagingList);
