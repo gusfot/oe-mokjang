@@ -8,6 +8,15 @@
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
+    <table schema="mokjang" tableName="department" >
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="dept_type" property="deptType" />
+      <columnOverride column="dept_name" property="deptName" />
+      <columnOverride column="desc" property="desc" />
+      <columnOverride column="parent_seq" property="parentSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+    
     <!-- 
     <table schema="mokjang" tableName="edu" >
       <columnOverride column="edu_seq" property="eduSeq" />
