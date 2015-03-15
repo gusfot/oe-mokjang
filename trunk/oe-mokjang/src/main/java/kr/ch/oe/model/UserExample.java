@@ -1265,7 +1265,7 @@ public class UserExample {
 	}
 
 	public Criteria andRoleSeqBetween(String value1, String value2) {
-		addCriterion("role_seq between", value1, value2, "roleSeq");
+		addCriterion("user.role_seq between", value1, value2, "roleSeq");
 		return (Criteria) this;
 	}
 

@@ -32,14 +32,14 @@
 <form class="form-horizontal" id="mokjangReportForm">
 <div class="row">
   
-  <div class="col-md-7 table-responsive">
+  <div class="col-md-12 table-responsive">
 	  <table class="table table-bordered">
 	  	<caption>목장집회보고서.</caption>
 	  	 <colgroup>
-	      	<col width="20%">
-	      	<col width="30%">
-	      	<col width="20%">
-	      	<col width="30%">
+	      	<col width="10%">
+	      	<col width="*">
+	      	<col width="10%">
+	      	<col width="*">
 	      </colgroup>
 	    <tr>
 	    	<td class="text-center">목장</td>
@@ -115,7 +115,7 @@
 	  </table>
 	</div>
 	
-  <div class="col-md-7">
+  <div class="col-md-12">
 	<table class="table table-bordered">
       <caption>개인별 보고서</caption>
       <colgroup>

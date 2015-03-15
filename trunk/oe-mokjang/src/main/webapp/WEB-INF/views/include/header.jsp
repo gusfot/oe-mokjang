@@ -39,7 +39,6 @@ function test(){
             
           <!-- <a href="#">조직관리</a> -->
             <li class="dropdown" id="menu1">
-<!--           <a href="" class="dropdown-toggle" data-toggle="dropdown" onclick="test()"><b class="caret"></b></a> -->
           	<a href="/dept/main.oe?gyogu=gyogu&edu=edu&depart=depart"" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">조직관리<span class="caret"></span></a>
               <ul class="dropdown-menu" >
                 <li><a href="/dept/list.oe?group=gyogu">교구관리</a></li>
