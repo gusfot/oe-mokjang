@@ -516,7 +516,13 @@
     <result column="mokjangreport_weeks" jdbcType="INTEGER" property="weeks" />
     <result column="mokjangreport_dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="mokjangreport_worship_dt" jdbcType="VARCHAR" property="worshipDt" />
+    <result column="mokjangreport_welcome_user_name" jdbcType="VARCHAR" property="welcomeUserName" />
+    <result column="mokjangreport_worship_user_name" jdbcType="VARCHAR" property="worshipUserName" />
+    <result column="mokjangreport_word_user_name" jdbcType="VARCHAR" property="wordUserName" />
+    <result column="mokjangreport_work_user_name" jdbcType="VARCHAR" property="workUserName" />
     <result column="mokjangreport_worship_place" jdbcType="VARCHAR" property="worshipPlace" />
+    <result column="mokjangreport_next_worship_place" jdbcType="VARCHAR" property="nextWorshipPlace" />
+    <result column="mokjangreport_etc_report_content" jdbcType="VARCHAR" property="etcReportContent" />
     <result column="mokjangreport_offering" jdbcType="BIGINT" property="offering" />
     <result column="mokjangreport_reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="mokjangreport_reg_time" jdbcType="TIMESTAMP" property="regTime" />
@@ -541,6 +547,12 @@
     mokjangreport.dept_seq mokjangreport_dept_seq, 
     mokjangreport.worship_dt mokjangreport_worship_dt, 
     mokjangreport.worship_place mokjangreport_worship_place, 
+    mokjangreport.welcome_user_name mokjangreport_welcome_user_name, 
+    mokjangreport.worship_user_name mokjangreport_worship_user_name, 
+    mokjangreport.word_user_name mokjangreport_word_user_name, 
+    mokjangreport.work_user_name mokjangreport_work_user_name, 
+    mokjangreport.next_worship_place mokjangreport_next_worship_place, 
+    mokjangreport.etc_report_content mokjangreport_etc_report_content, 
     mokjangreport.offering mokjangreport_offering, 
     mokjangreport.reg_id mokjangreport_reg_id, 
     mokjangreport.reg_time mokjangreport_reg_time
@@ -563,7 +575,15 @@
     ,<include refid="Report_Column_List" />
     from mokjang_report mokjangreport
     left join report report on report.weeks = mokjangreport.weeks and report.dept_seq=mokjangreport.dept_seq
-    where mokjangreport.dept_seq = #{deptSeq}
-    and mokjangreport.weeks = #{weeks}
+    where 
+    <choose>
+	    <when test="mokjangReportSeq != null">
+	    mokjangreport.mokjang_report_seq = #{mokjangReportSeq}
+	    </when>
+	    <otherwise>
+		    mokjangreport.dept_seq = #{deptSeq}
+		    and mokjangreport.weeks = #{weeks}
+	    </otherwise>
+    </choose>
   </select>
 </mapper>
