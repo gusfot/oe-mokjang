@@ -18,7 +18,7 @@
 <body>
 
 <div>
-	<h2>목장 보고서 (하나님은 정직한 사람을 복 주십니다.)</h2>
+	<h1>목장집회 보고서 <small>(하나님은 정직한 사람을 복 주십니다.)</small></h1>
 </div>
 <form class="form-horizontal" id="mokjangReportForm">
 <div class="row">
