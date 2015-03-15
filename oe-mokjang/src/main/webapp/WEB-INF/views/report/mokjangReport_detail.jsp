@@ -73,7 +73,7 @@
       <caption>개인별 보고서.</caption>
       <colgroup>
       	<col width="2%">
-      	<col width="5%">
+      	<col width="2%">
       	<col width="5%">
       	<col width="5%">
       	<col width="5%">
@@ -89,19 +89,19 @@
       </colgroup>
       <thead>
         <tr>
-          <th><small>번호</small></th>
-          <th><small>목장원이름</small></th>
-          <th><small>목장집회참석</small></th>
-          <th><small>주일예배참석</small></th>
-          <th><small>목장새등록자</small></th>
-          <th><small>8주차참석자</small></th>
-          <th><small>목장등록후 교회등록</small></th>
-          <th><small>양육1권수료자</small></th>
-          <th><small>학교양육1권수료</small></th>
-          <th><small>교회등록</small></th>
-          <th><small>교회등록후목장참석</small></th>
-          <th><small>번식하여나가는분</small></th>
-          <th><small>식당봉사</small></th>
+          <th class="text-center"><small>번호</small></th>
+          <th class="text-center"><small>목장원<br />이름</small></th>
+          <th class="text-center"><small>목장집회<br />참석</small></th>
+          <th class="text-center"><small>주일예배<br />참석</small></th>
+          <th class="text-center"><small>목장<br />새등록자</small></th>
+          <th class="text-center"><small>8주차<br />참석자</small></th>
+          <th class="text-center"><small>목장등록후<br />교회등록</small></th>
+          <th class="text-center"><small>양육<br />1권수료</small></th>
+          <th class="text-center"><small>학교양육<br />1권수료</small></th>
+          <th class="text-center"><small>교회<br />등록</small></th>
+          <th class="text-center"><small>교회등록후<br />목장참석</small></th>
+          <th class="text-center"><small>번식하여<br />나가는분</small></th>
+          <th class="text-center"><small>식당<br />봉사</small></th>
         </tr>
       </thead>
       <tbody>

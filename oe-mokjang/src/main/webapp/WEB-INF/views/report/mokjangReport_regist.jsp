@@ -57,21 +57,37 @@
 	     <tr>
 	    	<td class="text-center">마음열기</td>
 	    	<td>
-				<input type="text" class="form-control" name="welcomeUserName" id="welcomeUserName" placeholder="">
+				<select class="form-control" name="welcomeUserName" id="welcomeUserName">
+				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+					<option>${user.userName}</option>
+				</c:forEach>
+				</select>
 			</td>
 	    	<td class="text-center">찬송인도</td>
 	    	<td>
-				<input type="text" class="form-control" name="worshipUserName" id="worshipUserName" placeholder="찬송인도">
+				<select class="form-control" name="worshipUserName" id="worshipUserName">
+				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+					<option>${user.userName}</option>
+				</c:forEach>
+				</select>
 			</td>
 	    </tr>
 	     <tr>
 	    	<td class="text-center">말씀인도</td>
 	    	<td>
-				<input type="text" class="form-control" name="wordUserName" id="wordUserName" placeholder="말씀인도">
+				<select class="form-control" name="wordUserName" id="wordUserName">
+				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+					<option>${user.userName}</option>
+				</c:forEach>
+				</select>
 			</td>
 	    	<td class="text-center">사역인도</td>
 	    	<td>
-				<input type="text" class="form-control" name="workUserName" id="workUserName" placeholder="사역인도">
+				<select class="form-control" name="workUserName" id="workUserName">
+				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+					<option>${user.userName}</option>
+				</c:forEach>
+				</select>
 			</td>
 	    </tr>
 	     <tr>
@@ -81,7 +97,7 @@
 			</td>
 	    	<td class="text-center">목장선교헌금</td>
 	    	<td>
-				<input type="number" class="form-control" name="offering" id="offering" placeholder="원">
+				<input type="number" class="form-control" name="offering" id="offering" step="1000" placeholder="원">
 			</td>
 	    </tr>
 	     <tr>
