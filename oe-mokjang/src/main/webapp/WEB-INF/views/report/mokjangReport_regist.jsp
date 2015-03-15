@@ -12,13 +12,16 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
+<style type="text/css">
+.vertical-centered { display: table; margin-left: auto; margin-right: auto; display: inline-block; }
+</style>
 <!-- Custom styles for this template -->
  <link href="/resources/assets/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
 
 <div>
-	<h2>목장집회 보고서 (하나님은 정직한 사람을 복 주십니다.)</h2>
+	<h1>목장집회 보고서 <small>(하나님은 정직한 사람을 복 주십니다.)</small></h1>
 </div>
 <form class="form-horizontal" id="mokjangReportForm">
 <div class="row">
@@ -95,7 +98,7 @@
       <caption>개인별 보고서</caption>
       <colgroup>
       	<col width="2%">
-      	<col width="5%">
+      	<col width="2%">
       	<col width="5%">
       	<col width="5%">
       	<col width="5%">
@@ -111,26 +114,26 @@
       </colgroup>
       <thead>
         <tr>
-          <th><small>번호</small></th>
-          <th><small>목장원이름</small></th>
-          <th><small>목장집회참석</small></th>
-          <th><small>주일예배참석</small></th>
-          <th><small>목장새등록자</small></th>
-          <th><small>8주차참석자</small></th>
-          <th><small>목장등록후 교회등록</small></th>
-          <th><small>양육1권수료자</small></th>
-          <th><small>학교양육1권수료</small></th>
-          <th><small>교회등록</small></th>
-          <th><small>교회등록후목장참석</small></th>
-          <th><small>번식하여나가는분</small></th>
-          <th><small>식당봉사</small></th>
+          <th class="text-center"><small>번호</small></th>
+          <th class="text-center"><small>목장원<br />이름</small></th>
+          <th class="text-center"><small>목장집회<br />참석</small></th>
+          <th class="text-center"><small>주일예배<br />참석</small></th>
+          <th class="text-center"><small>목장<br />새등록자</small></th>
+          <th class="text-center"><small>8주차<br />참석자</small></th>
+          <th class="text-center"><small>목장등록후<br />교회등록</small></th>
+          <th class="text-center"><small>양육<br />1권수료</small></th>
+          <th class="text-center"><small>학교양육<br />1권수료</small></th>
+          <th class="text-center"><small>교회<br />등록</small></th>
+          <th class="text-center"><small>교회등록후<br />목장참석</small></th>
+          <th class="text-center"><small>번식하여<br />나가는분</small></th>
+          <th class="text-center"><small>식당<br />봉사</small></th>
         </tr>
       </thead>
       <tbody>
       	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
 	      	<tr>
-		      <th scope="row">${i.count}</th>
-	          <td><span class="label label-primary">${user.userName}${user.role.roleName}</span>
+		      <th scope="row" class="text-center">${i.count}</th>
+	          <td><span class="text-center label <c:choose><c:when test="${user.role.roleName eq '목자'}">label-success</c:when><c:when test="${user.role.roleName eq '예비목자'}">label-info</c:when><c:otherwise>label-default</c:otherwise></c:choose> ">${user.userName}</span>
 	          	<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" placeholder="목장새등록자">
 	          </td>
 	          <td>

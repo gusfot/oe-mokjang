@@ -95,8 +95,11 @@ public interface UserMapper {
 
 	SessionUserVO selectSessionUserVO(@Param("userId") String userId ,@Param("userPw")String userPw);
 	
-	
-	
-	
+	/**
+	 * deptSeq로 사용자 조회
+	 * @param deptSeq
+	 * @return
+	 */
+	List<User> selectByDeptSeq(Long deptSeq);
 	
 }

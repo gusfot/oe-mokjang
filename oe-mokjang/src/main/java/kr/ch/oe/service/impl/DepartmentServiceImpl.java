@@ -108,13 +108,14 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public List<User> getMokjangUsers(long deptSeq) {
 
-		UserExample example = new UserExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andDeptSeqEqualTo(deptSeq);
-		criteria.andFlagEqualTo("0");     
-		example.setOrderByClause("user_seq");
+//		UserExample example = new UserExample();
+//		Criteria criteria = example.createCriteria();
+//		criteria.andDeptSeqEqualTo(deptSeq);
+//		criteria.andFlagEqualTo("0");     
+//		example.setOrderByClause("user_seq");
+//		return userMapper.selectByExample(example);
 		
-		return userMapper.selectByExample(example);
+		return userMapper.selectByDeptSeq(deptSeq);
 	}
 	/**
 	 * 소속 조직의 하위조직 갯수 가져오기
