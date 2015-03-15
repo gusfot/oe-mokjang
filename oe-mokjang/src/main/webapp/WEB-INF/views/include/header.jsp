@@ -3,11 +3,6 @@
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 	<%@ page import="java.net.URLEncoder" %>
        <!-- Fixed navbar -->
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
 <script type="text/javascript">
 function test(){
 	location.href="../main.oe";
@@ -16,8 +11,6 @@ function test(){
 	$('.dropdown-toggle').dropdown();
 }
 </script>
-</head>
-  <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -87,5 +80,3 @@ function test(){
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    </body>
-    </html>
