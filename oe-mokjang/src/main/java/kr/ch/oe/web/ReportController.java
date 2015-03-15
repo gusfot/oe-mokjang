@@ -102,9 +102,9 @@ public class ReportController {
 	}
 	
 	@RequestMapping(value="/mokjang/detail.oe", method=RequestMethod.GET)
-	public String detail(@RequestParam long mokjangReportSeq, Model model) {
+	public String detail(@RequestParam long seq, Model model) {
 		
-		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(mokjangReportSeq));
+		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(seq));
 		
 		return "report/mokjangReport_detail";
 	}
