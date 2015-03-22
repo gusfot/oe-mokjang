@@ -26,7 +26,12 @@
 			<%@ include file="../include/header.jsp" %>
 			</div>
 	<div class="row">
-	  <div class="col-md-7">
+		<div class="col-xs-6 col-sm-4">저번주${weeks-1}번째주</div>
+		  <div class="col-xs-6 col-sm-4">이번주${weeks}번째주</div>
+		  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+		  <!-- <div class="clearfix visible-xs-block"></div> -->
+		  <div class="col-xs-6 col-sm-4">다음주</div>
+	  <div class="col-md-9">
 		<table class="table table-bordered">
 	      <caption>개인별 보고서.</caption>
 	      <colgroup>

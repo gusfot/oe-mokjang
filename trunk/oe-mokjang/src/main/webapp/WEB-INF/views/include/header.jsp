@@ -69,12 +69,12 @@ function test(){
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li> -->
-            <c:if test="${sessionId.userId==null}">
+            <c:if test="${sessionScope.sessionUserVO==null}">
             <li><a href="/login/loginForm.oe"><span class="glyphicon glyphicon-on"></span>로그인</a></li>
-          </c:if>
-          <c:if test="${sessionId!=null}">
-            <li><a href="/login/logout.oe"><span class="glyphicon glyphicon-off"></span>로그아웃</a></li>
-          </c:if>
+         	 </c:if>
+	          <c:if test="${sessionScope.sessionUserVO!=null}">
+	            <li><a href="/login/logout.oe"><span class="glyphicon glyphicon-off"></span>로그아웃</a></li>
+	          </c:if>
           
           </ul>
         </div><!--/.nav-collapse -->
