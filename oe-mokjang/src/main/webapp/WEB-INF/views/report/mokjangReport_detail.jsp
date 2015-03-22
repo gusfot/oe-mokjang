@@ -112,7 +112,7 @@
 	      	<c:forEach var="report" items="${mokjangReport.reports}" varStatus="i" >
 		      	<tr>
 			      <th scope="row">${i.count}</th>
-		          <td><span class="label label-primary">${report.userId}</span></td>
+		          <td><span class="label label-primary <c:choose><c:when test="${user.role.roleName eq '목자'}">label-success</c:when><c:when test="${user.role.roleName eq '예비목자'}">label-info</c:when><c:otherwise>label-default</c:otherwise></c:choose> ">${report.userId}</span></td>
 		          <td>${report.mokjangYn}</td>
 		          <td>${report.sundayYn}</td>
 		          <td>
@@ -164,25 +164,25 @@
 	<script type="text/javascript">
 	
 	var report = {
-			mokjang : {
-					regist : function() {
-						var $f = $('#mokjangReportForm'),
-						 formData;
-						 
-						formData = $f.serialize();
-						 
-						 $.ajax({
-							 url: '/report/mokjang/regist.oe',
-							 type: 'POST',
-							 data: formData,
-							 dataType : 'json',
-							 success:function(result){
-							   alert(result.success);
-							 }
-							});
-					
-					}
+		mokjang : {
+			regist : function() {
+				var $f = $('#mokjangReportForm'),
+				 formData;
+				 
+				formData = $f.serialize();
+				 
+				 $.ajax({
+					 url: '/report/mokjang/regist.oe',
+					 type: 'POST',
+					 data: formData,
+					 dataType : 'json',
+					 success:function(result){
+					   alert(result.success);
+					 }
+					});
+			
 			}
+		}
 	}
 	
 	</script>
