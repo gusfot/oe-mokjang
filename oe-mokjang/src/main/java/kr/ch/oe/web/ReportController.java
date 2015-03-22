@@ -52,10 +52,12 @@ public class ReportController {
 		
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
 		long deptSeq = sessionUserVO.getDeptSeq();
-		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
+		
+		int weeks = request.getParameter("weeks") !=null ? Integer.parseInt(request.getParameter("weeks")) : DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString())); 
 		
 		model.addAttribute("mokjangReports", mokjangReportService.getMokjangReports(deptSeq ));
 		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(deptSeq,weeks));
+		model.addAttribute("weeks", weeks);
 		
 		return "report/mokjangReport_list";
 	}
