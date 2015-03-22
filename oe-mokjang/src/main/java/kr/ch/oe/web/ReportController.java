@@ -1,6 +1,8 @@
 package kr.ch.oe.web;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,8 +52,10 @@ public class ReportController {
 		
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
 		long deptSeq = sessionUserVO.getDeptSeq();
+		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
 		
 		model.addAttribute("mokjangReports", mokjangReportService.getMokjangReports(deptSeq ));
+		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(deptSeq,weeks));
 		
 		return "report/mokjangReport_list";
 	}

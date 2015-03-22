@@ -1,6 +1,8 @@
 package kr.ch.oe.common;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DateUtil {
 
@@ -78,5 +80,46 @@ public class DateUtil {
 //		
 		
 		return 0;
+	}
+	
+	/**
+	 * dateString 반환
+	 * @param dateFormat
+	 * @return
+	 */
+	public static String getDateFormatString(String dateFormat) {
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+		return format.format(today);
+	}
+	
+	/**
+	 * 오늘 날짜(년), String("yyyy") 반환
+	 * @return
+	 */
+	public static String getYearString() {
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyy");
+		return format.format(today);
+	}
+	
+	/**
+	 * 오늘 날짜(월), String("MM") 반환
+	 * @return
+	 */
+	public static String getMonthString() {
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("MM");
+		return format.format(today);
+	}
+	
+	/**
+	 * 오늘 날짜(일), String("dd") 반환
+	 * @return
+	 */
+	public static String getDayString() {
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("dd");
+		return format.format(today);
 	}
 }
