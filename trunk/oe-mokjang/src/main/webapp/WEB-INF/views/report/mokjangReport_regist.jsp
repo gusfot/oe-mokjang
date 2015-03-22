@@ -32,7 +32,7 @@
 				<form class="form-horizontal" id="mokjangReportForm">
 				<div class="row">
 				  
-				  <div class="col-md-12 table-responsive">
+				  <div class="col-md-7 table-responsive">
 					  <table class="table table-bordered">
 					  	<caption>목장집회보고서.</caption>
 					  	 <colgroup>
@@ -107,9 +107,9 @@
 							</td>
 					    </tr>
 					     <tr>
-					    	<td class="text-center">기타보고사항</td>
+					    	<td class="text-center">기타<br />보고사항</td>
 					    	<td colspan="3">
-								<textarea rows="" cols="" name="etcReportContent" id="etcReportContent"></textarea>
+								<textarea class="form-control" rows="3" cols="" name="etcReportContent" id="etcReportContent"></textarea>
 							</td>
 					    </tr>
 					  </table>

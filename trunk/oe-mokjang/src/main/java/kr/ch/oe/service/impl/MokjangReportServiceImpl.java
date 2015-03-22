@@ -66,7 +66,6 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 		MokjangReportExample example = new MokjangReportExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andDeptSeqEqualTo(deptSeq);
-//		criteria.andWeeksEqualTo(weeks);
 		
 		return mokjangReportMapper.selectByExample(example );
 	}
@@ -74,15 +73,11 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 	
 	@Override
 	public MokjangReport getMokjangReport(long deptSeq, int weeks) {
-		
-		MokjangReportExample example = new MokjangReportExample();
-		Criteria criteria = example.createCriteria();
-		criteria.andDeptSeqEqualTo(deptSeq);
-		criteria.andWeeksEqualTo(weeks);
+		Map<String, Object> params = new HashMap<>();
+		params.put("deptSeq", deptSeq);
+		params.put("weeks", weeks);
 
-		List<MokjangReport> mokjangReports =mokjangReportMapper.selectByExample(example );
-		
-		return mokjangReports.size() > 0 ? mokjangReports.get(0) : null;
+		return mokjangReportMapper.selectMokjangReport(params );
 	}
 
 	@Override
