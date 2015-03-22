@@ -115,7 +115,7 @@
 	  </table>
 	</div>
 	
-  <div class="col-md-12">
+  <div class="col-md-7">
 	<table class="table table-bordered">
       <caption>개인별 보고서</caption>
       <colgroup>
@@ -197,10 +197,9 @@
     </table>
   </div>
 </div>
-</div>
-</div>
-</div>
-
+	<div>
+    	<button type="button" class="btn btn-default" onclick="javascript:report.mokjang.regist();">목장보고서 제출</button>
+    </div>
 </form>
 
 
