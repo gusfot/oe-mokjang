@@ -21,186 +21,189 @@
 <body>
 
 <div class="containerWrap">
-			<div class="headWrap">
-			<%@ include file="../include/header.jsp" %>
-			</div>
-			<div class="contentsWrap">
-				<div class="contents">
-<div>
-	<h1>목장집회 보고서 <small>(하나님은 정직한 사람을 복 주십니다.)</small></h1>
-</div>
-<form class="form-horizontal" id="mokjangReportForm">
-<div class="row">
-  
-  <div class="col-md-12 table-responsive">
-	  <table class="table table-bordered">
-	  	<caption>목장집회보고서.</caption>
-	  	 <colgroup>
-	      	<col width="10%">
-	      	<col width="*">
-	      	<col width="10%">
-	      	<col width="*">
-	      </colgroup>
-	    <tr>
-	    	<td class="text-center">목장</td>
-	    	<td>
-	    		<input type="text" class="form-control" id="deptName" value="${sessionUserVO.deptName}" readOnly>
-          		<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}">
-          	</td>
-	    	<td class="text-center">교구</td>
-	    	<td><input type="text" class="form-control" id="inputEmail3" placeholder="교구" value=""></td>
-	    </tr>
-	     <tr>
-	    	<td class="text-center">집회일시</td>
-	    	<td>
-				<input type="date" class="form-control" name="worshipDt" id="worshipDt" placeholder="집회장소">
-			</td>
-	    	<td class="text-center">집회장소</td>
-	    	<td>
-				<input type="text" class="form-control" name="worshipPlace" id="worshipPlace" placeholder="집회장소">
-			</td>
-	    </tr>
-	     <tr>
-	    	<td class="text-center">마음열기</td>
-	    	<td>
-				<select class="form-control" name="welcomeUserName" id="welcomeUserName">
-				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-					<option>${user.userName}</option>
-				</c:forEach>
-				</select>
-			</td>
-	    	<td class="text-center">찬송인도</td>
-	    	<td>
-				<select class="form-control" name="worshipUserName" id="worshipUserName">
-				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-					<option>${user.userName}</option>
-				</c:forEach>
-				</select>
-			</td>
-	    </tr>
-	     <tr>
-	    	<td class="text-center">말씀인도</td>
-	    	<td>
-				<select class="form-control" name="wordUserName" id="wordUserName">
-				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-					<option>${user.userName}</option>
-				</c:forEach>
-				</select>
-			</td>
-	    	<td class="text-center">사역인도</td>
-	    	<td>
-				<select class="form-control" name="workUserName" id="workUserName">
-				<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-					<option>${user.userName}</option>
-				</c:forEach>
-				</select>
-			</td>
-	    </tr>
-	     <tr>
-	    	<td class="text-center">다음장소</td>
-	    	<td>
-				<input type="text" class="form-control" name="nextWorshipPlace" id="nextWorshipPlace" placeholder="다음장소">
-			</td>
-	    	<td class="text-center">목장선교헌금</td>
-	    	<td>
-				<input type="number" class="form-control" name="offering" id="offering" step="1000" placeholder="원">
-			</td>
-	    </tr>
-	     <tr>
-	    	<td class="text-center">기타보고사항</td>
-	    	<td colspan="3">
-				<textarea rows="" cols="" name="etcReportContent" id="etcReportContent"></textarea>
-			</td>
-	    </tr>
-	  </table>
+	<div class="headWrap">
+	<%@ include file="../include/header.jsp" %>
 	</div>
-	
-  <div class="col-md-7">
-	<table class="table table-bordered">
-      <caption>개인별 보고서</caption>
-      <colgroup>
-      	<col width="2%">
-      	<col width="2%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="5%">
-      	<col width="*">
-      </colgroup>
-      <thead>
-        <tr>
-          <th class="text-center"><small>번호</small></th>
-          <th class="text-center"><small>목장원<br />이름</small></th>
-          <th class="text-center"><small>목장집회<br />참석</small></th>
-          <th class="text-center"><small>주일예배<br />참석</small></th>
-          <th class="text-center"><small>목장<br />새등록자</small></th>
-          <th class="text-center"><small>8주차<br />참석자</small></th>
-          <th class="text-center"><small>목장등록후<br />교회등록</small></th>
-          <th class="text-center"><small>양육<br />1권수료</small></th>
-          <th class="text-center"><small>학교양육<br />1권수료</small></th>
-          <th class="text-center"><small>교회<br />등록</small></th>
-          <th class="text-center"><small>교회등록후<br />목장참석</small></th>
-          <th class="text-center"><small>번식하여<br />나가는분</small></th>
-          <th class="text-center"><small>식당<br />봉사</small></th>
-        </tr>
-      </thead>
-      <tbody>
-      	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-	      	<tr>
-		      <th scope="row" class="text-center">${i.count}</th>
-	          <td><span class="text-center label <c:choose><c:when test="${user.role.roleName eq '목자'}">label-success</c:when><c:when test="${user.role.roleName eq '예비목자'}">label-info</c:when><c:otherwise>label-default</c:otherwise></c:choose> ">${user.userName}</span>
-	          	<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" placeholder="목장새등록자">
-	          </td>
-	          <td>
-				<input type="checkbox" class="form-control" name="reports[${i.index}].mokjangYn" value="Y">
-		      </td>
-	          <td>
-				<input type="checkbox" class="form-control" name="reports[${i.index}].sundayYn" value="Y">
-		      </td>
-	          <td>
-			    	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          		<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	          <td>
-	          	<input type="checkbox" class="form-control" name="" value="Y">
-	          </td>
-	      	</tr>
-      	</c:forEach>
-      </tbody>
-    </table>
-  </div>
+	<div class="contentsWrap">
+		<div class="contents">
+			<div>
+				<h1>목장집회 보고서 <small>(하나님은 정직한 사람을 복 주십니다.)</small></h1>
+			</div>
+				<form class="form-horizontal" id="mokjangReportForm">
+				<div class="row">
+				  
+				  <div class="col-md-12 table-responsive">
+					  <table class="table table-bordered">
+					  	<caption>목장집회보고서.</caption>
+					  	 <colgroup>
+					      	<col width="10%">
+					      	<col width="*">
+					      	<col width="10%">
+					      	<col width="*">
+					      </colgroup>
+					    <tr>
+					    	<td class="text-center">목장</td>
+					    	<td>
+					    		<input type="text" class="form-control" id="deptName" value="${sessionUserVO.deptName}" readOnly>
+				          		<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}">
+				          	</td>
+					    	<td class="text-center">교구</td>
+					    	<td><input type="text" class="form-control" id="inputEmail3" placeholder="교구" value=""></td>
+					    </tr>
+					     <tr>
+					    	<td class="text-center">집회일시</td>
+					    	<td>
+								<input type="date" class="form-control" name="worshipDt" id="worshipDt" placeholder="집회장소">
+							</td>
+					    	<td class="text-center">집회장소</td>
+					    	<td>
+								<input type="text" class="form-control" name="worshipPlace" id="worshipPlace" placeholder="집회장소">
+							</td>
+					    </tr>
+					     <tr>
+					    	<td class="text-center">마음열기</td>
+					    	<td>
+								<select class="form-control" name="welcomeUserName" id="welcomeUserName">
+								<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+									<option>${user.userName}</option>
+								</c:forEach>
+								</select>
+							</td>
+					    	<td class="text-center">찬송인도</td>
+					    	<td>
+								<select class="form-control" name="worshipUserName" id="worshipUserName">
+								<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+									<option>${user.userName}</option>
+								</c:forEach>
+								</select>
+							</td>
+					    </tr>
+					     <tr>
+					    	<td class="text-center">말씀인도</td>
+					    	<td>
+								<select class="form-control" name="wordUserName" id="wordUserName">
+								<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+									<option>${user.userName}</option>
+								</c:forEach>
+								</select>
+							</td>
+					    	<td class="text-center">사역인도</td>
+					    	<td>
+								<select class="form-control" name="workUserName" id="workUserName">
+								<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+									<option>${user.userName}</option>
+								</c:forEach>
+								</select>
+							</td>
+					    </tr>
+					     <tr>
+					    	<td class="text-center">다음장소</td>
+					    	<td>
+								<input type="text" class="form-control" name="nextWorshipPlace" id="nextWorshipPlace" placeholder="다음장소">
+							</td>
+					    	<td class="text-center">목장선교헌금</td>
+					    	<td>
+								<input type="number" class="form-control" name="offering" id="offering" step="1000" placeholder="원">
+							</td>
+					    </tr>
+					     <tr>
+					    	<td class="text-center">기타보고사항</td>
+					    	<td colspan="3">
+								<textarea rows="" cols="" name="etcReportContent" id="etcReportContent"></textarea>
+							</td>
+					    </tr>
+					  </table>
+					</div>
+					
+				  <div class="col-md-7">
+					<table class="table table-bordered">
+				      <caption>개인별 보고서</caption>
+				      <colgroup>
+				      	<col width="2%">
+				      	<col width="2%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="5%">
+				      	<col width="*">
+				      </colgroup>
+				      <thead>
+				        <tr>
+				          <th class="text-center"><small>번호</small></th>
+				          <th class="text-center"><small>목장원<br />이름</small></th>
+				          <th class="text-center"><small>목장집회<br />참석</small></th>
+				          <th class="text-center"><small>주일예배<br />참석</small></th>
+				          <th class="text-center"><small>목장<br />새등록자</small></th>
+				          <th class="text-center"><small>8주차<br />참석자</small></th>
+				          <th class="text-center"><small>목장등록후<br />교회등록</small></th>
+				          <th class="text-center"><small>양육<br />1권수료</small></th>
+				          <th class="text-center"><small>학교양육<br />1권수료</small></th>
+				          <th class="text-center"><small>교회<br />등록</small></th>
+				          <th class="text-center"><small>교회등록후<br />목장참석</small></th>
+				          <th class="text-center"><small>번식하여<br />나가는분</small></th>
+				          <th class="text-center"><small>식당<br />봉사</small></th>
+				        </tr>
+				      </thead>
+				      <tbody>
+				      	<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+					      	<tr>
+						      <th scope="row" class="text-center">${i.count}</th>
+					          <td><span class="text-center label <c:choose><c:when test="${user.role.roleName eq '목자'}">label-success</c:when><c:when test="${user.role.roleName eq '예비목자'}">label-info</c:when><c:otherwise>label-default</c:otherwise></c:choose> ">${user.userName}</span>
+					          	<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" placeholder="목장새등록자">
+					          </td>
+					          <td>
+								<input type="checkbox" class="form-control" name="reports[${i.index}].mokjangYn" value="Y">
+						      </td>
+					          <td>
+								<input type="checkbox" class="form-control" name="reports[${i.index}].sundayYn" value="Y">
+						      </td>
+					          <td>
+							    	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          		<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					          <td>
+					          	<input type="checkbox" class="form-control" name="" value="Y">
+					          </td>
+					      	</tr>
+				      	</c:forEach>
+				      </tbody>
+				    </table>
+				  </div>
+				</div>
+					<div>
+				    	<button type="button" class="btn btn-default" onclick="javascript:report.mokjang.regist();">목장보고서 제출</button>
+				    </div>
+				</form>
+			</div>
+		</div>
 </div>
-	<div>
-    	<button type="button" class="btn btn-default" onclick="javascript:report.mokjang.regist();">목장보고서 제출</button>
-    </div>
-</form>
 
 
     <!-- Bootstrap core JavaScript
