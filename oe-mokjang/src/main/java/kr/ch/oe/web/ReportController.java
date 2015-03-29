@@ -71,8 +71,6 @@ public class ReportController {
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
-		model.addAttribute("mokja", sessionUserVO);
-		
 		return "report/mokjangReport_regist";
 	}
 	
