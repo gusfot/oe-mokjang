@@ -1,8 +1,6 @@
 package kr.ch.oe.web;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
@@ -131,5 +130,25 @@ public class ReportController {
 		
 		return returnObject.toString();
 	}
+	
+	/**
+     * Handle request to download an Excel document
+     */
+    @RequestMapping(value = "/downMokjang", method = RequestMethod.GET)
+    public ModelAndView downloadExcel() {
+        
+        MokjangReport mokjangReport= mokjangReportService.getMokjangReport(14l);
+ 
+        // return a view which will be resolved by an excel view resolver
+        return new ModelAndView("excelView", "mokjangReport", mokjangReport);
+    }
+    
+    @RequestMapping(value="/testExcel.oe", method=RequestMethod.GET)
+    public String testExcel(Model model) {
+    	
+    	MokjangReport mokjangReport= mokjangReportService.getMokjangReport(14l);
+    	model.addAttribute("mokjangReport", mokjangReport);
+        return "excelView";
+    }
 }
 
