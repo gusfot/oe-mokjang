@@ -11,18 +11,18 @@
 .header_week .week_prev {position:absolute; left:0px; top:0px; width:25%;}
 .header_week .week_picker {position:absolute; top:0px; left:25%; width:50%;}
 .header_week .week_next {position:absolute; top:0px;right:0px; width:25%;}
-
 .content{position:relative;}
-.content .table_wrap {padding:5px;}
+.content .table_wrap{padding:5px;}
+.content .table_wrap table tr td{padding:0px; text-align:center;}
+.content .table_wrap .content_table tr td{padding:10px 5px 15px 5px; text-align:left;}
 .content .table_wrap .content_table .today_point{font-weight:bold; color:#FF7F27;}
+
 .content .meet_info{position:absolute; top:45px; left:0px;}
-.content .attend_chk{width:25px;}
 .content .content_table {width:100%; margin-bottom:10px;}
 .content .content_table tr td{border-bottom:1px solid #EEEEEE; padding: 10px; text-align:left;}
 
-/* jQuery Á¶Á¤ */
+/* jQuery modify */
 .ui-input-text {height:33px;}
-.ui-table-columntoggle-btn {display:none;}
 .ui-input-text input {}
 .ui-btn{font-size:12.5px;}
 .ui-controlgroup-controls 
