@@ -27,6 +27,7 @@
 			<div class="content_wrap">
 				<div class="content">
 					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장보고서 저장</a>
+						<div class="table_wrap">
 						<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d table-stripe ui-responsive" data-column-btn-theme="a" data-column-btn-text="항목보기" data-column-popup-theme="c">
 
 							<thead>
@@ -60,7 +61,7 @@
 													<option value="#">5회</option>
 													<option value="#">6회</option>
 													<option value="#">7회</option>
-											????</select>
+												</select>
 											</fieldset>
 										</form>
 									</td>
@@ -87,7 +88,7 @@
 													<option value="#">5회</option>
 													<option value="#">6회</option>
 													<option value="#">7회</option>
-											????</select>
+												</select>
 											</fieldset>
 										</form>
 									</td>
@@ -114,7 +115,7 @@
 													<option value="#">5회</option>
 													<option value="#">6회</option>
 													<option value="#">7회</option>
-											????</select>
+												</select>
 											</fieldset>
 										</form>
 									</td>
@@ -141,7 +142,7 @@
 													<option value="#">5회</option>
 													<option value="#">6회</option>
 													<option value="#">7회</option>
-											????</select>
+												</select>
 											</fieldset>
 										</form>
 									</td>
@@ -168,7 +169,7 @@
 													<option value="#">5회</option>
 													<option value="#">6회</option>
 													<option value="#">7회</option>
-											????</select>
+											</select>
 											</fieldset>
 										</form>
 									</td>
@@ -183,12 +184,17 @@
 											
 							</tbody>
 						</table>
-
+						
+						<div class="meet_info">								
+							<a href="#" class="ui-btn ui-btn-c ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장모임 정보 입력</a>
+							<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true" style="display:none;">목장모임 정보 입력 완료</a>
+						</div>
+						
 						<table class="content_table">
 							<tbody>
 								<tr>						
-									<td>금일점수</td>
-									<td>42p</td>							
+									<td>금일합계점수</td>
+									<td><p class="today_point">42p</p></td>							
 								</tr>
 								<tr>
 									<td>누적점수</td>
@@ -196,15 +202,12 @@
 								</tr>
 								<tr>
 									<td>기타보고</td>
-									<td><form><textarea name="textarea-1" id="textarea-1"></textarea></form></td>							
+									<td style="padding:0px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></form></td>							
 								</tr>
-								<tr>
-									<td>목장모임</td>
-									<td>목장모임 정보를 입력하세요.</td>
-								</tr>
+
 							</tbody>
 						</table>
-						
+						</div>
 					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장보고서 저장</a>
 				</div>
 			</div>
