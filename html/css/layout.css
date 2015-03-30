@@ -4,7 +4,7 @@
 
 
 /* Layouts */
-.container{min-width:360px;}
+.container{}
 .header {margin-top:10px;}
 .header_title h2{text-align:center; margin-bottom:5px;}
 .header_week {width:100%; position:relative; height:50px;}
