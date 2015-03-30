@@ -1,0 +1,229 @@
+<DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+		<title>목장관리시스템 - 목장원관리</title>
+		<meta name="viewport" content="withh=device-withh, initial-scale=1">
+		<meta name="viewport" content="withh=device-withh, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>	
+		<div class="container">
+			<div class="header_wrap">
+				<div class="header">
+					<div class="header_title"><h2>정충상 목장보고서</h2></div>
+					<div class="header_week">
+						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
+						<div class="week_picker"><form><input type="week" data-clear-btn="true" name="week-2" id="week-2" value=""></form></div>
+						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
+					</div>
+				</div>
+			</div>		
+			<div class="content_wrap">
+				<div class="content">
+					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장보고서 저장</a>
+						<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d table-stripe ui-responsive" data-column-btn-theme="a" data-column-btn-text="항목보기" data-column-popup-theme="c">
+
+							<thead>
+								<tr class="th-groups">
+									<th style="text-align:center;">성명</th>
+									<th data-priority="1" style="text-align:center;">목장집회</th>
+									<th data-priority="1" style="text-align:center;">주일예배</th>
+									<th data-priority="2" style="text-align:center;">새벽기도</th>
+									<th data-priority="3" style="text-align:center;">철야집회</th>
+									<th data-priority="4" style="text-align:center;">수요예배</th>
+									<th data-priority="5" style="text-align:center;">사용자1</th>
+									<th data-priority="5" style="text-align:center;">사용자2</th>
+									<th class="totals" style="text-align:center;">점수</th>
+									<th style="text-align:center;">입력</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="text-align:center; vertical-align: middle;">정충상</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td>
+										<form>
+											<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+												<select name="select-more-2a" id="select-more-2a">
+													<option value="">선택</option>
+													<option value="#">1회</option>
+													<option value="#">2회</option>
+													<option value="#">3회</option>
+													<option value="#">4회</option>
+													<option value="#">5회</option>
+													<option value="#">6회</option>
+													<option value="#">7회</option>
+											????</select>
+											</fieldset>
+										</form>
+									</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>							
+									<td style="text-align:center; vertical-align: middle;">15p</td>
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini">입력</a></td>
+								</tr>
+								<tr>
+									<td style="text-align:center; vertical-align: middle;">정충상</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td>
+										<form>
+											<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+												<select name="select-more-2a" id="select-more-2a">
+													<option value="">선택</option>
+													<option value="#">1회</option>
+													<option value="#">2회</option>
+													<option value="#">3회</option>
+													<option value="#">4회</option>
+													<option value="#">5회</option>
+													<option value="#">6회</option>
+													<option value="#">7회</option>
+											????</select>
+											</fieldset>
+										</form>
+									</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>							
+									<td style="text-align:center; vertical-align: middle;">15p</td>
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini">입력</a></td>
+								</tr>
+								<tr>
+									<td style="text-align:center; vertical-align: middle;">정충상</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td>
+										<form>
+											<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+												<select name="select-more-2a" id="select-more-2a">
+													<option value="">선택</option>
+													<option value="#">1회</option>
+													<option value="#">2회</option>
+													<option value="#">3회</option>
+													<option value="#">4회</option>
+													<option value="#">5회</option>
+													<option value="#">6회</option>
+													<option value="#">7회</option>
+											????</select>
+											</fieldset>
+										</form>
+									</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>							
+									<td style="text-align:center; vertical-align: middle;">15p</td>
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini">입력</a></td>
+								</tr>
+								<tr>
+									<td style="text-align:center; vertical-align: middle;">정충상</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td>
+										<form>
+											<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+												<select name="select-more-2a" id="select-more-2a">
+													<option value="">선택</option>
+													<option value="#">1회</option>
+													<option value="#">2회</option>
+													<option value="#">3회</option>
+													<option value="#">4회</option>
+													<option value="#">5회</option>
+													<option value="#">6회</option>
+													<option value="#">7회</option>
+											????</select>
+											</fieldset>
+										</form>
+									</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>							
+									<td style="text-align:center; vertical-align: middle;">15p</td>
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini">입력</a></td>
+								</tr>
+								<tr>
+									<td style="text-align:center; vertical-align: middle;">정충상</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td>
+										<form>
+											<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+												<select name="select-more-2a" id="select-more-2a">
+													<option value="">선택</option>
+													<option value="#">1회</option>
+													<option value="#">2회</option>
+													<option value="#">3회</option>
+													<option value="#">4회</option>
+													<option value="#">5회</option>
+													<option value="#">6회</option>
+													<option value="#">7회</option>
+											????</select>
+											</fieldset>
+										</form>
+									</td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>
+									<td><form><label class="attend_chk"><input type="checkbox" name="checkbox-0" data-mini="true">참석</label></form></td>							
+									<td style="text-align:center; vertical-align: middle;">15p</td>
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini">입력</a></td>
+								</tr>								
+													
+											
+							</tbody>
+						</table>
+
+						<table class="content_table">
+							<tbody>
+								<tr>						
+									<td>금일점수</td>
+									<td>42p</td>							
+								</tr>
+								<tr>
+									<td>누적점수</td>
+									<td>1,211,342p</td>							
+								</tr>
+								<tr>
+									<td>기타보고</td>
+									<td><form><textarea name="textarea-1" id="textarea-1"></textarea></form></td>							
+								</tr>
+								<tr>
+									<td>목장모임</td>
+									<td>목장모임 정보를 입력하세요.</td>
+								</tr>
+							</tbody>
+						</table>
+						
+					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장보고서 저장</a>
+				</div>
+			</div>
+			<div class="footer_wrap">
+				<div class="footer">
+					<div data-role="controlgroup" data-mini="true">
+						<a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left ui-corner-all">새가족 추가</a>
+						<a href="#" class="ui-btn ui-icon-user ui-btn-icon-left ui-corner-all">하위목장 내역</a>
+						<a href="#" class="ui-btn ui-icon-power ui-btn-icon-left ui-corner-all">로그아웃</a>
+						<a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all">내정보 수정</a>
+						<a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left ui-corner-all">알림내역(5)</a>
+						<a href="#" class="ui-btn ui-icon-comment ui-btn-icon-left ui-corner-all">문의하기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+		
+	</body>
+
+</html>

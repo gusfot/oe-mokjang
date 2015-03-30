@@ -1,0 +1,24 @@
+@charset "euc-kr";
+
+
+
+
+/* Layouts */
+.container{min-width:360px;}
+.header {margin-top:10px;}
+.header_title h2{text-align:center; margin-bottom:5px;}
+.header_week {width:100%; position:relative; height:50px;}
+.header_week .week_prev {position:absolute; left:0px; top:0px; width:25%;}
+.header_week .week_picker {position:absolute; top:0px; left:25%; width:50%;}
+.header_week .week_next {position:absolute; top:0px;right:0px; width:25%;}
+
+.content_table {width:100%; margin-bottom:10px;}
+.attend_chk{width:25px;}
+.content_table tr td{border-bottom:1px solid #EEEEEE; padding: 10px;}
+
+/* jQuery Á¶Á¤ */
+.ui-input-text {height:33px;}
+.ui-table-columntoggle-btn {display:none;}
+.ui-input-text input {}
+.ui-btn{font-size:12.5px;}
+.ui-controlgroup-controls 
