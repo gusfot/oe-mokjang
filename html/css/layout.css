@@ -16,10 +16,24 @@
 .content .table_wrap table tr td{padding:0px; text-align:center;}
 .content .table_wrap .content_table tr td{text-align:left;}
 .content .table_wrap .content_table .today_point{font-weight:bold;}
-
 .content .meet_info{position:absolute; top:45px; left:0px;}
 .content .content_table {width:100%; margin-bottom:10px;}
 .content .content_table tr td{border-bottom:1px solid #EEEEEE; padding: 10px; text-align:left;}
+
+
+/* Layouts #서브 */
+.sub_container{padding:10px; background-color:#999999;}
+.sub_wrapper{background-color:#FFFFFF; padding:5px; border-radius:3px;}
+.header_title h3{text-align:left; margin-bottom:5px;}
+.info_wrap .person_info_title{padding:10px 0 5px 0; color:#3879D9;}
+.person_info_01{border-top:1px solid #CCCCCC; width:100%;}
+.person_info_01 tr th{padding:5px; border-bottom:1px solid #EEEEEE;}
+.person_info_01 tr td{padding:5px; border-bottom:1px solid #EEEEEE; border-left:1px solid #EEEEEE; text-align:left; color:#666666;}
+.person_info_02{border-top:1px solid #CCCCCC; width:100%;}
+.person_info_02 tr th{padding:5px; border-bottom:1px solid #EEEEEE;}
+.person_info_02 tr td{padding:5px; border-bottom:1px solid #EEEEEE; border-left:1px solid #EEEEEE; text-align:left; color:#666666;}
+
+
 
 /* jQuery modify */
 .ui-input-text {height:33px;}
