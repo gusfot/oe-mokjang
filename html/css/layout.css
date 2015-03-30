@@ -14,8 +14,8 @@
 .content{position:relative;}
 .content .table_wrap{padding:5px;}
 .content .table_wrap table tr td{padding:0px; text-align:center;}
-.content .table_wrap .content_table tr td{padding:10px 5px 15px 5px; text-align:left;}
-.content .table_wrap .content_table .today_point{font-weight:bold; color:#FF7F27;}
+.content .table_wrap .content_table tr td{text-align:left;}
+.content .table_wrap .content_table .today_point{font-weight:bold;}
 
 .content .meet_info{position:absolute; top:45px; left:0px;}
 .content .content_table {width:100%; margin-bottom:10px;}
