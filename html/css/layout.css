@@ -16,6 +16,11 @@
 .content .table_wrap table tr td{padding:0px; text-align:center;}
 .content .table_wrap .content_table tr td{text-align:left;}
 .content .table_wrap .content_table .today_point{font-weight:bold;}
+.content .table_wrap .point_wrap table{width:100%; border-top:1px solid #CCCCCC; margin-top:20px;}
+.content .table_wrap .point_wrap table tr th{padding:5px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .table_wrap .point_wrap table tr td{padding:10px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .table_wrap .point_wrap table tr td .point_plus{color:blue;}
+.content .table_wrap .point_wrap table tr td .point_minus{color:red;}
 .content .meet_info{position:absolute; top:45px; left:0px;}
 .content .content_table {width:100%; margin-bottom:10px;}
 .content .content_table tr td{border-bottom:1px solid #EEEEEE; padding: 10px; text-align:left;}
@@ -49,6 +54,7 @@
 .attend_wrap ul li .attend_delete{position:absolute; top:-20px; right:-35px;}
 .attend_wrap ul li .attend_photo img{width:50px;}
 
+.paging{text-align:center;}
 
 /* jQuery modify */
 .ui-input-text {height:33px;}
