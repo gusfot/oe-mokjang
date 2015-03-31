@@ -1,0 +1,127 @@
+<DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+		<title>목장관리시스템 - 알림내역</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>	
+		<div class="sub_container">
+		<div class="sub_wrapper">
+			<div class="header_wrap">
+				<div class="header">
+					<div class="header_title"><h3>알림내역</h3></div>					
+					<div class="header_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+				</div>
+			</div>		
+			<div class="content_wrap">
+				<div class="content">
+					<div class="table_wrap">
+						<div class="noty_wrap">
+							<table>
+								<thead>								
+									<tr class="th-groups">
+										<th data-priority="1" style="text-align:center; width:35px;"><input type="checkbox" name="checkbox-0" data-mini="true"></th>
+										<th data-priority="1" style="text-align:center;">알림내용</th>
+										<th data-priority="1" style="text-align:center;">읽은시간</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" >얼럿 팝업 테스트</a>
+										<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="a" data-dismissible="false" style="max-width:400px;">
+											<div data-role="header" data-theme="a">
+												<h1>알림</h1>
+											</div>
+											<div role="main" class="ui-content">
+												<h3 class="ui-title">김미숙 님께서 김미숙 목장에서 정충상 목장으로 전출(정충상)을 요청하였습니다.</h3>
+												<p>수락하시겠습니까?</p>
+												<div style="text-align:center; margin-top:20px;">
+													<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a ui-mini">거절</a>
+													<a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-mini" data-transition="flow">수락</a>
+												</div>
+											</div>
+										</div>
+										</td>
+										<td><p class="noty_notread">읽지않음</p></td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td><p class="noty_notread">읽지않음</p></td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="checkbox-0" data-mini="true"></td>
+										<td><a href="#">전출요청(송명섭)</a></td>
+										<td>2015.03.23 17:30</td>
+									</tr>									
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="paging">
+					<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+						<a href="#" class="ui-btn ui-corner-all">처음</a>
+						<a href="#" class="ui-btn ui-corner-all">이전</a>
+						<a href="#" class="ui-btn ui-corner-all">1</a>
+						<a href="#" class="ui-btn ui-corner-all">2</a>
+						<a href="#" class="ui-btn ui-corner-all">3</a>						
+						<a href="#" class="ui-btn ui-corner-all">다음</a>
+						<a href="#" class="ui-btn ui-corner-all">끝</a>
+					</div>
+					</div>
+					
+					
+				</div>
+			</div>
+			<div class="footer_wrap">
+				<div class="footer">
+
+				</div>
+			</div>
+		
+		</div>
+	
+
+		
+	</body>
+
+</html>

@@ -33,6 +33,8 @@
 .content .table_wrap .noty_wrap table tr td{padding:7px 0 10px 0; border-bottom:1px solid #EEEEEE;}
 .content .table_wrap .noty_wrap table tr td .noty_notread{color:red;}
 
+.under_wrap{min-height:700px;}
+.under_wrap div a{text-align:left;}
 
 
 /* Layouts #서브 */
