@@ -1,0 +1,193 @@
+<DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+		<title>목장관리시스템 - 정충상목장 모임 정보 입력</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>	
+		<div class="sub_container">
+		<div class="sub_wrapper">
+			<div class="header_wrap">
+				<div class="header">
+					<div class="header_title"><h3>정충상목장 모임 정보 입력</h3></div>
+					<div class="header_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+				</div>
+			</div>		
+			<div class="content_wrap">
+				<div class="content">
+					<div class="input_wrap">
+						<div class="ui-grid-a ui-responsive">
+							
+							<div class="ui-block-a">
+							<h4>기본정보</h4>
+							<table class="person_info_01">
+								<tr>
+									<th>집회일시</th>
+									<td style="padding:0 7px 0 7px;"><input type="datetime-local" data-clear-btn="false" name="datetime-4" id="datetime-4" value=""></td>
+								</tr>
+								<tr>
+									<th>집회장소</th>
+									<td style="padding:0 7px 0 7px;">
+									<form>
+										<input data-type="search" id="filterControlgroup-input">
+									</form>
+									<div data-role="controlgroup" data-filter="true" data-input="#filterControlgroup-input">
+										<a href="#" class="ui-btn ui-shadow ui-corner-all ui-mini">교회</a>
+										<a href="#" class="ui-btn ui-shadow ui-corner-all ui-mini">목자집</a>
+										<a href="#" class="ui-btn ui-shadow ui-corner-all ui-mini" data-filtertext="some text">야외</a>
+										<a href="#" class="ui-btn ui-shadow ui-corner-all ui-mini">커피숍</a>										
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<th>마음열기</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="select-native-fc" id="select-native-fc" data-mini="true">
+												<option value="">선택하세요</option>
+												<option value="정충상">정충상</option>
+												<option value="홍길동">홍길동</option>
+												<option value="김현래">김현래</option>
+												<option value="송명섭">송명섭</option>
+												<option value="안지훈">안지훈</option>
+												<option value="하종수">하종수</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>찬송인도</th>
+									<td>										
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="select-native-fc" id="select-native-fc" data-mini="true">
+												<option value="">선택하세요</option>
+												<option value="정충상">정충상</option>
+												<option value="홍길동">홍길동</option>
+												<option value="김현래">김현래</option>
+												<option value="송명섭">송명섭</option>
+												<option value="안지훈">안지훈</option>
+												<option value="하종수">하종수</option>
+											</select>
+										</div></td>
+								</tr>	
+								<tr>
+									<th>말씀인도</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="select-native-fc" id="select-native-fc" data-mini="true">
+												<option value="">선택하세요</option>
+												<option value="정충상">정충상</option>
+												<option value="홍길동">홍길동</option>
+												<option value="김현래">김현래</option>
+												<option value="송명섭">송명섭</option>
+												<option value="안지훈">안지훈</option>
+												<option value="하종수">하종수</option>
+											</select>
+										</div>
+									</td>									
+								</tr>
+								<tr>
+									<th>사역인도</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="select-native-fc" id="select-native-fc" data-mini="true">
+												<option value="">선택하세요</option>
+												<option value="정충상">정충상</option>
+												<option value="홍길동">홍길동</option>
+												<option value="김현래">김현래</option>
+												<option value="송명섭">송명섭</option>
+												<option value="안지훈">안지훈</option>
+												<option value="하종수">하종수</option>
+											</select>
+										</div>
+									</td>									
+								</tr>								
+							</table>
+							</div>
+							<div class="ui-block-b">
+							<h4>기타정보</h4>
+							<table class="person_info_02">
+								<tr>
+									<th>기타참석자</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="select-native-fc" id="select-native-fc" data-mini="true">
+												<option value="">선택하세요</option>
+												<option value="정충상">정충상</option>
+												<option value="홍길동">홍길동</option>
+												<option value="김현래">김현래</option>
+												<option value="송명섭">송명섭</option>
+												<option value="안지훈">안지훈</option>
+												<option value="하종수">하종수</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>총 참석자</th>
+									<td style="padding:0 7px 0 7px;">총 참석자 <span class="total_attend">9명</span>
+									<div style="min-height:100px;" class="attend_wrap">
+										<ul>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>송명섭
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>정충상
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>김현래
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>송명섭
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>정충상
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>김현래
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>송명섭
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>정충상
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>
+										<li><p class="attend_photo"><img src="./img/person.png"></p>김현래
+										<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
+										</li>										
+										</ul>
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<th>목장헌금</th>
+									<td><input type="text" data-clear-btn="true" name="text-3" id="text-3" value="10,000" data-mini="true"></td>
+								</tr>
+							</table>	
+							</div>
+						</div>
+					</div>
+					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini">목장보고서 저장</a>
+				</div>
+			</div>
+			<div class="footer_wrap">
+				<div class="footer">
+
+				</div>
+			</div>
+		
+		</div>
+	
+
+		
+	</body>
+
+</html>
