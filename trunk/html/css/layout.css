@@ -37,6 +37,7 @@
 .under_wrap{min-height:700px;}
 .under_wrap div a{text-align:left;}
 
+.footer .footer_copy{text-align:center; margin-top:20px; font-size:11px;}
 
 /* Layouts #서브 */
 .sub_container{padding:10px; background-color:#666666;}
