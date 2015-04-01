@@ -13,20 +13,22 @@
 .header_week .week_picker {position:absolute; top:0px; left:25%; width:50%;}
 .header_week .week_next {position:absolute; top:0px;right:0px; width:25%;}
 .content{position:relative;}
-.content .table_wrap{padding:5px;}
+.content .table_wrap{padding:7px; margin-top:50px;}
 .content .table_wrap table tr td{padding:0px; text-align:center; vertical-align: middle;}
 .content .table_wrap table tr td img{padding:1px;}
 .content .table_wrap table tr td .table_point img{width:25px; padding:3px;}
-.content .table_wrap .content_table tr td{text-align:left;}
+.content .table_wrap .content_table {width:100%; margin-bottom:10px;}
+.content .table_wrap .content_table tr th{text-align:left; border-bottom:1px solid #EEEEEE; padding-left:5px;}
+.content .table_wrap .content_table tr td{text-align:left; border-bottom:1px solid #EEEEEE; text-align:left;}
+
 .content .table_wrap .content_table .today_point{font-weight:bold;}
 .content .table_wrap .point_wrap table{width:100%; border-top:1px solid #CCCCCC; margin-top:20px;}
 .content .table_wrap .point_wrap table tr th{padding:8px 0 10px 0; border-bottom:1px solid #EEEEEE;}
 .content .table_wrap .point_wrap table tr td{padding:7px 0 10px 0; border-bottom:1px solid #EEEEEE;}
 .content .table_wrap .point_wrap table tr td .point_plus{color:blue;}
 .content .table_wrap .point_wrap table tr td .point_minus{color:red;}
-.content .meet_info{position:absolute; top:45px; left:0px;}
-.content .content_table {width:100%; margin-bottom:10px;}
-.content .content_table tr td{border-bottom:1px solid #EEEEEE; padding: 10px; text-align:left;}
+.content .meet_info{position:absolute; top:48px; left:0px;}
+
 
 
 
