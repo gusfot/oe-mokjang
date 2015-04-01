@@ -73,6 +73,7 @@
 /* jQuery modify */
 .ui-input-text {height:33px;}
 .ui-input-text input {}
-.ui-btn{font-size:12.5px;}
+.ui-btn{font-size:120px; padding:10px;}
 .ui-controlgroup-controls 
 .ui-field-contain{padding:0px;}
+
