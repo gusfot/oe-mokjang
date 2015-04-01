@@ -15,7 +15,8 @@
 .content{position:relative;}
 .content .table_wrap{padding:5px;}
 .content .table_wrap table tr td{padding:0px; text-align:center; vertical-align: middle;}
-.content .table_wrap table tr td img{padding:2px;}
+.content .table_wrap table tr td img{padding:1px;}
+.content .table_wrap table tr td .table_point img{width:25px; padding:3px;}
 .content .table_wrap .content_table tr td{text-align:left;}
 .content .table_wrap .content_table .today_point{font-weight:bold;}
 .content .table_wrap .point_wrap table{width:100%; border-top:1px solid #CCCCCC; margin-top:20px;}
