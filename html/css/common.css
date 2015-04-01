@@ -19,10 +19,10 @@ td, li, dd, p {word-break:keep-all; word-wrap:bread-word;}
 legend, caption {overflow:hidden; width:0; height:0; margin:0; padding:0; visibility:hidden;}
 textarea {padding:2px 0; border:1px solid #DDDDDD; background-color:#FFFFFF;}
 select {height:20px; border:1px solid #DDDDDD; background-color:#FFFFFF;}
-input {vertical-align:middle;}
+input {vertical-align:middle; font-family:³ª´®°íµñ, NanumGothic;}
 input.text {height;16px; padding:4px 10px 4px 10px; background-color#FFFFFF; border:1px solid #D6D5D2;}
 
-label {vertical-align:middle; font-size:12.5px; }
+label {vertical-align:middle; font-size:12.5px; font-family:³ª´®°íµñ, NanumGothic;}
 label img {margin-top:-1px;}
 
 a {color:#999999;}
