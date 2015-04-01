@@ -11,7 +11,13 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 		<!-- jQuery Customize -->
 		<style>
-			.ui-btn{padding: 8.75px 10px 8.75px 10px;}
+			.week_next a {padding-left:13%; text-align:left;}
+			.ui-select{width:100%;}
+			.ui-select span{margin-right:15px; width:40px;}
+			.ui-table-columntoggle-btn{box-shadow:none; position:absolute; right:0px; top: 48px}
+			.ui-table-columntoggle-popup{width:150px;}
+			.ui-table-columntoggle-popup label{font-size:12.5px;}
+			.ui-btn{padding: 8.75px 10px 8.75px 10px; font-size:12.5px;}
 			.ui-btn-icon-left{padding-left:2.3em;}
 			.ui-checkbox{margin:3px;}
 		</style>
@@ -24,9 +30,9 @@
 				<div class="header">
 					<div class="header_title"><h2>정충상 목장보고서</h2></div>
 					<div class="header_week">
-						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전</a></div>
+						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
 						<div class="week_picker" style="width:50%;"><form><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></form></div>
-						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음</a></div>
+						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
 					</div>
 				</div>
 			</div>
@@ -254,21 +260,21 @@
 						</table>
 						
 						<div class="meet_info">								
-							<a href="#" class="ui-btn ui-btn-c ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true">목장모임 정보 입력</a>
+							<a href="#" class="ui-btn ui-btn-c ui-corner-all ui-icon-plus ui-btn-icon-left ui-mini" data-mini="true">목장모임 정보 입력</a>
 							<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true" style="display:none;">목장모임 정보 입력 완료</a>
 						</div>
 						
 						<table class="content_table">
 							<tr>						
-								<td>금일합계점수</td>
+								<th>금일합계점수</th>
 								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini">42P</a></p></td>							
 							</tr>
 							<tr>
-								<td>누적점수</td>
+								<th>누적점수</th>
 								<td><a href="#" class="ui-btn ui-corner-all ui-mini">1,211,342P</a></td>							
 							</tr>
 							<tr>
-								<td>기타보고</td>
+								<th>기타보고</th>
 								<td style="padding:0 7px 0 7px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></form></td>							
 							</tr>
 						</table>
