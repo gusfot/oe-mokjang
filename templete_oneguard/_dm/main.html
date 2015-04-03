@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from 112.216.117.106:16682/html/_dm/main.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:31 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>농협생명</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/popup.html"/>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/selectric.js"></script>
+<script type="text/javascript" src="../js/icheck.js"></script>
+<script type="text/javascript" src="../js/jqBarGraph.1.1.js"></script>
+<script type="text/javascript" src="../js/ui.js"></script>
+</head>
+
+<body>
+<!-- Wrap -->
+<div id="wrap">
+	<!-- Header -->
+	<div id="header">
+		<h1><a href="#"><img src="images/common/logo_oneguard.png" alt="ONE GUARD 고객정보처리시스템｜NH농형생명"/></a></h1>
+		<div class="head-info">
+			<div class="h-info-date">
+				<strong>홍길동<em>(대리/IT 개발)</em> 반갑습니다.</strong>
+				<span class="first">현재 접속 : 2014.06.19. 16:08</span><span>이전 접속 : 2014.06.19. 16:08</span>
+			</div>
+			<button type="button" class="btn-logout">로그아웃</button>
+		</div>
+	</div>
+	<!-- //Header -->
+	<!-- Body-->
+	<div id="container">
+		<p id="cont-lnb-btm"></p>
+		<!-- Navigation -->
+		<div id="nav">
+			<ul class="lnb">
+				<li class="active"><a href="main.html"><span class="ico-lnb home"></span>HOME</a></li>
+				<li><a href="customer_req.html" class="lnb-ico1">DM 발송 신청</a>
+					<ul>
+						<li><a href="customer_req_stand.html">결재 대기</a></li>
+						<li><a href="customer_req_complete.html">결재 완료</a></li>
+					</ul>
+				</li>
+				<li><a href="dm_present.html" class="lnb-ico2">DM 처리현황</a>
+					<ul>
+						<li><a href="dm_progress.html">진행</a></li>
+						<li><a href="dm_transfer.html">전송완료</a></li>
+					</ul>
+				</li>
+				<li><a href="dm_admin.html" class="lnb-ico3">DM 등록/관리</a>
+					<ul>
+						<li><a href="dm_admin_step_register.html">DM 신규등록</a></li>
+						<li><a href="dm_admin_form.html">전자폼 관리</a></li>
+						<li><a href="dm_admin_cbr.html">CBR 관리</a></li>
+						<li><a href="dm_materials.html">자재 관리</a></li>
+						<li><a href="dm_enclose.html">동봉물 관리</a></li>
+						<li><a href="dm_security.html">보안 관리</a></li>
+						<li><a href="dm_image.html">이미지 등록</a></li>
+						<li><a href="dm_toll_list.html">집중국 리스트</a></li>
+					</ul>
+				</li>
+				<li><a href="consign_admin.html" class="lnb-ico8">수탁사 관리</a></li>
+				<li><a href="user_admin_detail.html" class="lnb-ico9">내정보 관리</a></li>
+			</ul>
+			<!--
+			<div class="lnb-date">
+				<ul>
+					<li class="active"><a href="#">일</a></li>
+					<li><a href="#">주</a></li>
+					<li><a href="#">월</a></li>
+				</ul>
+			</div>
+			-->
+		</div>
+		<!-- //Navigation -->
+		<!-- Content -->
+		<div id="contents">
+			<!-- Top -->
+			<div class="m-diagram">
+				<div class="m-dig-box">
+					<ul>
+						<li>
+							<p><span class="num cont1">150</span><span class="txt"><em class="acc">DM 발송 신청</em></span></p>
+						</li>
+						<li>
+							<p><span class="num cont2">70</span><span class="txt"><em class="acc">DM 등록</em></span></p>
+						</li>
+						<li>
+							<p><span class="num cont3">2</span><span class="txt"><em>DM 발송 신청</em></span></p>
+						</li>
+						<li>
+							<p><span class="num cont4">1</span><span class="txt"><em>수탁사 정보 전송완료</em></span></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- //Top -->
+
+			<!-- (금일)외부 제공 현황 -->
+			<div class="m-box">
+				<p class="mb-lt"></p><p class="mb-lb"></p><p class="mb-rt"></p><p class="mb-rb"></p>
+				<h2><a href="#" class="hday">외부 제공 현황</a></h2>
+				<div class="m-graph">
+					<div id="graph-dm" class="m-graph-cont"></div>
+				</div>
+			</div>
+			<!-- //(금일)외부 제공 현황 -->
+
+		</div>
+		<!-- //Content -->
+	</div>
+	<!-- //Body -->
+</div>
+<!-- //Wrap -->
+
+<script>
+graph = new Array(
+		[100,'전체 발송량'],
+		[10,'신청'],
+		[2,'검수대기'],
+		[8,'검수완료'],
+		[8,'수탁사 정보 전송완료']
+	);
+
+$("#graph-dm").jqBarGraph({
+	data: graph,
+	width: 1080,
+	height: 396,
+	colors: ['#a0a0cb','#66b9d1','#9eb857','#e9a54f'],
+	color: '#1A2944',
+	barSpace: 5
+});
+
+</script>
+</body>
+
+
+<!-- Mirrored from 112.216.117.106:16682/html/_dm/main.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:34 GMT -->
+</html>

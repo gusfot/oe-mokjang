@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from 112.216.117.106:16682/html/_partner/main.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:37 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>농협생명</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="css/popup.html"/>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/selectric.js"></script>
+<script type="text/javascript" src="../js/icheck.js"></script>
+<script type="text/javascript" src="../js/jqBarGraph.1.1.js"></script>
+<script type="text/javascript" src="../js/ui.js"></script>
+</head>
+
+<body class="main">
+<!-- Header -->
+<div id="header">
+	<div class="header">
+		<h1><a href="#"><img src="images/common/logo.png" alt="NH농형생명｜고객정보처리시스템"/></a></h1>
+		<div class="h-info-date">					
+			<span class="first">현재 접속 : <em>2014.06.19. 16:08</em></span><span>이전 접속 : <em>2014.06.19. 16:08</em></span>
+		</div>		
+	</div>
+	<div class="head-user">
+		<p class="user-name"><span>홍길동</span>님(대리/마케팅팀) 반갑습니다.</p>
+		<button type="button" class="btn-logout">로그아웃</button>
+	</div>		
+</div>
+<!-- //Header -->
+<!-- Main -->
+<div id="wrap-main">
+	<!-- Wrap -->
+	<div id="wrap">
+		<!-- Body-->
+		<div id="container">
+			<!-- Navigation -->
+			<div id="nav">
+				<ul class="lnb">
+					<li class="active"><a href="main.html" class="lnb-ico1">HOME</a></li>
+					<li><a href="customer_req_step.html" class="lnb-ico2">정보 신청</a></li>
+					<li><a href="standby.html" class="lnb-ico3">결재 대기</a></li>
+					<li><a href="finish.html" class="lnb-ico4">결재 완료</a></li>
+					<li><a href="customer_present.html" class="lnb-ico5">사용현황</a></li>
+					<li><a href="delete_list.html" class="lnb-ico6">파기현황</a></li>
+					<li><a href="user_admin_detail.html" class="lnb-ico7">내정보 관리</a></li>
+					<li><a href="company_admin_detail.html" class="lnb-ico8">기업정보 관리</a></li>
+					<li><a href="notice_list.html" class="lnb-ico9">공지사항</a></li>
+				</ul>
+				<!--
+				<div class="lnb-date">
+					<ul>
+						<li class="active"><a href="#">일</a></li>
+						<li><a href="#">주</a></li>
+						<li><a href="#" class="last">월</a></li>
+					</ul>
+				</div>
+				-->
+			</div>
+			<!-- //Navigation -->
+			<!-- Content -->
+			<div id="contents">
+				<div id="main-cont">
+					<!-- 정보 신청 진행현황 -->
+					<div class="main-box">
+						<p class="mb-lt"></p><p class="mb-lb"></p><p class="mb-rt"></p><p class="mb-rb"></p>
+						<h2 class="m-tit1">정보 신청 현황</h2>
+						<ul class="main-list c5">
+							<li><em class="dacc">정보신청</em><p>36</p></li>
+							<li><em>정보신청</em><p>363</p></li>
+							<li><em>접수대기</em><p>2</p></li>
+							<li><em>결재완료</em><p>999</p></li>
+							<li><em>접수반려</em><p>0</p></li>
+						</ul>
+					</div>
+					<!-- //정보 신청 진행현황 -->
+
+					<div class="main-cont">
+						
+						<!-- 파기 진행현황 -->
+						<div class="main-box type2">
+							<p class="mb-lt"></p><p class="mb-lb"></p><p class="mb-rt"></p><p class="mb-rb"></p>
+							<h2 class="m-tit2"><em>파기 현황</em></h2>
+							<div class="m-graph">
+								<div id="graph-pt" class="m-graph-cont"></div>
+							</div>
+						</div>
+						<!-- //파기 진행현황 -->
+
+					</div>
+				</div>
+			</div>
+			<!-- //Content -->
+		</div>
+		<!-- //Body -->
+	</div>
+	<!-- //Wrap -->
+</div>
+<!-- //Main -->
+<script>
+graph = new Array(
+		[3,'사용 중'],
+		[3,'파기 요청'],
+		[10,'파기 완료'],
+		[5,'미파기']
+	);
+
+$("#graph-pt").jqBarGraph({
+	data: graph,
+	width: 1080,
+	height: 366,
+	colors: ['#d7d558','#5ccb9e','#62a3d7','#5eced2'],
+	color: '#1A2944',
+	barSpace: 4
+});
+
+</script>
+</body>
+
+
+<!-- Mirrored from 112.216.117.106:16682/html/_partner/main.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:39 GMT -->
+</html>
