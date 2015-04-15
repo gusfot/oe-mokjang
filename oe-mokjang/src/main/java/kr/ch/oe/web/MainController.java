@@ -3,6 +3,11 @@
  */
 package kr.ch.oe.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.ch.oe.model.SessionUserVO;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,9 +23,17 @@ public class MainController {
 
 	
 	@RequestMapping("/main.oe")
-	public String main(){
+	public String main(HttpServletRequest request, HttpServletResponse response){
 		
-		return "main";
+		String mainPage = "main";
+		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+		
+		if("목자".equals(sessionUserVO.getRoleName()) ){
+			mainPage = "report/report_main";
+		}else {
+			mainPage = "main";
+		}
+		return mainPage;
 	}
 	
 	
