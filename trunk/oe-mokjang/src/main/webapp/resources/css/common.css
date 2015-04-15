@@ -1,0 +1,30 @@
+@charset "euc-kr";
+
+html {height:100%; overflow-x;hidden; overflow-y:scroll;}
+body {width:100%; height:100%; margin:0; padding:0; font-size:12.5px; line-height:17px; font-family:³ª´®°íµñ, NanumGothic; background-color:#FFFFFF; color:#666666;}
+
+div, p, span, ol, ul, li, dl, dt, dd, textarea, select, input, a {margin:0; padding:0; font-size:12.5px; line-height:17px; font-family:³ª´®°íµñ, NanumGothic;}
+table{font-size:12.5px;}
+th{text-align:center; vertical-align: middle;}
+td{text-align:center;vertical-align: middle;}
+
+iframe, form, fieldset {margin:0; padding:0; border:0;}
+img {border:0; vertical-align:top;}
+img a {vertical-align:middle;}!
+
+h1, h2, h3, h4, h5, h6 {margin:0; padding:0; }
+ul, ol, li {list-style:none;}
+td, li, dd, p {word-break:keep-all; word-wrap:bread-word;}
+
+legend, caption {overflow:hidden; width:0; height:0; margin:0; padding:0; visibility:hidden;}
+textarea {padding:2px 0; border:1px solid #DDDDDD; background-color:#FFFFFF;}
+select {height:20px; border:1px solid #DDDDDD; background-color:#FFFFFF;}
+input {vertical-align:middle; font-family:³ª´®°íµñ, NanumGothic;}
+input.text {height;16px; padding:4px 10px 4px 10px; background-color#FFFFFF; border:1px solid #D6D5D2;}
+
+label {vertical-align:middle; font-size:12.5px; font-family:³ª´®°íµñ, NanumGothic;}
+label img {margin-top:-1px;}
+
+a {color:#999999;}
+a:link, a:active, a:visited {color:#003D7F; text-decoration:none;}
+a:hover {color:#003D7F; text-decoration:none;}
