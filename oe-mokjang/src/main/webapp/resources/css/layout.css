@@ -1,0 +1,79 @@
+@charset "euc-kr";
+
+
+
+
+/* Layouts */
+.container{}
+.header {margin-top:10px;}
+.header_title h1{text-align:center; margin:40px 0 10px 0;}
+.header_title h2{text-align:center; margin-bottom:5px;}
+.header_week {width:100%; position:relative; height:50px;}
+.header_week .week_prev {position:absolute; left:0px; top:0px; width:25%;}
+.header_week .week_picker {position:absolute; top:0px; left:25%; width:50%;}
+.header_week .week_next {position:absolute; top:0px;right:0px; width:25%;}
+.content{position:relative;}
+.content .table_wrap{padding:7px; margin-top:50px;}
+.content .table_wrap table tr td{padding:0px; text-align:center; vertical-align: middle;}
+.content .table_wrap table tr td img{padding:1px;}
+.content .table_wrap table tr td .table_point img{width:25px; padding:3px;}
+.content .table_wrap .content_table {width:100%; margin-bottom:10px;}
+.content .table_wrap .content_table tr th{text-align:left; border-bottom:1px solid #EEEEEE; padding-left:5px;}
+.content .table_wrap .content_table tr td{text-align:left; border-bottom:1px solid #EEEEEE; text-align:left;}
+
+.content .content_table .today_point{font-weight:bold;}
+.content .point_wrap {margin-top:30px;}
+.content .point_wrap table{width:100%; border-top:1px solid #CCCCCC; margin-top:20px;}
+.content .point_wrap table tr th{padding:8px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .point_wrap table tr td{padding:7px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .point_wrap table tr td .point_plus{color:blue;}
+.content .point_wrap table tr td .point_minus{color:red;}
+.content .meet_info{position:absolute; top:48px; left:0px;}
+
+.content .noty_wrap table{width:100%; border-top:1px solid #CCCCCC; margin-top:20px;}
+.content .noty_wrap table tr th{padding:8px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .noty_wrap table tr td{padding:7px 0 10px 0; border-bottom:1px solid #EEEEEE;}
+.content .noty_wrap table tr td .noty_notread{color:red;}
+
+.under_wrap{min-height:700px;}
+.under_wrap div a{text-align:left;}
+
+.footer .footer_copy{text-align:center; margin-top:20px; font-size:11px;}
+
+/* Layouts #서브 */
+.sub_container{padding:10px; background-color:#666666;}
+.sub_wrapper{background-color:#FFFFFF; padding:10px; border-radius:3px;}
+.header_title h3{text-align:left; margin-bottom:5px;}
+.header_point {position:absolute;right:20px; top:20px;}
+.header_point h3{text-align:right; margin-bottom:5px; font-size:30px; color:orange;}
+.header_delete{position:absolute; top:10px; right:10px;}
+
+.info_wrap h4 {padding:0px; color:#3879D9; width:150px;}
+.person_photo img{width:100px; border:1px solid #CCCCCC;}
+.info_wrap table {border-top:1px solid #CCCCCC; width:99%;}
+.info_wrap table  tr th{padding:5px 5px 10px 5px; border-bottom:1px solid #EEEEEE; width:25%;}
+.info_wrap table  tr td{padding:5px 5px 10px 5px; border-bottom:1px solid #EEEEEE; border-left:1px solid #EEEEEE; text-align:left; color:#666666;}
+
+.input_wrap h4 {padding:10px 0 5px 0; color:#3879D9; width:150px;}
+.input_wrap .person_info_title{padding:10px 0 5px 0; color:#3879D9;}
+.input_wrap table {border-top:1px solid #CCCCCC; width:99%;}
+.input_wrap table  tr th{padding:5px; border-bottom:1px solid #EEEEEE; width:25%;}
+.input_wrap table  tr td{border-bottom:1px solid #EEEEEE; border-left:1px solid #EEEEEE; text-align:left; color:#666666;}
+.input_wrap table  tr td ul li{padding:0 0 5px 5px;}
+.input_wrap table  tr td ul li .personal_point{color:orange; font-size:15px;}
+.total_attend{color:orange; font-size:15px;}
+
+.attend_wrap{margin-top:30px;}
+.attend_wrap ul li {text-align:center; width:45px; float:left; margin:0 20px 15px 0; position:relative;}
+.attend_wrap ul li .attend_delete{position:absolute; top:-20px; right:-35px;}
+.attend_wrap ul li .attend_photo img{width:50px;}
+
+.paging{text-align:center;}
+
+/* jQuery modify */
+.ui-input-text {height:33px;}
+.ui-input-text input {}
+.ui-btn{font-size:120px; padding:10px;}
+.ui-controlgroup-controls 
+.ui-field-contain{padding:0px;}
+
