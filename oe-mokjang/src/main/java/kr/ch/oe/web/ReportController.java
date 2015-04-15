@@ -70,7 +70,7 @@ public class ReportController {
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
-		return "report/mokjangReport_regist";
+		return "report/mokjangReport_regist1";
 	}
 	
 	@RequestMapping(value="/mokjang/regist.oe", method=RequestMethod.POST)
