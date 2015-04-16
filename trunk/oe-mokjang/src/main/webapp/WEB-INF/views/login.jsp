@@ -1,33 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<title>로그인</title>
-<!-- Latest compiled and minified CSS -->
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	<!-- Optional theme -->
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<!-- Custom styles for this template -->
-    <link href="/resources/bootstrap/css/signin.css" rel="stylesheet">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+<DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+		<title>목장관리시스템 - 로그인</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<!-- jQuery Customize -->
+		<style>
+			.ui-select span{margin-right:15px; width:40px;}
+			.ui-table-columntoggle-btn{box-shadow:none; position:absolute; right:0px; top: 48px}
+			.ui-table-columntoggle-popup{width:150px;}
+			.ui-table-columntoggle-popup label{font-size:12.5px;}			
+		</style>
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
+	</head>
+	<body>	
+		<div class="container">
+			<div class="header_wrap">
+				<div class="header">
+					<div class="header_title"><h1><img src="/resources/img/logo.png" alt="로고" style="width:300px;"> </h1></div>
+					<div class="header_title"><h2>목장보고서 관리 시스템</h2></div>
+				</div>
+			</div>
+			<div class="content_wrap">
+				<div class="content">					
+					<div class="table_wrap">
+						<input type="text" data-clear-btn="true" onkeypress="return enterLogin(event)"  name="userId" id="userId"  data-mini="true">
+						<input type="password" data-clear-btn="true" onkeypress="return enterLogin(event)" name="password" id="password" autocomplete="off" data-mini="true">
+						<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="login();" >로그인</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer_wrap">
+				<div class="footer">
+					<div data-role="controlgroup" data-mini="true">
+						<a href="#" class="ui-btn ui-icon-user ui-btn-icon-left ui-corner-all">비밀번호 찾기</a>
+						<a href="#" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-corner-all">십자가의 길 안내</a>											
+						<a href="#" class="ui-btn ui-icon-comment ui-btn-icon-left ui-corner-all">문의하기</a>
+						<a href="#" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all">오병이어교회 홈페이지</a>
+						<p class="footer_copy">Copyrightⓒ 52soft. All right reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	<script type="text/javascript">
 	function login(){
 		var $userId = $("input[name=userId]"),
@@ -77,25 +101,5 @@
 	
 	
 	</script>
-</head>
- <body>
-<%@ include file="include/header.jsp"%>
-<header class="jumbotron subhead" id="overview" ></header>
-    <div class="container">
-      <form class="form-signin" role="form" method="post" action="#" id="form-login" name="form-login">
-        <h2 class="form-signin-heading">52 목장관리시스템</h2>
-        <input type="text" class="form-control" placeholder="아이디를 입력해주세요"onkeypress="return enterLogin(event)"  name="userId" id="userId" required autofocus>
-        <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요 "  onkeypress="return enterLogin(event)" name="password" id="password" required>
-        <label class="checkbox">
-          <!-- <input type="checkbox" value="remember-me"> 아이디 저장하기 -->
-        </label>
-        <input type="button" class="btn btn-lg btn-primary btn-block" onclick="login();" value="로그인">
-        <%-- <button class="btn btn-lg btn-primary btn-block" type="button" onclick="javascript:location.href='/member/regist.oe'">회원가입 ${sessionId.userName}3</button> --%>
-      </form>
-    </div>
-     <!-- /container -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
+	</body>
 </html>
