@@ -242,7 +242,7 @@
 						<table class="content_table">
 							<tr>						
 								<th>금일합계점수</th>
-								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini">42P</a></p></td>							
+								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="points">0</span>P</a></p></td>							
 							</tr>
 							<tr>
 								<th>누적점수</th>
@@ -278,23 +278,54 @@
 	
 	$(document).ready(function() {
 		
+			// 목장집회 장소 select
 			$('#placeList').on('change', function(){
 				$('#worshipPlace').val($(this).val());
 			});
 			
+			// 목장원 개인 총점
 			$('input[type="checkbox"]').on('click', function() {
 				var userSeq = Number($(this).parent().parent().parent().attr('data-userseq'));
 				var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
-				
 				var points = 0;
+				
 				$('input[data-user="user'+userSeq+'"]').each(function() {
 					points = $(this).is(':checked') ? points+1 : points; 
-					console.log("points : " + points);
 				}) ;
 				$userPoints.html(points);
 			});
 			
+			// 금일합계점수 반영
+			$('#offering').on('blur', function() {
+				todayTotalPoints();
+			});
+			
+			$('input[type="checkbox"]').on('click', function() {
+				todayTotalPoints();
+			});
+			
 	});
+	
+	// 금일합계점수  = 목장원들의 개인총점을 합한다.
+	function todayTotalPoints() {
+		var todayPoints = 0;								// 금일합계점수
+		var usersLength =$('tr[data-userseq]').length;	// 목장원수
+		var $offering = $('#offering');						// 헌금
+		var $points = $('#points');							// 금일합계점수 표시영역
+		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
+		
+		// 헌금 점수 반영
+		todayPoints = offeringPoint;
+
+		// 목장원들의 개인청점을 합한다.
+		for(var i=0; i<usersLength; i++) {
+			var $userPoints = $(document.getElementById('reports['+i+'].points'));
+			todayPoints += Number($userPoints.html());
+		}
+		
+		$points.html(todayPoints);
+	}
+	
 	var report = {
 			mokjang : {
 					regist : function() {
