@@ -278,31 +278,31 @@
 	
 	$(document).ready(function() {
 		
-			// 목장집회 장소 select
-			$('#placeList').on('change', function(){
-				$('#worshipPlace').val($(this).val());
-			});
+		// 목장집회 장소 select
+		$('#placeList').on('change', function(){
+			$('#worshipPlace').val($(this).val());
+		});
+		
+		// 목장원 개인 총점
+		$('input[type="checkbox"]').on('click', function() {
+			var userSeq = Number($(this).parent().parent().parent().attr('data-userseq'));
+			var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
+			var points = 0;
 			
-			// 목장원 개인 총점
-			$('input[type="checkbox"]').on('click', function() {
-				var userSeq = Number($(this).parent().parent().parent().attr('data-userseq'));
-				var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
-				var points = 0;
-				
-				$('input[data-user="user'+userSeq+'"]').each(function() {
-					points = $(this).is(':checked') ? points+1 : points; 
-				}) ;
-				$userPoints.html(points);
-			});
-			
-			// 금일합계점수 반영
-			$('#offering').on('blur', function() {
-				todayTotalPoints();
-			});
-			
-			$('input[type="checkbox"]').on('click', function() {
-				todayTotalPoints();
-			});
+			$('input[data-user="user'+userSeq+'"]').each(function() {
+				points = $(this).is(':checked') ? points+1 : points; 
+			}) ;
+			$userPoints.html(points);
+		});
+		
+		// 금일합계점수 반영
+		$('#offering').on('blur', function() {
+			todayTotalPoints();
+		});
+		
+		$('input[type="checkbox"]').on('click', function() {
+			todayTotalPoints();
+		});
 			
 	});
 	
@@ -317,7 +317,7 @@
 		// 헌금 점수 반영
 		todayPoints = offeringPoint;
 
-		// 목장원들의 개인청점을 합한다.
+		// 목장원들의 개인총점을 합한다.
 		for(var i=0; i<usersLength; i++) {
 			var $userPoints = $(document.getElementById('reports['+i+'].points'));
 			todayPoints += Number($userPoints.html());
