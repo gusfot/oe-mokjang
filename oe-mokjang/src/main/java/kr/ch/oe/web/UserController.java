@@ -120,8 +120,6 @@ public class UserController {
 			user.setDeptSeq(dept.getDeptSeq());
 			user.setDepartment(dept);
 			
-			
-			
 			return userService.registerUser(user);
 		}
 	
