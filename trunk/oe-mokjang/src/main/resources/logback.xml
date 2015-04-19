@@ -6,24 +6,24 @@
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </layout>
     </appender>
-
+<!-- 
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<File>/App/was/logs/oe_report.log</File>
+		<File>d:\App\was\logs\oe_report.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-		    <!-- daily rollover -->
+		    daily rollover
 			<FileNamePattern>/App/was/logs/oe_report.%d{yyyy-MM-dd}.log</FileNamePattern>
  			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
 			
-			<!-- keep 30 days' worth of history -->
+			keep 30 days' worth of history
 			<maxHistory>30</maxHistory>			
 		</rollingPolicy>
  
 		<encoder>
 			<Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</Pattern>
 		</encoder> 	    
-	</appender>
+	</appender> -->
     
 	<logger name="java.sql.Connection" level="DEBUG">
 		<appender-ref ref="STDOUT" />
