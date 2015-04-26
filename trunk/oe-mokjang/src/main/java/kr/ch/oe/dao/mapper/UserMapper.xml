@@ -24,6 +24,8 @@
     <result column="role_seq" jdbcType="BIGINT" property="roleSeq" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="academic" jdbcType="VARCHAR" property="academic" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
     
   </resultMap>
   
@@ -40,7 +42,6 @@
     <result column="parent_seq" jdbcType="BIGINT" property="parentSeq" />
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
   </resultMap>
-  
   
   <resultMap type="kr.ch.oe.model.Role" id="RoleResultMap">
   	 <id column="role_seq" jdbcType="BIGINT" property="roleSeq" />
@@ -162,7 +163,9 @@
     user.dept_seq, 
     user.reg_time, 
     user.role_seq,
-    user.flag
+    user.flag,
+    user.academic,
+    user.major
   </sql>
   <sql id="Dept_Column_List">
     dept.dept_seq dept_dept_seq , 
