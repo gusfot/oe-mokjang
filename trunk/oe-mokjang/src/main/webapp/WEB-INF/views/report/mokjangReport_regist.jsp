@@ -37,7 +37,6 @@
 			<form id="mokjangReportForm">
 				<div class="input_wrap">
 				<div class="ui-grid-a ui-responsive">
-				<form class="form-horizontal" id="mokjangReportForm">	
 					<div class="ui-block-a">
 					<h4>목장집회</h4>
 					<table class="person_info_01">
@@ -214,21 +213,21 @@
 											</c:choose>
 											${user.userName}
 											</a>
-											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
+											<input type="hidden" class="form-control" name="reports[${i.index}]['userId']" value="${user.userId}" >
 										</td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true" name="reports[${i.index}].mokjangYn" value="1" >참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true" name="reports[${i.index}].sundayYn" value="1" >참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>							
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>							
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>							
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>							
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="5" data-mini="true" name="reports[${i.index}]['mokjangYn']" value="1" >참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true" name="reports[${i.index}]['sundayYn']" value="1" >참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
 										<td style="padding:0px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></td>
-										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">0</span> P</a></td>
+										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}]['points']">0</span> P</a></td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 									</tr>
 								</c:forEach>
@@ -250,13 +249,13 @@
 							</tr>
 							<tr>
 								<th>기타보고</th>
-								<td style="padding:0 7px 0 7px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></form></td>							
+								<td style="padding:0 7px 0 7px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>							
 							</tr>
 						</table>
 						</div>
 					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
 				</div>
-				
+			</div>
 			</form>	
 			</div>
 			<div class="footer_wrap">
@@ -285,18 +284,23 @@
 		
 		// 목장원 개인 총점
 		$('input[type="checkbox"]').on('click', function() {
-			var userSeq = Number($(this).parent().parent().parent().attr('data-userseq'));
-			var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
+			var $this = $(this);
+			var userSeq = Number($this.parent().parent().parent().attr('data-userseq'));
+			var $userPoints = $(document.getElementById('reports['+userSeq+'][\'points\']'));
 			var points = 0;
 			
 			$('input[data-user="user'+userSeq+'"]').each(function() {
-				points = $(this).is(':checked') ? points+1 : points; 
+				var $this = $(this);
+				var weight = Number($this.attr("data-weight"));
+				points = $(this).is(':checked') ? (points+weight) : points; 
+				console.log('points : ' + points);
 			}) ;
+			
 			$userPoints.html(points);
 		});
 		
 		// 금일합계점수 반영
-		$('#offering').on('blur', function() {
+		$('#offering').on('keyup', function() {
 			todayTotalPoints();
 		});
 		
@@ -309,7 +313,7 @@
 	// 금일합계점수  = 목장원들의 개인총점을 합한다.
 	function todayTotalPoints() {
 		var todayPoints = 0;								// 금일합계점수
-		var usersLength =$('tr[data-userseq]').length;	// 목장원수
+		var usersLength =$('tr[data-userseq]').length;		// 목장원수
 		var $offering = $('#offering');						// 헌금
 		var $points = $('#points');							// 금일합계점수 표시영역
 		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
@@ -319,7 +323,7 @@
 
 		// 목장원들의 개인총점을 합한다.
 		for(var i=0; i<usersLength; i++) {
-			var $userPoints = $(document.getElementById('reports['+i+'].points'));
+			var $userPoints = $(document.getElementById('reports['+i+'][\'points\']'));
 			todayPoints += Number($userPoints.html());
 		}
 		
