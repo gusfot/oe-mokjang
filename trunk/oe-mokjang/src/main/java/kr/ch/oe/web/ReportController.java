@@ -83,12 +83,16 @@ public class ReportController {
 		item0.setItemName("목장모임참석");
 		item0.setWeight(5);
 		item0.setCode("mokjangYn");
+		item0.setItemType("checkbox");
+		item0.setItemTypeDesc("참석");
 		
 		ReportItem item1 = new ReportItem();
 		item1.setSeq(1l);
 		item1.setItemName("목장새등록자");
 		item1.setWeight(10);
 		item1.setCode("mokjangYn1");
+		item1.setItemType("checkbox");
+		item1.setItemTypeDesc("참석");
 		
 		
 		ReportItem item2 = new ReportItem();
@@ -96,54 +100,72 @@ public class ReportController {
 		item2.setItemName("8주차참석자");
 		item2.setWeight(2);
 		item2.setCode("mokjangYn2");
+		item2.setItemType("checkbox");
+		item2.setItemTypeDesc("참석");
 		
 		ReportItem item3 = new ReportItem();
 		item3.setSeq(3l);
 		item3.setItemName("목장등록후교회등록");
 		item3.setWeight(5);
 		item3.setCode("mokjangYn3");
+		item3.setItemType("checkbox");
+		item3.setItemTypeDesc("참석");
 		
 		ReportItem item4 = new ReportItem();
 		item4.setSeq(4l);
 		item4.setItemName("양육1권수료자");
 		item4.setWeight(5);
 		item4.setCode("mokjangYn4");
+		item4.setItemType("checkbox");
+		item4.setItemTypeDesc("참석");
 		
 		ReportItem item5 = new ReportItem();
 		item5.setSeq(5l);
 		item5.setItemName("학교양육1권수료");
 		item5.setWeight(5);
 		item5.setCode("mokjangYn5");
+		item5.setItemType("checkbox");
+		item5.setItemTypeDesc("참석");
 		
 		ReportItem item6 = new ReportItem();
 		item6.setSeq(6l);
 		item6.setItemName("교회등록");
 		item6.setWeight(5);
 		item6.setCode("mokjangYn6");
+		item6.setItemType("checkbox");
+		item6.setItemTypeDesc("참석");
 		
 		ReportItem item7 = new ReportItem();
 		item7.setSeq(7l);
 		item7.setItemName("교회등록후목장참석");
 		item7.setWeight(5);
 		item7.setCode("mokjangYn7");
+		item7.setItemType("checkbox");
+		item7.setItemTypeDesc("참석");
 		
 		ReportItem item8 = new ReportItem();
 		item8.setSeq(8l);
 		item8.setItemName("목장집회1명감소");
 		item8.setWeight(5);
 		item8.setCode("mokjangYn8");
+		item8.setItemType("checkbox");
+		item8.setItemTypeDesc("참석");
 		
 		ReportItem item9 = new ReportItem();
 		item9.setSeq(9l);
 		item9.setItemName("번식하여나가는분");
 		item9.setWeight(5);
 		item9.setCode("mokjangYn9");
+		item9.setItemType("checkbox");
+		item9.setItemTypeDesc("참석");
 		
 		ReportItem item10 = new ReportItem();
 		item10.setSeq(10l);
 		item10.setItemName("식당봉사");
 		item10.setWeight(5);
 		item10.setCode("mokjangYn10");
+		item10.setItemType("checkbox");
+		item10.setItemTypeDesc("참석");
 		
 		items.add(item0);
 		items.add(item1);
