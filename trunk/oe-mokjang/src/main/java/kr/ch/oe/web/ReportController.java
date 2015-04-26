@@ -79,7 +79,7 @@ public class ReportController {
 		List<ReportItem> items = new ArrayList<>();
 
 		ReportItem item0 = new ReportItem();
-		item0.setSeq(0l);
+		item0.setReportItemSeq(0l);
 		item0.setItemName("목장모임참석");
 		item0.setWeight(5);
 		item0.setCode("mokjangYn");
@@ -87,7 +87,7 @@ public class ReportController {
 		item0.setItemTypeDesc("참석");
 		
 		ReportItem item1 = new ReportItem();
-		item1.setSeq(1l);
+		item1.setReportItemSeq(1l);
 		item1.setItemName("목장새등록자");
 		item1.setWeight(10);
 		item1.setCode("mokjangYn1");
@@ -96,7 +96,7 @@ public class ReportController {
 		
 		
 		ReportItem item2 = new ReportItem();
-		item2.setSeq(2l);
+		item2.setReportItemSeq(2l);
 		item2.setItemName("8주차참석자");
 		item2.setWeight(2);
 		item2.setCode("mokjangYn2");
@@ -104,31 +104,31 @@ public class ReportController {
 		item2.setItemTypeDesc("참석");
 		
 		ReportItem item3 = new ReportItem();
-		item3.setSeq(3l);
+		item3.setReportItemSeq(3l);
 		item3.setItemName("목장등록후교회등록");
 		item3.setWeight(5);
 		item3.setCode("mokjangYn3");
 		item3.setItemType("checkbox");
-		item3.setItemTypeDesc("참석");
+		item3.setItemTypeDesc("등록");
 		
 		ReportItem item4 = new ReportItem();
-		item4.setSeq(4l);
+		item4.setReportItemSeq(4l);
 		item4.setItemName("양육1권수료자");
 		item4.setWeight(5);
 		item4.setCode("mokjangYn4");
 		item4.setItemType("checkbox");
-		item4.setItemTypeDesc("참석");
+		item4.setItemTypeDesc("수료");
 		
 		ReportItem item5 = new ReportItem();
-		item5.setSeq(5l);
+		item5.setReportItemSeq(5l);
 		item5.setItemName("학교양육1권수료");
 		item5.setWeight(5);
 		item5.setCode("mokjangYn5");
 		item5.setItemType("checkbox");
-		item5.setItemTypeDesc("참석");
+		item5.setItemTypeDesc("수료");
 		
 		ReportItem item6 = new ReportItem();
-		item6.setSeq(6l);
+		item6.setReportItemSeq(6l);
 		item6.setItemName("교회등록");
 		item6.setWeight(5);
 		item6.setCode("mokjangYn6");
@@ -136,7 +136,7 @@ public class ReportController {
 		item6.setItemTypeDesc("참석");
 		
 		ReportItem item7 = new ReportItem();
-		item7.setSeq(7l);
+		item7.setReportItemSeq(7l);
 		item7.setItemName("교회등록후목장참석");
 		item7.setWeight(5);
 		item7.setCode("mokjangYn7");
@@ -144,7 +144,7 @@ public class ReportController {
 		item7.setItemTypeDesc("참석");
 		
 		ReportItem item8 = new ReportItem();
-		item8.setSeq(8l);
+		item8.setReportItemSeq(8l);
 		item8.setItemName("목장집회1명감소");
 		item8.setWeight(5);
 		item8.setCode("mokjangYn8");
@@ -152,7 +152,7 @@ public class ReportController {
 		item8.setItemTypeDesc("참석");
 		
 		ReportItem item9 = new ReportItem();
-		item9.setSeq(9l);
+		item9.setReportItemSeq(9l);
 		item9.setItemName("번식하여나가는분");
 		item9.setWeight(5);
 		item9.setCode("mokjangYn9");
@@ -160,7 +160,7 @@ public class ReportController {
 		item9.setItemTypeDesc("참석");
 		
 		ReportItem item10 = new ReportItem();
-		item10.setSeq(10l);
+		item10.setReportItemSeq(10l);
 		item10.setItemName("식당봉사");
 		item10.setWeight(5);
 		item10.setCode("mokjangYn10");
