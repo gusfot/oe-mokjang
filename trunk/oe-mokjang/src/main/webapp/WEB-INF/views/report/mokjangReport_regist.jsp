@@ -185,6 +185,10 @@
 							<thead>
 								<tr class="th-groups">
 									<th style="text-align:center; width:40px;">성명</th>
+									<c:forEach var="item" items="${reportItems}" varStatus="j">
+										<th data-priority="${j.count}" style="text-align:center;">${item.itemName}</th>
+									</c:forEach>
+									<!-- 
 									<th data-priority="1" style="text-align:center;">목장집회</th>
 									<th data-priority="1" style="text-align:center;">목장새등록자</th>
 									<th data-priority="2" style="text-align:center;">8주차참석자</th>
@@ -195,6 +199,7 @@
 									<th data-priority="6" style="text-align:center;">교회등록후목장참석</th>
 									<th data-priority="6" style="text-align:center;">목장집회1명감소</th>
 									<th data-priority="6" style="text-align:center;">번식하여나가는분</th>
+									 -->
 									<th data-priority="6" style="text-align:center;">식당봉사</th>
 									<th data-priority="6" style="text-align:center;">심방내용</th>
 									<th class="totals" style="text-align:center;">점수</th>
@@ -215,6 +220,10 @@
 											</a>
 											<input type="hidden" class="form-control" name="reports[${i.index}]['userId']" value="${user.userId}" >
 										</td>
+										<c:forEach var="item" items="${reportItems}" varStatus="j">
+											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}]['${item.code}']" value="1" >참석</label></td>
+										</c:forEach>
+										<%-- 
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="5" data-mini="true" name="reports[${i.index}]['mokjangYn']" value="1" >참석</label></td>
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true" name="reports[${i.index}]['sundayYn']" value="1" >참석</label></td>
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>
@@ -225,7 +234,8 @@
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
-										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
+										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>			
+										 --%>				
 										<td style="padding:0px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></td>
 										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}]['points']">0</span> P</a></td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
