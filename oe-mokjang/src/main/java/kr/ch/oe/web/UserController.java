@@ -75,6 +75,7 @@ public class UserController {
 		mav.setViewName("user/detail");
 		return mav;
 	}
+	
 	/**
 	 * 사용자등록 폼 화면 반환
 	 * @return
