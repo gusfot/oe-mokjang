@@ -29,7 +29,7 @@
 					<div class="header_title"><h2>정충상 목장보고서</h2></div>
 					<div class="header_week">
 						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
-						<div class="week_picker" style="width:50%;"><form><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></form></div>
+						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
 						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
 					</div>
 				</div>
@@ -200,7 +200,6 @@
 									<th data-priority="6" style="text-align:center;">목장집회1명감소</th>
 									<th data-priority="6" style="text-align:center;">번식하여나가는분</th>
 									 -->
-									<th data-priority="6" style="text-align:center;">식당봉사</th>
 									<th data-priority="6" style="text-align:center;">심방내용</th>
 									<th class="totals" style="text-align:center;">점수</th>
 									<th>입력</th>
@@ -218,10 +217,10 @@
 											</c:choose>
 											${user.userName}
 											</a>
-											<input type="hidden" class="form-control" name="reports[${i.index}]['userId']" value="${user.userId}" >
+											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
 										</td>
 										<c:forEach var="item" items="${reportItems}" varStatus="j">
-											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}]['${item.code}']" value="1" >참석</label></td>
+											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].${item.code}" value="1" >${item.itemTypeDesc}</label></td>
 										</c:forEach>
 										<%-- 
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="5" data-mini="true" name="reports[${i.index}]['mokjangYn']" value="1" >참석</label></td>
@@ -236,8 +235,8 @@
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>							
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="2" data-mini="true">참석</label></td>			
 										 --%>				
-										<td style="padding:0px;"><form><textarea name="textarea-1" id="textarea-1"></textarea></td>
-										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}]['points']">0</span> P</a></td>
+										<td style="padding:0px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>
+										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">0</span> P</a></td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 									</tr>
 								</c:forEach>
@@ -296,14 +295,13 @@
 		$('input[type="checkbox"]').on('click', function() {
 			var $this = $(this);
 			var userSeq = Number($this.parent().parent().parent().attr('data-userseq'));
-			var $userPoints = $(document.getElementById('reports['+userSeq+'][\'points\']'));
+			var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
 			var points = 0;
 			
 			$('input[data-user="user'+userSeq+'"]').each(function() {
 				var $this = $(this);
 				var weight = Number($this.attr("data-weight"));
-				points = $(this).is(':checked') ? (points+weight) : points; 
-				console.log('points : ' + points);
+				points = $this.is(':checked') ? (points+weight) : points; 
 			}) ;
 			
 			$userPoints.html(points);
@@ -333,7 +331,7 @@
 
 		// 목장원들의 개인총점을 합한다.
 		for(var i=0; i<usersLength; i++) {
-			var $userPoints = $(document.getElementById('reports['+i+'][\'points\']'));
+			var $userPoints = $(document.getElementById('reports['+i+'].points'));
 			todayPoints += Number($userPoints.html());
 		}
 		
@@ -341,30 +339,30 @@
 	}
 	
 	var report = {
-			mokjang : {
-					regist : function() {
-						var $f = $('#mokjangReportForm'),
-						 	 formData;
-						 
-						formData = $f.serialize();
-						 
-						 $.ajax({
-							 url: '/report/mokjang/regist.oe',
-							 type: 'POST',
-							 data: formData,
-							 dataType : 'json',
-							 success:function(result){
-							   alert(result.success);
-							   if(result.success) {
-								   location.href = '/report/mokjang/detail.oe?seq='+result.seq;;
-							   }else {
-								   alert(result.message);
-							   }
-							 }
-							});
-					
-					}
+		mokjang : {
+			regist : function() {
+				var $f = $('#mokjangReportForm'),
+				 	 formData;
+				 
+				formData = $f.serialize();
+				 
+				 $.ajax({
+					 url: '/report/mokjang/regist.oe',
+					 type: 'POST',
+					 data: formData,
+					 dataType : 'json',
+					 success:function(result){
+					   alert(result.success);
+					   if(result.success) {
+						   location.href = '/report/mokjang/detail.oe?seq='+result.seq;;
+					   }else {
+						   alert(result.message);
+					   }
+					 }
+					});
+			
 			}
+		}
 	}
 	
 	</script>
