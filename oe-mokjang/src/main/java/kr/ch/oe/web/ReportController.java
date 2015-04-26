@@ -1,6 +1,7 @@
 package kr.ch.oe.web;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.ch.oe.common.DateUtil;
 import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.Report;
+import kr.ch.oe.model.ReportItem;
 import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
@@ -70,6 +72,93 @@ public class ReportController {
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
+		// TODO DB에 입력하여 관리
+		/**
+		 * 테스트 데이터 
+		 */
+		List<ReportItem> items = new ArrayList<>();
+
+		ReportItem item0 = new ReportItem();
+		item0.setSeq(0l);
+		item0.setItemName("목장모임참석");
+		item0.setWeight(5);
+		item0.setCode("mokjangYn");
+		
+		ReportItem item1 = new ReportItem();
+		item1.setSeq(1l);
+		item1.setItemName("목장새등록자");
+		item1.setWeight(10);
+		item1.setCode("mokjangYn1");
+		
+		
+		ReportItem item2 = new ReportItem();
+		item2.setSeq(2l);
+		item2.setItemName("8주차참석자");
+		item2.setWeight(2);
+		item2.setCode("mokjangYn2");
+		
+		ReportItem item3 = new ReportItem();
+		item3.setSeq(3l);
+		item3.setItemName("목장등록후교회등록");
+		item3.setWeight(5);
+		item3.setCode("mokjangYn3");
+		
+		ReportItem item4 = new ReportItem();
+		item4.setSeq(4l);
+		item4.setItemName("양육1권수료자");
+		item4.setWeight(5);
+		item4.setCode("mokjangYn4");
+		
+		ReportItem item5 = new ReportItem();
+		item5.setSeq(5l);
+		item5.setItemName("학교양육1권수료");
+		item5.setWeight(5);
+		item5.setCode("mokjangYn5");
+		
+		ReportItem item6 = new ReportItem();
+		item6.setSeq(6l);
+		item6.setItemName("교회등록");
+		item6.setWeight(5);
+		item6.setCode("mokjangYn6");
+		
+		ReportItem item7 = new ReportItem();
+		item7.setSeq(7l);
+		item7.setItemName("교회등록후목장참석");
+		item7.setWeight(5);
+		item7.setCode("mokjangYn7");
+		
+		ReportItem item8 = new ReportItem();
+		item8.setSeq(8l);
+		item8.setItemName("목장집회1명감소");
+		item8.setWeight(5);
+		item8.setCode("mokjangYn8");
+		
+		ReportItem item9 = new ReportItem();
+		item9.setSeq(9l);
+		item9.setItemName("번식하여나가는분");
+		item9.setWeight(5);
+		item9.setCode("mokjangYn9");
+		
+		ReportItem item10 = new ReportItem();
+		item10.setSeq(10l);
+		item10.setItemName("식당봉사");
+		item10.setWeight(5);
+		item10.setCode("mokjangYn10");
+		
+		items.add(item0);
+		items.add(item1);
+		items.add(item2);
+		items.add(item3);
+		items.add(item4);
+		items.add(item5);
+		items.add(item6);
+		items.add(item7);
+		items.add(item8);
+		items.add(item9);
+		items.add(item10);
+		
+		model.addAttribute("reportItems", items);
+		
 		return "report/mokjangReport_regist";
 	}
 	
@@ -97,6 +186,7 @@ public class ReportController {
 			report.setRegId(userId);
 			report.setDeptSeq(mokjangReport.getDeptSeq());
 		}
+		
 		
 		returnObject.addProperty("success", mokjangReportService.regist(mokjangReport));
 		returnObject.addProperty("seq", mokjangReport.getMokjangReportSeq());
