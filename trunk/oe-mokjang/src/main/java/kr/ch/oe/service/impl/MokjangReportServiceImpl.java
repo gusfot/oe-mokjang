@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.Map;
 
 import kr.ch.oe.dao.MokjangReportMapper;
+import kr.ch.oe.dao.ReportItemHistMapper;
 import kr.ch.oe.dao.ReportMapper;
 import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.MokjangReportExample;
 import kr.ch.oe.model.MokjangReportExample.Criteria;
 import kr.ch.oe.model.Report;
+import kr.ch.oe.model.ReportItemHist;
 import kr.ch.oe.service.MokjangReportService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 	@Autowired
 	private ReportMapper reportMapper;
 	
+	@Autowired
+	private ReportItemHistMapper reportItemHistMapper; 
+	
 	@Transactional
 	@Override
 	public boolean regist(MokjangReport mokjangReport) {
@@ -37,6 +42,9 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 			
 			for( Report report : mokjangReport.getReports()) {
 				reportMapper.insertSelective(report);
+				for (ReportItemHist hist : report.getReportItemHist()) {
+					reportItemHistMapper.insertSelective(hist);
+				}
 			}
 		
 			result = true;
