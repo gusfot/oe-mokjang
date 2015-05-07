@@ -40,17 +40,13 @@ public class MokjangReportServiceTest {
 		List<Report> reports = new ArrayList<>();
 		Report report1 = new Report();
 		report1.setDeptSeq(14l);
-		report1.setMokjangYn("Y");
 		report1.setRegId("gusfot");
-		report1.setSundayYn("Y");
 		report1.setUserId("gusfot");
 		report1.setWeeks(2);
 		
 		Report report2 = new Report();
 		report2.setDeptSeq(14l);
-		report2.setMokjangYn("Y");
 		report2.setRegId("kjy");
-		report2.setSundayYn("Y");
 		report2.setUserId("kjy");
 		report2.setWeeks(2);
 		
