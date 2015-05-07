@@ -2,7 +2,9 @@ package kr.ch.oe.web;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,7 @@ import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.service.DepartmentService;
 import kr.ch.oe.service.MokjangReportService;
+import kr.ch.oe.service.ReportItemService;
 import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +51,9 @@ public class ReportController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private ReportItemService reportItemService;
+	
 	@RequestMapping("/mokjang/list.oe")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
@@ -76,6 +82,9 @@ public class ReportController {
 		/**
 		 * 테스트 데이터 
 		 */
+		Map<String, Object> params = new HashMap<>();
+		List<ReportItem> items = reportItemService.getList(params);
+		/*
 		List<ReportItem> items = new ArrayList<>();
 
 		ReportItem item0 = new ReportItem();
@@ -178,7 +187,7 @@ public class ReportController {
 		items.add(item8);
 		items.add(item9);
 		items.add(item10);
-		
+		*/
 		model.addAttribute("reportItems", items);
 		
 		return "report/mokjangReport_regist";
