@@ -22,9 +22,11 @@
       <setting name="defaultExecutorType"       value="REUSE"/>
 	</settings>
  
-    <typeAliases>
+	<!--     
+	<typeAliases>
 	  <package name="kr.ch.oe.model"/>
-	</typeAliases>
+	</typeAliases> 
+	-->
  
     <typeHandlers>
          <!-- java.sql.Timestamp 를 java.util.Date 형으로 반환 -->
