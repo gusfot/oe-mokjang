@@ -207,7 +207,7 @@
 											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
 										</td>
 										<c:forEach var="item" items="${reportItems}" varStatus="j">
-											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].${item.code}" value="1" >${item.itemTypeDesc}</label></td>
+											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].${item.code}" value="1" >${item.itemTypeDesc}</label></td>
 										</c:forEach>
 										<td style="padding:0px;"><textarea name="visitContent" id="visitContent"></textarea></td>
 										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">0</span> P</a></td>

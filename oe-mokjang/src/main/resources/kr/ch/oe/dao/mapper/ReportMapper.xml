@@ -11,8 +11,6 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="weeks" jdbcType="INTEGER" property="weeks" />
-    <result column="mokjang_yn" jdbcType="CHAR" property="mokjangYn" />
-    <result column="sunday_yn" jdbcType="CHAR" property="sundayYn" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
@@ -154,8 +152,7 @@
       reg_id, reg_time, mokjang_report_seq
       )
     values (#{reportSeq,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{deptSeq,jdbcType=BIGINT}, 
-      #{weeks,jdbcType=INTEGER}, #{mokjangYn,jdbcType=CHAR}, #{sundayYn,jdbcType=CHAR}, 
-      #{regId,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}, #{mokjangReportSeq,jdbcType=BIGINT}
+      #{weeks,jdbcType=INTEGER}, #{regId,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}, #{mokjangReportSeq,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="kr.ch.oe.model.Report">
@@ -177,12 +174,6 @@
       </if>
       <if test="weeks != null">
         weeks,
-      </if>
-      <if test="mokjangYn != null">
-        mokjang_yn,
-      </if>
-      <if test="sundayYn != null">
-        sunday_yn,
       </if>
       <if test="regId != null">
         reg_id,
@@ -206,12 +197,6 @@
       </if>
       <if test="weeks != null">
         #{weeks,jdbcType=INTEGER},
-      </if>
-      <if test="mokjangYn != null">
-        #{mokjangYn,jdbcType=CHAR},
-      </if>
-      <if test="sundayYn != null">
-        #{sundayYn,jdbcType=CHAR},
       </if>
       <if test="regId != null">
         #{regId,jdbcType=VARCHAR},
@@ -255,12 +240,6 @@
       <if test="record.weeks != null">
         weeks = #{record.weeks,jdbcType=INTEGER},
       </if>
-      <if test="record.mokjangYn != null">
-        mokjang_yn = #{record.mokjangYn,jdbcType=CHAR},
-      </if>
-      <if test="record.sundayYn != null">
-        sunday_yn = #{record.sundayYn,jdbcType=CHAR},
-      </if>
       <if test="record.regId != null">
         reg_id = #{record.regId,jdbcType=VARCHAR},
       </if>
@@ -286,8 +265,6 @@
       user_id = #{record.userId,jdbcType=VARCHAR},
       dept_seq = #{record.deptSeq,jdbcType=BIGINT},
       weeks = #{record.weeks,jdbcType=INTEGER},
-      mokjang_yn = #{record.mokjangYn,jdbcType=CHAR},
-      sunday_yn = #{record.sundayYn,jdbcType=CHAR},
       reg_id = #{record.regId,jdbcType=VARCHAR},
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
       mokjang_report_seq = #{record.mokjangReportSeq,jdbcType=BIGINT}
@@ -312,12 +289,6 @@
       <if test="weeks != null">
         weeks = #{weeks,jdbcType=INTEGER},
       </if>
-      <if test="mokjangYn != null">
-        mokjang_yn = #{mokjangYn,jdbcType=CHAR},
-      </if>
-      <if test="sundayYn != null">
-        sunday_yn = #{sundayYn,jdbcType=CHAR},
-      </if>
       <if test="regId != null">
         reg_id = #{regId,jdbcType=VARCHAR},
       </if>
@@ -340,8 +311,6 @@
     set user_id = #{userId,jdbcType=VARCHAR},
       dept_seq = #{deptSeq,jdbcType=BIGINT},
       weeks = #{weeks,jdbcType=INTEGER},
-      mokjang_yn = #{mokjangYn,jdbcType=CHAR},
-      sunday_yn = #{sundayYn,jdbcType=CHAR},
       reg_id = #{regId,jdbcType=VARCHAR},
       reg_time = #{regTime,jdbcType=TIMESTAMP},
       mokjang_report_seq = #{mokjangReportSeq,jdbcType=BIGINT}

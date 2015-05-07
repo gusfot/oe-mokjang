@@ -534,8 +534,6 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="weeks" jdbcType="INTEGER" property="weeks" />
-    <result column="mokjang_yn" jdbcType="CHAR" property="mokjangYn" />
-    <result column="sunday_yn" jdbcType="CHAR" property="sundayYn" />
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
@@ -563,8 +561,6 @@
     report.user_id report_user_id, 
     report.weeks report_weeks, 
     report.dept_seq report_dept_seq, 
-    report.mokjang_yn report_mokjang_yn, 
-    report.sunday_yn report_sunday_yn, 
     report.reg_id report_reg_id, 
     report.reg_time report_reg_time
   </sql>
