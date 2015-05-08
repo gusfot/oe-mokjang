@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class MokjangReport {
 
-	private Long point;
+	private Integer point;
 
 	private Long gyoguDeptSeq;
 	
@@ -154,11 +154,11 @@ public class MokjangReport {
 		this.etcReportContent = etcReportContent;
 	}
 	
-	public Long getPoint() {
+	public Integer getPoint() {
 		return point;
 	}
 
-	public void setPoint(Long point) {
+	public void setPoint(Integer point) {
 		this.point = point;
 	}
 
