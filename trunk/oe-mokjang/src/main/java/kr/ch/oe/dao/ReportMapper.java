@@ -20,6 +20,8 @@ public interface ReportMapper {
 	List<Report> selectByExample(ReportExample example);
 
 	Report selectByPrimaryKey(Long reportSeq);
+	
+	Report selectByReportSeq(Long reportSeq);
 
 	int updateByExampleSelective(@Param("record") Report record,
 			@Param("example") ReportExample example);
