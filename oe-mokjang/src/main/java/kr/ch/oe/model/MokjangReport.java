@@ -4,12 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 목장 보고서
+ * 목장 보고??
  * @author gusfot
  *
  */
 public class MokjangReport {
 
+	private Long point;
+
+	private Long gyoguDeptSeq;
+	
 	private Long mokjangReportSeq;
 
 	private Integer weeks;
@@ -149,6 +153,14 @@ public class MokjangReport {
 	public void setEtcReportContent(String etcReportContent) {
 		this.etcReportContent = etcReportContent;
 	}
+	
+	public Long getPoint() {
+		return point;
+	}
+
+	public void setPoint(Long point) {
+		this.point = point;
+	}
 
 	@Override
 	public String toString() {
@@ -160,7 +172,7 @@ public class MokjangReport {
 	}
 
 	/**
-	 * 개인 보고?��목록
+	 * 개인 보고서 목록
 	 */
 	private List<Report> reports;
 	public List<Report> getReports() {
@@ -169,5 +181,13 @@ public class MokjangReport {
 
 	public void setReports(List<Report> reports) {
 		this.reports = reports;
+	}
+
+	public Long getGyoguDeptSeq() {
+		return gyoguDeptSeq;
+	}
+
+	public void setGyoguDeptSeq(Long gyoguDeptSeq) {
+		this.gyoguDeptSeq = gyoguDeptSeq;
 	}
 }

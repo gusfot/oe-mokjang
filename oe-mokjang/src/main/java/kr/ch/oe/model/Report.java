@@ -4,24 +4,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 개인 보고서
+ * 개인 보고??
  * @author gusfot
  *
  */
 public class Report {
 
-	@Override
-	public String toString() {
-		return "Report [reportSeq=" + reportSeq + ", userId=" + userId
-				+ ", deptSeq=" + deptSeq + ", weeks=" + weeks + ", mokjangYn="
-				+ ", regId=" + regId
-				+ ", regTime=" + regTime + ", mokjangReportSeq="
-				+ mokjangReportSeq + "]";
-	}
+	private String visitContent;
+
+	private Integer point;
 
 	private Long reportSeq;
 	
-
 	private String userId;
 
 	private Long deptSeq;
@@ -34,7 +28,7 @@ public class Report {
 	
 	private Long mokjangReportSeq;
 
-	private List<ReportItemHist> reportItemHist;
+	private List<ReportItemHist> reportItemHistList;
 	
 	public Long getReportSeq() {
 		return reportSeq;
@@ -92,11 +86,37 @@ public class Report {
 		this.mokjangReportSeq = mokjangReportSeq;
 	}
 
-	public List<ReportItemHist> getReportItemHist() {
-		return reportItemHist;
+	public List<ReportItemHist> getReportItemHistList() {
+		return reportItemHistList;
 	}
 
-	public void setReportItemHist(List<ReportItemHist> reportItemHist) {
-		this.reportItemHist = reportItemHist;
+	public void setReportItemHistList(List<ReportItemHist> reportItemHistList) {
+		this.reportItemHistList = reportItemHistList;
+	}
+	
+	public String getVisitContent() {
+		return visitContent;
+	}
+
+	public void setVisitContent(String visitContent) {
+		this.visitContent = visitContent;
+	}
+
+	public Integer getPoint() {
+		return point;
+	}
+
+	public void setPoint(Integer point) {
+		this.point = point;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Report [reportSeq=" + reportSeq + ", userId=" + userId
+				+ ", deptSeq=" + deptSeq + ", weeks=" + weeks + ", mokjangYn="
+				+ ", regId=" + regId
+				+ ", regTime=" + regTime + ", mokjangReportSeq="
+				+ mokjangReportSeq + "]";
 	}
 }

@@ -6,7 +6,7 @@ public class ReportItemHist {
 
     private Long reportItemHistSeq;
 
-    private Long itemCode;
+    private String itemCode;
 
     private Long itemValue;
 
@@ -22,11 +22,11 @@ public class ReportItemHist {
         this.reportItemHistSeq = reportItemHistSeq;
     }
 
-    public Long getItemCode() {
+    public String getItemCode() {
         return itemCode;
     }
 
-    public void setItemCode(Long itemCode) {
+    public void setItemCode(String itemCode) {
         this.itemCode = itemCode;
     }
 
