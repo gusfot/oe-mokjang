@@ -15,7 +15,7 @@ public class DateUtil {
 	 */
 	public static int getWeeksOfYear(int year, int month, int date){
 		Calendar cal = Calendar.getInstance();
-	    cal.set(year, month, date);
+	    cal.set(year, month-1, date);
 //	    //System.out.println(now.getTime());
 //
 //	    System.out.println("Current week of month is : " + now.get(Calendar.WEEK_OF_MONTH));
@@ -39,17 +39,6 @@ public class DateUtil {
 	public static int getWeeksOfMonth(int year, int month, int date){
 		Calendar cal = Calendar.getInstance();
 	    cal.set(year, month, date);
-//	    //System.out.println(now.getTime());
-//
-//	    System.out.println("Current week of month is : " + now.get(Calendar.WEEK_OF_MONTH));
-//	    System.out.println("Current week of year is : " + now.get(Calendar.WEEK_OF_YEAR));
-//
-//	    now.add(Calendar.WEEK_OF_MONTH, 1);
-//
-//	    System.out.println("date after one year : " + (now.get(Calendar.MONTH) + 1) + "-"
-//	        + now.get(Calendar.DATE) + "-" + now.get(Calendar.YEAR));
-//		
-//	    return cal.get(Calendar.WEEK_OF_MONTH);
 	    return cal.getWeekYear();
 	}
 	
@@ -68,16 +57,6 @@ public class DateUtil {
 		// TODO : 날짜에 해당하는 주의 끝나는 토요일의 날짜를 가져온다.
 		Calendar cal = Calendar.getInstance();
 		cal.set(year, month, date);
-//	    //System.out.println(now.getTime());
-//
-//	    System.out.println("Current week of month is : " + now.get(Calendar.WEEK_OF_MONTH));
-//	    System.out.println("Current week of year is : " + now.get(Calendar.WEEK_OF_YEAR));
-//
-//	    now.add(Calendar.WEEK_OF_MONTH, 1);
-//
-//	    System.out.println("date after one year : " + (now.get(Calendar.MONTH) + 1) + "-"
-//	        + now.get(Calendar.DATE) + "-" + now.get(Calendar.YEAR));
-//		
 		
 		return 0;
 	}
@@ -121,5 +100,42 @@ public class DateUtil {
 		Date today = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("dd");
 		return format.format(today);
+	}
+	
+	/**
+	 * 해당 년도 , 주차의 시작일자
+	 * @param year
+	 * @param weeks
+	 * @return
+	 */
+	public static Date getFirstDateByWeeks(int year, int weeks) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+		calendar.setFirstDayOfWeek(Calendar.SUNDAY);
+		calendar.set(Calendar.WEEK_OF_YEAR, weeks);
+		calendar.set(Calendar.YEAR, year);
+		
+		return calendar.getTime();
+		
+	}
+	
+	/**
+	 * 해당 년도 , 주차의 마지막일자
+	 * @param year
+	 * @param weeks
+	 * @return
+	 */
+	public static Date getLastDateByWeeks(int year, int weeks) {
+
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+		calendar.setFirstDayOfWeek(Calendar.SUNDAY);
+		calendar.set(Calendar.WEEK_OF_YEAR, weeks);
+		calendar.set(Calendar.YEAR, year);
+		calendar.add(Calendar.DATE, 6);
+		
+		return calendar.getTime();
+		
 	}
 }
