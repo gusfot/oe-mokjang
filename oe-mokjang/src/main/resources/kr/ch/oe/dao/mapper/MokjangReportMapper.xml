@@ -575,6 +575,24 @@
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+    <collection property="reportItemHistList" columnPrefix="hist_" resultMap="HistResultMap" />
+    <!-- 
+    <collection property="reportItemHistList" ofType="kr.ch.oe.model.ReportItemHist" columnPrefix="hist_">
+      <id column="report_item_hist_seq" property="reportItemHistSeq" />
+      <result column="item_code" jdbcType="VARCHAR" property="itemCode" />
+	  <result column="item_value" jdbcType="BIGINT" property="itemValue" />
+	  <result column="report_seq" jdbcType="BIGINT" property="reportSeq" />
+	  <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+    </collection>
+     -->
+  </resultMap>
+  
+  <resultMap id="HistResultMap" type="kr.ch.oe.model.ReportItemHist">
+    <id column="report_item_hist_seq" jdbcType="BIGINT" property="reportItemHistSeq" />
+    <result column="item_code" jdbcType="VARCHAR" property="itemCode" />
+    <result column="item_value" jdbcType="BIGINT" property="itemValue" />
+    <result column="report_seq" jdbcType="BIGINT" property="reportSeq" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
   </resultMap>
   
   <sql id="MokjangReport_Column_List">
@@ -603,12 +621,34 @@
     report.reg_time report_reg_time
   </sql>
   
+  <sql id="Hist_Column_List">
+  	hist.report_item_hist_seq report_hist_report_item_hist_seq,  
+  	hist.item_code report_hist_item_code , 
+  	hist.item_value report_hist_item_value,
+  	hist.report_seq report_hist_report_seq,
+  	hist.reg_time report_hist_reg_time
+  </sql>
+  
   <select id="selectMokjangReport" parameterType="map" resultMap="MokjangReportResultMap">
+	<!-- 
     select 
     <include refid="MokjangReport_Column_List" />
     ,<include refid="Report_Column_List" />
     from mokjang_report mokjangreport
     left join report report on report.weeks = mokjangreport.weeks and report.dept_seq=mokjangreport.dept_seq
+     -->
+     
+    SELECT 
+	<include refid="MokjangReport_Column_List" />
+	,report.*
+	FROM mokjang_report mokjangreport
+	LEFT JOIN 
+	(
+	select  
+			<include refid="Report_Column_List" /> 
+			,<include refid="Hist_Column_List" /> 
+			from report report inner join report_item_hist hist on hist.report_seq = report.report_seq
+	) report on report_weeks = mokjangreport.weeks AND report_dept_seq=mokjangreport.dept_seq
     <where> 
 	    <choose>
 		    <when test="mokjangReportSeq != null">
