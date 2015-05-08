@@ -1,7 +1,7 @@
 package kr.ch.oe.web;
 
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,6 +83,14 @@ public class ReportController {
 
 		model.addAttribute("reportItems", items);
 		
+		Date today = new Date();
+		int  year = today.getYear();
+		int  month = today.getMonth()+1;
+		int  date = today.getDate();
+		int thisWeeks = DateUtil.getWeeksOfYear(year, month, date);
+		
+		model.addAttribute("thisWeeks", thisWeeks);
+		
 		return "report/mokjangReport_regist";
 	}
 	
@@ -120,7 +128,9 @@ public class ReportController {
 	
 	@RequestMapping(value="/mokjang/detail.oe", method=RequestMethod.GET)
 	public String detail(HttpServletRequest request, HttpServletResponse response, 
-						@RequestParam long seq, Model model) {
+						@RequestParam(required=false, defaultValue="0") long seq, 
+						@RequestParam(required=false, defaultValue="0") int weeks,
+						Model model) {
 		
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
 		long deptSeq = sessionUserVO.getDeptSeq();
@@ -128,8 +138,11 @@ public class ReportController {
 		List<User> mokjangUsers = departmentService.getMokjangUsers(deptSeq);
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
-		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(seq));
-		
+		if(seq != 0) {
+			model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(seq));
+		}else {
+			model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(deptSeq, weeks));
+		}
 		Map<String, Object> params = new HashMap<>();
 		List<ReportItem> items = reportItemService.getList(params);
 

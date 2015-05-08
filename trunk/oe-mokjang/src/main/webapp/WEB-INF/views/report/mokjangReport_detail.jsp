@@ -25,11 +25,15 @@
 		<div class="container">
 			<div class="header_wrap">
 				<div class="header">
-					<div class="header_title"><h2>정충상 목장보고서</h2></div>
+					<div class="header_title">
+						<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+							<c:if test="${user.role.roleName eq '목자' }"><h2>${user.userName } 목장보고서</h2> </c:if>
+						</c:forEach>
+						</div>
 					<div class="header_week">
-						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
+						<div class="week_prev"><a href="javascript:getReport(${mokjangReport.weeks-1 });" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
 						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
-						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
+						<div class="week_next"><a href="javascript:getReport(${mokjangReport.weeks+1 });" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
 					</div>
 				</div>
 			</div>
@@ -207,10 +211,15 @@
 											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
 										</td>
 										<c:forEach var="item" items="${reportItems}" varStatus="j">
-											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].${item.code}" value="1" >${item.itemTypeDesc}</label></td>
+											<td>
+												<label class="attend_chk">
+													<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].itemValue" value="1"  <c:if test="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemValue eq 1}">checked="checked"</c:if> >${item.itemTypeDesc}
+													<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index}].itemCode" value="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemCode}" />
+													</label>
+												</td>
 										</c:forEach>
-										<td style="padding:0px;"><textarea name="visitContent" id="visitContent"></textarea></td>
-										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">0</span> P</a></td>
+										<td style="padding:0px;"><textarea name="visitContent" id="visitContent">${mokjangReport.reports[i.index].visitContent}</textarea></td>
+										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">${mokjangReport.reports[i.index].point}</span> P</a></td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 									</tr>
 								</c:forEach>
@@ -224,7 +233,7 @@
 						<table class="content_table">
 							<tr>						
 								<th>금일합계점수</th>
-								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="points">0</span>P</a></p></td>							
+								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="points">${mokjangReport.point }</span>P</a></p></td>							
 							</tr>
 							<tr>
 								<th>누적점수</th>
@@ -339,6 +348,9 @@
 		}
 	}
 	
+	function getReport(weeks) {
+		return location.href = '/report/mokjang/detail.oe?weeks='+weeks;
+	}
 	</script>
 		
 	</body>

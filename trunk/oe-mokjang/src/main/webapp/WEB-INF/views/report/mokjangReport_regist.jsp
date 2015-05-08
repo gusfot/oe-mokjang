@@ -25,7 +25,11 @@
 		<div class="container">
 			<div class="header_wrap">
 				<div class="header">
-					<div class="header_title"><h2>정충상 목장보고서</h2></div>
+					<div class="header_title">
+					<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+							<c:if test="${user.role.roleName eq '목자' }"><h2>${user.userName } 목장보고서</h2> </c:if>
+						</c:forEach>
+					</div>
 					<div class="header_week">
 						<div class="week_prev"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
 						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
