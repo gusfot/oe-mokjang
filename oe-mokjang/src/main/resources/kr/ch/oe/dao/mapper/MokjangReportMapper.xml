@@ -562,7 +562,7 @@
     <result column="mokjangreport_next_worship_place" jdbcType="VARCHAR" property="nextWorshipPlace" />
     <result column="mokjangreport_etc_report_content" jdbcType="VARCHAR" property="etcReportContent" />
     <result column="mokjangreport_offering" jdbcType="BIGINT" property="offering" />
-    <result column="point" jdbcType="BIGINT" property="point" />
+    <result column="mokjangreport_point" jdbcType="INTEGER" property="point" />
     <result column="mokjangreport_reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="mokjangreport_reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <collection columnPrefix="report_" property="reports" resultMap="ReportResultMap" />
@@ -573,20 +573,11 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="weeks" jdbcType="INTEGER" property="weeks" />
-    <result column="point" jdbcType="BIGINT" property="point" />
+    <result column="point" jdbcType="INTEGER" property="point" />
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
     <collection property="reportItemHistList" columnPrefix="hist_" resultMap="HistResultMap" />
-    <!-- 
-    <collection property="reportItemHistList" ofType="kr.ch.oe.model.ReportItemHist" columnPrefix="hist_">
-      <id column="report_item_hist_seq" property="reportItemHistSeq" />
-      <result column="item_code" jdbcType="VARCHAR" property="itemCode" />
-	  <result column="item_value" jdbcType="BIGINT" property="itemValue" />
-	  <result column="report_seq" jdbcType="BIGINT" property="reportSeq" />
-	  <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
-    </collection>
-     -->
   </resultMap>
   
   <resultMap id="HistResultMap" type="kr.ch.oe.model.ReportItemHist">
