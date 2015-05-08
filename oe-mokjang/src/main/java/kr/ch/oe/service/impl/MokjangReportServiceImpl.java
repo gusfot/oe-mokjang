@@ -41,8 +41,13 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 			mokjangReportMapper.insertSelective(mokjangReport);
 			
 			for( Report report : mokjangReport.getReports()) {
+				
+				report.setMokjangReportSeq(mokjangReport.getMokjangReportSeq());
 				reportMapper.insertSelective(report);
-				for (ReportItemHist hist : report.getReportItemHist()) {
+				
+				for (ReportItemHist hist : report.getReportItemHistList()) {
+					
+					hist.setReportSeq(report.getReportSeq());
 					reportItemHistMapper.insertSelective(hist);
 				}
 			}

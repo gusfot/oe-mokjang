@@ -44,6 +44,14 @@ public class ReportMapperTest {
 	}
 	
 	@Test
+	public void selectByReportSeq() {
+		
+		Report report = reportMapper.selectByReportSeq(88l);
+		
+		Assert.assertTrue(report != null);
+	}
+	
+	@Test
 	public void selectList() {
 		
 		ReportExample example = new ReportExample();
