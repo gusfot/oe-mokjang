@@ -1,6 +1,7 @@
 package kr.ch.oe.web;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -83,13 +84,18 @@ public class ReportController {
 
 		model.addAttribute("reportItems", items);
 		
-		Date today = new Date();
-		int  year = today.getYear();
-		int  month = today.getMonth()+1;
-		int  date = today.getDate();
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH);
+		int date = cal.get(Calendar.DATE);
+		System.out.println("year : " + year + ", month : " +month + ", date : " + date);
 		int thisWeeks = DateUtil.getWeeksOfYear(year, month, date);
 		
 		model.addAttribute("thisWeeks", thisWeeks);
+		
+		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
+		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
+		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
 		
 		return "report/mokjangReport_regist";
 	}
@@ -130,6 +136,7 @@ public class ReportController {
 	public String detail(HttpServletRequest request, HttpServletResponse response, 
 						@RequestParam(required=false, defaultValue="0") long seq, 
 						@RequestParam(required=false, defaultValue="0") int weeks,
+						@RequestParam(required=false, defaultValue="2015") int year,
 						Model model) {
 		
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
@@ -147,6 +154,9 @@ public class ReportController {
 		List<ReportItem> items = reportItemService.getList(params);
 
 		model.addAttribute("reportItems", items);
+		
+		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
+		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
 		
 		return "report/mokjangReport_detail";
 	}

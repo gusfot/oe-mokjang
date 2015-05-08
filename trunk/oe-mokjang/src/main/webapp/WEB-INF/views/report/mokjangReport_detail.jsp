@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -27,13 +28,13 @@
 				<div class="header">
 					<div class="header_title">
 						<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-							<c:if test="${user.role.roleName eq '목자' }"><h2>${user.userName } 목장보고서</h2> </c:if>
+							<c:if test="${user.role.roleName eq '목자' }"><h2>${user.userName } 목장보고서(<fmt:formatDate value="${firstDate}" pattern="yyyy/MM/dd(주)" />~<fmt:formatDate value="${lastDate}" pattern="yyyy/MM/dd(토)" />)</h2> </c:if>
 						</c:forEach>
 						</div>
 					<div class="header_week">
-						<div class="week_prev"><a href="javascript:getReport(${mokjangReport.weeks-1 });" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
+						<div class="week_prev"><a href="javascript:getReport(${param.weeks-1 });" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
 						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
-						<div class="week_next"><a href="javascript:getReport(${mokjangReport.weeks+1 });" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
+						<div class="week_next"><a href="javascript:getReport(${param.weeks+1 });" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
 					</div>
 				</div>
 			</div>
