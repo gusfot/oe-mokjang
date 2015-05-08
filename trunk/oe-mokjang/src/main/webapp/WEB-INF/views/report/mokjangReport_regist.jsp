@@ -219,7 +219,12 @@
 											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
 										</td>
 										<c:forEach var="item" items="${reportItems}" varStatus="j">
-											<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].${item.code}" value="1" >${item.itemTypeDesc}</label></td>
+											<td>
+												<label class="attend_chk">
+													<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].itemValue" value="1" >${item.itemTypeDesc}
+													<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index }].itemCode" value="${item.code }" />
+												</label>
+											</td>
 										</c:forEach>
 										<%-- 
 										<td><label class="attend_chk"><input type="checkbox" data-user="user${i.index}" data-weight="5" data-mini="true" name="reports[${i.index}]['mokjangYn']" value="1" >참석</label></td>
