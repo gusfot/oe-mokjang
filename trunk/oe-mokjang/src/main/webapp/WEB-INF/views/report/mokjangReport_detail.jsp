@@ -190,7 +190,7 @@
 								<tr class="th-groups">
 									<th style="text-align:center; width:40px;">성명</th>
 									<c:forEach var="item" items="${reportItems}" varStatus="j">
-										<th data-priority="${j.count}" style="text-align:center;">${item.itemName}</th>
+										<th data-priority="${item.priority}" style="text-align:center;">${item.itemName}</th>
 									</c:forEach>
 									<th data-priority="6" style="text-align:center;">심방내용</th>
 									<th class="totals" style="text-align:center;">점수</th>
