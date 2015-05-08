@@ -25,8 +25,8 @@ public class MokjangReportMapperTest {
 	@Test
 	public void selectMokjangReport() {
 		Map<String, Object> params = new HashMap<>();
-		params.put("deptSeq", 14);
-		params.put("weeks", 2);
+		params.put("deptSeq", 84);
+		params.put("weeks", 23);
 		MokjangReport mokjangReport = mokjangReportMapper.selectMokjangReport(params);
 		
 		System.out.println(mokjangReport.getWorshipDt());
