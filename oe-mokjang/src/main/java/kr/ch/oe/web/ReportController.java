@@ -86,14 +86,9 @@ public class ReportController {
 		
 		Calendar cal = Calendar.getInstance();
 		int year = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH);
-		int date = cal.get(Calendar.DATE);
-		System.out.println("year : " + year + ", month : " +month + ", date : " + date);
-		int thisWeeks = DateUtil.getWeeksOfYear(year, month, date);
-		
-		model.addAttribute("thisWeeks", thisWeeks);
 		
 		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
+		model.addAttribute("thisWeeks", weeks);
 		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
 		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
 		
