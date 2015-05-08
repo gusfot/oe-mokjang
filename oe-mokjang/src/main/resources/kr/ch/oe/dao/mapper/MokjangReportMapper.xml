@@ -627,12 +627,11 @@
   </sql>
   
   <select id="selectMokjangReport" parameterType="map" resultMap="MokjangReportResultMap">
-     
-    SELECT 
+    select 
 		<include refid="MokjangReport_Column_List" />
 		,report.*
-		FROM mokjang_report mokjangreport
-	LEFT JOIN 
+		from mokjang_report mokjangreport
+	left join 
 	(
 	select  
 			<include refid="Report_Column_List" /> 
