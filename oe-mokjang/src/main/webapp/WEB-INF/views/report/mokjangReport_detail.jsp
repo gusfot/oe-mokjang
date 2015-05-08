@@ -123,54 +123,6 @@
 					<div class="ui-block-b">
 					<h4>기타정보</h4>
 					<table class="person_info_02">
-						<%-- 
-						<tr>
-							<th>기타참석자</th>
-							<td>
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select name="select-native-fc" id="select-native-fc" data-mini="true">
-										<option value="">선택하세요</option>
-										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-											<option value="${user.userName}">${user.userName}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</td>
-						</tr>
-						 --%>
-						<tr>
-							<th>총 참석자</th>
-							<td style="padding:0 7px 0 7px;">총 참석자 <span class="total_attend">9명</span>
-							<div style="min-height:100px;" class="attend_wrap">
-								<ul>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>송명섭
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>정충상
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>김현래
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>송명섭
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>정충상
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>김현래
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>송명섭
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								<li><p class="attend_photo"><img src="/resources/img/person.png"></p>정충상
-								<div class="attend_delete"><a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-inline">Delete</a></div>
-								</li>
-								</ul>
-							</div>
-							</td>
-						</tr>
 						<tr>
 							<th>목장헌금</th>
 							<td><input type="text" data-clear-btn="true" name="offering" id="offering" value="${mokjangReport.offering}" data-mini="true"></td>
