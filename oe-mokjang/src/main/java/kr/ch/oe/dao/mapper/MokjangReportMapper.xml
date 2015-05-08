@@ -573,6 +573,7 @@
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="weeks" jdbcType="INTEGER" property="weeks" />
+    <result column="visit_content" jdbcType="VARCHAR" property="visitContent" />
     <result column="point" jdbcType="INTEGER" property="point" />
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
@@ -610,6 +611,7 @@
     report.report_seq report_report_seq, 
     report.user_id report_user_id, 
     report.weeks report_weeks, 
+    report.visit_content report_visit_content, 
     report.dept_seq report_dept_seq, 
     report.point report_point, 
     report.reg_id report_reg_id, 
@@ -650,8 +652,7 @@
 		    	mokjangreport.mokjang_report_seq = #{mokjangReportSeq}
 		    </when>
 		    <when test="deptSeq != null and weeks != null">
-		    	mokjangreport.dept_seq = #{deptSeq}
-			    and mokjangreport.weeks = #{weeks}
+		    	mokjangreport.dept_seq = #{deptSeq} and mokjangreport.weeks = #{weeks}
 		    </when>
 		    <otherwise>
 			    
