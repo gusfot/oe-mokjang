@@ -135,7 +135,7 @@
 			
 			<div class="content_wrap">
 				<div class="content">
-					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini">목장보고서 저장</a>
+					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.modify();">목장보고서 수정</a>
 						<div class="table_wrap">
 						<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d table-stripe ui-responsive" data-column-btn-theme="a" data-column-btn-text="항목보기" data-column-popup-theme="a">
 
@@ -204,7 +204,7 @@
 							</tr>
 						</table>
 						</div>
-					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
+					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.modify();">목장보고서 수정</a>
 				</div>
 			</div>
 			</form>	
@@ -238,6 +238,7 @@
 			var $this = $(this);
 			var userSeq = Number($this.parent().parent().parent().attr('data-userseq'));
 			var $userPoint = $(document.getElementById('reports['+userSeq+'].point'));
+			var $hiddenUserPoint = $(document.getElementsByName('reports['+userSeq+'].point'));
 			var point = 0;
 			
 			$('input[data-user="user'+userSeq+'"]').each(function() {
@@ -247,6 +248,7 @@
 			}) ;
 			
 			$userPoint.html(point);
+			$hiddenUserPoint.val(point);
 		});
 		
 		// 금일합계점수 반영
@@ -266,6 +268,7 @@
 		var usersLength =$('tr[data-userseq]').length;		// 목장원수
 		var $offering = $('#offering');						// 헌금
 		var $point = $('#point');							// 금일합계점수 표시영역
+		var $hiddenPoint = $('input[name=point]');			// 금일합계점수값(for server)
 		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
 		
 		// 헌금 점수 반영
@@ -278,6 +281,7 @@
 		}
 		
 		$point.html(todayPoint);
+		$hiddenPoint.val(todayPoint);
 	}
 	
 	var report = {
