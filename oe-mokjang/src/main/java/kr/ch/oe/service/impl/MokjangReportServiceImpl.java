@@ -95,8 +95,32 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 
 	@Override
 	public boolean modify(MokjangReport mokjangReport) {
-		// TODO 목장보고서 수정 구현
-		return false;
+		boolean result = false;
+		
+		try{
+			
+			mokjangReportMapper.updateByPrimaryKeySelective(mokjangReport);
+			
+			for( Report report : mokjangReport.getReports()) {
+				
+				reportMapper.updateByPrimaryKeySelective(report);
+				
+				for (ReportItemHist hist : report.getReportItemHistList()) {
+					
+					reportItemHistMapper.updateByPrimaryKeySelective(hist);
+				}
+			}
+		
+			result = true;
+			
+		}catch(Exception e) {
+			
+			e.printStackTrace();
+			result = false;
+			
+		}
+		
+		return result;
 	}
 
 
