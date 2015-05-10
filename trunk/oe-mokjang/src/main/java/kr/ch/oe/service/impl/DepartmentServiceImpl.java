@@ -75,16 +75,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 		return department;
 	}
 	
+	@Override
 	public Department getDepatmentWithChildren(Long deptseq) {
 		Department department = getDepatment(deptseq);
 		
-		// 상위부서
-		Department parent = getParent(department.getParentSeq());
-		department.setParent(parent);
-		
-		// 하위부서목록
-		List<Department> chidren = getChildren(department.getDeptSeq());
-		department.setChildren(chidren);
+		getParentAndChidren(department);
 		
 		return department;
 	}
@@ -101,16 +96,23 @@ public class DepartmentServiceImpl implements DepartmentService {
 		List<Department> departments = deptMapper.selectByExample(example);
 		
 		for (Department department : departments) {
-			// 상위부서
-			Department parent = getParent(department.getParentSeq());
-			department.setParent(parent);
 			
-			// 하위부서목록
-			List<Department> children = getChildren(department.getDeptSeq());
-			department.setChildren(children);
+			getParentAndChidren(department);
+			
 		}
 		
 		return departments;
+	}
+
+	// 상위부서 및 하위부서 조회
+	private void getParentAndChidren(Department department) {
+		// 상위부서
+		Department parent = getParent(department.getParentSeq());
+		department.setParent(parent);
+		
+		// 하위부서목록
+		List<Department> children = getChildren(department.getDeptSeq());
+		department.setChildren(children);
 	}
 	
 	/**

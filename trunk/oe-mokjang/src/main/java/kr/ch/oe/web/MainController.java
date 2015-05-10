@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 	
-	@RequestMapping(value={"/","/main.oe"})
+	@RequestMapping(value="/main.oe")
 	public String main(HttpServletRequest request, HttpServletResponse response){
 		
 		String mainPage = "main";
