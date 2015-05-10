@@ -31,6 +31,14 @@ public class DeparmentServiceTest {
 	@Test
 	public void successToGetDept(){
 		Department dept = deptService.getDepatment(1L);
+		System.out.println(dept);
+		Assert.assertNotNull(dept);
+	}
+	
+	@Test
+	public void successToGetDepatmentWithChildren(){
+		Department dept = deptService.getDepatmentWithChildren(1L);
+		System.out.println(dept);
 		Assert.assertNotNull(dept);
 	}
 	 

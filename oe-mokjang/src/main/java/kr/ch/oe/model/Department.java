@@ -1,6 +1,7 @@
 package kr.ch.oe.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Department {
 	
@@ -17,6 +18,8 @@ public class Department {
 	private Long parentSeq;
 
 	private Date regTime;
+	
+	private List<Department> children;
 
 	public Long getDeptSeq() {
 		return deptSeq;
@@ -88,6 +91,14 @@ public class Department {
 
 	public void setParent(Department parent) {
 		this.parent = parent;
+	}
+
+	public List<Department> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Department> children) {
+		this.children = children;
 	}
 
 }

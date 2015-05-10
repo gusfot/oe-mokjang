@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author gusfot
  *
  */
-@RequestMapping("")
+//@RequestMapping("")
 @Controller
 public class MainController {
 
 	
-	@RequestMapping("/main.oe")
+	@RequestMapping(value={"/","/main.oe"})
 	public String main(HttpServletRequest request, HttpServletResponse response){
 		
 		String mainPage = "main";

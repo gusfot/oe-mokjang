@@ -54,6 +54,13 @@ public interface DepartmentService {
 	
 	public int getRowGroupTotalNumber(Long deptSeq);
 	
+	/**
+	 * 하위부서목록을 가진 부서 조회
+	 * @param l
+	 * @return
+	 */
+	Department getDepatmentWithChildren(Long deptSeq);
+	
 	
 	
 	

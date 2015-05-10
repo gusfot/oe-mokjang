@@ -12,7 +12,7 @@
     <result column="dept_seq" jdbcType="BIGINT" property="deptSeq" />
     <result column="weeks" jdbcType="INTEGER" property="weeks" />
     <result column="visit_content" jdbcType="VARCHAR" property="visitContent" />
-    <result column="point" jdbcType="SMALLINT" property="point" />
+    <result column="point" jdbcType="INTEGER" property="point" />
     <result column="mokjang_report_seq" jdbcType="BIGINT" property="mokjangReportSeq" />
     <result column="reg_id" jdbcType="VARCHAR" property="regId" />
     <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
@@ -174,7 +174,7 @@
       mokjang_report_seq, reg_id, reg_time
       )
     values (#{reportSeq,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{deptSeq,jdbcType=BIGINT}, 
-      #{weeks,jdbcType=INTEGER}, #{visitContent,jdbcType=VARCHAR}, #{point,jdbcType=SMALLINT}, 
+      #{weeks,jdbcType=INTEGER}, #{visitContent,jdbcType=VARCHAR}, #{point,jdbcType=INTEGER}, 
       #{mokjangReportSeq,jdbcType=BIGINT}, #{regId,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -234,7 +234,7 @@
         #{visitContent,jdbcType=VARCHAR},
       </if>
       <if test="point != null">
-        #{point,jdbcType=SMALLINT},
+        #{point,jdbcType=INTEGER},
       </if>
       <if test="mokjangReportSeq != null">
         #{mokjangReportSeq,jdbcType=BIGINT},
@@ -282,7 +282,7 @@
         visit_content = #{record.visitContent,jdbcType=VARCHAR},
       </if>
       <if test="record.point != null">
-        point = #{record.point,jdbcType=SMALLINT},
+        point = #{record.point,jdbcType=INTEGER},
       </if>
       <if test="record.mokjangReportSeq != null">
         mokjang_report_seq = #{record.mokjangReportSeq,jdbcType=BIGINT},
@@ -310,7 +310,7 @@
       dept_seq = #{record.deptSeq,jdbcType=BIGINT},
       weeks = #{record.weeks,jdbcType=INTEGER},
       visit_content = #{record.visitContent,jdbcType=VARCHAR},
-      point = #{record.point,jdbcType=SMALLINT},
+      point = #{record.point,jdbcType=INTEGER},
       mokjang_report_seq = #{record.mokjangReportSeq,jdbcType=BIGINT},
       reg_id = #{record.regId,jdbcType=VARCHAR},
       reg_time = #{record.regTime,jdbcType=TIMESTAMP}
@@ -339,7 +339,7 @@
         visit_content = #{visitContent,jdbcType=VARCHAR},
       </if>
       <if test="point != null">
-        point = #{point,jdbcType=SMALLINT},
+        point = #{point,jdbcType=INTEGER},
       </if>
       <if test="mokjangReportSeq != null">
         mokjang_report_seq = #{mokjangReportSeq,jdbcType=BIGINT},
@@ -364,7 +364,7 @@
       dept_seq = #{deptSeq,jdbcType=BIGINT},
       weeks = #{weeks,jdbcType=INTEGER},
       visit_content = #{visitContent,jdbcType=VARCHAR},
-      point = #{point,jdbcType=SMALLINT},
+      point = #{point,jdbcType=INTEGER},
       mokjang_report_seq = #{mokjangReportSeq,jdbcType=BIGINT},
       reg_id = #{regId,jdbcType=VARCHAR},
       reg_time = #{regTime,jdbcType=TIMESTAMP}
