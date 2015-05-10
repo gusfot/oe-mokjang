@@ -127,6 +127,38 @@ public class ReportController {
 		return returnObject.toString();
 	}
 	
+	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
+	public @ResponseBody String modify(HttpServletRequest request, HttpServletResponse response, 
+									   @ModelAttribute MokjangReport mokjangReport, Model model) {
+		
+		JsonObject returnObject = new JsonObject();
+		
+		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+		String userId = sessionUserVO.getUserId();
+		
+		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
+		String[] worshiDate = mokjangReport.getWorshipDt().split("-");
+		
+		// 주차
+		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
+//		System.out.println(weeks + "번째 주입니다.");
+//		System.out.println(mokjangReport.toString());
+		
+		mokjangReport.setWeeks(weeks);
+		mokjangReport.setRegId(userId);
+		for(Report report : mokjangReport.getReports()){
+			report.setWeeks(weeks);
+			report.setRegId(userId);
+			report.setDeptSeq(mokjangReport.getDeptSeq());
+		}
+		
+		
+		returnObject.addProperty("success", mokjangReportService.modify(mokjangReport));
+		returnObject.addProperty("seq", mokjangReport.getMokjangReportSeq());
+		
+		return returnObject.toString();
+	}
+	
 	@RequestMapping(value="/mokjang/detail.oe", method=RequestMethod.GET)
 	public String detail(HttpServletRequest request, HttpServletResponse response, 
 						@RequestParam(required=false, defaultValue="0") long seq, 
@@ -164,7 +196,7 @@ public class ReportController {
 		return "report/mokjangReport_modify";
 	}
 	
-	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
+/*	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
 	public  @ResponseBody String modify(@ModelAttribute MokjangReport mokjangReport, Model model) {
 		
 		JsonObject returnObject = new JsonObject();
@@ -173,7 +205,7 @@ public class ReportController {
 //		returnObject.addProperty("data", "data1");
 		
 		return returnObject.toString();
-	}
+	}*/
 	
 	/**
      * Handle request to download an Excel document

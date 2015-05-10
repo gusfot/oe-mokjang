@@ -39,6 +39,7 @@
 				</div>
 			</div>
 			<form id="mokjangReportForm">
+				<input type="hidden" name="mokjangReportSeq" value="${mokjangReport.mokjangReportSeq }" />
 				<div class="input_wrap">
 				<div class="ui-grid-a ui-responsive">
 					<div class="ui-block-a">
@@ -162,12 +163,14 @@
 											${user.userName}
 											</a>
 											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
+											<input type="hidden" class="form-control" name="reports[${i.index}].userSeq" value="${user.userSeq}" >
 										</td>
 										<c:forEach var="item" items="${reportItems}" varStatus="j">
 											<td>
 												<label class="attend_chk">
 													<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].itemValue" value="1"  <c:if test="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemValue eq 1}">checked="checked"</c:if> >${item.itemTypeDesc}
 													<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index}].itemCode" value="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemCode}" />
+													<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index}].reportItemHistSeq" value="${mokjangReport.reports[i.index].reportItemHistList[j.index].reportItemHistSeq}" />
 													</label>
 												</td>
 										</c:forEach>
@@ -297,7 +300,29 @@
 					 }
 					});
 			
-			}
+			},
+			modify : function() {
+				var $f = $('#mokjangReportForm'),
+			 	 	formData;
+			 
+				formData = $f.serialize();
+			 
+				 $.ajax({
+					 url: '/report/mokjang/modify.oe',
+					 type: 'POST',
+					 data: formData,
+					 dataType : 'json',
+					 success:function(result){
+					   alert(result.success);
+					   if(result.success) {
+						   location.href = '/report/mokjang/detail.oe?seq='+result.seq;;
+					   }else {
+						   alert(result.message);
+					   }
+					 }
+				});
+		
+		}
 		}
 	}
 	
