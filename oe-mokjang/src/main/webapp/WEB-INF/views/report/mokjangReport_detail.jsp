@@ -174,10 +174,11 @@
 													</label>
 												</td>
 										</c:forEach>
-										<td style="padding:0px;"><textarea name="visitContent" id="visitContent">${mokjangReport.reports[i.index].visitContent}</textarea></td>
+										<td style="padding:0px;"><textarea name="reports[${i.index}].visitContent" id="visitContent">${mokjangReport.reports[i.index].visitContent}</textarea></td>
 										<td>
 											<a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].point">${mokjangReport.reports[i.index].point}</span> P</a>
-											<input type="hidden" name="reports[${i.index}].point" value="" />
+											<input type="hidden" name="reports[${i.index}].point" value="${mokjangReport.reports[i.index].point}" />
+											<input type="hidden" name="reports[${i.index}].reportSeq" value="${mokjangReport.reports[i.index].reportSeq}" />
 										</td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 									</tr>
@@ -192,7 +193,10 @@
 						<table class="content_table">
 							<tr>						
 								<th>금일합계점수</th>
-								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="point">${mokjangReport.point }</span>P</a></p></td>							
+								<td>
+									<p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="point">${mokjangReport.point }</span>P</a></p>
+									<input type="hidden" name="point" value="${mokjangReport.point }" />
+								</td>							
 							</tr>
 							<tr>
 								<th>누적점수</th>
