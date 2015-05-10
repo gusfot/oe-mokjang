@@ -4,7 +4,6 @@ import java.util.List;
 
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
-import kr.ch.oe.model.DepartmentExample;
 import kr.ch.oe.model.User;
 
 
@@ -52,11 +51,11 @@ public interface DepartmentService {
 	 * 소속 조직의 하위조직 갯수 가져오기
 	 */
 	
-	public int getRowGroupTotalNumber(Long deptSeq);
+	int getRowGroupTotalNumber(Long deptSeq);
 	
 	/**
 	 * 하위부서목록을 가진 부서 조회
-	 * @param l
+	 * @param deptSeq
 	 * @return
 	 */
 	Department getDepatmentWithChildren(Long deptSeq);

@@ -30,6 +30,7 @@
        <span>목장보고서 메인페이지</span>
       <div class="container">
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/report/mokjang/regist.oe';">목장 보고서 작성하기 </button>
+		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/dept/children.oe';">하위 목장 내역</button>
       </div>
       <!-- Example row of columns -->
      

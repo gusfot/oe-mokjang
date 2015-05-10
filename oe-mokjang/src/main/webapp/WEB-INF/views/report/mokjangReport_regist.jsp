@@ -38,192 +38,185 @@
 					</div>
 				</div>
 			</div>
-			<form id="mokjangReportForm">
-				<div class="input_wrap">
-				<div class="ui-grid-a ui-responsive">
-					<div class="ui-block-a">
-					<h4>목장집회</h4>
-					<table class="person_info_01">
-						<tr>
-							<th>집회일시</th>
-							<td style="padding:0 7px 0 7px;"><input type="date" data-clear-btn="false" name="worshipDt" id="worshipDt"  ></td>
-						</tr>
-						<tr>
-							<th>집회장소</th>
-							<td>
-								<div  style="padding:0 7px 0 7px;">
-								<input type="text" name="worshipPlace" id="worshipPlace">
-								<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}">
-								</div>
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select class="form-control" id="placeList" data-mini="true" >
-										<option value="">선택하세요</option>
-										<option value="교회">교회</option>
-										<option value="목자집">목자집</option>
-										<option value="야외">야외</option>
-									</select>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<th>마음열기</th>
-							<td>
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select name="welcomeUserName" id="welcomeUserName" data-mini="true">
-										<option value="">선택하세요</option>
-										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-											<option value="${user.userName}">${user.userName}</option>
-										</c:forEach>
-									</select>
-									
-									
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<th>찬송인도</th>
-							<td>										
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select name="worshipUserName" id="worshipUserName" data-mini="true">
-										<option value="">선택하세요</option>
-										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-											<option value="${user.userName}">${user.userName}</option>
-										</c:forEach>
-									</select>
-								</div></td>
-						</tr>	
-						<tr>
-							<th>말씀인도</th>
-							<td>
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select name="wordUserName" id="wordUserName" data-mini="true">
-										<option value="">선택하세요</option>
-										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-											<option value="${user.userName}">${user.userName}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</td>									
-						</tr>
-						<tr>
-							<th>사역인도</th>
-							<td>
-								<div class="ui-field-contain" style="padding:0px; margin:0px;">
-									<select name="workUserName" id="workUserName" data-mini="true">
-										<option value="">선택하세요</option>
-										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-											<option value="${user.userName}">${user.userName}</option>
-										</c:forEach>
-									</select>
-								</div>
-							</td>									
-						</tr>								
-					</table>
+			<div>
+				<form id="mokjangReportForm">
+					<div class="input_wrap">
+						<div class="ui-grid-a ui-responsive">
+							<div class="ui-block-a">
+							<h4>목장집회</h4>
+							<table class="person_info_01">
+								<tr>
+									<th>집회일시</th>
+									<td style="padding:0 7px 0 7px;"><input type="date" data-clear-btn="false" name="worshipDt" id="worshipDt"  ></td>
+								</tr>
+								<tr>
+									<th>집회장소</th>
+									<td>
+										<div  style="padding:0 7px 0 7px;">
+										<input type="text" name="worshipPlace" id="worshipPlace">
+										<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}">
+										</div>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select class="form-control" id="placeList" data-mini="true" >
+												<option value="">선택하세요</option>
+												<option value="교회">교회</option>
+												<option value="목자집">목자집</option>
+												<option value="야외">야외</option>
+											</select>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>마음열기</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="welcomeUserName" id="welcomeUserName" data-mini="true">
+												<option value="">선택하세요</option>
+												<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+													<option value="${user.userName}">${user.userName}</option>
+												</c:forEach>
+											</select>
+											
+											
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>찬송인도</th>
+									<td>										
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="worshipUserName" id="worshipUserName" data-mini="true">
+												<option value="">선택하세요</option>
+												<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+													<option value="${user.userName}">${user.userName}</option>
+												</c:forEach>
+											</select>
+										</div></td>
+								</tr>	
+								<tr>
+									<th>말씀인도</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="wordUserName" id="wordUserName" data-mini="true">
+												<option value="">선택하세요</option>
+												<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+													<option value="${user.userName}">${user.userName}</option>
+												</c:forEach>
+											</select>
+										</div>
+									</td>									
+								</tr>
+								<tr>
+									<th>사역인도</th>
+									<td>
+										<div class="ui-field-contain" style="padding:0px; margin:0px;">
+											<select name="workUserName" id="workUserName" data-mini="true">
+												<option value="">선택하세요</option>
+												<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+													<option value="${user.userName}">${user.userName}</option>
+												</c:forEach>
+											</select>
+										</div>
+									</td>									
+								</tr>								
+							</table>
+							</div>
+							<div class="ui-block-b">
+							<h4>기타정보</h4>
+							<table class="person_info_02">
+								<tr>
+									<th>목장헌금</th>
+									<td><input type="text" data-clear-btn="true" name="offering" id="offering" value="" data-mini="true"></td>
+								</tr>
+							</table>	
+							</div>
+						</div>
 					</div>
-					<div class="ui-block-b">
-					<h4>기타정보</h4>
-					<table class="person_info_02">
-						<tr>
-							<th>목장헌금</th>
-							<td><input type="text" data-clear-btn="true" name="offering" id="offering" value="" data-mini="true"></td>
-						</tr>
-					</table>	
+				
+					<div class="content_wrap">
+						<div class="content">
+							<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
+								<div class="table_wrap">
+								<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d table-stripe ui-responsive" data-column-btn-theme="a" data-column-btn-text="항목보기" data-column-popup-theme="a">
+		
+									<thead>
+										<tr class="th-groups">
+											<th style="text-align:center; width:40px;">성명</th>
+											<c:forEach var="item" items="${reportItems}" varStatus="j">
+												<th data-priority="${j.count}" style="text-align:center;">${item.itemName}</th>
+											</c:forEach>
+											<th data-priority="6" style="text-align:center;">심방내용</th>
+											<th class="totals" style="text-align:center;">점수</th>
+											<th>입력</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
+											<tr data-userseq="${i.index}" >
+												<td>
+													<a href="#" class="ui-btn ui-corner-all ui-mini">
+													<c:choose>
+														<c:when test="${user.role.roleName eq '목자'}"><img src="/resources/img/icon_leader.png" alt="리더뱃지" width="14"></c:when>
+														<%-- <c:when test="${user.role.roleName eq '예비목자'}"><img src="/resources/img/icon_new.png" alt="새신자뱃지" width="14"></c:when> --%>
+														<%-- <c:otherwise>label-default</c:otherwise> --%>
+													</c:choose>
+													${user.userName}
+													</a>
+													<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
+												</td>
+												<c:forEach var="item" items="${reportItems}" varStatus="j">
+													<td>
+														<label class="attend_chk">
+															<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].itemValue" value="1" >${item.itemTypeDesc}
+															<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index }].itemCode" value="${item.code }" />
+														</label>
+													</td>
+												</c:forEach>
+												<td style="padding:0px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>
+												<td>
+													<a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].point">0</span> P</a>
+													<input type="hidden" name="reports[${i.index}].point" value="" />
+												</td>
+												<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+								
+								<div class="meet_info">								
+									<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true" style="display:none;">목장모임 정보 입력 완료</a>
+								</div>
+								
+								<table class="content_table">
+									<tr>						
+										<th>금일합계점수</th>
+										<td>
+											<p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="point">0</span>P</a></p>
+											<input type="hidden" name="point" value="" />
+										</td>							
+									</tr>
+									<tr>
+										<th>누적점수</th>
+										<td><a href="#" class="ui-btn ui-corner-all ui-mini">1,211,342P</a></td>							
+									</tr>
+									<tr>
+										<th>기타보고</th>
+										<td style="padding:0 7px 0 7px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>							
+									</tr>
+								</table>
+								</div>
+							<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
+						</div>
 					</div>
-				</div>
+				</form>	
 			</div>
 			
-			<div class="content_wrap">
-				<div class="content">
-					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
-						<div class="table_wrap">
-						<table data-role="table" id="table-column-toggle" data-mode="columntoggle" class="ui-body-d table-stripe ui-responsive" data-column-btn-theme="a" data-column-btn-text="항목보기" data-column-popup-theme="a">
-
-							<thead>
-								<tr class="th-groups">
-									<th style="text-align:center; width:40px;">성명</th>
-									<c:forEach var="item" items="${reportItems}" varStatus="j">
-										<th data-priority="${j.count}" style="text-align:center;">${item.itemName}</th>
-									</c:forEach>
-									<th data-priority="6" style="text-align:center;">심방내용</th>
-									<th class="totals" style="text-align:center;">점수</th>
-									<th>입력</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="user" items="${mokjangUsers}" varStatus="i" >
-									<tr data-userseq="${i.index}" >
-										<td>
-											<a href="#" class="ui-btn ui-corner-all ui-mini">
-											<c:choose>
-												<c:when test="${user.role.roleName eq '목자'}"><img src="/resources/img/icon_leader.png" alt="리더뱃지" width="14"></c:when>
-												<%-- <c:when test="${user.role.roleName eq '예비목자'}"><img src="/resources/img/icon_new.png" alt="새신자뱃지" width="14"></c:when> --%>
-												<%-- <c:otherwise>label-default</c:otherwise> --%>
-											</c:choose>
-											${user.userName}
-											</a>
-											<input type="hidden" class="form-control" name="reports[${i.index}].userId" value="${user.userId}" >
-										</td>
-										<c:forEach var="item" items="${reportItems}" varStatus="j">
-											<td>
-												<label class="attend_chk">
-													<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].itemValue" value="1" >${item.itemTypeDesc}
-													<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index }].itemCode" value="${item.code }" />
-												</label>
-											</td>
-										</c:forEach>
-										<td style="padding:0px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>
-										<td>
-											<a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].point">0</span> P</a>
-											<input type="hidden" name="reports[${i.index}].point" value="" />
-										</td>
-										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						
-						<div class="meet_info">								
-							<a href="#" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" data-mini="true" style="display:none;">목장모임 정보 입력 완료</a>
-						</div>
-						
-						<table class="content_table">
-							<tr>						
-								<th>금일합계점수</th>
-								<td>
-									<p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="point">0</span>P</a></p>
-									<input type="hidden" name="point" value="" />
-								</td>							
-							</tr>
-							<tr>
-								<th>누적점수</th>
-								<td><a href="#" class="ui-btn ui-corner-all ui-mini">1,211,342P</a></td>							
-							</tr>
-							<tr>
-								<th>기타보고</th>
-								<td style="padding:0 7px 0 7px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>							
-							</tr>
-						</table>
-						</div>
-					<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="javascript:report.mokjang.regist();">목장보고서 저장</a>
-				</div>
-			</div>
-			</form>	
-			</div>
-			<div class="footer_wrap">
-				<div class="footer">
-					<div data-role="controlgroup" data-mini="true">
-						<a href="#" class="ui-btn ui-icon-user ui-btn-icon-left ui-corner-all">새가족 추가</a>
-						<a href="#" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-corner-all">하위목장 내역</a>
-						<a href="/logout.oe" class="ui-btn ui-icon-power ui-btn-icon-left ui-corner-all">로그아웃</a>
-						<a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all">내정보 수정</a>
-						<a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left ui-corner-all">알림내역(5)</a>
-						<a href="#" class="ui-btn ui-icon-comment ui-btn-icon-left ui-corner-all">문의하기</a>
-						<p class="footer_copy">Copyrightⓒ 52soft. All right reserved.</p>
-					</div>
-				</div>
-			</div>
+			<!-- footer -->
+			<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+			<!-- //footer -->
+			
 		</div>
-	
+		
 	<script type="text/javascript">
 	
 	$(document).ready(function() {

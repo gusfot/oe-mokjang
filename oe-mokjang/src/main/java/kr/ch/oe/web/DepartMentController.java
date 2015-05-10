@@ -2,8 +2,12 @@ package kr.ch.oe.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.model.Department;
+import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.service.DepartmentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -164,6 +168,19 @@ public class DepartMentController {
 				@RequestParam(value="deptSeq")Long deptSeq
 				) {
 			return deptService.removeDeparment(deptSeq) > 0 ? true: false;
+		}
+		
+		@RequestMapping(value = { "/children.oe" }, method = RequestMethod.GET)
+		public String children(HttpServletRequest request, HttpServletResponse response, Model model) {
+			
+			SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
+			long deptSeq = sessionUserVO.getDeptSeq();
+			
+			Department department = deptService.getDepatmentWithChildren(deptSeq);
+			
+			model.addAttribute("department", department);
+			
+			return "report/children_list";
 		}
 		
 		
