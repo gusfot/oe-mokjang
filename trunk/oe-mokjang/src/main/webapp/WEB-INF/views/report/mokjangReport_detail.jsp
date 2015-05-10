@@ -175,7 +175,10 @@
 												</td>
 										</c:forEach>
 										<td style="padding:0px;"><textarea name="visitContent" id="visitContent">${mokjangReport.reports[i.index].visitContent}</textarea></td>
-										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].points">${mokjangReport.reports[i.index].point}</span> P</a></td>
+										<td>
+											<a href="#" class="ui-btn ui-corner-all ui-mini"><span id="reports[${i.index}].point">${mokjangReport.reports[i.index].point}</span> P</a>
+											<input type="hidden" name="reports[${i.index}].point" value="" />
+										</td>
 										<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 									</tr>
 								</c:forEach>
@@ -189,7 +192,7 @@
 						<table class="content_table">
 							<tr>						
 								<th>금일합계점수</th>
-								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="points">${mokjangReport.point }</span>P</a></p></td>							
+								<td><p class="today_point"><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="point">${mokjangReport.point }</span>P</a></p></td>							
 							</tr>
 							<tr>
 								<th>누적점수</th>
@@ -234,47 +237,47 @@
 		$('input[type="checkbox"]').on('click', function() {
 			var $this = $(this);
 			var userSeq = Number($this.parent().parent().parent().attr('data-userseq'));
-			var $userPoints = $(document.getElementById('reports['+userSeq+'].points'));
-			var points = 0;
+			var $userPoint = $(document.getElementById('reports['+userSeq+'].point'));
+			var point = 0;
 			
 			$('input[data-user="user'+userSeq+'"]').each(function() {
 				var $this = $(this);
 				var weight = Number($this.attr("data-weight"));
-				points = $this.is(':checked') ? (points+weight) : points; 
+				point = $this.is(':checked') ? (point+weight) : point; 
 			}) ;
 			
-			$userPoints.html(points);
+			$userPoint.html(point);
 		});
 		
 		// 금일합계점수 반영
 		$('#offering').on('keyup', function() {
-			todayTotalPoints();
+			todayTotalPoint();
 		});
 		
 		$('input[type="checkbox"]').on('click', function() {
-			todayTotalPoints();
+			todayTotalPoint();
 		});
 			
 	});
 	
 	// 금일합계점수  = 목장원들의 개인총점을 합한다.
-	function todayTotalPoints() {
-		var todayPoints = 0;								// 금일합계점수
+	function todayTotalPoint() {
+		var todayPoint = 0;								// 금일합계점수
 		var usersLength =$('tr[data-userseq]').length;		// 목장원수
 		var $offering = $('#offering');						// 헌금
-		var $points = $('#points');							// 금일합계점수 표시영역
+		var $point = $('#point');							// 금일합계점수 표시영역
 		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
 		
 		// 헌금 점수 반영
-		todayPoints = offeringPoint;
+		todayPoint = offeringPoint;
 
 		// 목장원들의 개인총점을 합한다.
 		for(var i=0; i<usersLength; i++) {
-			var $userPoints = $(document.getElementById('reports['+i+'].points'));
-			todayPoints += Number($userPoints.html());
+			var $userPoint = $(document.getElementById('reports['+i+'].point'));
+			todayPoint += Number($userPoint.html());
 		}
 		
-		$points.html(todayPoints);
+		$point.html(todayPoint);
 	}
 	
 	var report = {

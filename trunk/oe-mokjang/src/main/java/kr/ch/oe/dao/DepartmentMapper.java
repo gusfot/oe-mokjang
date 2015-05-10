@@ -1,8 +1,10 @@
 package kr.ch.oe.dao;
 
 import java.util.List;
+
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface DepartmentMapper {
@@ -30,4 +32,6 @@ public interface DepartmentMapper {
 	int updateByPrimaryKeySelective(Department record);
 
 	int updateByPrimaryKey(Department record);
+
+	Department selectByDeptSeq(Long deptseq);
 }

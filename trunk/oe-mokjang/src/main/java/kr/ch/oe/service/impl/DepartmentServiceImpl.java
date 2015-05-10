@@ -1,5 +1,6 @@
 package kr.ch.oe.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.ch.oe.common.Paging;
@@ -8,8 +9,6 @@ import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentExample;
 import kr.ch.oe.model.User;
-import kr.ch.oe.model.UserExample;
-import kr.ch.oe.model.UserExample.Criteria;
 import kr.ch.oe.service.DepartmentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,9 +70,47 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public Department getDepatment(Long deptseq) {
 		DepartmentExample deptExam = new DepartmentExample();
 		deptExam.createCriteria().andDeptSeqEqualTo(1L);
-		int count = deptMapper.countByExample(deptExam);
+		Department department = deptMapper.selectByDeptSeq(deptseq);
+		
+		return department;
+	}
+	
+	public Department getDepatmentWithChildren(Long deptseq) {
+		Department department = getDepatment(deptseq);
+		
+		// 상위부서
+		Department parent = getParent(department.getParentSeq());
+		department.setParent(parent);
+		
+		// 하위부서목록
+		List<Department> chidren = getChildren(department.getDeptSeq());
+		department.setChildren(chidren);
+		
+		return department;
+	}
+	
+	public Department getParent(Long parentSeq) {
+		return getDepatment(parentSeq);
+	}
 
-		return deptMapper.selectByPrimaryKey(deptseq);
+	// 하위부서목록
+	private List<Department> getChildren(Long deptSeq) {
+		
+		DepartmentExample example = new DepartmentExample();
+		example.createCriteria().andParentSeqEqualTo(deptSeq);
+		List<Department> departments = deptMapper.selectByExample(example);
+		
+		for (Department department : departments) {
+			// 상위부서
+			Department parent = getParent(department.getParentSeq());
+			department.setParent(parent);
+			
+			// 하위부서목록
+			List<Department> children = getChildren(department.getDeptSeq());
+			department.setChildren(children);
+		}
+		
+		return departments;
 	}
 	
 	/**
