@@ -71,4 +71,11 @@ public class MokjangReportServiceTest {
 	}
 	
 	
+	@Test
+	public void isSubmited() {
+		boolean result = mokjangReportService.isSubmited(84, 20);
+		Assert.assertTrue(result);
+	}
+	
+	
 }
