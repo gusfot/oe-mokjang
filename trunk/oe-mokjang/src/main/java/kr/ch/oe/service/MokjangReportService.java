@@ -41,4 +41,12 @@ public interface MokjangReportService {
 	 * @return
 	 */
 	boolean modify(MokjangReport mokjangReport);
+	
+	/**
+	 * 해당주의 목장보고서 제출여부
+	 * @param deptSeq
+	 * @param weeks
+	 * @return
+	 */
+	boolean isSubmited(long deptSeq, int weeks);
 }

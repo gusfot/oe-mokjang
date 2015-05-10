@@ -123,5 +123,16 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 		return result;
 	}
 
+	@Override
+	public boolean isSubmited(long deptSeq, int weeks) {
+		
+		MokjangReportExample example = new MokjangReportExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andDeptSeqEqualTo(deptSeq);
+		criteria.andWeeksEqualTo(weeks);
+		
+		return mokjangReportMapper.selectByExample(example).size() > 0 ? true : false;
+	}
+
 
 }
