@@ -70,10 +70,10 @@ function test(){
               </ul>
             </li> -->
             <c:if test="${sessionScope.sessionUserVO==null}">
-            <li><a href="/login/loginForm.oe"><span class="glyphicon glyphicon-on"></span>로그인</a></li>
+            <li><a href="/login.oe"><span class="glyphicon glyphicon-on"></span>로그인</a></li>
          	 </c:if>
 	          <c:if test="${sessionScope.sessionUserVO!=null}">
-	            <li><a href="/login/logout.oe"><span class="glyphicon glyphicon-off"></span>로그아웃</a></li>
+	            <li><a href="/logout.oe"><span class="glyphicon glyphicon-off"></span>로그아웃</a></li>
 	          </c:if>
           
           </ul>

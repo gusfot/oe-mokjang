@@ -23,8 +23,7 @@
 	
 	<mvc:interceptor> 
            <mvc:mapping path="/**/*.oe"/>
-           <mvc:exclude-mapping path="/login/loginForm.oe"/>
-           <mvc:exclude-mapping path="/login/login.oe"/>
+           <mvc:exclude-mapping path="/login.oe"/>
            
             <!-- 로그인체크 인터셉터 클래스 -->
            <beans:bean class="kr.ch.oe.interceptor.LoginInterceptor"  />

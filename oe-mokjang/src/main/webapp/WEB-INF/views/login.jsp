@@ -55,7 +55,7 @@
 	<script type="text/javascript">
 	function login(){
 		var $userId = $("input[name=userId]"),
-			 $userPw= $("input[name=password]");
+			$userPw= $("input[name=password]");
 		
 		if($userId===''){
 			alert('아이디를 입력하세요');
@@ -72,7 +72,7 @@
 		
 		 $.ajax({
 			type:"POST",
-			url : "/login/login.oe",
+			url : "/login.oe",
 		 	data : ({userId : $userId.val(), pw : $userPw.val()}),
 			dataType : 'json',
 			success:function(result){
@@ -90,12 +90,11 @@
 	}
 	
 	function enterLogin(e) {
-		if(e.keyCode==13){
+		if(e.keyCode==13) {
 			login();
-		return false;
-		}
-		else{
-		return true;			
+			return false;
+		} else{
+			return true;			
 		}
 	}
 	
