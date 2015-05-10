@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.JsonObject;
 
-@RequestMapping("/login")
+//@RequestMapping("/login")
 @Controller
 public class LoginController {
 	
@@ -26,7 +26,7 @@ public class LoginController {
 	private LoginService loginService;
 	
 	
-	@RequestMapping(value="/loginForm.oe", method=RequestMethod.GET)
+	@RequestMapping(value="/login.oe", method=RequestMethod.GET)
 	public String login() {
 		return "/login";
 	}
@@ -60,7 +60,7 @@ public class LoginController {
 		session.invalidate();
 		
 		
-		return "redirect:/login/loginForm.oe";
+		return "redirect:/login.oe";
 	}
 	
 	
