@@ -34,7 +34,7 @@
 					<div class="header_week">
 						<div class="week_prev"><a href="javascript:getReport(${thisWeeks-1 });" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
 						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
-						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini">다음주</a></div>
+						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini  ui-state-disabled" >다음주</a></div>
 					</div>
 				</div>
 			</div>

@@ -184,6 +184,9 @@ public class ReportController {
 		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
 		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
 		
+		int thisWeeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
+		model.addAttribute("thisWeeks", thisWeeks);
+		
 		return "report/mokjangReport_detail";
 	}
 	

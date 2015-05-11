@@ -73,22 +73,25 @@ public class UserServiceTest {
 	}
 	@Test
 	public void failToRegisterUser() {
+		
 		User user = new User();
 		user.setUserId("test123114");
-		try {
-			userService.regist(user);
-		} catch (Exception e) {
-			System.out.println("ExceptionMessage"+e.getMessage());
-			Assert.assertTrue(true);
-		}
+		
+		boolean result= userService.regist(user);
+		
+		Assert.assertTrue(result);
+		
 	}
 	
 	@Test
 	public void successToModifyUser() {
+		
 		User user =  userService.getUser("test84");
 		user.setJob("개발자");
 		user.setGender("2");
+		
 		boolean result = userService.modifyUser(user);
+		
 		Assert.assertTrue(result);
 	}
 	
@@ -99,14 +102,18 @@ public class UserServiceTest {
 	}
 	@Test
 	public void failToRemoveUser() {
+		
 		boolean result = userService.removeUser("test123114");
 		Assert.assertTrue(result);
+		
 	}
 	
 	@Test
 	public void successToGetFarmList(){
+		
 		Paging<User>pagingList = userService.getFarmUserList("sms");
 		List<User> list = pagingList.getItems();
+		
 		Assert.assertTrue(list.size() > 0);
 	}
 	@Test
