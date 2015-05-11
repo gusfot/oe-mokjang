@@ -121,7 +121,7 @@ public class UserController {
 			user.setDeptSeq(dept.getDeptSeq());
 			user.setDepartment(dept);
 			
-			return userService.registerUser(user);
+			return userService.regist(user);
 		}
 	
 	// FIXME : Sheep이란 단어보다는 공통적인 User를 사용하는게 어때?

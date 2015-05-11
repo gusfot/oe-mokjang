@@ -575,11 +575,11 @@
   
   <select id="selectByUserId" parameterType="string" resultMap="UserResultMap">
     select 
-    <include refid="User_Column_List" />
-    ,<include refid="Dept_Column_List" />
-    ,<include refid="EduStatus_Column_List" />
-    ,<include refid="MissisonWorkStatus_Column_List" />
-    ,<include refid="Role_Column_List" />
+	    <include refid="User_Column_List" />
+	    ,<include refid="Dept_Column_List" />
+	    ,<include refid="EduStatus_Column_List" />
+	    ,<include refid="MissisonWorkStatus_Column_List" />
+	    ,<include refid="Role_Column_List" />
     from user user
     left outer join department dept on dept.dept_seq = user.dept_seq
     left outer join ( select es.*, edu.edu_name from edu_status es inner join edu edu on edu.edu_seq=es.edu_seq) es on es.user_id = user.user_id 

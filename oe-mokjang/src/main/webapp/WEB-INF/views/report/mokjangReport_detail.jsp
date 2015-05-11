@@ -329,7 +329,14 @@
 		}
 	}
 	
+	/**
+	* 목장보고서 조회
+	**/
 	function getReport(weeks) {
+		if(weeks === ${thisWeeks}) {
+			alert('해당주는 불가');
+			return;
+		}
 		return location.href = '/report/mokjang/detail.oe?weeks='+weeks;
 	}
 	</script>

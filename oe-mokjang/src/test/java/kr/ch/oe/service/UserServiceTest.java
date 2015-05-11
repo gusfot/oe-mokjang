@@ -32,7 +32,8 @@ public class UserServiceTest {
 	
 	@Test
 	public void successToGetUser() {
-		User user =  userService.getUser("test123114");
+		User user =  userService.getUser("김현래");
+		System.out.println("user : " + user.toString());
 		Assert.assertNotNull(user);
 	}
 	
@@ -64,7 +65,7 @@ public class UserServiceTest {
 		user.setEmail("test@52ch.kr");
 		user.setRoleName("새신자");
 		
-		boolean result = userService.registerUser(user);
+		boolean result = userService.regist(user);
 		
 		
 		Assert.assertTrue(result);
@@ -75,7 +76,7 @@ public class UserServiceTest {
 		User user = new User();
 		user.setUserId("test123114");
 		try {
-			userService.registerUser(user);
+			userService.regist(user);
 		} catch (Exception e) {
 			System.out.println("ExceptionMessage"+e.getMessage());
 			Assert.assertTrue(true);

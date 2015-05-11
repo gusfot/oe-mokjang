@@ -33,7 +33,7 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	boolean registerUser(User user);
+	boolean regist(User user);
 	
 	/**
 	 * user 정보를 수정한다
