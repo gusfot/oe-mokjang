@@ -33,8 +33,8 @@
 			<div class="content_wrap">
 				<div class="content">					
 					<div class="table_wrap">
-						<input type="text" data-clear-btn="true" onkeypress="return enterLogin(event)"  name="userId" id="userId"  data-mini="true">
-						<input type="password" data-clear-btn="true" onkeypress="return enterLogin(event)" name="password" id="password" autocomplete="off" data-mini="true">
+						<input type="text" data-clear-btn="true" onkeypress="return enterLogin(event)"  name="userId" id="userId"  data-mini="true" placeholder="아이디" />
+						<input type="password" data-clear-btn="true" onkeypress="return enterLogin(event)" name="password" id="password" autocomplete="off" data-mini="true" placeholder="비밀번호" />
 						<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="login();" >로그인</a>
 					</div>
 				</div>
@@ -53,6 +53,12 @@
 		</div>
 		
 	<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[name=userId]").focus();
+	});
+		
+	
+	
 	function login(){
 		var $userId = $("input[name=userId]"),
 			$userPw= $("input[name=password]");

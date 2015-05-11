@@ -25,11 +25,26 @@
       <!-- Jumbotron -->
       <div class="jumbotron">
         <h1>메인페이지</h1>
-        <p class="lead">여기는 메인페이지 입니다.</p>
+        <p class="lead">
+        <c:choose>
+       		<c:when test="${isSumited eq true }">목장보고서 제출 완료</c:when>
+       		<c:otherwise>목장보고서 미제출</c:otherwise>
+       </c:choose>
+        </p>
       </div>
        <span>목장보고서 메인페이지</span>
+       <%-- 
+       <c:choose>
+       		<c:when test="${isSumited eq true }"><span>목장보고서 제출 완료</span></c:when>
+       		<c:otherwise><span>목장보고서 제출 완료</span></c:otherwise>
+       </c:choose>
+               --%>
       <div class="container">
-		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/report/mokjang/regist.oe';">목장 보고서 작성하기 </button>
+       <c:choose>
+       		<c:when test="${isSumited eq true }"><span>목장보고서 제출 완료</span></c:when>
+       		<c:otherwise><button type="button" class="btn btn-primary"" onclick="javascript:location.href='/report/mokjang/regist.oe';">목장 보고서 작성하기 </button></c:otherwise>
+       </c:choose>
+		
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/dept/children.oe';">하위 목장 내역</button>
       </div>
       <!-- Example row of columns -->

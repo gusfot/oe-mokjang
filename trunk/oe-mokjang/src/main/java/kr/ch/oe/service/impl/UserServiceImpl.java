@@ -6,7 +6,6 @@ import java.util.List;
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.dao.UserMapper;
-import kr.ch.oe.model.Department;
 import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
@@ -14,6 +13,7 @@ import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 	DepartmentMapper deptMapper;
 	
 	/**
-	 *모든 사용자 목록을 가지고온다  
+	 *페이징된 모든 사용자 목록을 가지고온다  
 	 */
 	@Override
 	public Paging<User> getPagingUserList(int page,int pageSize, String keyword) {
@@ -53,25 +53,16 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public User getUser(String userId) {
-		
-		// FIXME : 사용자 정보 가지고 올 때 부서정보 join 해서 가져오도록 하자.
-		
-		User user =userMapper.selectByPrimaryKey(userId);
-		if(user==null){
-			return null;
-		}
-		Department dept = deptMapper.selectByPrimaryKey(user.getDeptSeq());
-		user.setDepartment(dept);
-		
-		return user;
+		return userMapper.selectByUserId(userId);
 	}
 	
 	/**
 	 * 사용자를 등록한다.
 	 */
+	@Transactional
 	@Override
-	public boolean registerUser(User user) {
-		
+	public boolean regist(User user) {
+		// TODO 사용자를 등록할 때는 user 정보와 소속 부서(목장) 정보가 같이 들어가야 함.
 		String roleName = userMapper.selectRoleName(user.getRoleSeq());
 		user.setRoleName(roleName);
 		
@@ -86,12 +77,14 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public boolean modifyUser(User user) {
+		// TODO 사용자를 등록할 때는 user 정보와 소속 부서(목장) 정보가 같이 수정되어야 함.
 		return userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
 		
 	}
 	//user 정보를 삭제한다
 	@Override
 	public boolean removeUser(String userId) {
+		// TODO 사용자를 등록할 때는 user 정보와 소속 부서(목장) 정보가 같이 삭제되어야 함.
 		return userMapper.deleteByPrimaryKey(userId) > 0 ? true : false;
 	}
 	/**
@@ -116,8 +109,9 @@ public class UserServiceImpl implements UserService {
 		example.setOrderByClause("role_seq");
 		
 		int totalNumofItems = userMapper.countByExample(example);
+		List<User> items = userMapper.selectByExample(example);
 		
-		return new Paging<>(1, 10, totalNumofItems, userMapper.selectByExample(example));
+		return new Paging<>(1, 10, totalNumofItems, items);
 	}
 	/**
 	 * 아이디 중복 체크
@@ -135,15 +129,19 @@ public class UserServiceImpl implements UserService {
 	public boolean registUserFarm(String[] userId, String farmmerId) {
 		boolean result=true;
 		
+		
 		for (int i = 0; i < userId.length; i++) {
 			User user = userMapper.selectByPrimaryKey(userId[i]);
 			User farmmer = userMapper.selectByPrimaryKey(farmmerId);
 			user.setRoleSeq(7l);
+			
 			String roleName=userMapper.selectRoleName(user.getRoleSeq());
 			user.setRoleName(roleName);
 			user.setDeptSeq(farmmer.getDeptSeq());
-		 result= userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
+			
+			result= userMapper.updateByPrimaryKeySelective(user) > 0 ? true : false;
 		}
+		
 		return result;
 	}
 	
