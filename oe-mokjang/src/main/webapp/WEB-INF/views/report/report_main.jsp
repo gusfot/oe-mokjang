@@ -27,7 +27,7 @@
         <h1>메인페이지</h1>
         <p class="lead">
         <c:choose>
-       		<c:when test="${isSumited eq true }">목장보고서 제출 완료</c:when>
+       		<c:when test="${isSubmited eq true }">목장보고서 제출 완료</c:when>
        		<c:otherwise>목장보고서 미제출</c:otherwise>
        </c:choose>
         </p>
@@ -41,7 +41,7 @@
                --%>
       <div class="container">
        <c:choose>
-       		<c:when test="${isSumited eq true }"><span>목장보고서 제출 완료</span></c:when>
+       		<c:when test="${isSubmited eq true }"><span>목장보고서 제출 완료</span></c:when>
        		<c:otherwise><button type="button" class="btn btn-primary"" onclick="javascript:location.href='/report/mokjang/regist.oe';">목장 보고서 작성하기 </button></c:otherwise>
        </c:choose>
 		
