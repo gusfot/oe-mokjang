@@ -31,7 +31,7 @@ public class DateUtilTest {
 		calendar.set(Calendar.WEEK_OF_YEAR, week);
 		calendar.set(Calendar.YEAR, year);
 
-		// Now get the first day of week.
+		// Now get the first day of week. 
 		Date date = calendar.getTime();
 		
 		System.out.println(date);
