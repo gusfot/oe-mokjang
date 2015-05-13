@@ -38,8 +38,8 @@ public class DateUtilTest {
 		
 		calendar.add(Calendar.DATE, 6);
 		Date date1 = calendar.getTime();
-		System.out.println(date1);
-		
+		System.out.println(date1 );
+	
 	}
 	
 	@Test
