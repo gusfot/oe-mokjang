@@ -301,6 +301,54 @@
 			</div>
 	</div>
 	<script type="text/javascript">
+	
+	
+	
+function checkfield(){
+		
+		var jsuserId = $("input[name=userId]").val(),
+		 jsuserName = $("input[name=userName]").val(),
+		jspassword = $("input[name=password]").val(),
+		jsaddr = $("input[name=addr]").val(),
+		jscellPhone = $("input[name=cellPhone]").val(),
+		jshomePhone = $("input[name=homePhone]").val(),
+		jsjob = $("input[name=job]").val(),
+		jsgender = $("select[name=gender]").val(),
+		jsroleSeq = $("select[name=role]").val(),
+		jsbirth = $("input[name=birth]").val(),
+		jsemail = $("input[name=email]").val(),
+	    jsflag = $("input[name=flag]").val(),
+		jsregDt =$("input[name=regDate]").val(),
+		jsgyogu = $("select[name=gyogu]").val();
+		jsacademic = $("select[name=academic]").val();
+		jsmajor = $("select[name=major]").val();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	$(function(){
 		$('input[type=checkbox]').click(function(){
 			console.log('checkbox');
