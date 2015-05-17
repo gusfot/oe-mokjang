@@ -9,7 +9,7 @@
  3 tomcat JNDI 설정
   1) server.xml 설정
     - <GlobalNamingResources></GlobalNamingResources> 안에
-  	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" maxActive="8" maxIdle="4" name="jdbc/OeReportDB" password="!inpion00" type="javax.sql.DataSource" url="jdbc:mysql://52ch.kr:3307/mokjang?autoReconnect=true" username="mokjang"/>
+  	<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" maxActive="8" maxIdle="4" name="jdbc/OeReportDB" password="!inpion00" type="javax.sql.DataSource" url="jdbc:mysql://ip:port/db?autoReconnect=true" username="mokjang"/>
   
   2)context.xml 설정
   	- <context></context> 안에
