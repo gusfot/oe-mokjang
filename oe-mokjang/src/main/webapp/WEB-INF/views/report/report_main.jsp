@@ -47,13 +47,14 @@
 		
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/dept/children.oe';">하위 목장 내역</button>
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/user/registForm.oe';">새신자 추가</button>
+		
       </div>
       <!-- Example row of columns -->
      
 
       <!-- Site footer -->
       <%@ include file="../include/footer.jsp" %>
-      <!-- //Site footer -->
+      <!-- //Site footer   tst -->
     </div> <!-- /container -->
 	
 </body>
