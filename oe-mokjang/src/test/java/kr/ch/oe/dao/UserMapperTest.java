@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {// "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
-"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context.xml" })
+"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context-test.xml" })
 public class UserMapperTest {
 
 	@Autowired
@@ -23,7 +23,7 @@ public class UserMapperTest {
 
 	@Test
 	public void successToselectUser() {
-		User user = userMapper.selectByPrimaryKey("gusfot");
+		User user = userMapper.selectByPrimaryKey("송명섭");
 		System.out.println(user.getUserName());
 		Assert.assertTrue(user != null);
 	}
@@ -48,7 +48,7 @@ public class UserMapperTest {
 	public void successToinsertUser() {
 		User user = new User();
 
-		user.setUserId("test12");
+		user.setUserId("김명훈");
 		user.setUserName("테스트1");
 		user.setEmail("test1@52ch.kr");
 		user.setCellPhone("01011112222");
@@ -59,7 +59,10 @@ public class UserMapperTest {
 		user.setAddr("경기도 광명시");
 		user.setRoleSeq(1l);
 		user.setRegDt("20150109");
-		user.setJob("직업");
+		user.setJob("developer");
+		user.setAcademic("학교");
+		user.setFlag("1");
+		user.setMajor("컴퓨터공학");
 
 		int result = userMapper.insertSelective(user);
 
@@ -76,23 +79,25 @@ public class UserMapperTest {
 	
 	@Test
 	public void successToUpdateUser() {
-		User user = userMapper.selectByPrimaryKey("test");
-				user.setUserName("테스트");
+		User user = new User();
+				user.setUserId("김명훈");
+				user.setUserName("김명훈_Test");
+				
 	  int reuslt = userMapper.updateByPrimaryKeySelective(user);
 	  Assert.assertTrue(reuslt>0);
 				
 	}
 	@Test
 	public void failToUpdateUser() {
-		User user = userMapper.selectByPrimaryKey("test");
-		user.setUserId("test1");
+		User user = userMapper.selectByPrimaryKey("김명훈");
+		user.setUserId("김명훈");
 		userMapper.updateByPrimaryKeySelective(user);
 						  
 	}
 	
 	@Test
 	public void successToDeleteUser() {
-		int result = userMapper.deleteByPrimaryKey("test12");
+		int result = userMapper.deleteByPrimaryKey("김명훈");
 		Assert.assertTrue(result>0);
 	}
 	
