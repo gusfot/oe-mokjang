@@ -167,7 +167,7 @@
 												<c:forEach var="item" items="${reportItems}" varStatus="j">
 													<td>
 														<label class="attend_chk">
-															<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].itemValue" value="1" >${item.itemTypeDesc}
+															<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index }].itemValue" value="1" >${item.weight}
 															<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index }].itemCode" value="${item.code }" />
 														</label>
 													</td>

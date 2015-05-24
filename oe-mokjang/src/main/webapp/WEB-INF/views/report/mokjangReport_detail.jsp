@@ -169,7 +169,7 @@
 											<c:forEach var="item" items="${reportItems}" varStatus="j">
 												<td>
 													<label class="attend_chk">
-														<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].itemValue" value="1"  <c:if test="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemValue eq 1}">checked="checked"</c:if> >${item.itemTypeDesc}
+														<input type="checkbox" data-user="user${i.index}" data-weight="${item.weight}" data-mini="true" name="reports[${i.index}].reportItemHistList[${j.index}].itemValue" value="1"  <c:if test="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemValue eq 1}">checked="checked"</c:if> ><c:if test="${item.weight > 0}">+${item.weight}</c:if><c:if test="${item.weight < 0}">${item.weight}</c:if>
 														<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index}].itemCode" value="${mokjangReport.reports[i.index].reportItemHistList[j.index].itemCode}" />
 														<input type ="hidden" name="reports[${i.index}].reportItemHistList[${j.index}].reportItemHistSeq" value="${mokjangReport.reports[i.index].reportItemHistList[j.index].reportItemHistSeq}" />
 														</label>

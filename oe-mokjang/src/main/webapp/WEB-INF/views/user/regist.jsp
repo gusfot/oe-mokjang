@@ -188,66 +188,66 @@
 		if(document.regist_form.email.value==""){
 			alert("이메일주소를 입력하세요");
 			document.regist_form.email.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.userId.value==""){
 			alert("아이디를 입력하세요");
 			document.regist_form.userId.focus();
-			exit;
+			return;
 								
 		}else if(document.regist_form.password.value==""){
 			alert("비밀번호를 입력하세요");
 			document.regist_form.password.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.userName.value==""){
 			alert("이름을 입력하세요");
 			document.regist_form.userName.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.job.value==""){
 			alert("직업을 입력하세요");
 			document.regist_form.job.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.addr.value==""){
 			alert(" 주소를 입력하세요");
 			document.regist_form.addr.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.birth.value==""){
 			alert(" 생일을 입력하세요");
 			document.regist_form.birth.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.cellPhone.value==""){
 			alert(" 핸드폰 번호를 입력하세요");
 			document.regist_form.cellPhone.focus();
-			exit;
+			return;
 			
 		}else if(document.regist_form.homePhone.value==""){
 			alert(" 집전화 번호를 입력하세요");
 			document.regist_form.homePhone.focus();
-			exit;
+			return;
 		} else if(document.regist_form.academic.value ==""){
 			alert("최종학력을 입력하세요");
 			document.regist_form.academic.focus();
-			exit;
+			return;
 		} else if(document.regist_form.major.value == "" ){
 			alert("전공을 입력하세요");
 			document.regist_form.major.focus();
-			exit;
+			return;
 		}
 	     
 	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
 	    	 alert("핸드폰번호 형식이 맞지않습니다 ");
 	    	 document.regist_form.mobilePhone.focus();
-				exit;
+				return;
 	     }
 	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
 	    	 alert(" 전화번호 형식이 맞지않습니다 ");
 	    	 document.regist_form.homePhone.focus();
-				exit;
+				return;
 	     } 
 	
 		$.ajax({
@@ -255,7 +255,7 @@
 					url : "overlapUserId.oe?userId=" + jsuserId,
 					success : function(result) {
 						
-						if(result==true){
+						if(result){
 							alert("사용가능한아이디입니다");
 						//document.regist_form.submit();
 						}
@@ -263,7 +263,7 @@
 							alert("아이디가 이미 존재합니다");
 							$("input[name=userId]").val("");
 							$("input[name=userId]").focus();
-							exit;
+							return;
 						}
 						}
 				});
@@ -277,14 +277,14 @@
 			dataType:'json',
 			
 			success : function(result) {
-				if(result==true){
+				if(result){
 			
 					location.href='/report/mokjang/regist.oe';
 					
 				}
 				else{
 					alert("실패하였습니다");
-					exit;
+					return;
 				}
 				}
 		});
