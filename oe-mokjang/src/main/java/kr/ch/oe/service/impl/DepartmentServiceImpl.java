@@ -1,6 +1,5 @@
 package kr.ch.oe.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import kr.ch.oe.common.Paging;
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
-	private DepartmentMapper deptMapper;
+	private DepartmentMapper departmentMapper;
 
 	@Autowired
 	private UserMapper userMapper;
@@ -59,8 +58,8 @@ public class DepartmentServiceImpl implements DepartmentService {
 			deptExam.createCriteria().andParentSeqEqualTo(43L);
 		}
 		deptExam.setOrderByClause("dept_name");
-		int count = deptMapper.countByExample(deptExam);
-		return new Paging<>(page, pageSize, count, deptMapper.selectByExample(deptExam));
+		int count = departmentMapper.countByExample(deptExam);
+		return new Paging<>(page, pageSize, count, departmentMapper.selectByExample(deptExam));
 	}
 
 	/**
@@ -70,7 +69,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public Department getDepatment(Long deptseq) {
 		DepartmentExample deptExam = new DepartmentExample();
 		deptExam.createCriteria().andDeptSeqEqualTo(1L);
-		Department department = deptMapper.selectByDeptSeq(deptseq);
+		Department department = departmentMapper.selectByDeptSeq(deptseq);
 		
 		return department;
 	}
@@ -93,7 +92,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 		
 		DepartmentExample example = new DepartmentExample();
 		example.createCriteria().andParentSeqEqualTo(deptSeq);
-		List<Department> departments = deptMapper.selectByExample(example);
+		List<Department> departments = departmentMapper.selectByExample(example);
 		
 		for (Department department : departments) {
 			
@@ -120,7 +119,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	 */
 	@Override
 	public int registerDepartment(Department dept) {
-		return deptMapper.insertSelective(dept);
+		return departmentMapper.insertSelective(dept);
 	}
 
 	/**
@@ -130,10 +129,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 	 */
 	@Override
 	public int modifyDepartMent(Department updateDept,long deptSeq) {
-		Department dept = deptMapper.selectByPrimaryKey(deptSeq);
+		Department dept = departmentMapper.selectByPrimaryKey(deptSeq);
 		dept.setDeptName(updateDept.getDeptName());
 		dept.setParentSeq(updateDept.getParentSeq());
-		return deptMapper.updateByPrimaryKeySelective(dept);
+		return departmentMapper.updateByPrimaryKeySelective(dept);
 	}
 
 	/**
@@ -141,7 +140,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	 */
 	@Override
 	public int removeDeparment(Long deptseq) {
-		return deptMapper.deleteByPrimaryKey(deptseq);
+		return departmentMapper.deleteByPrimaryKey(deptseq);
 	}
 
 	@Override
@@ -163,7 +162,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public int getRowGroupTotalNumber(Long  deptSeq) {
 		DepartmentExample deptExam = new DepartmentExample();
 		deptExam.createCriteria().andParentSeqEqualTo(deptSeq);
-		return deptMapper.countByExample(deptExam);
+		return departmentMapper.countByExample(deptExam);
 	}
 
 }

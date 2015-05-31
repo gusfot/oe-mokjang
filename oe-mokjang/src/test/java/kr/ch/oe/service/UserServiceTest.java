@@ -121,8 +121,15 @@ public class UserServiceTest {
 		String[] list=null;
 		Assert.assertTrue(userService.registUserFarm(list, "test69")); 
 	}
+	
 	@Test
 	public void successRemoveSheep(){
 		//Assert.assertTrue(userService.removeSheep("test4",1l));
+	}
+	
+	@Test
+	public void successToDispatch() {
+		String userId = "이민재";
+		userService.dispatch(userId);
 	}
 }

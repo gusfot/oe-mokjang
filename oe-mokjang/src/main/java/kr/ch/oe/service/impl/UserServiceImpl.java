@@ -3,9 +3,14 @@ package kr.ch.oe.service.impl;
 
 import java.util.List;
 
+import kr.ch.oe.common.DateUtil;
 import kr.ch.oe.common.Paging;
+import kr.ch.oe.dao.DepartmentChangeHistMapper;
 import kr.ch.oe.dao.DepartmentMapper;
 import kr.ch.oe.dao.UserMapper;
+import kr.ch.oe.model.Department;
+import kr.ch.oe.model.DepartmentChangeHist;
+import kr.ch.oe.model.RoleChangeHist;
 import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
 import kr.ch.oe.model.UserExample;
@@ -19,10 +24,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserMapper userMapper;
-	@Autowired
-	DepartmentMapper deptMapper;
+	private UserMapper userMapper;
 	
+	@Autowired
+	private DepartmentMapper departmentMapper;
+	
+	@Autowired
+	private DepartmentChangeHistMapper departmentChangeHistMapper;
 	/**
 	 *페이징된 모든 사용자 목록을 가지고온다  
 	 */
@@ -169,6 +177,56 @@ public class UserServiceImpl implements UserService {
 	public SessionUserVO getSessionUserVO(String userId, String userPw) {
 		return userMapper.selectSessionUserVO(userId,userPw);
 		
+	}
+
+	@Transactional
+	@Override
+	public boolean dispatch(String userId) {
+		boolean result = false;
+		
+		try {
+			// 파송될 멤버 정보 조회
+			User user = userMapper.selectByUserId(userId);
+	
+			// 목장생성 : 파송될 목장 정보 입력
+			Department department = new Department();
+			department.setDeptType("M");
+			department.setDeptName(user.getUserName()+"목장");
+			department.setDescription(department.getDeptName());
+			department.setLeaderId(user.getUserId());
+			department.setParentSeq(user.getDeptSeq());
+			departmentMapper.insert(department );
+			
+			// 목장변경이력 입력
+			DepartmentChangeHist deptHist = new DepartmentChangeHist();
+			deptHist.setBeforeDepartmentSeq(user.getDeptSeq());
+			deptHist.setAfterDepartmentSeq(department.getDeptSeq());
+			deptHist.setChangeResn("목장파송");
+			deptHist.setUserId(userId);
+			deptHist.setChangeDate(DateUtil.getDateFormatString("YYYYMMDD"));
+			departmentChangeHistMapper.insertSelective(deptHist);
+			
+			// 역할변경이력 입력
+			RoleChangeHist roleHist = new RoleChangeHist();
+			roleHist.setBeforeRoleSeq(user.getRoleSeq());
+			roleHist.setAfterRoleSeq(5l);
+			roleHist.setChangeResn("목장파송");
+			roleHist.setUserId(userId);
+			roleHist.setChangeDate(DateUtil.getDateFormatString("YYYYMMDD"));
+			departmentChangeHistMapper.insertSelective(deptHist);
+			
+			// 생성된 목장정보로 목자 정보 수정
+			user.setRoleSeq(5l);	// 목자roleSeq : 5
+			user.setDeptSeq(department.getDeptSeq());
+			userMapper.updateByPrimaryKey(user);
+			
+			result = true;
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 }

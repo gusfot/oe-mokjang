@@ -76,7 +76,19 @@ public interface UserService {
 	
 	boolean removeSheep(String sheepId, String flag);
 	
+	/**
+	 * 사용자 정보 세션
+	 * @param userId
+	 * @param userPw
+	 * @return
+	 */
 	SessionUserVO getSessionUserVO(String userId, String userPw);
+
+	/**
+	 * 목장이동
+	 * @param userId : 이동할 목장원
+	 */
+	boolean dispatch(String userId);
 	
 }
 

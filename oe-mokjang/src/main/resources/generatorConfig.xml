@@ -8,8 +8,31 @@
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
+	
+	<table schema="mokjang" tableName="role_change_hist" >
+      <columnOverride column="role_change_hist_seq" property="roleChangeHistSeq" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="before_role_seq" property="beforeRoleSeq" />
+      <columnOverride column="after_role_seq" property="afterRoleSeq" />
+      <columnOverride column="change_date" property="changeDate" />
+      <columnOverride column="change_resn" property="changeResn" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
     
-	<table schema="mokjang" tableName="report" >
+    <!-- 
+    <table schema="mokjang" tableName="department_change_hist" >
+      <columnOverride column="department_change_hist_seq" property="departmentChangeHistSeq" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="before_department_seq" property="beforeDepartmentSeq" />
+      <columnOverride column="after_department_seq" property="afterDepartmentSeq" />
+      <columnOverride column="change_date" property="changeDate" />
+      <columnOverride column="change_resn" property="changeResn" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
+	
+    <table schema="mokjang" tableName="report" >
       <columnOverride column="report_seq" property="reportSeq" />
       <columnOverride column="dept_seq" property="deptSeq" />
       <columnOverride column="user_id" property="userId" />
@@ -21,9 +44,6 @@
       <columnOverride column="reg_time" property="regTime" />
 	</table>
     
-    
-    
-    <!-- 
     
     <table schema="mokjang" tableName="mokjang_report" >
       <columnOverride column="mokjang_report_seq" property="mokjangReportSeq" />

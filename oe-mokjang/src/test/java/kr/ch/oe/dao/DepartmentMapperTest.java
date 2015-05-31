@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {// "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
-"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context.xml" })
+"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context-test.xml" })
 
 public class DepartmentMapperTest {
 
@@ -61,5 +61,6 @@ public class DepartmentMapperTest {
 		int result = deptMapper.deleteByPrimaryKey(14L);
 		Assert.assertTrue(result>0);
 	}
+	
 	
 }
