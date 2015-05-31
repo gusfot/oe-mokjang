@@ -633,21 +633,18 @@
 		from mokjang_report mokjangreport
 	left join 
 	(
-	select  
+		select  
 			<include refid="Report_Column_List" /> 
 			,<include refid="Hist_Column_List" /> 
-			from report report inner join report_item_hist hist on hist.report_seq = report.report_seq
-	) report on report_weeks = mokjangreport.weeks AND report_dept_seq=mokjangreport.dept_seq
+		from report report inner join report_item_hist hist on hist.report_seq = report.report_seq
+	) report on report_weeks = mokjangreport.weeks and report_dept_seq=mokjangreport.dept_seq
     <where> 
 	    <choose>
-		    <when test="mokjangReportSeq != null">
-		    	mokjangreport.mokjang_report_seq = #{mokjangReportSeq}
-		    </when>
 		    <when test="deptSeq != null and weeks != null">
 		    	mokjangreport.dept_seq = #{deptSeq} and mokjangreport.weeks = #{weeks}
 		    </when>
 		    <otherwise>
-			    
+			    mokjangreport.mokjang_report_seq = #{mokjangReportSeq}
 		    </otherwise>
 	    </choose>
     </where>

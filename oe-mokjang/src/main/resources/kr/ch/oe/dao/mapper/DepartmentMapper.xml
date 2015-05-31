@@ -169,10 +169,13 @@
       This element was generated on Sun Mar 08 17:47:15 KST 2015.
     -->
     insert into department
+     <selectKey resultType="long" keyProperty="deptSeq" order="AFTER">
+            SELECT LAST_INSERT_ID() 
+     </selectKey>
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="deptSeq != null">
+      <!-- <if test="deptSeq != null">
         dept_seq,
-      </if>
+      </if> -->
       <if test="deptName != null">
         dept_name,
       </if>
@@ -193,9 +196,9 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="deptSeq != null">
+      <!-- <if test="deptSeq != null">
         #{deptSeq,jdbcType=BIGINT},
-      </if>
+      </if> -->
       <if test="deptName != null">
         #{deptName,jdbcType=VARCHAR},
       </if>
