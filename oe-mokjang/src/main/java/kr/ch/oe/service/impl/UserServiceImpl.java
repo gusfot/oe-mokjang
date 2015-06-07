@@ -7,6 +7,7 @@ import kr.ch.oe.common.DateUtil;
 import kr.ch.oe.common.Paging;
 import kr.ch.oe.dao.DepartmentChangeHistMapper;
 import kr.ch.oe.dao.DepartmentMapper;
+import kr.ch.oe.dao.RoleChangeHistMapper;
 import kr.ch.oe.dao.UserMapper;
 import kr.ch.oe.model.Department;
 import kr.ch.oe.model.DepartmentChangeHist;
@@ -31,6 +32,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private DepartmentChangeHistMapper departmentChangeHistMapper;
+
+	@Autowired
+	private RoleChangeHistMapper roleChangeHistMapper;
 	/**
 	 *페이징된 모든 사용자 목록을 가지고온다  
 	 */
@@ -195,7 +199,7 @@ public class UserServiceImpl implements UserService {
 			department.setDescription(department.getDeptName());
 			department.setLeaderId(user.getUserId());
 			department.setParentSeq(user.getDeptSeq());
-			departmentMapper.insert(department );
+			departmentMapper.insertSelective(department );
 			
 			// 목장변경이력 입력
 			DepartmentChangeHist deptHist = new DepartmentChangeHist();
@@ -204,6 +208,7 @@ public class UserServiceImpl implements UserService {
 			deptHist.setChangeResn("목장파송");
 			deptHist.setUserId(userId);
 			deptHist.setChangeDate(DateUtil.getDateFormatString("YYYYMMDD"));
+			deptHist.setRegId("admin");
 			departmentChangeHistMapper.insertSelective(deptHist);
 			
 			// 역할변경이력 입력
@@ -213,12 +218,13 @@ public class UserServiceImpl implements UserService {
 			roleHist.setChangeResn("목장파송");
 			roleHist.setUserId(userId);
 			roleHist.setChangeDate(DateUtil.getDateFormatString("YYYYMMDD"));
-			departmentChangeHistMapper.insertSelective(deptHist);
+			roleHist.setRegId("admin");
+			roleChangeHistMapper.insertSelective(roleHist);
 			
 			// 생성된 목장정보로 목자 정보 수정
 			user.setRoleSeq(5l);	// 목자roleSeq : 5
 			user.setDeptSeq(department.getDeptSeq());
-			userMapper.updateByPrimaryKey(user);
+			userMapper.updateByPrimaryKeySelective(user);
 			
 			result = true;
 			
