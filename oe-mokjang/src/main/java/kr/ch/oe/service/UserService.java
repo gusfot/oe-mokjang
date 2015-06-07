@@ -85,10 +85,21 @@ public interface UserService {
 	SessionUserVO getSessionUserVO(String userId, String userPw);
 
 	/**
-	 * 목장이동
+	 * 목자파송
+	 * 1.기존 목장에서 하위목장생성
+	 * 2.기존 목장원 -> 하위목자
 	 * @param userId : 이동할 목장원
 	 */
 	boolean dispatch(String userId);
+	
+	/**
+	 * 목장변경
+	 * 구성원의 목장을 변경한다.
+	 * @param userId
+	 * @param deptSeq
+	 * @return
+	 */
+	boolean moveDept(String userId,long deptSeq);
 	
 }
 

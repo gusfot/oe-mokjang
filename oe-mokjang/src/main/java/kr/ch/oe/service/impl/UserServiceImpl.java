@@ -235,4 +235,22 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public boolean moveDept(String userId, long deptSeq) {
+		boolean result = false;
+		try {
+			// 구성원 정보 조회
+			User user = userMapper.selectByUserId(userId);
+			user.setDeptSeq(deptSeq);
+			
+			// 목장변경
+			userMapper.updateByPrimaryKeySelective(user);
+			
+			result = true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
