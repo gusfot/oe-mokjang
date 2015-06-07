@@ -127,6 +127,9 @@ public class UserServiceTest {
 		//Assert.assertTrue(userService.removeSheep("test4",1l));
 	}
 	
+	/**
+	 * 파송테스트
+	 */
 	@Test
 	public void successToDispatch() {
 		String userId = "이민재";
