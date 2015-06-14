@@ -1,8 +1,11 @@
 package kr.ch.oe.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import kr.ch.oe.model.EduStatus;
 import kr.ch.oe.model.EduStatusExample;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface EduStatusMapper {
@@ -28,4 +31,6 @@ public interface EduStatusMapper {
     int updateByPrimaryKeySelective(EduStatus record);
 
     int updateByPrimaryKey(EduStatus record);
+    
+	public List<EduStatus> selectEduStatusList(Map<String, Object> params);
 }

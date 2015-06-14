@@ -9,6 +9,7 @@
     -->
     <id column="edu_status_seq" property="eduStatusSeq" jdbcType="BIGINT" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="edu_name" property="eduName" jdbcType="VARCHAR" />
     <result column="edu_seq" property="eduSeq" jdbcType="BIGINT" />
     <result column="edu_date" property="eduDate" jdbcType="VARCHAR" />
     <result column="edu_unit" property="eduUnit" jdbcType="INTEGER" />
@@ -91,6 +92,9 @@
       This element was generated on Tue Jan 27 21:36:55 KST 2015.
     -->
     edu_status_seq, user_id, edu_seq, edu_date, edu_unit, state, reg_id, reg_time
+  </sql>
+  <sql id="EduStatus_Column_List" >
+    edu_name, edu_status_seq, user_id, edu.edu_seq, edu_date, edu_unit, state, status.reg_id, status.reg_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="kr.ch.oe.model.EduStatusExample" >
     <!--
@@ -330,4 +334,22 @@
       reg_time = #{regTime,jdbcType=TIMESTAMP}
     where edu_status_seq = #{eduStatusSeq,jdbcType=BIGINT}
   </update>
+  <select id="selectEduStatusList" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="EduStatus_Column_List" />
+    from edu_status status
+    left outer join edu edu on edu.edu_seq = status.edu_seq
+    <where>
+    	<if test="userId != null" >
+    		user_id = #{userId}
+    	</if>
+    	<if test="eduSeq != null" >
+    		edu_seq = #{eduSeq}
+    	</if>
+    	<if test="eduSeq != null" >
+    		edu_seq = #{eduSeq}
+    	</if>
+    </where>
+    order by edu_status_seq
+  </select>
 </mapper>
