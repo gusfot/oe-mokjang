@@ -337,10 +337,10 @@
         role_seq,
       </if>
       <if test="flag != null">
-        flag
+        flag,
       </if>
       <if test="academic != null">
-        academic
+        academic,
       </if>
       <if test="major != null">
         major

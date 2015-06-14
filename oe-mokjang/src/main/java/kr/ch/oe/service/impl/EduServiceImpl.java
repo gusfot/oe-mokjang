@@ -41,6 +41,11 @@ public class EduServiceImpl implements EduService {
 	}
 
 	@Override
+	public boolean registEdu(Edu edu) {
+		return eduMapper.insertSelective(edu) > 0 ? true : false;
+	}
+	
+	@Override
 	public List<Edu> getEduList(Map<String, Object> params) {
 		EduExample example = new EduExample();
 		// TODO : example 재작성
@@ -50,5 +55,10 @@ public class EduServiceImpl implements EduService {
 	@Override
 	public Edu getEdu(Long eduSeq) {
 		return eduMapper.selectByPrimaryKey(eduSeq);
+	}
+
+	@Override
+	public boolean modifyEdu(Edu edu) {
+		return eduMapper.updateByPrimaryKeySelective(edu) > 0 ? true : false;
 	}
 }

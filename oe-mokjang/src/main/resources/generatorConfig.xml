@@ -9,6 +9,25 @@
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
 	
+	<table schema="mokjang" tableName="attend_worship" >
+      <columnOverride column="attend_worship_seq" property="attendWorshipSeq" />
+      <columnOverride column="weeks" property="weeks" />
+      <columnOverride column="worship_type" property="worshipType" />
+      <columnOverride column="worship_times" property="worshipTimes" />
+      <columnOverride column="worship_date" property="worshipDate" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
+	
+	<table schema="mokjang" tableName="worship" >
+      <columnOverride column="worship_seq" property="worshipSeq" />
+      <columnOverride column="worship_name" property="worshipName" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
+    
+    <!-- 
 	<table schema="mokjang" tableName="role_change_hist" >
       <columnOverride column="role_change_hist_seq" property="roleChangeHistSeq" />
       <columnOverride column="user_id" property="userId" />
@@ -19,8 +38,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
 	</table>
-    
-    <!-- 
     <table schema="mokjang" tableName="department_change_hist" >
       <columnOverride column="department_change_hist_seq" property="departmentChangeHistSeq" />
       <columnOverride column="user_id" property="userId" />

@@ -47,5 +47,19 @@ public interface EduService {
 	 * @return
 	 */
 	public Edu getEdu(Long EduSeq);
+
+	/**
+	 * 양육시리즈 등록
+	 * @param edu
+	 * @return
+	 */
+	boolean registEdu(Edu edu);
+	
+	/**
+	 * 양육시리즈 수정
+	 * @param edu
+	 * @return
+	 */
+	boolean modifyEdu(Edu edu);
 	
 }
