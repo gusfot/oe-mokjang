@@ -8,8 +8,16 @@
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
-	
-	<table schema="mokjang" tableName="attend_worship" >
+	<table schema="mokjang" tableName="worship" >
+      <columnOverride column="worship_seq" property="worshipSeq" />
+      <columnOverride column="worship_name" property="worshipName" />
+      <columnOverride column="worship_day" property="worshipDay" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
+    
+    <!-- 
+   	<table schema="mokjang" tableName="attend_worship" >
       <columnOverride column="attend_worship_seq" property="attendWorshipSeq" />
       <columnOverride column="weeks" property="weeks" />
       <columnOverride column="worship_type" property="worshipType" />
@@ -19,15 +27,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
 	</table>
-	
-	<table schema="mokjang" tableName="worship" >
-      <columnOverride column="worship_seq" property="worshipSeq" />
-      <columnOverride column="worship_name" property="worshipName" />
-      <columnOverride column="reg_id" property="regId" />
-      <columnOverride column="reg_time" property="regTime" />
-	</table>
-    
-    <!-- 
 	<table schema="mokjang" tableName="role_change_hist" >
       <columnOverride column="role_change_hist_seq" property="roleChangeHistSeq" />
       <columnOverride column="user_id" property="userId" />
