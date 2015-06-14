@@ -3,7 +3,7 @@
 <generatorConfiguration >
 <classPathEntry location="C:\Users\gusfot\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar" />
   <context id="context1" >
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://52ch.kr:3307/mokjang" userId="mokjang" password="!inpion00" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://120.100.80.208:3308/mokjang" userId="mokjang" password="!inpion00" />
     <javaModelGenerator targetPackage="kr.ch.oe.model" targetProject="oe-mokjang" />
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
@@ -18,7 +18,7 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
 	</table>
-	
+
     <!-- 
     <table schema="mokjang" tableName="worship" >
       <columnOverride column="worship_seq" property="worshipSeq" />
