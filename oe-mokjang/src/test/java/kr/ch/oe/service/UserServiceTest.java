@@ -46,10 +46,9 @@ public class UserServiceTest {
 	@Test
 	public void successToRegisterUser() {
 		User user = new User();
-		Random rdm = new Random();
 		
-		user.setUserId("test"+rdm.nextInt(100));
-		user.setUserName("테스트"+rdm.nextInt(100));
+		user.setUserId("국성환");
+		user.setUserName("국성환");
 		user.setEmail("test1@52ch.kr");
 		user.setCellPhone("01011112222");
 		user.setHomePhone("0233334444");
@@ -57,13 +56,14 @@ public class UserServiceTest {
 		user.setPassword("test1");
 		user.setBirth("1980101");
 		user.setAddr("경기도 광명시");
-		user.setRoleSeq(8l);
+		user.setRoleSeq(84l);
 		user.setRegDt("20150109");
 		user.setJob("직업");
 		user.setGender("1");
 		user.setRoleSeq(8L);
 		user.setEmail("test@52ch.kr");
-		user.setRoleName("새신자");
+		user.setRoleName("목장원");
+		user.setFlag("0");
 		
 		boolean result = userService.regist(user);
 		
