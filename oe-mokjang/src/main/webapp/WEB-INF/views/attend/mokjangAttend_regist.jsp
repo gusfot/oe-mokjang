@@ -53,7 +53,6 @@
 												<th data-priority="${j.count}" style="text-align:center;">${item.itemName}</th>
 											</c:forEach>
 											<th class="totals" style="text-align:center;">점수</th>
-											<th>입력</th>
 										</tr>
 									</thead>	
 									<tbody>
@@ -82,7 +81,6 @@
 													<a href="#" class="ui-btn ui-corner-all ui-mini"><span id="attends[${i.index}].point">0</span> P</a>
 													<%-- <input type="hidden" name="attenda[${i.index}].point" value="" /> --%>
 												</td>
-												<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -103,10 +101,6 @@
 									<tr>
 										<th>누적점수</th>
 										<td><a href="#" class="ui-btn ui-corner-all ui-mini">1,211,342P</a></td>							
-									</tr>
-									<tr>
-										<th>기타보고</th>
-										<td style="padding:0 7px 0 7px;"><textarea name="textarea-1" id="textarea-1"></textarea></td>							
 									</tr>
 								</table>
 								</div>

@@ -54,7 +54,6 @@
 											<th data-priority="${item.priority}" style="text-align:center;">${item.itemName}</th>
 										</c:forEach>
 										<th class="totals" style="text-align:center;">점수</th>
-										<th>입력</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -86,7 +85,6 @@
 												<input type="hidden" name="attends[${i.index}].point" value="${mokjangAttend.attends[i.index].point}" />
 												<input type="hidden" name="attends[${i.index}].attendSeq" value="${mokjangAttend.attends[i.index].attendSeq}" />
 											</td>
-											<td><p class="table_point"><a href="#"><img src="/resources/img/btn_plus.png" alt="점수추가"></a><p></td>
 										</tr>
 									</c:forEach>
 								</tbody>
