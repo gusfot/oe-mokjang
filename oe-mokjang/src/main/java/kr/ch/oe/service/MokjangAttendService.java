@@ -10,8 +10,12 @@ public interface MokjangAttendService {
 
 	MokjangAttend getMokjangAttend(long mokjangReportSeq);
 
-	List<MokjangAttend> getMokjangAttends(int deptSeq);
+	List<MokjangAttend> getMokjangAttends(long deptSeq);
 
-	boolean isSubmited(int deptSeq, int weeks);
+	MokjangAttend getMokjangAttend(long deptSeq, int weeks);
 
+	boolean modify(MokjangAttend mokjangAttend);
+
+	boolean isSubmited(long deptSeq, int weeks);
+	
 }

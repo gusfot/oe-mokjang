@@ -1,8 +1,11 @@
 package kr.ch.oe.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import kr.ch.oe.model.MokjangAttend;
 import kr.ch.oe.model.MokjangAttendExample;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface MokjangAttendMapper {
@@ -74,4 +77,6 @@ public interface MokjangAttendMapper {
 	 * @mbggenerated  Sun Jun 21 17:35:04 KST 2015
 	 */
 	int updateByPrimaryKey(MokjangAttend record);
+
+	MokjangAttend selectMokjangAttend(Map<String, Object> params);
 }
