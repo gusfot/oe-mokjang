@@ -3,11 +3,65 @@
 <generatorConfiguration >
 <classPathEntry location="C:\Users\gusfot\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar" />
   <context id="context1" >
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://120.100.80.208:3308/mokjang" userId="mokjang" password="!inpion00" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://120.100.80.208:3306/mokjang" userId="mokjang" password="!inpion00" />
     <javaModelGenerator targetPackage="kr.ch.oe.model" targetProject="oe-mokjang" />
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
+    <table schema="mokjang" tableName="attend" >
+      <columnOverride column="attend_seq" property="attendSeq" />
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="weeks" property="weeks" />
+      <columnOverride column="mokjang_attend_seq" property="mokjangAttendSeq" />
+      <columnOverride column="point" property="point" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+	</table>
+	
+	<table schema="mokjang" tableName="mokjang_attend" >
+      <columnOverride column="mokjang_attend_seq" property="mokjangAttendSeq" />
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="weeks" property="weeks" />
+      <columnOverride column="point" property="point" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+	
+	<table schema="mokjang" tableName="attend_item_hist" >
+      <columnOverride column="attend_item_hist_seq" property="attendItemHistSeq" />
+      <columnOverride column="item_code" property="itemCode" />
+      <columnOverride column="item_value" property="itemValue" />
+      <columnOverride column="attend_seq" property="attendSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+    <table schema="mokjang" tableName="attend_item_mngr" >
+      <columnOverride column="attend_item_mngr_seq" property="attendItemMngrSeq" />
+      <columnOverride column="mngr_name" property="mngrName" />
+      <columnOverride column="start_date" property="startDate" />
+      <columnOverride column="end_date" property="endDate" />
+      <columnOverride column="desc" property="desc" />
+      <columnOverride column="use_yn" property="useYn" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+    
+    <table schema="mokjang" tableName="attend_item" >
+      <columnOverride column="attend_item_seq" property="attendItemSeq" />
+      <columnOverride column="item_name" property="itemName" />
+      <columnOverride column="code" property="code" />
+      <columnOverride column="weight" property="weight" />
+      <columnOverride column="item_desc" property="itemDesc" />
+      <columnOverride column="item_type" property="itemType" />
+      <columnOverride column="item_type_desc" property="itemTypeDesc" />
+      <columnOverride column="priority" property="priority" />
+      <columnOverride column="use_yn" property="useYn" />
+      <columnOverride column="attend_item_mngr_seq" property="attendItemMngrSeq" />
+      <columnOverride column="reg_id" property="regId" />
+      <columnOverride column="reg_time" property="regTime" />
+    </table>
+
+    <!-- 
 	<table schema="mokjang" tableName="attend_worship" >
       <columnOverride column="attend_worship_seq" property="attendWorshipSeq" />
       <columnOverride column="weeks" property="weeks" />
@@ -18,8 +72,6 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
 	</table>
-
-    <!-- 
     <table schema="mokjang" tableName="worship" >
       <columnOverride column="worship_seq" property="worshipSeq" />
       <columnOverride column="worship_name" property="worshipName" />
