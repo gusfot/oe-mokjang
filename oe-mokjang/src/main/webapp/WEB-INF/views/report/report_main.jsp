@@ -47,6 +47,7 @@
 		
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/dept/children.oe';">하위 목장 내역</button>
 		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/user/registForm.oe';">새신자 추가</button>
+		<button type="button" class="btn btn-primary"" onclick="javascript:location.href='/attend/mokjang/regist.oe';">예배출석 여부 등록 </button>
 		
       </div>
       <!-- Example row of columns -->
