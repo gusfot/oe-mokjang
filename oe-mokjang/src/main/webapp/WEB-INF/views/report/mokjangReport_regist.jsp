@@ -54,7 +54,7 @@
 									<td>
 										<div  style="padding:0 7px 0 7px;">
 										<input type="text" name="worshipPlace" id="worshipPlace">
-										<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}" placeholder="직접입력" />
+										<input type="hidden" name="deptSeq" id="deptSeq" value="${sessionUserVO.deptSeq}" />
 										</div>
 										<div class="ui-field-contain" style="padding:0px; margin:0px;">
 											<select class="form-control" id="placeList" data-mini="true" >

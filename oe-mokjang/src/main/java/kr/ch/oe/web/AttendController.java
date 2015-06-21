@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.ch.oe.common.DateUtil;
-import kr.ch.oe.model.MokjangReport;
-import kr.ch.oe.model.Report;
-import kr.ch.oe.model.ReportItem;
+import kr.ch.oe.model.Attend;
+import kr.ch.oe.model.AttendItem;
+import kr.ch.oe.model.MokjangAttend;
 import kr.ch.oe.model.SessionUserVO;
 import kr.ch.oe.model.User;
+import kr.ch.oe.service.AttendItemService;
 import kr.ch.oe.service.DepartmentService;
-import kr.ch.oe.service.MokjangReportService;
-import kr.ch.oe.service.ReportItemService;
+import kr.ch.oe.service.MokjangAttendService;
 import kr.ch.oe.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,13 +46,13 @@ public class AttendController {
 	private DepartmentService departmentService;
 	
 	@Autowired
-	private MokjangReportService mokjangReportService;
+	private MokjangAttendService mokjangAttendService;
 	
 	@Autowired
 	private UserService userService;
 	
 	@Autowired
-	private ReportItemService reportItemService;
+	private AttendItemService attendItemService;
 	
 	@RequestMapping("/mokjang/list.oe")
 	public String list(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -62,8 +62,8 @@ public class AttendController {
 		
 		int weeks = request.getParameter("weeks") !=null ? Integer.parseInt(request.getParameter("weeks")) : DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString())); 
 		
-		model.addAttribute("mokjangReports", mokjangReportService.getMokjangReports(deptSeq ));
-		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(deptSeq,weeks));
+		model.addAttribute("mokjangAttends", mokjangAttendService.getMokjangAttends(deptSeq ));
+		model.addAttribute("mokjangAttend", mokjangAttendService.getMokjangAttend(deptSeq,weeks));
 		model.addAttribute("weeks", weeks);
 		
 		return "attend/mokjangAttend_list";
@@ -79,9 +79,9 @@ public class AttendController {
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
 		Map<String, Object> params = new HashMap<>();
-		List<ReportItem> items = reportItemService.getList(params);
+		List<AttendItem> items = attendItemService.getList(params);
 
-		model.addAttribute("reportItems", items);
+		model.addAttribute("attendItems", items);
 		
 		Calendar cal = Calendar.getInstance();
 		int year = cal.get(Calendar.YEAR);
@@ -96,7 +96,7 @@ public class AttendController {
 	
 	@RequestMapping(value="/mokjang/regist.oe", method=RequestMethod.POST)
 	public @ResponseBody String regist(HttpServletRequest request, HttpServletResponse response, 
-									   @ModelAttribute MokjangReport mokjangReport, Model model) {
+									   @ModelAttribute MokjangAttend mokjangAttend, Model model) {
 		
 		JsonObject returnObject = new JsonObject();
 		
@@ -104,31 +104,31 @@ public class AttendController {
 		String userId = sessionUserVO.getUserId();
 		
 		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
-		String[] worshiDate = mokjangReport.getWorshipDt().split("-");
+		String[] worshiDate = {"2015","06","21"};
 		
 		// 주차
 		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
 //		System.out.println(weeks + "번째 주입니다.");
 //		System.out.println(mokjangReport.toString());
 		
-		mokjangReport.setWeeks(weeks);
-		mokjangReport.setRegId(userId);
-		for(Report report : mokjangReport.getReports()){
-			report.setWeeks(weeks);
-			report.setRegId(userId);
-			report.setDeptSeq(mokjangReport.getDeptSeq());
+		mokjangAttend.setWeeks(weeks);
+		mokjangAttend.setRegId(userId);
+		for(Attend attend : mokjangAttend.getAttends()){
+			attend.setWeeks(weeks);
+			attend.setRegId(userId);
+			attend.setDeptSeq(mokjangAttend.getDeptSeq());
 		}
 		
 		
-		returnObject.addProperty("success", mokjangReportService.regist(mokjangReport));
-		returnObject.addProperty("seq", mokjangReport.getMokjangReportSeq());
+		returnObject.addProperty("success", mokjangAttendService.regist(mokjangAttend));
+		returnObject.addProperty("seq", mokjangAttend.getMokjangAttendSeq());
 		
 		return returnObject.toString();
 	}
 	
 	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.POST)
 	public @ResponseBody String modify(HttpServletRequest request, HttpServletResponse response, 
-									   @ModelAttribute MokjangReport mokjangReport, Model model) {
+									   @ModelAttribute MokjangAttend mokjangAttend, Model model) {
 		
 		JsonObject returnObject = new JsonObject();
 		
@@ -136,24 +136,23 @@ public class AttendController {
 		String userId = sessionUserVO.getUserId();
 		
 		// 목장모임을 한 날짜를 기준으로 해당주의 목장보고서를 등록한다.
-		String[] worshiDate = mokjangReport.getWorshipDt().split("-");
+		String[] worshiDate = {"2015","06","21"};
 		
 		// 주차
 		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(worshiDate[0]), Integer.parseInt(worshiDate[1]), Integer.parseInt(worshiDate[2]));
 //		System.out.println(weeks + "번째 주입니다.");
-//		System.out.println(mokjangReport.toString());
 		
-		mokjangReport.setWeeks(weeks);
-		mokjangReport.setRegId(userId);
-		for(Report report : mokjangReport.getReports()){
-			report.setWeeks(weeks);
-			report.setRegId(userId);
-			report.setDeptSeq(mokjangReport.getDeptSeq());
+		mokjangAttend.setWeeks(weeks);
+		mokjangAttend.setRegId(userId);
+		for(Attend attend : mokjangAttend.getAttends()){
+			attend.setWeeks(weeks);
+			attend.setRegId(userId);
+			attend.setDeptSeq(mokjangAttend.getDeptSeq());
 		}
 		
 		
-		returnObject.addProperty("success", mokjangReportService.modify(mokjangReport));
-		returnObject.addProperty("seq", mokjangReport.getMokjangReportSeq());
+		returnObject.addProperty("success", mokjangAttendService.modify(mokjangAttend));
+		returnObject.addProperty("seq", mokjangAttend.getMokjangAttendSeq());
 		
 		return returnObject.toString();
 	}
@@ -172,14 +171,14 @@ public class AttendController {
 		model.addAttribute("mokjangUsers", mokjangUsers);
 		
 		if(seq != 0) {
-			model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(seq));
+			model.addAttribute("mokjangAttend", mokjangAttendService.getMokjangAttend(seq));
 		}else {
-			model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(deptSeq, weeks));
+			model.addAttribute("mokjangAttend", mokjangAttendService.getMokjangAttend(deptSeq, weeks));
 		}
 		Map<String, Object> params = new HashMap<>();
-		List<ReportItem> items = reportItemService.getList(params);
+		List<AttendItem> items = attendItemService.getList(params);
 
-		model.addAttribute("reportItems", items);
+		model.addAttribute("attendItems", items);
 		
 		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
 		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
@@ -187,13 +186,13 @@ public class AttendController {
 		int thisWeeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
 		model.addAttribute("thisWeeks", thisWeeks);
 		
-		return "report/mokjangAttend_detail";
+		return "attend/mokjangAttend_detail";
 	}
 	
 	@RequestMapping(value="/mokjang/modify.oe", method=RequestMethod.GET)
 	public String modifyPage(@RequestParam long mokjangReportSeq, Model model) {
 		
-		model.addAttribute("mokjangReport", mokjangReportService.getMokjangReport(mokjangReportSeq));
+		model.addAttribute("mokjangAttend", mokjangAttendService.getMokjangAttend(mokjangReportSeq));
 		
 		return "attend/mokjangAttend_modify";
 	}
@@ -215,17 +214,17 @@ public class AttendController {
     @RequestMapping(value = "/downMokjang", method = RequestMethod.GET)
     public ModelAndView downloadExcel() {
         
-        MokjangReport mokjangReport= mokjangReportService.getMokjangReport(14l);
+        MokjangAttend mokjangAttend= mokjangAttendService.getMokjangAttend(14l);
  
         // return a view which will be resolved by an excel view resolver
-        return new ModelAndView("excelView", "mokjangReport", mokjangReport);
+        return new ModelAndView("excelView", "mokjangReport", mokjangAttend);
     }
     
     @RequestMapping(value="/testExcel.oe", method=RequestMethod.GET)
     public String testExcel(Model model) {
     	
-    	MokjangReport mokjangReport= mokjangReportService.getMokjangReport(14l);
-    	model.addAttribute("mokjangReport", mokjangReport);
+    	MokjangAttend mokjangAttend= mokjangAttendService.getMokjangAttend(14l);
+    	model.addAttribute("mokjangReport", mokjangAttend);
         return "excelView";
     }
 }
