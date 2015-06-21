@@ -153,7 +153,6 @@
 		var usersLength =$('tr[data-userseq]').length;		// 목장원수
 		var $point = $('#point');							// 금일합계점수 표시영역
 		var $hiddenPoint = $('input[name=point]');			// 금일합계점수값(for server)
-		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
 		
 		// 목장원들의 개인총점을 합한다.
 		for(var i=0; i<usersLength; i++) {
