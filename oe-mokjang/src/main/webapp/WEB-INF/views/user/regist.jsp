@@ -64,7 +64,7 @@
 									</tr>
 									<tr>
 										<th>생년월일</th>
-										<td><input type="date" data-clear-btn="true" name="date-2" id="date-2"  data-mini="true"></td>
+										<td><input type="date" data-clear-btn="true" name="date-2" id="birth"  data-mini="true"></td>
 									</tr>
 									<tr>
 										<th>양력/음력</th>
@@ -162,80 +162,75 @@
 
 	function checkfield(){
 		
-		var jsuserId = $("input[name=userId]").val(),
-		 jsuserName = $("input[name=userName]").val(),
-		jspassword = $("input[name=password]").val(),
-		jsaddr = $("input[name=addr]").val(),
-		jscellPhone = $("input[name=cellPhone]").val(),
-		jshomePhone = $("input[name=homePhone]").val(),
-		jsjob = $("input[name=job]").val(),
-		jsgender = $("select[name=gender]").val(),
-		jsroleSeq = $("select[name=role]").val(),
-		jsbirth = $("input[name=birth]").val(),
-		jsemail = $("input[name=email]").val(),
-	    jsflag = $("input[name=flag]").val(),
-		jsregDt =$("input[name=regDate]").val(),
-		jsgyogu = $("select[name=gyogu]").val();
-		jsacademic = $("select[name=academic]").val();
-		jsmajor = $("select[name=major]").val();
-		
+		var jsuserId = $("input[name=userId]")
+		 jsuserName = $("input[name=userName]"),
+		jsaddr = $("input[name=addr]"),
+		jscellPhone = $("input[name=cellPhone]"),
+		jshomePhone = $("input[name=homePhone]"),
+		jsjob = $("input[name=job]"),
+		jsgender = $("select[name=gender]"),
+		jsroleSeq = $("select[name=role]"),
+		jsbirth = $("input[name=birth]"),
+		jsemail = $("input[name=email]"),
+	    jsflag = $("input[name=flag]"),
+		jsregDt =$("input[name=regDate]"),
+		jsgyogu = $("select[name=gyogu]");
+		jsacademic = $("select[name=academic]");
+		jsmajor = $("select[name=major]");
 		 
- 		alert(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
-			+jsflag+jsregDt+jsgyogu);
+ 		/* alert(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
+			+jsflag+jsregDt+jsgyogu); */
+			console.log(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
+					+jsflag+jsregDt+jsgyogu);
 		
 		var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
-		
-		if(document.regist_form.email.value==""){
+		if(jsemail.val()==""){
+		//if(document.regist_form[0].email.value==""){
 			alert("이메일주소를 입력하세요");
-			document.regist_form.email.focus();
+			jsemail.focus();
 			return;
 			
-		}else if(document.regist_form.userId.value==""){
+		}else if( jsuserId.val()==""){
 			alert("아이디를 입력하세요");
-			document.regist_form.userId.focus();
+			jsuserId.focus();
 			return;
 								
-		}else if(document.regist_form.password.value==""){
-			alert("비밀번호를 입력하세요");
-			document.regist_form.password.focus();
-			return;
-			
-		}else if(document.regist_form.userName.value==""){
+		}else if(jsuserName.val()==""){
 			alert("이름을 입력하세요");
-			document.regist_form.userName.focus();
+			jsuserName.focus();
 			return;
 			
-		}else if(document.regist_form.job.value==""){
+		}else if(jsjob.val()==""){
 			alert("직업을 입력하세요");
-			document.regist_form.job.focus();
+			jsjob.focus();
 			return;
 			
-		}else if(document.regist_form.addr.value==""){
+		}else if(jsaddr.val()==""){
 			alert(" 주소를 입력하세요");
-			document.regist_form.addr.focus();
+			jsaddr.focus();
 			return;
 			
-		}else if(document.regist_form.birth.value==""){
+		}else if(jsbirth.val()==""){
 			alert(" 생일을 입력하세요");
-			document.regist_form.birth.focus();
+			jsbirth.focus();
 			return;
 			
-		}else if(document.regist_form.cellPhone.value==""){
+		}else if(jscellPhone.val()==""){
 			alert(" 핸드폰 번호를 입력하세요");
-			document.regist_form.cellPhone.focus();
+			jsellPhone.focus();
 			return;
 			
-		}else if(document.regist_form.homePhone.value==""){
+		}else if(jshomePhone.val()==""){
 			alert(" 집전화 번호를 입력하세요");
-			document.regist_form.homePhone.focus();
+			jshomePhone.focus();
 			return;
-		} else if(document.regist_form.academic.value ==""){
+		} else if(jsacademic.val() ==""){
 			alert("최종학력을 입력하세요");
-			document.regist_form.academic.focus();
+			jsacademic.focus();
 			return;
-		} else if(document.regist_form.major.value == "" ){
+		} else if(jsmajor.val() == "" ){
 			alert("전공을 입력하세요");
-			document.regist_form.major.focus();
+			jsmajor.focus();
 			return;
 		}
 	     
