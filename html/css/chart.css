@@ -1,0 +1,50 @@
+/*
+Tutorial Name: Visualize Data Beautifully Using JS Charts
+Description: Creating Beautiful Charts using jQuery plugin Charts.js
+Author: Samuel Dalusung
+*/
+
+/*= GENERAL STYLES
+--------------------------------------------------------*/
+body {
+    width: 100%;
+    background: url(../img/crossword.png);
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 610px;
+    margin: 20px auto;
+}
+
+header h1 {
+    font-size: 32px;
+    font-family: 'Open Sans';
+    color: #6f6f6f;
+    font-weight: 600;
+    text-shadow: 0 0 0 rgba(0,0,0,.4);
+    text-align: center;
+    margin: 10px 0 0;
+}
+
+nav {
+    margin: 0 auto 40px;
+}
+
+nav a {
+    background: #e1e0e0;
+    display: inline-block;
+    font-size: 13px;
+    margin: 10px 5px 0 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Open Sans';
+}
+
+nav a.active,nav a:hover {
+    background: #fcc79e;
+    color: #6f6f6f;
+}
