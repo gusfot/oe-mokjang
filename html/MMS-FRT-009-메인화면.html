@@ -1,0 +1,95 @@
+<DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+		<title>목장관리시스템 - 로그인</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/layout.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<!--차트추가-->
+		<script type="text/javascript" src="js/Chart.min.js"></script>
+		<script type="text/javascript" src="js/Chart.js"></script>
+		<style>
+		  canvas{padding:5px;}
+		
+		</style>
+		
+
+	</head>
+	<body>	
+		<div class="container">
+			<div class="header_wrap">
+				<div class="header">
+					<a href="#" class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-mini">2015.05.15 주일, 새벽홀에서 전체회의가 있습니다. 목자들 꼭 참석바랍니다.</a>
+					<a href="#" class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-mini">지난 주 홍길동 님이 주일예배에 참석하지 못했습니다.</a>
+					<a href="#" class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-mini">송명섭 님이 5일간 주일예배에 참석하지 못했습니다.</a>
+					<a href="#" class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-mini">지난 주 송명섭님이 등반되었습니다.</a>
+					<a href="#" class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-mini">홍길동 님의 새가족 등록이 수락되었습니다.</a>
+				</div>
+			</div>
+			<div class="content_wrap">
+				<div class="content">
+						<!--chart 삽입-->
+						<canvas id="canvas" height="200" width="500"></canvas>
+				
+						<a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all ui-mini">목장보고서 작성</a>
+						<a href="#" class="ui-btn ui-icon-calendar ui-btn-icon-left ui-corner-all ui-mini">출결 작성</a>											
+						<a href="#" class="ui-btn ui-icon-user ui-btn-icon-left ui-corner-all ui-mini">내목장원 관리</a>
+						<a href="#" class="ui-btn ui-icon-heart ui-btn-icon-left ui-corner-all ui-mini">태신자 관리</a>
+						
+						
+					
+				</div>
+			</div>
+			<div class="footer_wrap">
+				<div class="footer">
+					<div data-role="controlgroup" data-mini="true">
+
+						<p class="footer_copy">Copyrightⓒ 52soft. All right reserved.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--http://www.chartjs.org/docs/#getting-started-creating-a-chart 참조-->
+		<script>
+
+			
+		var LineChart = {
+			labels : ["6/7", "6/14","6/21","6/28","Today"],
+			datasets: [
+					{
+						label: "My First dataset",
+						fillColor: "rgba(220,220,220,0.2)",
+						strokeColor: "rgba(220,220,220,1)",
+						pointColor: "rgba(220,220,220,1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(220,220,220,1)",
+						data: [65, 59, 80, 81, 56]
+					},
+					{
+						label: "My Second dataset",
+						fillColor: "rgba(151,187,205,0.2)",
+						strokeColor: "rgba(151,187,205,1)",
+						pointColor: "rgba(151,187,205,1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(151,187,205,1)",
+						data: [28, 48, 40, 19, 86]
+					}
+				]			
+		}
+		
+		var myLineChart = new Chart(document.getElementById("canvas").getContext("2d")).Line(LineChart, {scaleFontSize : 13, scaleFontColor : "#ffa45e", bezierCurve : false});	
+	
+	
+	</script>
+		
+	</body>
+</html>
