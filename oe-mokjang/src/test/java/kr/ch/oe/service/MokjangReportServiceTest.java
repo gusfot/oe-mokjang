@@ -77,5 +77,12 @@ public class MokjangReportServiceTest {
 		Assert.assertTrue(result);
 	}
 	
+	@Test
+	public void getTotalPointByDeptSeq() {
+		long deptSeq = 84;
+		int totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq );
+		Assert.assertTrue(totalPoint>0);
+	}
+	
 	
 }

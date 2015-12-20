@@ -5,24 +5,12 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
 		<title>목장관리시스템 - 목장원관리</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 		<!-- jQuery Customize -->
-		<style>
-			.week_next a {padding-left:13%; text-align:left;}
-			.ui-select{width:100%;}
-			.ui-select span{margin-right:15px; width:40px;}
-			.ui-table-columntoggle-btn{box-shadow:none; position:absolute; right:0px; top: 48px}
-			.ui-table-columntoggle-popup{width:150px;}
-			.ui-table-columntoggle-popup label{font-size:12.5px;}
-			.ui-btn{padding: 8.75px 10px 8.75px 10px; font-size:12.5px;}
-			.ui-btn-icon-left{padding-left:2.3em;}
-			.ui-checkbox{margin:3px;}
-		</style>
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	</head>
@@ -324,36 +312,12 @@ function checkfield(){
 		jsmajor = $("select[name=major]").val();
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	$(function(){
-		$('input[type=checkbox]').click(function(){
-			console.log('checkbox');
-		});
+}
+$s(function(){
+	$('input[type=checkbox]').click(function(){
+		console.log('checkbox');
 	});
+});
 	
 	function setWoshipPlace(el) {
 		$('#worshipPlace').val($(el).val());

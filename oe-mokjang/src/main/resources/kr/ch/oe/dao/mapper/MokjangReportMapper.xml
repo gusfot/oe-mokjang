@@ -649,4 +649,9 @@
 	    </choose>
     </where>
   </select>
+  
+  <select id="selectTotalPointByDeptSeq" parameterType="long" resultType="int">
+  	select sum(point) from mokjang_report
+	where dept_seq=#{deptSeq}
+  </select>
 </mapper>

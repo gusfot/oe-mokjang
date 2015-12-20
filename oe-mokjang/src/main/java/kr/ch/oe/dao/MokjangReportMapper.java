@@ -43,4 +43,11 @@ public interface MokjangReportMapper {
 
 	MokjangReport selectMokjangReport(Map<String, Object> params);
 
+	/**
+	 * 부서코드로 전체누적점수 조회
+	 * @param deptSeq
+	 * @return
+	 */
+	int selectTotalPointByDeptSeq(long deptSeq);
+	
 }

@@ -134,5 +134,10 @@ public class MokjangReportServiceImpl implements MokjangReportService {
 		return mokjangReportMapper.selectByExample(example).size() > 0 ? true : false;
 	}
 
+	@Override
+	public int getTotalPointByDeptSeq(long deptSeq) {
+		return mokjangReportMapper.selectTotalPointByDeptSeq(deptSeq);
+	}
+
 
 }

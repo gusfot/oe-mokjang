@@ -4,25 +4,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>User 목록</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<title>User 목록</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=euc-kr" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>목장관리시스템 - 목장원관리</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<!-- jQuery Customize -->
+	<style>
+		.ui-select span{margin-right:15px; width:40px;}
+		.ui-table-columntoggle-btn{box-shadow:none; position:absolute; right:0px; top: 48px}
+		.ui-table-columntoggle-popup{width:150px;}
+		.ui-table-columntoggle-popup label{font-size:12.5px;}			
+	</style>
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-<!-- Optional theme -->
-<link rel="stylesheet" type="text/css" href="/resources/css/common.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
-<!-- <link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css"> -->
-<!-- Latest compiled and minified JavaScript -->
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script	src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/resources/js/paging-1.js"></script>
-<script type="text/javascript">
+	<script type="text/javascript" src="/resources/js/paging-1.js"></script>
+	<script type="text/javascript">
 	
 	function modal(){
 		$('#myModal').modal('show');
 		
 	}
+	
 	function removeSheep(userId,flag){
 		 yesorno = confirm("목장원을 삭제하시겠습니까?")
 		if(yesorno == true){
@@ -31,7 +39,7 @@
 				type : "GET",
 				url : "removeSheep.oe?userId="+userId+"&flag="+flag,
 				success : function(response) {
-					if (response == true) {
+					if (response) {
 						alert('삭제되었습니다');
 						window.location.reload();	
 					} else {

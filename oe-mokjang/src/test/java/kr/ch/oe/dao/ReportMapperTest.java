@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class) 
 @ContextConfiguration(locations={//"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
-		"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context.xml"})
+		"file:src/main/webapp/WEB-INF/spring/appServlet/dao-context-test.xml"})
 public class ReportMapperTest {
 	
 	@Autowired
@@ -62,5 +62,14 @@ public class ReportMapperTest {
 		List<Report> report = reportMapper.selectByExample(example);
 		
 		Assert.assertTrue(report != null);
+	}
+	
+	@Test
+	public void selectTotalPoint() {
+		
+		long deptSeq = 84;
+		int mokjangTotalPoint = reportMapper.selectTotalPointByDeptSeq(deptSeq );
+		
+		Assert.assertTrue(mokjangTotalPoint > 0);
 	}
 }

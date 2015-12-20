@@ -27,26 +27,21 @@
 	function pageR(param){
 		var keyword = $('#keyword').val();
 		var html = '';
-		var total=""
-		var item = null;
+		var total='';
+		
 		$.ajax({
 			type:"GET",
 			url:"rest/user/registSheep.oe?page="+param+"&keyword="+keyword,
-		success : function(result) {
+			success : function(result) {
 			 for (var i=0; i<result.items.length; i++) {
-				item = result.items[i];
+				var item = result.items[i];
 				html += '<tr>';
 				html += '	<td><input type="checkbox" name="box" value = "'+item.userId+'"/></td>';
 				html += '	<td>' + item.userName + '</td>';
 				/*html += '	<td><a href="detail.oe?userId='+item.userId+'">' + item.userName + '</a></td>';  */
 				html += '	<td>' + item.roleName + '</td>';
 				html += '	<td>' + item.birth+ '</td>';
-				if (item.gender==1) {
-					html += '	<td> 남자</td>';
-				};
-				if (item.gender!=1) {
-					html += '	<td>여자</td>';
-		    	 };
+				html += '	<td> '+(item.gender==1 ? '남자':'여자')+'</td>';
 				html += '</tr>';
 			} 
 			 
@@ -56,30 +51,35 @@
 		}
 		});
 	}
+	
 	function greeting3(){
 		var str = "";  
+		
 	    $("input:checkbox:checked").each(function (index) {  
 	        str += $(this).val() + ",";  
 	    });
+	    
 	    if (str==""){
 	    	alert("목장원을  선택해주세요");
 	    	exit;
 	    }
 	    
-			location.href='registSheep.oe?userId='+str+'&farmmerId=${sessionId.userId}';
+		location.href='registSheep.oe?userId='+str+'&farmmerId=${sessionId.userId}';
 	}
+	
 	function enterSerch(e) {
-		if(e.keyCode==13){
+		
+		if(e.keyCode==13) {
 			pageR(1);
-		return false;
-		}
-		else{
-		return true;			
+			return false;
+		}else {
+			return true;			
 		}
 	}
+	
 	$(document).ready(function() {
 		pageR(1);
-		});
+	});
 	
 </script>
 </head>

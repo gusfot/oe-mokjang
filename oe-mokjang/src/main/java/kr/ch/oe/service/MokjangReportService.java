@@ -49,4 +49,12 @@ public interface MokjangReportService {
 	 * @return
 	 */
 	boolean isSubmited(long deptSeq, int weeks);
+
+	/**
+	 * 부서코드로 전체누적 점수 조회
+	 * @param deptSeq
+	 * @return
+	 */
+	int getTotalPointByDeptSeq(long deptSeq);
+
 }

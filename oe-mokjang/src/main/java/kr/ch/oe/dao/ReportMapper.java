@@ -32,4 +32,11 @@ public interface ReportMapper {
 	int updateByPrimaryKeySelective(Report record);
 
 	int updateByPrimaryKey(Report record);
+
+	/**
+	 * 부서순번(코드)로 전체 누적점수 조회
+	 * @param deptSeq
+	 * @return
+	 */
+	int selectTotalPointByDeptSeq(long deptSeq);
 }
