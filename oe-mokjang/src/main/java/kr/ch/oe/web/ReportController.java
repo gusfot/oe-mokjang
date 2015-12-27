@@ -87,9 +87,14 @@ public class ReportController {
 		int year = cal.get(Calendar.YEAR);
 		
 		int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
+		
 		model.addAttribute("thisWeeks", weeks);
 		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
 		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
+		
+		
+		int totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq);
+		model.addAttribute("totalPoint", totalPoint);
 		
 		return "report/mokjangReport_regist";
 	}

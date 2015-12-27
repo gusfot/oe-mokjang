@@ -2,6 +2,7 @@ package kr.ch.oe.service.impl;
 
 import java.util.List;
 
+import kr.ch.oe.dao.MokjangReportMapper;
 import kr.ch.oe.dao.ReportMapper;
 import kr.ch.oe.model.Report;
 import kr.ch.oe.model.ReportExample;
@@ -17,6 +18,9 @@ public class ReportServiceImpl implements ReportService {
 
 	@Autowired
 	private ReportMapper reportMapper;
+	
+	@Autowired
+	private MokjangReportMapper mokjangReportMapper; 
 	
 	@Transactional
 	@Override

@@ -33,5 +33,5 @@ public interface ReportService {
 	 * @return
 	 */
 	List<Report> getReports(long deptSeq, int weeks);
-	
+
 }
