@@ -228,15 +228,15 @@
 		
 		// 목장원 개인 총점
 		$('input[type="checkbox"]').on('click', function() {
-			var $this = $(this);
-			var userSeq = Number($this.parent().parent().parent().attr('data-userseq'));
-			var $userPoint = $(document.getElementById('reports['+userSeq+'].point'));
-			var $hiddenUserPoint = $(document.getElementsByName('reports['+userSeq+'].point'));
-			var point = 0;
+			var $this = $(this),
+				userSeq = Number($this.parent().parent().parent().attr('data-userseq')),
+				$userPoint = $(document.getElementById('reports['+userSeq+'].point')),
+				$hiddenUserPoint = $(document.getElementsByName('reports['+userSeq+'].point')),
+				point = 0;
 			
 			$('input[data-user="user'+userSeq+'"]').each(function() {
-				var $this = $(this);
-				var weight = Number($this.attr("data-weight"));
+				var $this = $(this),
+					weight = Number($this.attr("data-weight"));
 				point = $this.is(':checked') ? (point+weight) : point; 
 			}) ;
 			
@@ -257,14 +257,15 @@
 	
 	// 금일합계점수  = 목장원들의 개인총점을 합한다.
 	function todayTotalPoint() {
-		var todayPoint = 0;									// 금일합계점수
-		var usersLength =$('tr[data-userseq]').length;		// 목장원수
-		var $offering = $('#offering');						// 헌금
-		var $point = $('#point');							// 금일합계점수 표시영역
-		var $hiddenPoint = $('input[name=point]');			// 금일합계점수값(for server)
-		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
-		var $totalPoint = $('#totalPoint');
-		var totalPoint = Number('${totalPoint}');
+		var todayPoint = 0,									// 금일합계점수
+			usersLength =$('tr[data-userseq]').length,		// 목장원수
+			$offering = $('#offering'),						// 헌금
+			$point = $('#point'),							// 금일합계점수 표시영역
+			$hiddenPoint = $('input[name=point]'),			// 금일합계점수값(for server)
+			offeringPoint = Math.floor(Number($offering.val())/1000),	// 헌금점수
+			$totalPoint = $('#totalPoint'),
+			totalPoint = Number('${totalPoint}');
+		
 		// 헌금 점수 반영
 		todayPoint = offeringPoint;
 
@@ -273,6 +274,7 @@
 			var $userPoint = $(document.getElementById('reports['+i+'].point'));
 			todayPoint += Number($userPoint.html());
 		}
+		
 		$point.html(todayPoint);
 		$hiddenPoint.val(todayPoint);
 		$totalPoint.html(totalPoint+todayPoint);
