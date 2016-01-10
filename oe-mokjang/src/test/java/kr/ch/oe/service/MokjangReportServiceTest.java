@@ -1,17 +1,33 @@
 package kr.ch.oe.service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import kr.ch.oe.model.MokjangReport;
-import kr.ch.oe.model.Report;
-
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.jxls.common.Context;
+import org.jxls.util.JxlsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import kr.ch.oe.model.MokjangReport;
+import kr.ch.oe.model.Report;
+import net.sf.jxls.exception.ParsePropertyException;
+import net.sf.jxls.sample.model.Department;
+import net.sf.jxls.sample.model.Employee;
+import net.sf.jxls.transformer.XLSTransformer;
 
 @RunWith(SpringJUnit4ClassRunner.class) 
 //@ContextConfiguration(locations={"file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml",
@@ -84,6 +100,20 @@ public class MokjangReportServiceTest {
 		long deptSeq = 84;
 		int totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq );
 		Assert.assertTrue(totalPoint>0);
+	}
+	
+	 private static String templateFileName = "src/main/resources/mokjangReport.xls";
+	    private static String destFileName = "target/mokjangReport_output.xls";
+	    
+	@Test
+	public void getXls() throws ParsePropertyException, InvalidFormatException, IOException {
+
+		MokjangReport mokjangReport = mokjangReportService.getMokjangReport(40l);
+        Map beans = new HashMap();
+        beans.put("mokjangReport", mokjangReport);
+        XLSTransformer transformer = new XLSTransformer();
+        transformer.transformXLS(templateFileName, beans, destFileName);
+        Assert.assertTrue(mokjangReport != null);
 	}
 	
 	
