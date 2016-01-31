@@ -102,8 +102,9 @@ public class MokjangReportServiceTest {
 		Assert.assertTrue(totalPoint>0);
 	}
 	
-	 private static String templateFileName = "src/main/resources/mokjangReport.xls";
-	    private static String destFileName = "target/mokjangReport_output.xls";
+	
+	private static String templateFileName = "src/main/resources/mokjangReport.xls";
+	private static String destFileName = "target/mokjangReport_output.xls";
 	    
 	@Test
 	public void getXls() throws ParsePropertyException, InvalidFormatException, IOException {
