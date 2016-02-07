@@ -6,6 +6,11 @@ import kr.ch.oe.model.MokjangAttend;
 
 public interface MokjangAttendService {
 
+	/**
+	 *
+	 * @param mokjangAttend
+	 * @return
+	 */
 	boolean regist(MokjangAttend mokjangAttend);
 
 	MokjangAttend getMokjangAttend(long mokjangReportSeq);
