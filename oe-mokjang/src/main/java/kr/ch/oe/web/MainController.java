@@ -38,9 +38,9 @@ public class MainController {
 			long deptSeq = sessionUserVO.getDeptSeq();
 			int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
 			model.addAttribute("isSubmited",mokjangReportService.isSubmited(deptSeq, weeks));
-			mainPage = "report/report_main";
+			mainPage = "LayOutTest";
 		}else {
-			mainPage = "main";
+			mainPage = "LayOutTest";
 		}
 		return mainPage;
 	}

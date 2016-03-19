@@ -63,16 +63,19 @@
 		var $userId = $("input[name=userId]"),
 			$userPw= $("input[name=password]");
 		
-		if($userId===''){
+		
+		
+		if($userId.val()===''){
 			alert('아이디를 입력하세요');
 			$userId.val('');
 			$userId.focus();
 			return;
 		}
 		
-		if($userPw===''){
-			$password.val('');
-			$password.focus();
+		if($userPw.val()===''){
+			alert('비밀번호를 입력하세요');
+			$userPw.val('');
+			$userPw.focus();
 			return;
 		}
 		

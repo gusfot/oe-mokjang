@@ -38,7 +38,6 @@ public class LoginController {
 			HttpSession session,
 			@RequestParam(value="userId",required=true)String userId,
 			@RequestParam(value="pw",required=true)String pw) throws Exception {
-		
 		JsonObject returnObj = new JsonObject();
 		SessionUserVO sessionUserVO = loginService.loginUser(userId, pw); 
 		
