@@ -61,4 +61,10 @@ public class EduServiceImpl implements EduService {
 	public boolean modifyEdu(Edu edu) {
 		return eduMapper.updateByPrimaryKeySelective(edu) > 0 ? true : false;
 	}
+
+	@Override
+	public List<EduStatus> getEduStatusByUserId(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

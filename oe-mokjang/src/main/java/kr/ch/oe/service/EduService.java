@@ -61,5 +61,12 @@ public interface EduService {
 	 * @return
 	 */
 	boolean modifyEdu(Edu edu);
+
+	/**
+	 * 사용자의 양육시리즈 현황 조회 
+	 * @param userId
+	 * @return
+	 */
+	public List<EduStatus> getEduStatusByUserId(String userId);
 	
 }
