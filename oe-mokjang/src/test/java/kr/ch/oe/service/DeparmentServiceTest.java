@@ -53,19 +53,19 @@ public class DeparmentServiceTest {
 		
 	}
 	
-@Test
-public void successToModifyDept(){
-	Department dept = new Department();
-	dept.setDeptName("update_123");
-	dept.setParentSeq(0L);
-	int result = deptService.modifyDepartMent(dept,26L);
-	Assert.assertTrue(result>0);
-	
-}
-@Test
-public void successToRemoveDept(){
-	int result = deptService.removeDeparment(15L);
-	Assert.assertTrue(result>0);
-}
-	
+	@Test
+	public void successToModifyDept(){
+		Department dept = new Department();
+		dept.setDeptName("update_123");
+		dept.setParentSeq(0L);
+		int result = deptService.modifyDepartMent(dept,26L);
+		Assert.assertTrue(result>0);
+		
+	}
+	@Test
+	public void successToRemoveDept(){
+		int result = deptService.removeDeparment(15L);
+		Assert.assertTrue(result>0);
+	}
+		
 }

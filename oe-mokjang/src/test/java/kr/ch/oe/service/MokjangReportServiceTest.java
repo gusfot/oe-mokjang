@@ -1,12 +1,6 @@
 package kr.ch.oe.service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +10,6 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.jxls.common.Context;
-import org.jxls.util.JxlsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,8 +17,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import kr.ch.oe.model.MokjangReport;
 import kr.ch.oe.model.Report;
 import net.sf.jxls.exception.ParsePropertyException;
-import net.sf.jxls.sample.model.Department;
-import net.sf.jxls.sample.model.Employee;
 import net.sf.jxls.transformer.XLSTransformer;
 
 @RunWith(SpringJUnit4ClassRunner.class) 
@@ -76,19 +66,27 @@ public class MokjangReportServiceTest {
 		
 	}
 	
+	/**
+	 * 목장 보고서 조회 
+	 */
 	@Test
 	public void getMokjangReport() {
 		MokjangReport mokjangReport = mokjangReportService.getMokjangReport(1l);
 		Assert.assertTrue(mokjangReport != null);
 	}
 	
+	/**
+	 * 목장보고서 목록 조회 
+	 */
 	@Test
 	public void getMokjangReports() {
 		List<MokjangReport> mokjangReports = mokjangReportService.getMokjangReports(14);
 		Assert.assertTrue(mokjangReports.size() > 0);
 	}
 	
-	
+	/**
+	 * 특정 목장의 특정 주의 보고서 제출여부 확
+	 */
 	@Test
 	public void isSubmited() {
 		boolean result = mokjangReportService.isSubmited(84, 20);

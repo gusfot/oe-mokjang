@@ -24,12 +24,18 @@ public class UserServiceTest {
 	// TODO : 목장원이 목자가 될 경우 일어나는 경우
 	// TODO : 목장원이 목장 또는 교구를 변경하는 경우
 	
+	/**
+	 * 사용자의 페이징 목록 조회 
+	 */
 	@Test
 	public void successToGetUserList(){
 		Paging<User>pageList  =  userService.getPagingUserList(1, 10,"");
 		Assert.assertTrue(pageList.getItems().size()>0);
 	}
 	
+	/**
+	 * 이름으로 사용자 조회 성공테스트  
+	 */
 	@Test
 	public void successToGetUser() {
 		User user =  userService.getUser("김현래");
@@ -37,12 +43,18 @@ public class UserServiceTest {
 		Assert.assertNotNull(user);
 	}
 	
+	/**
+	 * 이름으로 사용자 조회 실패 테스트 
+	 */
 	@Test
 	public void failToGetUser() {
 		User user = userService.getUser("as;ldkfj");
 		Assert.assertNull(user);
 	}
 	
+	/**
+	 * 사용자 등록 성공 테스트 
+	 */
 	@Test
 	public void successToRegisterUser() {
 		User user = new User();
@@ -71,6 +83,10 @@ public class UserServiceTest {
 		Assert.assertTrue(result);
 		
 	}
+	
+	/**
+	 * 사용자 등록 실패 테스트 
+	 */
 	@Test
 	public void failToRegisterUser() {
 		
@@ -83,6 +99,9 @@ public class UserServiceTest {
 		
 	}
 	
+	/**
+	 * 목장원 등록 성공 테스트 
+	 */
 	@Test
 	public void successToModifyUser() {
 		
@@ -95,11 +114,18 @@ public class UserServiceTest {
 		Assert.assertTrue(result);
 	}
 	
+	/**
+	 * 목장원 등록 실패 테스트 
+	 */
 	@Test
 	public void failToModifyUser() {
 		User user = userService.getUser("test123114");
 		user.setUserId("test1");
 	}
+	
+	/**
+	 * 목장원 삭제 실패 테스트 
+	 */
 	@Test
 	public void failToRemoveUser() {
 		
@@ -108,6 +134,9 @@ public class UserServiceTest {
 		
 	}
 	
+	/**
+	 * 목장원 목록 조회 성공 테스트 
+	 */
 	@Test
 	public void successToGetFarmList(){
 		
@@ -116,6 +145,10 @@ public class UserServiceTest {
 		
 		Assert.assertTrue(list.size() > 0);
 	}
+	
+	/**
+	 * 목장원 등록 성공 테스트 
+	 */
 	@Test
 	public void successToregistUserFarm(){
 		String[] list=null;
