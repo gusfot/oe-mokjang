@@ -34,13 +34,17 @@ public class MainController {
 		String mainPage = "main";
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
 		
+		
+		
+		
+		
 		if("목자".equals(sessionUserVO.getRoleName()) ){
 			long deptSeq = sessionUserVO.getDeptSeq();
 			int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
 			model.addAttribute("isSubmited",mokjangReportService.isSubmited(deptSeq, weeks));
-			mainPage = "LayOutTest";
+			mainPage = "main_renew";
 		}else {
-			mainPage = "LayOutTest";
+			mainPage = "main_renew";
 		}
 		return mainPage;
 	}

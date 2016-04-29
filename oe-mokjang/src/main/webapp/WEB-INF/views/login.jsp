@@ -22,30 +22,10 @@
 <script type="text/javascript" src="/resources/js/icheck.js"></script>
 <script type="text/javascript" src="/resources/js/ui.js"></script>
 <script type="text/javascript" src="/resources/js/responsive-tables.js"></script>
-    <script>
-    jQuery(document).ready(function($) {
-    	alert("est");
-        $('#sidebar-btn').click(function() {
-            $('#sidebar').toggleClass('visible');
-        });
-    });
-    </script>
+    
 </head>
 
 <body>
-
-	<div id="sidebar"> 
-		<ul>
-			<li class="side_profie">
-				<a href="#"><img src="/resources/images/button/profile_bg.png" alt="개인프로필" style="background:url('images/button/profile.png') 0 0 repeat-x;"/></a><br/>
-				<a href="#">김문수 목장</a> 
-			</li>
-			<li><a href="#">목장보고서 작성</a></li>
-			<li><a href="#">목장보고서 관리</a></li>
-			<li><a href="#">목장원 관리</a></li>
-			<li><a href="#">로그아웃</a></li>           
-		</ul>
-	</div>
 
 <!-- Wrapper -->
 <div id="wrapper">
@@ -89,11 +69,11 @@
 						<div class="box-point2">
 							<ul>
 								<li style="width:30%; padding-top:6px;">아이디</li>
-								<li style="width:70%; text-align:left;"><input type="text" name="userId" id="userId" style="width:90%; "/></li>
+								<li style="width:70%; text-align:left;"><input type="text" onkeypress="return enterLogin(event)" name="userId" id="userId" style="width:90%; "/></li>
 							</ul>
 							<ul>
 								<li style="width:30%; padding-top:6px;">패스워드</li>
-								<li style="width:70%; text-align:left;"><input type="text" style="width:90%;"/></li>
+								<li style="width:70%; text-align:left;"><input type="password" onkeypress="return enterLogin(event)"  name="userPw" id="userPw" style="width:90%;"/></li>
 							</ul>
 							<ul>
 								<li style="width:30%; padding-top:6px;"></li>
@@ -107,7 +87,7 @@
 					<!-- Button -->
 					
 							<ul class="btn-list">
-								<a href="main.html">
+								<a href="#" onclick="login()">
 									<li style="position:absolute;"><img src="/resources/images/button/btn_img01.gif"></li>
 									<li class="btn-width">로그인</li>
 									<li style="position:absolute; right:0px;"><img src="/resources/images/button/btn_end.gif"></li>
@@ -146,15 +126,13 @@
 		
 	<script type="text/javascript">
 	$(document).ready(function(){
-		
-		alert('밑에test');
 		$("input[name=userId]").focus();
 	});
 	
 	function login(){
-		var $userId = $("input[name=userId]"),
-			$userPw= $("input[name=password]");
 		
+		var $userId = $("input[name=userId]"),
+			$userPw= $("input[name=userPw]");
 		
 		if($userId.val()===''){
 			alert('아이디를 입력하세요');
