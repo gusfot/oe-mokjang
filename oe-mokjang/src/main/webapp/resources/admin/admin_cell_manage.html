@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>52SOFT - 목장등록</title>
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<!--<link rel="stylesheet" type="text/css" href="css/popup.html"/>-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/selectric.js"></script>
+<script type="text/javascript" src="js/icheck.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
+</head>
+
+<body>
+<!-- Wrap -->
+<div id="wrap">
+	<!-- Header -->
+	<div id="header">
+		<h1><a href="#"><img src="images/common/logo_oneguard.png" alt="ONE GUARD 고객정보처리시스템｜NH농형생명"/></a></h1>
+		<div class="head-info">
+			<div class="h-info-date">
+				<strong>홍길동<em>(대리/IT 개발)</em> 반갑습니다.</strong>
+				<span class="first">현재 접속 : 2014.06.19. 16:08</span><span>이전 접속 : 2014.06.19. 16:08</span>
+			</div>
+			<button type="button" class="btn-logout">로그아웃</button>
+		</div>
+	</div>
+	<!-- //Header -->
+	<!-- Body-->
+	<div id="container">
+		<p id="cont-lnb-btm"></p>
+		<!-- Navigation -->
+		<div id="nav">
+			<ul class="lnb">
+				<li><a href="main.html"><span class="ico-lnb home"></span>HOME</a></li>
+				<li><a href="customer_req.html" class="lnb-ico1">DM 발송 신청</a>
+					<ul>
+						<li><a href="customer_req_stand.html">결재 대기</a></li>
+						<li><a href="customer_req_complete.html">결재 완료</a></li>
+					</ul>
+				</li>
+				<li><a href="dm_present.html" class="lnb-ico2">DM 처리현황</a>
+					<ul>
+						<li><a href="dm_progress.html">진행</a></li>
+						<li><a href="dm_transfer.html">전송완료</a></li>
+					</ul>
+				</li>
+				<li><a href="dm_admin.html" class="lnb-ico3">DM 등록/관리</a>
+					<ul> 
+						<li><a href="dm_admin_step_register.html">DM 신규등록</a></li>
+						<li class="active"><a href="dm_admin_form.html">전자폼 관리</a></li>
+						<li><a href="dm_admin_cbr.html">CBR 관리</a></li>
+						<li><a href="dm_materials.html">자재 관리</a></li>
+						<li><a href="dm_enclose.html">동봉물 관리</a></li>
+						<li><a href="dm_security.html">보안 관리</a></li>
+						<li><a href="dm_image.html">이미지 등록</a></li>
+						<li><a href="dm_toll_list.html">집중국 리스트</a></li>
+					</ul>
+				</li>
+				<li><a href="consign_admin.html" class="lnb-ico8">수탁사 관리</a></li>
+				<li><a href="user_admin_detail.html" class="lnb-ico9">내정보 관리</a></li>
+			</ul>
+		</div>
+		<!-- //Navigation -->
+		<!-- Content -->
+		<div id="contents">
+			<!-- Top -->
+			<div class="cont-top-tit">
+				<h2 class="h2 tit3">전자폼 등록<span>전자폼을 등록합니다.</span></h2>
+				<ul class="location">
+					<li>HOME</li>
+					<li>DM 등록/관리</li>
+					<li>전자폼 관리</li>
+					<li>전자폼 등록</li>
+				</ul>
+			</div>
+			<!-- //Top -->
+			<!-- Article -->
+			<div id="content">
+				<p id="cont-left-top"></p><p id="cont-left-btm"></p><p id="cont-right-top"></p>
+				<div class="cont-body">
+					<div class="cont-tit"><h4 class="h4">전자폼 등록</h4></div>	
+					<!-- List -->
+					<div class="list-view">
+						<table class="tb-view form" summary="이 표는 DM 코드, 사용 전자폼 수, 전자폼명, 앞/뒤 구분, 차수, 전자폼 파일 항목으로 구성되어 있습니다.">
+						<caption>내역 상세</caption>
+						<colgroup>
+							<col width="15%"/>
+							<col width="*"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">DM 코드</th>
+								<td>
+									<select class="select">
+										<option>선택하세요.</option>
+										<option>CP01</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">사용 전자폼 수</th>
+								<td>
+									<input type="text"/>
+									<span class="icutm"><input type="checkbox"/></span> <label>전자폼 사용 안함</label>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td colspan="2" class="median">여백</td>
+							</tr>
+							<tr>
+								<th scope="row">전자폼명</th>
+								<td><input type="text"/></td>
+							</tr>	
+							<tr>
+								<th scope="row">앞/뒤 구분</th>
+								<td class="tb-input">
+									<span class="icutm"><input type="radio" name="radio-div12"/></span> <label>앞면</label>
+									<span class="icutm"><input type="radio" name="radio-div12"/></span> <label>뒷면</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">차수</th>
+								<td>
+									<select class="sel-type2">
+										<option>선택하세요.</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">전자폼 파일</th>
+								<td>
+									<div class="file-upload" class="upload">
+										<input type="file" size="24" class="browser-hidden" onchange="getElementById('file-field1').value = this.value;" />
+										<div class="browser-visible"><input type="text" id="file-field1" class="file-field"/></div>
+										<span class="file-txt"><a href="#" class="txt-unline">첨부파일명.확장자</a> <a href="#" class="btn-del">삭제<a/></span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td colspan="2" class="median">여백</td>
+							</tr>
+							<tr>
+								<th scope="row">전자폼명</th>
+								<td><input type="text"/></td>
+							</tr>	
+							<tr>
+								<th scope="row">앞/뒤 구분</th>
+								<td class="tb-input">
+									<span class="icutm"><input type="radio" name="radio-div12"/></span> <label>앞면</label>
+									<span class="icutm"><input type="radio" name="radio-div12"/></span> <label>뒷면</label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">차수</th>
+								<td>
+									<select class="sel-type2">
+										<option>선택하세요.</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										<option>7</option>
+										<option>8</option>
+										<option>9</option>
+										<option>10</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">전자폼 파일</th>
+								<td>
+									<div class="file-upload" class="upload">
+										<input type="file" size="24" class="browser-hidden" onchange="getElementById('file-field1').value = this.value;" />
+										<div class="browser-visible"><input type="text" id="file-field1" class="file-field"/></div>
+										<span class="file-txt"><a href="#" class="txt-unline">첨부파일명.확장자</a> <a href="#" class="btn-del">삭제<a/></span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+						</table>
+					</div>
+					<!-- //List -->
+
+					<!-- Button -->
+					<div class="list-bottom">
+						<a href="#" class="btn type1"><span><em class="i-app2"></em>등록</span></a><a href="#" class="btn type2"><span><em class="i-cancl"></em>취소</span></a>
+					</div>
+					<!--//Button -->
+				</div>
+			</div>
+			<!-- //Article -->
+		</div>
+		<!-- //Content -->
+	</div>
+	<!-- //Body -->
+</div>
+<!-- //Wrap -->
+</body>
+
+
+<!-- Mirrored from 112.216.117.106:16682/html/_dm/dm_admin_form_register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:35 GMT -->
+</html>

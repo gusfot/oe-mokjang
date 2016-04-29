@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>52소프트 - 목장등록</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<style>
+.swipe {overflow: hidden; visibility: hidden; position: relative; }
+.swipe-wrap {overflow: hidden; position: relative; }
+.swipe-wrap > div { float:left; width:100%; position: relative; }
+</style>
+
+<!--<link rel="stylesheet" type="text/css" href="css/popup.html"/>-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/selectric.js"></script>
+<script type="text/javascript" src="js/icheck.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
+</head>
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+	<!-- Wrap -->
+	<div id="wrap">
+		<!-- Header -->
+		<div id="header">
+			<h1><a href="#"><img src="images/common/logo_oneguard.png" alt="ONE GUARD 고객정보처리시스템｜NH농형생명"/></a></h1>
+			<div class="head-info">
+				<!--<div class="h-info-date">
+					<strong>홍길동<em>(대리/IT 개발)</em> 반갑습니다.</strong>
+					<span class="first">현재 접속 : 2014.06.19. 16:08</span><span>이전 접속 : 2014.06.19. 16:08</span>
+				</div>-->
+				<button type="button" class="btn-logout">로그아웃</button>
+			</div>
+		</div>
+		<!-- //Header -->
+		<!-- Body-->
+		<div id="container">
+			
+			
+			<!-- Content -->
+			<div id="contents">
+				<!-- Top -->
+				<div class="cont-top-tit">
+					<h2 class="h2 tit5">목장보고서 작성</h2>
+					<ul class="location">
+						<li>HOME</li>
+						<li>목장보고서 작성</li>						
+					</ul>
+				</div>
+				<!-- //Top -->
+				<!-- Article -->
+				<div id="content">
+					<p id="cont-left-top"></p><p id="cont-left-btm"></p><p id="cont-right-top"></p>
+					<div class="cont-body">
+						<div class="cont-tit"><h4 class="h4">목장모임 정보</h4></div>
+						<!-- List -->
+						<div class="list-view">
+							<table class="tb-view form" summary="이 표는 DM 코드, 사용 전자폼 수, 전자폼명, 앞/뒤 구분, 차수, 전자폼 파일 항목으로 구성되어 있습니다.">
+							<caption>내역 상세</caption>
+							<colgroup>
+								<col width="70"/>
+								<col width="*"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">모임일시</th>
+									<td>										
+										<input type="text" class="datepicker" style="width:80px;"/>
+										<select class="sel-type2">
+											<option>시간</option>											
+											<option>1시</option>
+											<option>2시</option>
+											<option>3시</option>
+											<option>4시</option>
+											<option>5시</option>
+											<option>6시</option>
+											<option>7시</option>
+											<option>8시</option>
+											<option>9시</option>
+											<option>10시</option>
+											<option>11시</option>
+											<option>12시</option>
+											<option>13시</option>
+											<option>14시</option>
+											<option>15시</option>
+											<option>16시</option>
+											<option>17시</option>
+											<option>18시</option>
+											<option>19시</option>
+											<option>20시</option>
+											<option>21시</option>
+											<option>22시</option>
+											<option>23시</option>
+											<option>24시</option>	
+										</select>
+										</td>
+								</tr>
+								<tr>
+									<th scope="row">집회장소</th>
+									<td>
+										<input type="text" style="width:100px;"/>
+										<select class="sel-type2">
+											<option>선택</option>											
+											<option>예배당</option>
+											<option>식당</option>
+											<option>카페</option>
+											<option>집</option>		
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">마음열기</th>
+									<td>										
+										<select class="sel-type2">
+											<option>박은진</option>											
+											<option>길지혜</option>
+											<option>김보람</option>
+											<option>이라영</option>
+											<option>김소영</option>		
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">찬송인도</th>
+									<td>										
+										<select class="sel-type2">
+											<option>박은진</option>											
+											<option>길지혜</option>
+											<option>김보람</option>
+											<option>이라영</option>
+											<option>김소영</option>		
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">말씀인도</th>
+									<td>										
+										<select class="sel-type2">
+											<option>박은진</option>											
+											<option>길지혜</option>
+											<option>김보람</option>
+											<option>이라영</option>
+											<option>김소영</option>		
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">사역인도</th>
+									<td>										
+										<select class="sel-type2">
+											<option>박은진</option>											
+											<option>길지혜</option>
+											<option>김보람</option>
+											<option>이라영</option>
+											<option>김소영</option>		
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">목장헌금</th>
+									<td>										
+										<input type="text" style="width:130px;"/> 원
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+						<!-- //List -->					
+
+						
+					<div class="cont-tit"><h4 class="h4">목장원 정보 입력</h4></div>
+						<div class="list-wrap">
+							<!-- List -->
+							<div class="list-view" style="width:140px;">
+								<table class="tb-view form" summary="이 표는 DM 코드, 사용 전자폼 수, 전자폼명, 앞/뒤 구분, 차수, 전자폼 파일 항목으로 구성되어 있습니다.">
+								<caption>내역 상세</caption>
+								<colgroup>
+									<col width="70"/>
+									<col width="*"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>이름</th>
+										<th>전체<br>점수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row">박은진</th>
+										<td><span class="icutm">999</span></td>
+									</tr>
+									<tr>
+										<th scope="row">김지혜</th>
+										<td><span class="icutm">999</span></td>
+									</tr>
+									<tr>
+										<th scope="row">김보람</th>
+										<td><span class="icutm">999</span></td>
+									</tr>
+									<tr>
+										<th scope="row">이라영</th>
+										<td><span class="icutm">999</span></td>
+									</tr>
+									<tr>
+										<th scope="row">김소영</th>
+										<td><span class="icutm">999</span></td>
+									</tr>									
+								</tbody>
+								</table>
+							</div>
+							<!-- //List -->
+							<!-- section -->
+							<div class="section-view list-view">						
+								<div id='mySwipe' style='max-width:160px;margin:0 auto' class='swipe'>
+									<div class='swipe-wrap'>
+										<div>
+											<table class="tb-view form">											
+												<colgroup>
+													<col width="33%"/>
+													<col width="33%"/>
+													<col width="33%"/>
+												</colgroup>
+												<thead>
+													<tr>												
+														<th>목장<br>모임</th><th>교회<br>출석</th><th>4주<br>등반</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>						
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>	
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>	
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>														
+												</tbody>
+											</table>
+										</div>
+										<div>
+											<table class="tb-view form">											
+												<colgroup>
+													<col width="33%"/>
+													<col width="33%"/>
+													<col width="33%"/>													
+												</colgroup>
+												<thead>
+													<tr>												
+														<th>교육<br>수료</th><th>목자<br>파송</th><th>번식</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>						
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>	
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>		
+													<tr>												
+														<td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td><td><span class="icutm"><input type="checkbox"/></span></td>
+													</tr>															
+												</tbody>
+											</table>
+										</div>				
+									</div>
+								</div>
+								<div style='text-align:center;position:absolute; top: -35px; right:0px;'>
+									<a href="#" class="btn type6" onclick='mySwipe.prev()'><span>이전</span></a>
+									<a href="#" class="btn type6" onclick='mySwipe.next()'><span>다음</span></a>
+								</div>
+								<script src='js/swipe.js'></script>
+								<script>
+								// pure JS
+								var elem = document.getElementById('mySwipe');
+								window.mySwipe = Swipe(elem, {
+								  // startSlide: 4,
+								  // auto: 3000,
+								   continuous: false,
+								  // disableScroll: true,
+								  // stopPropagation: true,
+								  // callback: function(index, element) {},
+								   transitionEnd: function(index, element) {}
+								});
+								// with jQuery
+								// window.mySwipe = $('#mySwipe').Swipe().data('Swipe');
+								</script>				
+							
+							</div>
+							<!-- //section -->
+							
+							
+						<div class="cont-tit"><h4 class="h4">기타 보고</h4></div>
+						<!-- List -->
+						<div class="list-view">
+						<textarea style="width:100%; *width:100%; height:100px;"></textarea>
+						</div>
+						<!-- //List -->				
+							
+							
+							
+							
+							
+							<!-- Button -->
+							<div class="list-bottom">
+								<a href="#" class="btn type1"><span><em class="i-app2"></em>등록</span></a>
+							</div>
+						</div>
+						<!--//Button -->
+					</div>
+				</div>
+
+				
+				
+				
+				<!-- //Article -->
+			</div>
+			<!-- //Content -->
+		</div>
+		<!-- //Body -->
+	</div>
+	<!-- //Wrap -->
+</div>
+<!-- //Wrapper -->
+</body>
+
+
+<!-- Mirrored from 112.216.117.106:16682/html/_dm/dm_admin_form_register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 03 Apr 2015 06:58:35 GMT -->
+</html>

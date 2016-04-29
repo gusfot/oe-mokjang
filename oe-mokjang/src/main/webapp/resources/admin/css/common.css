@@ -15,12 +15,12 @@ src:local(※), url('fonts/NanumGothic.woff') format(‘woff’)
     text-rendering: optimizeLegibility;
 }
 /* Common */
-html, body {height:100%; font-family:NanumGothic, '나눔고딕', ng; font-size:13px; color:#666; margin:0; padding:0;}
-div,p,a,dl,dt,dd,ul,ol,li,form,fieldset,select,textarea,input,button,blockquote,th,td,caption{color:#666; font-family:NanumGothic, '나눔고딕', ng; margin:0; padding:0;}
+html, body {height:100%; font-family:'나눔고딕', NanumGothic, ng; font-size:13px; color:#666; margin:0; padding:0;}
+div,p,a,dl,dt,dd,ul,ol,li,form,fieldset,select,textarea,input,button,blockquote,th,td,caption{color:#666; font-family:'나눔고딕', NanumGothic, ng; margin:0; padding:0;}
 
 li{list-style:none;}
 
-h1,h2,h3,h4,h5,h6{font-family:NanumGothic, '나눔고딕', ng, Verdana, Sans-serif; margin:0; padding:0;}
+h1,h2,h3,h4,h5,h6{font-family:'나눔고딕', NanumGothic, ng, Verdana, Sans-serif; margin:0; padding:0;}
 
 table{width:100%; border-collapse:collapse; border-spacing:0;}
 caption{display:none;}
@@ -272,7 +272,7 @@ textarea{box-sizing:border-box; border:1px solid #c4c6ca; padding:5px;}
 .btn.type5 span{background-position:0 -490px; color:#fff;}
 
 .btn.type6{background-position:100% -550px; padding-right:10px;}
-.btn.type6 span, .btn.type6.focus span{height:30px; font-size:12px; line-height:30px; padding-left:10px;}
+.btn.type6 span, .btn.type6.focus span{height:30px; font-size:13px; line-height:30px; padding-left:10px;}
 .btn.type6 span{background-position:0 -550px; color:#555;}
 
 .btn.type6.focus{background-position:100% -659px;}
@@ -286,10 +286,6 @@ textarea{box-sizing:border-box; border:1px solid #c4c6ca; padding:5px;}
 
 .btn.type9{background-position:100% -764px;}
 .btn.type9 span{height:35px; background-position:0 -764px; color:#555;}
-
-.btn.type10{background-position:100% -145px;}
-.btn.type10 span{background-position:0 -145px; color:#fff;height:40px; font-size:15px; font-weight:600; line-height:40px;}
-
 
 /* Req */
 .btn em.i-req1, .btn em.i-req2, .btn em.i-req3, .btn em.i-req4, .btn em.i-req5, .btn em.i-req6, .btn em.i-req7, .btn em.i-req8
