@@ -133,7 +133,7 @@
 												<td align="center">${list.role.roleName}</td>
 												<td align="center"><a href="detail.oe?userId=${list.userId}">${list.userName}</a></td>
 												<c:choose>
-													<c:when test="${list.role.roleName eq '목자'}">
+													<c:when test="${list.role.roleSeq eq '5'}">
 														<td align="center"><a href="#" class="btn type6"><span>목장원추가</span></a></td>
 													</c:when>
 													<c:otherwise>
