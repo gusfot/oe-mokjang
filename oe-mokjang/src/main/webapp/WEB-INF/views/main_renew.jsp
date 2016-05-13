@@ -108,7 +108,7 @@
 					<div class="list-view form">
 						<div class="box-point">
 							아직 목장보고서를 작성하지 않았습니다. <br />지금 목장보고서를 작성하시려면 아래 버튼을 선택하세요.<br>
-							<a href="report_write.html" class="btn type5" style="margin-top:10px;"><span>목장보고서 작성</span></a>
+							<a href="/report/mokjang/regist.oe" class="btn type5" style="margin-top:10px;"><span>목장보고서 작성</span></a>
 						</div>
 					</div>
 					<!-- //List -->						
@@ -123,7 +123,7 @@
 							</ul>			
 
 							<ul class="btn-list">
-								<a href="member_list.html">
+								<a href="/user/list.oe">
 									<li style="position:absolute;"><img src="/resources/images/button/btn_img03.gif"></li>
 									<li class="btn-width">목장원 관리</li>
 									<li style="position:absolute; right:0px;"><img src="/resources/images/button/btn_end.gif"></li>
