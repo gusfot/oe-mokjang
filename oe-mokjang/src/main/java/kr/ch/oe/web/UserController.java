@@ -48,9 +48,8 @@ public class UserController {
 		String farmmerId = sessionUserVO.getUserId();
 		System.out.println(farmmerId);
 		Paging<User>pagingList =  userService.getFarmUserList(farmmerId);
-		
 		mav.addObject("pageList", pagingList);
-		mav.setViewName("user/list");
+		mav.setViewName("user/member_list");
 		return mav;
 		
 	}

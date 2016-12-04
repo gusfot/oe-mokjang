@@ -47,7 +47,7 @@
 						<h4>목장집회</h4>
 						<table class="person_info_01">
 							<tr>
-								<th>집회일시</th>
+								<th>집회일시11111</th>
 								<td style="padding:0 7px 0 7px;"><input type="date" data-clear-btn="false" name="worshipDt" id="worshipDt"  value="${mokjangReport.worshipDt }"></td>
 							</tr>
 							<tr>
@@ -147,7 +147,7 @@
 											<th data-priority="${item.priority}" style="text-align:center;">${item.itemName}</th>
 										</c:forEach>
 										<th data-priority="6" style="text-align:center;">심방내용</th>
-										<th class="totals" style="text-align:center;">점수</th>
+										<th class="s" style="text-align:center;">점수</th>
 										<th>입력</th>
 									</tr>
 								</thead>
