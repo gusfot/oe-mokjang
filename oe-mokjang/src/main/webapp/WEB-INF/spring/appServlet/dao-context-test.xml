@@ -9,7 +9,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 	  destroy-method="close">
 	  <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	  <property name="url" value="jdbc:mysql://52ch.kr:3307/mokjang" />
+	  <property name="url" value="jdbc:mysql://a.52ch.kr:3307/mokjang" />
 	  <!-- 
 	  <property name="username" value="root" />
 	  <property name="password" value="5252" />

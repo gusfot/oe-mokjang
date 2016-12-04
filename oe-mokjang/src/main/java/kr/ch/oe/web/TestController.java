@@ -49,4 +49,30 @@ public class TestController {
             
         return null;
 	}
+	
+	@RequestMapping(value="/test.oe") 
+	public String test(){
+	
+		return "test";
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping("/ajaxTest.oe") 
+	public String testAjax() {
+		
+		
+		return "{test1:\"test\"}";
+		
+		
+	}
+	
+	@RequestMapping("/testPop.oe") 
+	public String testPop() {
+		
+		
+		return "testPop";
+		
+		
+	}
 }
