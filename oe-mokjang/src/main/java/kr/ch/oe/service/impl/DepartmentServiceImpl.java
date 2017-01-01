@@ -58,7 +58,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 			deptExam.createCriteria().andParentSeqEqualTo(43L);
 		}
 		deptExam.setOrderByClause("dept_name");
-		int count = departmentMapper.countByExample(deptExam);
+		long count = departmentMapper.countByExample(deptExam);
 		return new Paging<>(page, pageSize, count, departmentMapper.selectByExample(deptExam));
 	}
 
@@ -155,11 +155,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 		
 		return userMapper.selectByDeptSeq(deptSeq);
 	}
+	
 	/**
 	 * 소속 조직의 하위조직 갯수 가져오기
 	 */
 	@Override
-	public int getRowGroupTotalNumber(Long  deptSeq) {
+	public long getRowGroupTotalNumber(Long  deptSeq) {
 		DepartmentExample deptExam = new DepartmentExample();
 		deptExam.createCriteria().andParentSeqEqualTo(deptSeq);
 		return departmentMapper.countByExample(deptExam);

@@ -12,7 +12,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object handler) throws Exception {
 		System.out.println("InterCeptor IN? ");
-		/*
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -25,7 +25,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			e.printStackTrace();
 		}
 		System.out.println("여기인가(login)");
-		*/
+		
 		return true;
 	}
 

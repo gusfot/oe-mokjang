@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-<classPathEntry location="C:\Users\gusfot\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar" />
+<classPathEntry location="/Users/hyunlaekim/.m2/repository/mysql/mysql-connector-java/5.1.40/mysql-connector-java-5.1.40.jar" />
   <context id="context1" >
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://120.100.80.208:3306/mokjang" userId="mokjang" password="!inpion00" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://a.52ch.kr:3307/mokjang" userId="mokjang" password="!inpion00" />
     <javaModelGenerator targetPackage="kr.ch.oe.model" targetProject="oe-mokjang" />
     <sqlMapGenerator targetPackage="kr.ch.oe.dao.mapper" targetProject="oe-mokjang" />
     <javaClientGenerator targetPackage="kr.ch.oe.dao" targetProject="oe-mokjang" type="XMLMAPPER" />
     
-    <table schema="mokjang" tableName="attend" >
+    <table schema="mokjang" tableName="department" >
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="dept_type" property="deptType" />
+      <columnOverride column="dept_name" property="deptName" />
+      <columnOverride column="desc" property="desc" />
+      <columnOverride column="parent_seq" property="parentSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+      <columnOverride column="is_deleted" property="isDeleted" />
+      <columnOverride column="deleted_time" property="deletedTime" />
+    </table>
+    
+ 
+    <table schema="mokjang" tableName="user" >
+      <columnOverride column="user_seq" property="userSeq" />
+      <columnOverride column="user_name" property="userName" />
+      <columnOverride column="user_id" property="userId" />
+      <columnOverride column="password" property="password" />
+      <columnOverride column="reg_dt" property="regDt" />
+      <columnOverride column="addr" property="addr" />
+      <columnOverride column="role_id" property="roleId" />
+      <columnOverride column="cell_phone" property="cellPhone" />
+      <columnOverride column="home_phone" property="homePhone" />
+      <columnOverride column="job" property="job" />
+      <columnOverride column="gender" property="gender" />
+      <columnOverride column="birth" property="birth" />
+      <columnOverride column="email" property="email" />
+      <columnOverride column="dept_seq" property="deptSeq" />
+      <columnOverride column="reg_time" property="regTime" />
+      <columnOverride column="is_deleted" property="isDeleted" />
+      <columnOverride column="deleted_time" property="deletedTime" />
+    </table>
+
+    <!-- 
+    
+        <table schema="mokjang" tableName="attend" >
       <columnOverride column="attend_seq" property="attendSeq" />
       <columnOverride column="dept_seq" property="deptSeq" />
       <columnOverride column="user_id" property="userId" />
@@ -60,8 +94,7 @@
       <columnOverride column="reg_id" property="regId" />
       <columnOverride column="reg_time" property="regTime" />
     </table>
-
-    <!-- 
+    
 	<table schema="mokjang" tableName="attend_worship" >
       <columnOverride column="attend_worship_seq" property="attendWorshipSeq" />
       <columnOverride column="weeks" property="weeks" />

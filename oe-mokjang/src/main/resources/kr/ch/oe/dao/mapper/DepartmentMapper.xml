@@ -454,13 +454,19 @@
     <result column="reg_time" jdbcType="VARCHAR" property="regTime" />
   </resultMap>
   
+  <sql id="Base1_Column_List">
+    dept1.dept_seq dept_dept_seq , 
+    dept1.dept_name dept_dept_name, 
+    dept1.parent_seq dept_parent_seq, 
+    dept1.reg_time dept_reg_time 
+  </sql>
+  
   <sql id="Dept_Column_List">
     dept2.dept_seq dept_dept_seq , 
     dept2.dept_name dept_dept_name, 
     dept2.parent_seq dept_parent_seq, 
     dept2.reg_time dept_reg_time 
   </sql>
-  
   
   <select id="selectByDeptSeq" parameterType="java.lang.Long" resultMap="DeptResultMap">
     select 

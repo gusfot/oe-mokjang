@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService {
 			String likekeyword ="%"+keyword+"%";	
 		example.createCriteria().andUserNameLike(likekeyword);
 		}
-		example.createCriteria().andRoleSeqBetween("3","9");
+//		example.createCriteria().andRoleSeqBetween("3","9");
 		example.setOrderByClause("reg_time DESC");
-		int totalNumberOfItem = userMapper.countByExample(example);
+		long totalNumberOfItem = userMapper.countByExample(example);
 		List<User> userList = userMapper.selectByExample(example);
 		return new Paging<>(page, pageSize, totalNumberOfItem, userList);
 	}
@@ -120,7 +120,7 @@ public class UserServiceImpl implements UserService {
 		example.createCriteria().andDeptSeqEqualTo(deptSeq);
 		example.setOrderByClause("role_seq");
 		
-		int totalNumofItems = userMapper.countByExample(example);
+		long totalNumofItems = userMapper.countByExample(example);
 		List<User> items = userMapper.selectByExample(example);
 		
 		return new Paging<>(1, 10, totalNumofItems, items);

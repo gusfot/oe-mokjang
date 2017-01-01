@@ -51,7 +51,7 @@ public interface DepartmentService {
 	 * 소속 조직의 하위조직 갯수 가져오기
 	 */
 	
-	int getRowGroupTotalNumber(Long deptSeq);
+	long getRowGroupTotalNumber(Long deptSeq);
 	
 	/**
 	 * 하위부서목록을 가진 부서 조회

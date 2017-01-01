@@ -5,10 +5,10 @@ import java.util.List;
 public class Paging<T> {
 	private int page;
 	private int pageSize;
-	private int totalNumOfItems;
+	private long totalNumOfItems;
 	private List<T> items;
 	
-	public Paging(int page, int pageSize, int totalNumOfItems, List<T> items) {
+	public Paging(int page, int pageSize, long totalNumOfItems, List<T> items) {
 		super();
 		this.page = page;
 		this.pageSize = pageSize;
@@ -32,11 +32,11 @@ public class Paging<T> {
 		this.pageSize = pageSize;
 	}
 
-	public int getTotalNumOfItems() {
+	public long getTotalNumOfItems() {
 		return totalNumOfItems;
 	}
 
-	public void setTotalNumOfItems(int totalNumOfItems) {
+	public void setTotalNumOfItems(long totalNumOfItems) {
 		this.totalNumOfItems = totalNumOfItems;
 	}
 
