@@ -91,9 +91,13 @@ public class ReportController {
 		model.addAttribute("thisWeeks", weeks);
 		model.addAttribute("firstDate", DateUtil.getFirstDateByWeeks(year, weeks));
 		model.addAttribute("lastDate", DateUtil.getLastDateByWeeks(year, weeks));
-		
-		
-		int totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq);
+
+		int totalPoint = 0;
+		try {
+			totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq);
+		}catch (Exception e){
+
+		}
 		model.addAttribute("totalPoint", totalPoint);
 		
 		return "report/mokjangReport_regist";

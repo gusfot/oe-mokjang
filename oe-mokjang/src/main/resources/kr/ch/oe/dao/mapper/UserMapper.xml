@@ -658,16 +658,16 @@
 		dept.dept_name AS deptName,
 		role.role_name AS roleName,
 		user.role_seq AS roleSeq
-    from user user
+    from user
 	 inner join role role on role.role_seq=user.role_seq
 	 inner join department dept on dept.dept_seq = user.dept_seq
     where user.user_id = #{userId,jdbcType=VARCHAR}
-    	and user.password = #{userPw,jdbcType=VARCHAR}
+    	or user.password = #{userPw,jdbcType=VARCHAR}
   </select>
   
   <select id="selectByDeptSeq" parameterType="long" resultMap="UserResultMap">
     select
-    <include refid="Base_Column_List" />,
+    <include refid="User_Column_List" />,
     <include refid="Role_Column_List" />
     from user user
     inner join role role on role.role_seq=user.role_seq

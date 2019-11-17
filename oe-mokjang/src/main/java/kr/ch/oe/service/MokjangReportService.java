@@ -55,6 +55,6 @@ public interface MokjangReportService {
 	 * @param deptSeq
 	 * @return
 	 */
-	int getTotalPointByDeptSeq(long deptSeq);
+	Integer getTotalPointByDeptSeq(long deptSeq);
 
 }
