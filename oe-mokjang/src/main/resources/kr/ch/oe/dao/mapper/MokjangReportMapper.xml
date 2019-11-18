@@ -651,7 +651,7 @@
   </select>
   
   <select id="selectTotalPointByDeptSeq" parameterType="long" resultType="int">
-  	select if(sum(point)!=null,sum(point),0) from mokjang_report
+  	select sum(point) from mokjang_report
 	where dept_seq=#{deptSeq}
 	group by dept_seq
   </select>

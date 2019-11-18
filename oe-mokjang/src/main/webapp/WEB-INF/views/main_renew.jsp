@@ -94,7 +94,7 @@
 							<ul>
 								<li style="width:50%;">
 								<em>누적점수</em>
-								<p style="font-size:40px; color:#FF4800; font-family:'lato'; padding:15px;">1,321</p></li>
+								<p style="font-size:40px; color:#FF4800; font-family:'lato'; padding:15px;">${totalPoint}</p></li>
 								<li style="width:50%;">
 								<em>누적순위</em>
 								<p style="font-size:40px; color:#FF7F27; font-family:'lato'; padding:15px;">22.3%</p></li>

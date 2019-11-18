@@ -34,10 +34,6 @@ public class MainController {
 		String mainPage = "main";
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
 		
-		
-		
-		
-		
 		if("목자".equals(sessionUserVO.getRoleName()) ){
 			long deptSeq = sessionUserVO.getDeptSeq();
 			int weeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
@@ -46,6 +42,15 @@ public class MainController {
 		}else {
 			mainPage = "main_renew";
 		}
+
+		int totalPoint = 0;
+		try {
+			long deptSeq = sessionUserVO.getDeptSeq();
+			totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq);
+		}catch (Exception e){
+
+		}
+		model.addAttribute("totalPoint", totalPoint);
 		return mainPage;
 	}
 	

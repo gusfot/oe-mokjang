@@ -171,7 +171,7 @@ public class ReportController {
 	public String detail(HttpServletRequest request, HttpServletResponse response, 
 						@RequestParam(required=false, defaultValue="0") long seq, 
 						@RequestParam(required=false, defaultValue="0") int weeks,
-						@RequestParam(required=false, defaultValue="2015") int year,
+						@RequestParam(required=false, defaultValue="2019") int year,
 						Model model) {
 		
 		SessionUserVO sessionUserVO = (SessionUserVO) request.getSession().getAttribute("sessionUserVO");
@@ -195,6 +195,14 @@ public class ReportController {
 		
 		int thisWeeks = DateUtil.getWeeksOfYear(Integer.parseInt(DateUtil.getYearString()), Integer.parseInt(DateUtil.getMonthString()), Integer.parseInt(DateUtil.getDayString()));
 		model.addAttribute("thisWeeks", thisWeeks);
+
+		int totalPoint = 0;
+		try {
+			totalPoint = mokjangReportService.getTotalPointByDeptSeq(deptSeq);
+		}catch (Exception e){
+
+		}
+		model.addAttribute("totalPoint", totalPoint);
 		
 		return "report/mokjangReport_detail";
 	}

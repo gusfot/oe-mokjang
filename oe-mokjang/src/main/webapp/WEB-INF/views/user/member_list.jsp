@@ -35,7 +35,8 @@
 </style>
 
 <!--<link rel="stylesheet" type="text/css" href="css/popup.html"/>-->
-<script type="text/javascript" src="/resources/jquery.js"></script>
+<%--<script type="text/javascript" src="/resources/jquery.js"></script>--%>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="/resources/js/jquery-ui.js"></script>
 <script type="text/javascript" src="/resources/js/selectric.js"></script>
 <script type="text/javascript" src="/resources/js/icheck.js"></script>
@@ -57,7 +58,7 @@
 			<li class="side_profie"><a href="#"><img
 					src="/resources/images/button/profile_bg.png" alt="개인프로필"
 					style="background: url('images/button/profile.png') 0 0 repeat-x;" /></a><br />
-				<a href="#">김문수 목장</a></li>
+				<a href="#">${sessionUserVO.deptName}</a></li>
 			<li><a href="#">목장보고서 작성</a></li>
 			<li><a href="#">목장보고서 관리</a></li>
 			<li><a href="#">목장원 관리</a></li>
@@ -109,7 +110,7 @@
 					<div id="content">
 						<div class="cont-body">
 							<div class="cont-tit">
-								<h4 class="h4">박현아 목장</h4>
+								<h4 class="h4">${sessionUserVO.deptName}</h4>
 							</div>
 							<div class="cont-tit">
 								<h5 class="h5">목장원</h5>
@@ -130,10 +131,10 @@
 										</tr>
 										<c:forEach var="list" items="${pageList.items}" varStatus="s">
 											<tr>
-												<td align="center">${list.role.roleName}</td>
+												<td align="center">${list.roleName}</td>
 												<td align="center"><a href="detail.oe?userId=${list.userId}">${list.userName}</a></td>
 												<c:choose>
-													<c:when test="${list.role.roleSeq eq '5'}">
+													<c:when test="${list.roleSeq eq 5}">
 														<td align="center"><a href="#" class="btn type6"><span>목장원추가</span></a></td>
 													</c:when>
 													<c:otherwise>

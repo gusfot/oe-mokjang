@@ -47,7 +47,7 @@
 						<h4>목장집회</h4>
 						<table class="person_info_01">
 							<tr>
-								<th>집회일시11111</th>
+								<th>집회일시</th>
 								<td style="padding:0 7px 0 7px;"><input type="date" data-clear-btn="false" name="worshipDt" id="worshipDt"  value="${mokjangReport.worshipDt }"></td>
 							</tr>
 							<tr>
@@ -201,7 +201,7 @@
 								</tr>
 								<tr>
 									<th>누적점수</th>
-									<td><a href="#" class="ui-btn ui-corner-all ui-mini">1,211,342P</a></td>							
+									<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="totalPoint">${totalPoint -mokjangReport.point}</span>P</a></td>
 								</tr>
 								<tr>
 									<th>기타보고</th>
@@ -266,6 +266,8 @@
 		var $point = $('#point');							// 금일합계점수 표시영역
 		var $hiddenPoint = $('input[name=point]');			// 금일합계점수값(for server)
 		var offeringPoint = Math.floor(Number($offering.val())/1000);	// 헌금점수
+		$totalPoint = $('#totalPoint'),
+		totalPoint = Number('${totalPoint}');
 		
 		// 헌금 점수 반영
 		todayPoint = offeringPoint;
@@ -275,9 +277,10 @@
 			var $userPoint = $(document.getElementById('reports['+i+'].point'));
 			todayPoint += Number($userPoint.html());
 		}
-		
+
 		$point.html(todayPoint);
 		$hiddenPoint.val(todayPoint);
+		$totalPoint.html(totalPoint+todayPoint);
 	}
 	
 	var report = {

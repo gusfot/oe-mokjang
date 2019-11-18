@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="date" class="java.util.Date" />
 
 <!DOCTYPE html PUBLIC "-//W3C//thD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/thD/xhtml1-transitional.thd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -33,7 +34,7 @@
 					</div>
 					<div class="header_week">
 						<div class="week_prev"><a href="javascript:getReport(${thisWeeks-1 });" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-mini">이전주</a></div>
-						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="2015, 15"></div>
+						<div class="week_picker" style="width:50%;"><input type="week" data-clear-btn="true" name="week-2" id="week-2" value="<fmt:formatDate value="${date}" pattern="yyyy" />, ${thisWeeks-1 }"></div>
 						<div class="week_next"><a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-right ui-mini  ui-state-disabled" >다음주</a></div>
 					</div>
 				</div>
@@ -197,7 +198,7 @@
 									</tr>
 									<tr>
 										<th>누적점수</th>
-										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="totalPoint">${totalPoint}</span></a></td>							
+										<td><a href="#" class="ui-btn ui-corner-all ui-mini"><span id="totalPoint">${totalPoint}</span>P</a></td>
 									</tr>
 									<tr>
 										<th>기타보고</th>

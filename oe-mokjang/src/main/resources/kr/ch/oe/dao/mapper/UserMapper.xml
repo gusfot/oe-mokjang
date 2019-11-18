@@ -662,7 +662,7 @@
 	 inner join role role on role.role_seq=user.role_seq
 	 inner join department dept on dept.dept_seq = user.dept_seq
     where user.user_id = #{userId,jdbcType=VARCHAR}
-    	or user.password = #{userPw,jdbcType=VARCHAR}
+    	and user.password = #{userPw,jdbcType=VARCHAR}
   </select>
   
   <select id="selectByDeptSeq" parameterType="long" resultMap="UserResultMap">
