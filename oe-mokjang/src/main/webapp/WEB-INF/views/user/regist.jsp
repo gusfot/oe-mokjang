@@ -147,7 +147,7 @@
 							</div>
 						</div>
 						</form>
-						<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="checkfield()">목장보고서 저장</a>
+						<a href="#" class="ui-btn ui-btn-b ui-corner-all ui-icon-check ui-btn-icon-left ui-mini" onclick="checkfield()">목장원 추가</a>
 					</div>
 				</div>
 				<div class="footer_wrap">
@@ -162,88 +162,89 @@
 
 	function checkfield(){
 		
-		var jsuserId = $("input[name=userId]")
-		 jsuserName = $("input[name=userName]"),
-		jsaddr = $("input[name=addr]"),
-		jscellPhone = $("input[name=cellPhone]"),
-		jshomePhone = $("input[name=homePhone]"),
-		jsjob = $("input[name=job]"),
-		jsgender = $("select[name=gender]"),
-		jsroleSeq = $("select[name=role]"),
-		jsbirth = $("input[name=birth]"),
-		jsemail = $("input[name=email]"),
-	    jsflag = $("input[name=flag]"),
-		jsregDt =$("input[name=regDate]"),
-		jsgyogu = $("select[name=gyogu]");
-		jsacademic = $("select[name=academic]");
-		jsmajor = $("select[name=major]");
+		var jsuserId = $("input[name=userName]").val(),
+		 jsuserName = $("input[name=userName]").val(),
+		jsaddr = $("input[name=addr]").val(),
+		jscellPhone = $("input[name=cellPhone]").val(),
+		jshomePhone = $("input[name=homePhone]").val(),
+		jsjob = $("input[name=job]").val(),
+		jsgender = $("select[name=gender]").val(),
+		jsroleSeq = $("select[name=role]").val(),
+		jsbirth = $("input[name=birth]").val(),
+		jsemail = $("input[name=email]").val(),
+	    jsflag = $("input[name=flag]").val(),
+		jsregDt =$("input[name=regDate]").val(),
+		jsgyogu = $("select[name=gyogu]").val(),
+		jsacademic = $("select[name=academic]").val(),
+		jsmajor = $("select[name=major]").val();
 		 
  		/* alert(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
 			+jsflag+jsregDt+jsgyogu); */
-			console.log(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
-					+jsflag+jsregDt+jsgyogu);
+			// console.log(jsuserId+jsuserName+jspassword+jsaddr+jscellPhone+jshomePhone+jsjob+jsgender+jsroleSeq+jsbirth+jsemail
+			// 		+jsflag+jsregDt+jsgyogu);
 		
 		var phonestr = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
-		if(jsemail.val()==""){
-		//if(document.regist_form[0].email.value==""){
-			alert("이메일주소를 입력하세요");
-			jsemail.focus();
-			return;
+		// if(jsemail.val()==""){
+		// //if(document.regist_form[0].email.value==""){
+		// 	alert("이메일주소를 입력하세요");
+		// 	jsemail.focus();
+		// 	return;
 			
-		}else if( jsuserId.val()==""){
-			alert("아이디를 입력하세요");
-			jsuserId.focus();
-			return;
+		// }else
+		// 	if( jsuserId==""){
+		// 	alert("아이디를 입력하세요");
+		// 	jsuserId.focus();
+		// 	return;
 								
-		}else if(jsuserName.val()==""){
-			alert("이름을 입력하세요");
-			jsuserName.focus();
-			return;
+		// }else if(jsuserName==""){
+		// 	alert("이름을 입력하세요");
+		// 	jsuserName.focus();
+		// 	return;
 			
-		}else if(jsjob.val()==""){
-			alert("직업을 입력하세요");
-			jsjob.focus();
-			return;
+		// }else if(jsjob.val()==""){
+		// 	alert("직업을 입력하세요");
+		// 	jsjob.focus();
+		// 	return;
 			
-		}else if(jsaddr.val()==""){
-			alert(" 주소를 입력하세요");
-			jsaddr.focus();
-			return;
+		// }else if(jsaddr.val()==""){
+		// 	alert(" 주소를 입력하세요");
+		// 	jsaddr.focus();
+		// 	return;
+		//
+		// }else if(jsbirth.val()==""){
+		// 	alert(" 생일을 입력하세요");
+		// 	jsbirth.focus();
+		// 	return;
 			
-		}else if(jsbirth.val()==""){
-			alert(" 생일을 입력하세요");
-			jsbirth.focus();
-			return;
+		// }else if(jscellPhone.val()==""){
+		// 	alert(" 핸드폰 번호를 입력하세요");
+		// 	jsellPhone.focus();
+		// 	return;
 			
-		}else if(jscellPhone.val()==""){
-			alert(" 핸드폰 번호를 입력하세요");
-			jsellPhone.focus();
-			return;
-			
-		}else if(jshomePhone.val()==""){
-			alert(" 집전화 번호를 입력하세요");
-			jshomePhone.focus();
-			return;
-		} else if(jsacademic.val() ==""){
-			alert("최종학력을 입력하세요");
-			jsacademic.focus();
-			return;
-		} else if(jsmajor.val() == "" ){
-			alert("전공을 입력하세요");
-			jsmajor.focus();
-			return;
-		}
+		// }else if(jshomePhone.val()==""){
+		// 	alert(" 집전화 번호를 입력하세요");
+		// 	jshomePhone.focus();
+		// 	return;
+		// } else if(jsacademic.val() ==""){
+		// 	alert("최종학력을 입력하세요");
+		// 	jsacademic.focus();
+		// 	return;
+		// } else if(jsmajor.val() == "" ){
+		// 	alert("전공을 입력하세요");
+		// 	jsmajor.focus();
+		// 	return;
+		// }
 	     
-	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
-	    	 alert("핸드폰번호 형식이 맞지않습니다 ");
-	    	 document.regist_form.mobilePhone.focus();
-				return;
-	     }
-	     if(phonestr.test(document.regist_form.cellPhone.value)==false){
-	    	 alert(" 전화번호 형식이 맞지않습니다 ");
-	    	 document.regist_form.homePhone.focus();
-				return;
-	     } 
+	     // if(phonestr.test(document.regist_form.cellPhone.value)==false){
+	    	//  alert("핸드폰번호 형식이 맞지않습니다 ");
+	    	//  document.regist_form.mobilePhone.focus();
+			// 	return;
+	     // }
+	     // if(phonestr.test(document.regist_form.cellPhone.value)==false){
+	    	//  alert(" 전화번호 형식이 맞지않습니다 ");
+	    	//  document.regist_form.homePhone.focus();
+			// 	return;
+	     // }
 	
 		$.ajax({
 					type : "GET",
@@ -262,10 +263,11 @@
 						}
 						}
 				});
+
 	 	$.ajax({
 			type : "POST",
 			url : "regist.oe",
-			data : ({ userId : jsuserId, userName : jsuserName, password : jspassword, addr : jsaddr, 
+			data : ({ userId : jsuserId, userName : jsuserName, addr : jsaddr,
 						cellPhone : jscellPhone, homePhone : jshomePhone, job : jsjob, gender : jsgender, 
 						birth : jsbirth, email : jsemail , flag : jsflag, regDt : jsregDt , 
 				  	    gyogu : jsgyogu, roleSeq : jsroleSeq, academic : jsacademic, major : jsmajor }),
