@@ -22,7 +22,7 @@
 			<div class="sub_wrapper">
 				<div class="header_wrap">
 					<div class="header">
-						<div class="header_title"><h3>정충상 정보작성</h3></div>
+						<div class="header_title"><h2 class="ce">목장원 등록 정보작성</h2></div>
 						<!-- <div class="header_delete"><a href="#"><img src="/resources/img/btn_close.png"></a></div> -->
 					</div>
 				</div>		

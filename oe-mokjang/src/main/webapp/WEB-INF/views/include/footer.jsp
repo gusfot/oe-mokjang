@@ -8,7 +8,7 @@
 						-->
 						<a href="/logout.oe" class="ui-btn ui-icon-power ui-btn-icon-left ui-corner-all">로그아웃</a>
 						<a href="#" class="ui-btn ui-icon-edit ui-btn-icon-left ui-corner-all">내정보 수정</a>
-						<a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left ui-corner-all">알림내역(5)</a>
+						<%--<a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left ui-corner-all">알림내역(5)</a>--%>
 						<a href="#" class="ui-btn ui-icon-comment ui-btn-icon-left ui-corner-all">문의하기</a>
 						<p class="footer_copy">Copyrightⓒ 52soft. All right reserved.</p>
 					</div>

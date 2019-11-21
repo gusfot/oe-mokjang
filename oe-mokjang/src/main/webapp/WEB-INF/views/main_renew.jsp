@@ -117,7 +117,7 @@
 							<ul class="btn-list">
 								<a href="report_list.html">
 									<li style="position:absolute;"><img src="/resources/images/button/btn_img01.gif"></li>
-									<li class="btn-width">목장보고서 관리</li>
+									<li class="btn-width"><a href="/report/mokjang/regist.oe">목장보고서 관리</a></li>
 									<li style="position:absolute; right:0px;"><img src="/resources/images/button/btn_end.gif"></li>
 								</a>								
 							</ul>			
@@ -141,7 +141,7 @@
 							<ul class="btn-list2">
 								<a href="#">
 									<li style="position:absolute;"><img src="/resources/images/button/btn_img09.gif"></li>
-									<li class="btn-width">로그아웃</li>
+									<li class="btn-width"><a href="/logout.oe" >로그아웃</a></li>
 									<li style="position:absolute; right:0px;"><img src="/resources/images/button/btn_end2.gif"></li>
 								</a>
 							</ul>							

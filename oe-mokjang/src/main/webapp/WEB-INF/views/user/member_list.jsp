@@ -62,7 +62,7 @@
 			<li><a href="#">목장보고서 작성</a></li>
 			<li><a href="#">목장보고서 관리</a></li>
 			<li><a href="#">목장원 관리</a></li>
-			<li><a href="#">로그아웃</a></li>
+			<li><a href="/logout.oe">로그아웃</a></li>
 		</ul>
 	</div>
 
@@ -110,7 +110,7 @@
 					<div id="content">
 						<div class="cont-body">
 							<div class="cont-tit">
-								<h4 class="h4">${sessionUserVO.deptName}</h4>
+								<h2>${sessionUserVO.deptName}</h2>
 							</div>
 							<div class="cont-tit">
 								<h5 class="h5">목장원</h5>
@@ -135,7 +135,7 @@
 												<td align="center"><a href="detail.oe?userId=${list.userId}">${list.userName}</a></td>
 												<c:choose>
 													<c:when test="${list.roleSeq eq 5}">
-														<td align="center"><a href="#" class="btn type6"><span>목장원추가</span></a></td>
+														<td align="center"><a href="/user/registForm.oe" class="btn type6"><span>목장원추가</span></a></td>
 													</c:when>
 													<c:otherwise>
 														<td align="center"><a href="#" class="btn type6"><span>파송</span></a>
